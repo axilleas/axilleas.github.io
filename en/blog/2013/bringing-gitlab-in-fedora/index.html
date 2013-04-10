@@ -66,7 +66,7 @@ This is the first of many follow-up posts I intend to write, so keep tight!</p>
 <li><a href="#fedoras-involvement-so-far">Fedora's involvement so far</a></li>
 <li><a href="#what-are-the-benefits">What are the benefits</a><ul>
 <li><a href="#get-more-ruby-packages-in-the-repos">Get more ruby packages in the repos</a></li>
-<li><a href="#git-frontend-for-fedorahostedorg">git frontend for fedorahosted.org</a></li>
+<li><a href="#a-new-service-for-fedorahostedorg">A new service for fedorahosted.org</a></li>
 </ul>
 </li>
 <li><a href="#next-steps-and-things-to-overcome">Next steps and things to overcome</a></li>
@@ -85,8 +85,8 @@ and test new features. And since a picture is worth a thousand words, here is
 a <a href="http://demo.gitlab.com/users/sign_in" title="GitLab demo site">demo site</a> where you can test all the latest features.</p>
 <h1 id="fedoras-involvement-so-far">Fedora's involvement so far</h1>
 <p>The thought of GitLab being packaged and deployed for <a href="http://fedorahosted.org">Fedora Hosted</a> isn't new.
-It all started last March when <a href="https://fedoraproject.org/wiki/User:Mojavelinux">Dan Allen</a> <a href="https://lists.fedoraproject.org/pipermail/infrastructure/2012-March/011463.html">proposed</a> GitLab to be used for Fedora Hosted.
-If you follow the conversation it summarizes to some key points:</p>
+It all started last March when <a href="https://fedoraproject.org/wiki/User:Mojavelinux">Dan Allen</a> <a href="https://lists.fedoraproject.org/pipermail/infrastructure/2012-March/011463.html">proposed</a> GitLab 
+to be used for Fedora Hosted. If you follow the conversation it summarizes to some key points:</p>
 <ul>
 <li>Projects pages should be ideally hosted as <code>$projectname.fedorahosted.org</code>.</li>
 <li>GitLab and its dependencies should be packaged for Fedora and EPEL 6.</li>
@@ -102,7 +102,8 @@ unfortunately that was the last anyone heard about the project.</p>
 there is <a href="https://lists.fedoraproject.org/pipermail/summer-coding/2013-March/000286.html">another</a> sudent interested in this as well, so that makes it two of us.
 I have already expressed my interest in <a href="https://lists.fedoraproject.org/pipermail/ruby-sig/2013-March/001270.html">RubySIG</a> and in the <a href="https://lists.fedoraproject.org/pipermail/infrastructure/2013-March/012631.html">infrastructure</a> mailing list.
 I was glad to see that there was a positive response from Dan Allen,
-as well as some valuable advice from user <a href="https://fedoraproject.org/wiki/User:Ktdreyer">Ken Dreyer</a> who currently tries to deal with <a href="https://fedoraproject.org/wiki/User:Ktdreyer/Gitorious">Gitorious</a>.</p>
+as well as some valuable advice from user <a href="https://fedoraproject.org/wiki/User:Ktdreyer">Ken Dreyer</a> who currently 
+tries to deal with <a href="https://fedoraproject.org/wiki/User:Ktdreyer/Gitorious">Gitorious</a>.</p>
 <h1 id="what-are-the-benefits">What are the benefits</h1>
 <p>There are two major benefits for Fedora.</p>
 <h2 id="get-more-ruby-packages-in-the-repos">Get more ruby packages in the repos</h2>
@@ -144,9 +145,9 @@ Fedora and GitLab have in common. Below are some draft<sup id="fnref:draft_numbe
 one of <a href="https://bugs.ruby-lang.org/projects/ruby-trunk/wiki/20SupportedPlatforms">Ruby's supported platforms</a>. </p>
 <p><strong>Update:</strong> I just found out about the <a href="http://isitfedoraruby.com/stats/gemfile_tool">gemfile tool</a> that isitfedoraruby.com<sup id="fnref:isitfedruby"><a class="footnote-ref" href="#fn:isitfedruby" rel="footnote">3</a></sup>
 is using. This will come in handy. </p>
-<h2 id="git-frontend-for-fedorahostedorg">git frontend for fedorahosted.org</h2>
+<h2 id="a-new-service-for-fedorahostedorg">A new service for fedorahosted.org</h2>
 <p>After the packaging is done, the next big thing is the deployment process on 
-<a href="http://fedorahosted.org">Fedora Hosted</a>. Quoting Dan Allen's <a href="https://lists.fedoraproject.org/pipermail/infrastructure/2013-March/012680.html">thought</a>: </p>
+<a href="http://fedorahosted.org">Fedora Hosted</a> as a new service. Quoting Dan Allen's <a href="https://lists.fedoraproject.org/pipermail/infrastructure/2013-March/012680.html">thought</a>: </p>
 <blockquote>
 <p>One of the key reasons I've been pushing for GitLab is because I see the
 potential it has for drastically improving the discoverability of the
