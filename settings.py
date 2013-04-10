@@ -34,7 +34,7 @@ THEME = "src/theme"
 OUTPUT_PATH = 'output'
 PATH = 'src'
 
-STATIC_PATHS = ['images', '']
+STATIC_PATHS = ['images', 'files']
 
 ARTICLE_EXCLUDES = ('pages','drafts',)
 ARTICLE_URL = "{lang}/blog/{date:%Y}/{slug}/"
