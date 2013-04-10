@@ -1,4 +1,4 @@
-Title: Packaging GitLab for Fedora - round one
+Title: Bringing GitLab in Fedora
 Tags: fedora, gitlab, gscoc, ruby, rails
 Categories: linux
 Lang: en
