@@ -6,7 +6,7 @@ AUTHOR_SHORTBIO = '''
 I'm an open source enthousiast. I love spaghetti and westerns.
 '''
 SITENAME = u"Over the line"
-SITEURL = 'http://axilleas.github.com'
+SITEURL = 'http://axilleas.github.io'
 SITE_TAGLINE = u'that rug really tied the room together...'
 TIMEZONE = 'Europe/Athens'
 
@@ -21,7 +21,7 @@ REVERSE_CAREGORY_ORDER = True
 LOCALE = ('usa', 'en_US')
 DEFAULT_LANG = 'en'
 DEFAULT_PAGINATION = 3
-SITE_SOURCE = 'https://github.com/axilleas/axilleas.github.com/tree/source'
+SITE_SOURCE = 'https://github.com/axilleas/axilleas.github.io/tree/source'
 
 FEED_DOMAIN = SITEURL
 FEED_RSS = 'feeds/all.rss.xml'
@@ -45,7 +45,3 @@ PAGE_URL = "{slug}/"
 PAGE_SAVE_AS = "{slug}/index.html"
 PAGE_LANG_URL = "{lang}/{slug}/"
 PAGE_LANG_SAVE_AS = "{lang}/{slug}/index.html"
-
-
-
-
