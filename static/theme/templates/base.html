@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="-1" />
+        <link href="http://fonts.googleapis.com/css?family=ABeeZee|Carrois+Gothic|Source+Code+Pro:400,700" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Duru+Sans&amp;subset=latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/style/reset.css" type="text/css" />
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/style/screen.css" type="text/css" />
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/style/friendly.css" type="text/css" />
+        <link rel="stylesheet" href="{{ SITEURL }}/theme/style/print.css" type="text/css" media="print" />
+        {% if SITE_ICON %}
+        <link rel="shortcut icon" href="{{ SITE_ICON }}">
+        {% endif %}
+        {% if FEED_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+        {% endif %}
+        {% if FEED_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+        {% endif %}
+</head>
+<body>
+    <header id="main">
+        <div class="container">
+            <div class="logo">
+                <p><a href="/" title="Home">{{ SITENAME }}</a> <span class="welcome">{{ SITE_TAGLINE }}</span></p>
+            </div>
+        </div>
+    </header>
+
+    <div class="splash">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a></li>
+            {% if DISPLAY_PAGES_ON_MENU %}
+                {% for page in PAGES %}
+                    <li><a href="/{{ page.url }}">{{ page.title }}</a></li>
+                {% endfor %}
+            {% endif %}
+                <li><a href="{{ SITEURL }}/archives.html" title="Archive">Archive</a></li>
+                <li><a href="{{ SITEURL }}/{{ FEED_RSS }}">RSS</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <div class="container footnote">
+        {% if PDF_PROCESSOR %}
+        <a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">PDF</a>
+        {% endif %}
+        {% if PRINT %}
+        <a href="javascript:window.print();" title="Print">Print</a>
+        {% endif %}
+        {% block footnote %}{% endblock %}
+    </div>
+
+    <div class="bottom">
+        <div class="container">
+            <div class="about">
+                <h3>About me</h3>
+                <p>{{ AUTHOR_SHORTBIO }}</p>
+                {% if GITHUB_USERNAME and GITHUB_BADGE %}
+                <div class="github-badge">
+                    <iframe src="http://githubbadge.appspot.com/badge/{{ GITHUB_USERNAME }}?s=1"
+                            style="border: 0; height: 150px; width: 200px; overflow: hidden;"></iframe>
+                </div>
+                {% endif %}
+                <p>
+                   You want to contact me? See <a href="{{ SITEURL }}/about/">here</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer">
+            <span>Powered by <a href="http://docs.getpelican.com">
+                Pelican</a> using <a href="https://github.com/BYK/pelican-neat">
+                neat theme</a>. 
+            </span>
+            <nav>
+                <ul>
+                    {% if SITE_SOURCE %}
+                    <li><a href="{{ SITE_SOURCE }}" title="Source code">Source code</a></li>
+                    {% endif %}
+                <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img
+                    alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+</body>
+</html>
