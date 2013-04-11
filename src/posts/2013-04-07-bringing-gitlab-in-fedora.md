@@ -1,4 +1,4 @@
-Title: Packaging GitLab for Fedora - round one
+Title: Bringing GitLab in Fedora
 Tags: fedora, gitlab, gscoc, ruby, rails
 Categories: linux
 Lang: en
@@ -35,8 +35,8 @@ a [demo site][gl-demosite] where you can test all the latest features.
 # Fedora's involvement so far
 
 The thought of GitLab being packaged and deployed for [Fedora Hosted] isn't new.
-It all started last March when [Dan Allen][] [proposed][gl-proposal2012] GitLab to be used for Fedora Hosted.
-If you follow the conversation it summarizes to some key points:
+It all started last March when [Dan Allen][] [proposed][gl-proposal2012] GitLab 
+to be used for Fedora Hosted. If you follow the conversation it summarizes to some key points:
 
   - Projects pages should be ideally hosted as `$projectname.fedorahosted.org`.
   - GitLab and its dependencies should be packaged for Fedora and EPEL 6.
@@ -53,7 +53,8 @@ So, here we are a year after with me applying for the project. To be exact
 there is [another][harish-fellow] sudent interested in this as well, so that makes it two of us.
 I have already expressed my interest in [RubySIG][] and in the [infrastructure][] mailing list.
 I was glad to see that there was a positive response from Dan Allen,
-as well as some valuable advice from user [Ken Dreyer][] who currently tries to deal with [Gitorious][].
+as well as some valuable advice from user [Ken Dreyer][] who currently 
+tries to deal with [Gitorious][].
 
 # What are the benefits
 
@@ -110,10 +111,10 @@ one of [Ruby's supported platforms][ruby-supported].
 **Update:** I just found out about the [gemfile tool][] that isitfedoraruby.com[^isitfedruby]
 is using. This will come in handy. 
 
-## git frontend for fedorahosted.org
+## A new service for fedorahosted.org
 
 After the packaging is done, the next big thing is the deployment process on 
-[Fedora Hosted][]. Quoting Dan Allen's [thought][deploy-quote]: 
+[Fedora Hosted][] as a new service. Quoting Dan Allen's [thought][deploy-quote]: 
 
   >One of the key reasons I've been pushing for GitLab is because I see the
   >potential it has for drastically improving the discoverability of the
