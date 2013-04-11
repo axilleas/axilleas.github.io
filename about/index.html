@@ -28,7 +28,7 @@
         <div class="container">
             <ul>
                 <li><a href="/">Home</a></li>
-                                                <li><a href="/about/">whoami</a></li>
+                                                <li><a href="/about">whoami</a></li>
                                             <li><a href="../archives.html" title="Archive">Archive</a></li>
                 <li><a href="../feeds/all.rss.xml">RSS</a></li>
             </ul>
@@ -38,7 +38,7 @@
     <div class="container content">
         <article>
     <header>
-        <h1><a href="/about/" rel="bookmark">whoami</a></h1>
+        <h1><a href="/about" rel="bookmark">whoami</a></h1>
     </header>
 
     <div class="body">
@@ -84,6 +84,20 @@ I'm an open source enthousiast. I love spaghetti and westerns.
             </nav>
         </div>
     </footer>
+         <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
 
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://animal.foss.ntua.gr/~axil/stats/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "5"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Over the line</title><link>http://axilleas.github.io/</link><description></description><atom:link href="http://axilleas.github.io/feeds/ruby.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 07 Apr 2013 00:00:00 +0300</lastBuildDate><item><title>Bringing GitLab in Fedora</title><link>http://axilleas.github.io/en/blog/2013/bringing-gitlab-in-fedora/</link><description>&lt;p&gt;So, I decided to write some info regarding my involvement for this year's
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Over the line</title><link>http://axilleas.github.io/</link><description></description><atom:link href="http://axilleas.github.io/feeds/ruby.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 07 Apr 2013 00:00:00 +0300</lastBuildDate><item><title>Bringing GitLab in Fedora</title><link>http://axilleas.github.io/en/blog/2013/bringing-gitlab-in-fedora</link><description>&lt;p&gt;So, I decided to write some info regarding my involvement for this year's
 &lt;a href="http://www.google-melange.com/gsoc/homepage/google/gsoc2013" title="Google Summer of Code 2013"&gt;Google Summer of Code&lt;/a&gt;. I have been using/testing GitLab since
 version 2.0 (almost a year now) and I am thrilled to see how much it has
 growed since. This year I got a little more involved into this and
@@ -23,7 +23,7 @@ This is the first of many follow-up posts I intend to write, so keep tight!&lt;/
 &lt;h1 id="what-is-gitlab"&gt;What is GitLab?&lt;/h1&gt;
 &lt;p&gt;&lt;a href="http://blog.gitlab.com" title="GitLab home page"&gt;GitLab&lt;/a&gt; is an &lt;a href="https://github.com/gitlabhq/gitlabhq" title="GitLab on Github :p"&gt;open source&lt;/a&gt; MIT licenced &lt;a href="http://git-scm.com" title="git home page"&gt;git&lt;/a&gt; repository
 management application. It is built on &lt;a href="http://rubyonrails.org/" title="Ruby on Rails"&gt;Ruby on Rails&lt;/a&gt; and is
-one of the most popular projects featured on &lt;a href="https://github.com/popular/starred" title="GitLab featured in Github's most popular repos"&gt;Github&lt;/a&gt;.
+one of the most &lt;a href="https://github.com/popular/starred" title="GitLab featured in Github's most popular repos"&gt;popular&lt;/a&gt; projects featured on Github.
 It is used by many companies as their internal git management repository.
 The reason it gained so much popularity is that it bares a strong resemblance
 to github's &lt;a href="http://gitlab.org/screenshots/" title="GitLab screenshots"&gt;looks&lt;/a&gt; and &lt;a href="http://blog.gitlab.com/features/" title="GitLab features"&gt;feels&lt;/a&gt;.
@@ -34,7 +34,8 @@ a &lt;a href="http://demo.gitlab.com/users/sign_in" title="GitLab demo site"&gt;
 &lt;h1 id="fedoras-involvement-so-far"&gt;Fedora's involvement so far&lt;/h1&gt;
 &lt;p&gt;The thought of GitLab being packaged and deployed for &lt;a href="http://fedorahosted.org"&gt;Fedora Hosted&lt;/a&gt; isn't new.
 It all started last March when &lt;a href="https://fedoraproject.org/wiki/User:Mojavelinux"&gt;Dan Allen&lt;/a&gt; &lt;a href="https://lists.fedoraproject.org/pipermail/infrastructure/2012-March/011463.html"&gt;proposed&lt;/a&gt; GitLab 
-to be used for Fedora Hosted. If you follow the conversation it summarizes to some key points:&lt;/p&gt;
+to be used as a service for Fedora Hosted. If you follow the conversation 
+it summarizes to some key points:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Projects pages should be ideally hosted as &lt;code&gt;$projectname.fedorahosted.org&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;GitLab and its dependencies should be packaged for Fedora and EPEL 6.&lt;/li&gt;
@@ -181,4 +182,4 @@ of this project's goal. More posts to come!&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://isitfedoraruby.com"&gt;isitfedoraruby.com&lt;/a&gt; is a cool web app that was the result of &lt;a href="https://fedoraproject.org/wiki/GSOC_2012/Student_Application_Zuhao/IsItFedoraRuby"&gt;last year's GSoC&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:isitfedruby" rev="footnote" title="Jump back to footnote 3 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Sun, 07 Apr 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.github.io,2013-04-07:en/blog/2013/bringing-gitlab-in-fedora/</guid><category>fedora</category><category>gitlab</category><category>gscoc</category><category>ruby</category><category>rails</category></item></channel></rss>
+&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Sun, 07 Apr 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.github.io,2013-04-07:en/blog/2013/bringing-gitlab-in-fedora</guid><category>fedora</category><category>gitlab</category><category>gscoc</category><category>ruby</category><category>rails</category></item></channel></rss>

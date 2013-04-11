@@ -28,7 +28,7 @@
         <div class="container">
             <ul>
                 <li><a href="/">Home</a></li>
-                                                <li><a href="/about/">whoami</a></li>
+                                                <li><a href="/about">whoami</a></li>
                                             <li><a href="../../../../archives.html" title="Archive">Archive</a></li>
                 <li><a href="../../../../feeds/all.rss.xml">RSS</a></li>
             </ul>
@@ -38,7 +38,7 @@
     <div class="container content">
         <article>
     <header>
-        <h1><a href="/en/blog/2013/bringing-gitlab-in-fedora/" rel="bookmark">
+        <h1><a href="/en/blog/2013/bringing-gitlab-in-fedora" rel="bookmark">
     Bringing GitLab in Fedora
 </a></h1>
 <time datetime="2013-04-07 00:00:00" pubdate>Posted on
@@ -48,6 +48,9 @@
     by <a class="url fn" href="../../../../author/axil.html">
     axil</a>
 </address>
+<span class="category">in <a href="../../../../category/linux.html">
+    linux</a>.
+        </span>
     </header>
 
     <div class="body">
@@ -75,7 +78,7 @@ This is the first of many follow-up posts I intend to write, so keep tight!</p>
 <h1 id="what-is-gitlab">What is GitLab?</h1>
 <p><a href="http://blog.gitlab.com" title="GitLab home page">GitLab</a> is an <a href="https://github.com/gitlabhq/gitlabhq" title="GitLab on Github :p">open source</a> MIT licenced <a href="http://git-scm.com" title="git home page">git</a> repository
 management application. It is built on <a href="http://rubyonrails.org/" title="Ruby on Rails">Ruby on Rails</a> and is
-one of the most popular projects featured on <a href="https://github.com/popular/starred" title="GitLab featured in Github's most popular repos">Github</a>.
+one of the most <a href="https://github.com/popular/starred" title="GitLab featured in Github's most popular repos">popular</a> projects featured on Github.
 It is used by many companies as their internal git management repository.
 The reason it gained so much popularity is that it bares a strong resemblance
 to github's <a href="http://gitlab.org/screenshots/" title="GitLab screenshots">looks</a> and <a href="http://blog.gitlab.com/features/" title="GitLab features">feels</a>.
@@ -86,7 +89,8 @@ a <a href="http://demo.gitlab.com/users/sign_in" title="GitLab demo site">demo s
 <h1 id="fedoras-involvement-so-far">Fedora's involvement so far</h1>
 <p>The thought of GitLab being packaged and deployed for <a href="http://fedorahosted.org">Fedora Hosted</a> isn't new.
 It all started last March when <a href="https://fedoraproject.org/wiki/User:Mojavelinux">Dan Allen</a> <a href="https://lists.fedoraproject.org/pipermail/infrastructure/2012-March/011463.html">proposed</a> GitLab 
-to be used for Fedora Hosted. If you follow the conversation it summarizes to some key points:</p>
+to be used as a service for Fedora Hosted. If you follow the conversation 
+it summarizes to some key points:</p>
 <ul>
 <li>Projects pages should be ideally hosted as <code>$projectname.fedorahosted.org</code>.</li>
 <li>GitLab and its dependencies should be packaged for Fedora and EPEL 6.</li>
@@ -256,7 +260,7 @@ of this project's goal. More posts to come!</p>
     
         <div id="disqus_thread"></div>
     <script>
-        var disqus_identifier = "http://axilleas.github.com/en/blog/2013/bringing-gitlab-in-fedora/",
+        var disqus_identifier = "http://axilleas.github.com/en/blog/2013/bringing-gitlab-in-fedora",
             disqus_developer = "1";
 
         (function () {
@@ -306,6 +310,20 @@ I'm an open source enthousiast. I love spaghetti and westerns.
             </nav>
         </div>
     </footer>
+         <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
 
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://animal.foss.ntua.gr/~axil/stats/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "5"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
 </body>
 </html>

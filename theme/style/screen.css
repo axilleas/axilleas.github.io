@@ -34,7 +34,7 @@ sup {
 }
 
 .footnote a {
-    color: #888;
+    color: #888;p
 }
 
 .readmore { 
@@ -208,16 +208,18 @@ table tbody tr:hover{
 
 .toc ul li{
     background:none;
+    list-style-type:none;
 }
 
 hr {
     display:inline-block;
     background:url('../images/hr.png') no-repeat 0px 0px;
     width:300px;
-    height:16px;
+    height:10px;
     display:block;
     border:none;
-    margin:3.25em auto;
+    margin:1.25em auto;
+
 }
 
 .container {

@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title>Ένας σύντομος οδηγός για τον vim</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="-1" />
+        <link href="http://fonts.googleapis.com/css?family=ABeeZee|Carrois+Gothic|Source+Code+Pro:400,700" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Duru+Sans&amp;subset=latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../../../../theme/style/reset.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../theme/style/screen.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../theme/style/friendly.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../theme/style/print.css" type="text/css" media="print" />
+                                <link href="http://axilleas.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+        </head>
+<body>
+    <header id="main">
+        <div class="container">
+            <div class="logo">
+                <p><a href="/" title="Home">Over the line</a> <span class="welcome">that rug really tied the room together...</span></p>
+            </div>
+        </div>
+    </header>
+
+    <div class="splash">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a></li>
+                                                <li><a href="/about">whoami</a></li>
+                                            <li><a href="../../../../archives.html" title="Archive">Archive</a></li>
+                <li><a href="../../../../feeds/all.rss.xml">RSS</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container content">
+        <article>
+    <header>
+        <h1><a href="/el/blog/2013/vimtips" rel="bookmark">
+    Ένας σύντομος οδηγός για τον vim
+</a></h1>
+<time datetime="2013-04-08 00:00:00" pubdate>Posted on
+    Mon 08 April 2013
+</time>
+<address class="vcard author">
+    by <a class="url fn" href="../../../../author/axil.html">
+    axil</a>
+</address>
+<span class="category">in <a href="../../../../category/editors.html">
+    editors</a>.
+        </span>
+Translations:
+            <a href="../../../../en/blog/2013/vimtips">en</a>
+        </header>
+
+    <div class="body">
+        <p>Ένα πολύ ωραίο thread σχετικά με τον vim editor βρίσκεται <a href="http://www.adslgr.com/forum/showthread.php?t=418489">εδώ</a>, όπου το μέλος <a href="http://lordkhelben.wordpress.com">imitheos</a> έχει παραθέσει πολλά χρήσιμα tips. Στο παρόν post θα προσπαθήσω να τα συγκεντρώσω όλα μαζί. Όπως θα διαπιστώσετε είναι ΠΑΡΑ πολλά, οπότε grab a cup of coffee, open vim and start practicing!</p>
+<div class="toc">
+<ul>
+<li><a href="#_1">Οι συχνότερες λειτουργίες πλήκτρων</a></li>
+<li><a href="#_2">Εύρος εντολών</a></li>
+<li><a href="#_3">Εντολές με βάση το παρελθόν</a></li>
+<li><a href="#_4">Εντολές εύρεσης</a></li>
+<li><a href="#ex">Οι πιο συχνά χρησιμοποιούμενες εντολές στην κατάσταση ex</a></li>
+<li><a href="#s">Η εντολή s</a></li>
+<li><a href="#global">Η εντολή global</a></li>
+<li><a href="#vim">Εκτελώντας εντολές μέσα από τον vim</a></li>
+<li><a href="#_5">Ενεργοποίηση διάφορων επιλογών</a><ul>
+<li><a href="#background-bg">background (bg)</a></li>
+<li><a href="#hlsearch-hls">hlsearch (hls)</a></li>
+<li><a href="#list">list</a></li>
+<li><a href="#listchars-lcs">listchars (lcs)</a></li>
+<li><a href="#textwidth-tw">textwidth (tw)</a></li>
+<li><a href="#c_space_errors">c_space_errors</a></li>
+</ul>
+</li>
+<li><a href="#registers">Registers</a></li>
+<li><a href="#marks">Marks</a></li>
+<li><a href="#backreferences-patterns">Backreferences και Patterns</a></li>
+<li><a href="#foldmethod">Απόκρυψη (δίπλωση) πληροφοριών με την foldmethod</a></li>
+<li><a href="#include-wzxhzdk16">include <stdio.h></a></li>
+<li><a href="#include-wzxhzdk17">include <stdlib.h></a></li>
+<li><a href="#include-wzxhzdk18">include <stdio.h></a></li>
+<li><a href="#include-wzxhzdk19">include <stdlib.h></a></li>
+<li><a href="#include-wzxhzdk20">include <stdio.h></a></li>
+<li><a href="#include-wzxhzdk21">include <stdlib.h></a></li>
+<li><a href="#include-wzxhzdk22">include <stdio.h></a></li>
+<li><a href="#include-wzxhzdk23">include <stdlib.h></a></li>
+<li><a href="#include-wzxhzdk24">include <stdio.h></a></li>
+<li><a href="#include-wzxhzdk25">include <stdlib.h></a></li>
+<li><a href="#_6">{{{ Γεια σου κόσμε</a></li>
+<li><a href="#_7">}}}</a></li>
+<li><a href="#vimfiletypezshfoldmethodmarker">vim:filetype=zsh:foldmethod=marker</a></li>
+<li><a href="#colorcolumn">Η εντολή colorcolumn</a></li>
+<li><a href="#_8">Τοποθεσία κέρσορα</a></li>
+<li><a href="#_9">Ελληνικός ορθογράφος</a></li>
+<li><a href="#vimrc">Παράδειγμα .vimrc</a></li>
+<li><a href="#credits">Credits</a></li>
+</ul>
+</div>
+<h1 id="_1">Οι συχνότερες λειτουργίες πλήκτρων</h1>
+<p>Υπάρχουν εκατοντάδες λειτουργίες πλήκτρων και ανάλογα με την κατάσταση που είμαστε το ίδιο πλήκτρο εκτελεί διαφορετική λειτουργία. Τα παρακάτω είναι τα πιο απλά και πιο συχνά χρησιμοποιούμενα.</p>
+<div class="codehilite"><pre><span class="n">h</span> <span class="o">:</span> <span class="err">Μετακίνηση</span> <span class="err">του</span> <span class="err">δρομέα</span> <span class="err">αριστερά</span><span class="p">.</span>
+<span class="n">j</span> <span class="o">:</span> <span class="err">Μετακίνηση</span> <span class="err">του</span> <span class="err">δρομέα</span> <span class="err">κάτω</span><span class="p">.</span>
+<span class="n">k</span> <span class="o">:</span> <span class="err">Μετακίνηση</span> <span class="err">του</span> <span class="err">δρομέα</span> <span class="err">πάνω</span><span class="p">.</span>
+<span class="n">l</span> <span class="o">:</span> <span class="err">Μετακίνηση</span> <span class="err">του</span> <span class="err">δρομέρα</span> <span class="err">δεξιά</span><span class="p">.</span>
+<span class="n">i</span> <span class="o">:</span> <span class="err">Μας</span> <span class="err">βάζει</span> <span class="err">στην</span> <span class="err">κατάσταση</span> <span class="err">εισαγωγής</span> <span class="err">με</span> <span class="err">τον</span> <span class="err">δρομέα</span> <span class="err">πριν</span> <span class="err">την</span> <span class="err">υπάρχουσα</span> <span class="err">θέση</span>
+<span class="n">I</span> <span class="o">:</span> <span class="err">Το</span> <span class="err">ίδιο</span> <span class="err">με</span> <span class="n">i</span> <span class="err">αλλά</span> <span class="err">στην</span> <span class="err">αρχή</span> <span class="err">της</span> <span class="err">γραμμής</span>
+<span class="n">a</span> <span class="o">:</span> <span class="err">Μας</span> <span class="err">βάζει</span> <span class="err">στην</span> <span class="err">κατάσταση</span> <span class="err">εισαγωγής</span> <span class="err">με</span> <span class="err">τον</span> <span class="err">δρομέα</span> <span class="err">μετά</span> <span class="err">την</span> <span class="err">υπάρχουσα</span> <span class="err">θέση</span>
+<span class="n">A</span> <span class="o">:</span> <span class="err">Το</span> <span class="err">ίδιο</span> <span class="err">με</span> <span class="n">a</span> <span class="err">αλλά</span> <span class="err">στο</span> <span class="err">τέλος</span> <span class="err">της</span> <span class="err">γραμμής</span>
+<span class="err">ο</span> <span class="o">:</span> <span class="err">Μας</span> <span class="err">βάζει</span> <span class="err">στην</span> <span class="err">κατάσταση</span> <span class="err">εισαγωγής</span> <span class="err">αφού</span> <span class="err">αλλάξει</span> <span class="err">γραμμή</span>
+<span class="n">O</span> <span class="o">:</span> <span class="err">Το</span> <span class="err">ίδιο</span> <span class="err">με</span> <span class="n">o</span> <span class="err">αλλά</span> <span class="err">εισάγει</span> <span class="err">πριν</span> <span class="err">την</span> <span class="err">προηγούμενη</span> <span class="err">γραμμή</span>
+<span class="n">p</span> <span class="o">:</span> <span class="err">Επικόλληση</span> <span class="err">των</span> <span class="err">περιεχομένων</span> <span class="err">του</span> <span class="n">buffer</span> <span class="err">μετά</span> <span class="err">από</span> <span class="err">τον</span> <span class="err">δρομέα</span><span class="p">.</span>
+<span class="n">r</span> <span class="o">:</span> <span class="err">Αντικαθιστά</span> <span class="err">ένα</span> <span class="err">χαρακτήρα</span><span class="p">.</span>
+<span class="n">R</span> <span class="o">:</span> <span class="err">Αντικαθιστά</span> <span class="err">πολλούς</span> <span class="err">χαρακτήρες</span>
+<span class="n">u</span> <span class="o">:</span> <span class="n">undo</span>
+<span class="n">Ctrl</span><span class="o">+</span><span class="n">R</span> <span class="o">:</span> <span class="err">αναίρεση</span> <span class="err">του</span> <span class="n">undo</span> <span class="p">(</span><span class="n">redo</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">:</span> <span class="err">Αντιγραφή</span> <span class="err">στο</span> <span class="n">buffer</span>
+<span class="n">d</span> <span class="o">:</span> <span class="err">Διαγραφή</span>
+<span class="n">x</span> <span class="o">:</span> <span class="err">Διαγραφή</span> <span class="err">χαρακτήρα</span> <span class="err">μετά</span> <span class="err">τον</span> <span class="err">δρομέα</span>
+<span class="n">X</span> <span class="o">:</span> <span class="err">Το</span> <span class="err">ίδιο</span> <span class="err">με</span> <span class="n">x</span> <span class="err">αλλά</span> <span class="err">πριν</span> <span class="err">τον</span> <span class="err">δρομέα</span>
+<span class="n">D</span> <span class="o">:</span> <span class="err">Διαγραφή</span> <span class="err">από</span> <span class="err">τον</span> <span class="err">δρομέα</span> <span class="err">μέχρι</span> <span class="err">το</span> <span class="err">τέλος</span> <span class="err">της</span> <span class="err">γραμμής</span>
+<span class="n">G</span> <span class="o">:</span> <span class="err">Μετακίνηση</span> <span class="err">σε</span> <span class="err">κάποια</span> <span class="err">γραμμή</span> <span class="err">ή</span> <span class="err">στο</span> <span class="err">τέλος</span> <span class="err">του</span> <span class="err">αρχείου</span>
+<span class="n">J</span> <span class="o">:</span> <span class="err">Ενώνει</span> <span class="err">την</span> <span class="err">γραμμή</span> <span class="err">με</span> <span class="err">την</span> <span class="err">επόμενη</span>
+<span class="p">.</span> <span class="o">:</span> <span class="err">Εκτελεί</span> <span class="err">την</span> <span class="err">προηγούμενη</span> <span class="err">εντολή</span>
+</pre></div>
+
+
+<h1 id="_2">Εύρος εντολών</h1>
+<p>Πολλές εντολές δέχονται εύρος. Για παράδειγμα, αν πληκτρολογήσουμε [b]6x[/b] θα σβήσει 6 χαρακτήρες. Η εντολή [b]5G[/b] θα μας πάει στην 5η γραμμή. Οι εντολές [b]y[/b] και [b]d[/b] δέχονται και ένα όρισμα που δηλώνει την λειτουργία της εντολής. Τα πιο συχνά χρησιμοποιούμενα είναι [b]w[/b] (μια λέξη), [b]$[/b] (μέχρι το τέλος της γραμμής) και [b]d[/b] (μία γραμμή). Στην περίπτωση του [b]y[/b], αντί για το [b]d[/b] έχουμε το [b]y[/b] (μία γραμμή)
+Έτσι, έχουμε:</p>
+<p>[code]
+d$ : Διαγραφή μέχρι το τέλος της γραμμής (ίδιο με D) 
+5dw : Διαγραφή 5 λέξεων 
+yy : Αντιγραφή 1 γραμμής 
+3dd : Διαγραφή 3 γραμμών 
+d3d : Διαγραφή 3 γραμμών
+[/code]</p>
+<p>Τα δύο τελευταία παραδείγματα βλέπουμε ότι κάνουν το ίδιο πράγμα ενώ έχουν διαφορετική σύνταξη. Το [b]3dd[/b] θα εκτελέσει τρεις φορές την εντολή [b]dd[/b] σβήνοντας δηλαδή από μία γραμμή ενώ το [b]d3d[/b] θα σβήσει 3 γραμμές.</p>
+<h1 id="_3">Εντολές με βάση το παρελθόν</h1>
+<p>Άλλες εντολές μετακίνησης που χρησιμοποιούνται συχνά και έχουν βάση στο παρελθόν είναι:</p>
+<p>[code] 
+Ctrl + B : Μια σελίδα πίσω 
+Ctrl + F : Μια σελίδα μπροστά 
+^ : Μετακίνηση στην αρχή της γραμμής 
+$ : Μετακίνηση στο τέλος της γραμμής 
+w : Μετακίνηση μια λέξη μπροστά 
+b : Μετακίνηση μια λέξη πίσω
+[/code]</p>
+<p>Και αυτές παίρνουν ορίσματα εύρους π.χ [b]5$[/b]</p>
+<h1 id="_4">Εντολές εύρεσης</h1>
+<p>[code]
+/ : Εύρεση προς τα κάτω του ορίσματος που θέλουμε 
+? : Εύρεση προς τα πάνω 
+n : Εύρεση του επόμενου αποτελέσματος του 
+/ ή ? N : Εύρεση του επόμενου αποτελέσματος στην αντίθετη κατεύθυνση
+[/code]</p>
+<p>Αυτές οι εντολές χρησιμοποιούνται στην κατάσταση εντολών (command mode).</p>
+<h1 id="ex">Οι πιο συχνά χρησιμοποιούμενες εντολές στην κατάσταση ex</h1>
+<p>Αν στην κατάσταση εντολών πληκτρολογήσουμε [b]:[/b] τότε μπαίνουμε στην κατάσταση ex. Το vim υποστηρίζει τις εντολές του παλαιότερου κειμενογράφου ex. Οι πιο συχνά χρησιμοποιούμενες είναι οι:</p>
+<p>[code]
+:! = Εκτέλεση ενός εξωτερικού προγράμματος. 
+:e = Φόρτωση ενός αρχείου 
+:g = Εκτέλεση εντολών για επιλεγμένα patterns 
+:n = Όταν έχουμε να επεξεργαστούμε πολλά αρχεία μας φορτώνει το επόμενο 
+:N = Ομοίως για το προηγούμενο 
+:q = Έξοδος από το vim 
+:q! = Αν δεν έχουμε σώσει τις αλλαγές μας, το vim γκαρίζει με το απλό q. Με το q! δηλώνουμε ότι ναι το ξέρω ότι δεν έχω σώσει. Άσε με να βγω 
+:r = Μας εισάγει ένα αρχείο στο υπάρχον 
+:s = Εύρεση και αντικατάσταση 
+:v = Το ίδιο με g αλλά για τις υπόλοιπες γραμμές 
+:w = Εγγραφή του αρχείου 
+:x = Το ίδιο με :wq (Σώσιμο + Έξοδος)
+[/code]</p>
+<h1 id="s">Η εντολή s</h1>
+<p>Μία αρκετά χρήσιμη εντολή είναι η [b]:s[/b]</p>
+<p>[code][Εύρος]s/pattern για εύρεση/pattern για αντικατάσταση/[παράμετροι][/code]</p>
+<p>Το εύρος δηλώνει σε ποιες γραμμές θέλουμε να ενεργήσει η [b]s[/b]. Αν δεν δηλώσουμε τίποτα θα ενεργήσει μόνο στην τρέχουσα γραμμή. Ο χαρακτήρας [b].[/b] σημαίνει την τρέχουσα γραμμή και ο χαρακτήρας [b]%[/b] όλο το αρχείο. Παραδείγματα:</p>
+<p>[code]
+5,9s : Από την 5η γραμμή μέχρι την 9η 
+.,+5s: Από την τρέχουσα μέχρι τις επόμενες 5 γραμμές 
+%s: Όλο το αρχείο
+[/code]</p>
+<p>Οι πιο συχνά χρησιμοποιούμενες παράμετροι είναι οι εξής:
+[code]
+c: Ζητά επιβεβαίωση για κάθε αλλαγή 
+g: Αντικατάσταση όλων των pattern σε κάθε γραμμή και όχι μόνο του πρώτου 
+i: Δεν κοιτάει κεφαλαία/πεζά
+[/code]</p>
+<p>O χαρακτήρας διαχωρισμού των πεδίων μπορεί να είναι οτιδήποτε και δεν είναι απαραίτητο να είναι [b]/[/b]. Ας πούμε ότι θέλουμε να αλλάξουμε σε ένα αρχείο το [b][i]/usr[/i][/b] σε [b][i]/usr/local[/i][/b].</p>
+<p>[code]
+1) :%s/\/usr/\/usr\/local/g 
+2) :%s#/usr#/usr/local#g
+[/code]</p>
+<p>Το πρώτο παράδειγμα χρησιμοποιεί κανονικά το [b]/[/b] για διαχωριστικό. Έτσι πρέπει οπουδήποτε έχουμε [b]/[/b] μέσα στο pattern μας να το κάνουμε quote χρησιμοποιώντας την backslash, ενώ στο δεύτερο παράδειγμα επειδή χρησιμοποιούμε το [b]#[/b] για διαχωριστικό δεν χρειάζεται να κάνουμε τίποτα.</p>
+<h1 id="global">Η εντολή global</h1>
+<p>Ας πoύμε τώρα και για το global. Το global ([b]:g[/b]) μας επιτρέπει να εκτελέσουμε μια συγκεκριμένη εντολή σε όσες γραμμές πληρούν κάποια προϋπόθεση. πχ</p>
+<p>[code]
+1) :g/emacs/d 
+2) :g/usr/s/sbin/bin/g 
+3) :v/vim/d
+[/code]</p>
+<p>Η πρώτη εντολή θα ψάξει για γραμμές που έχουν την λέξη emacs και θα εκτελέσει την εντολή [b]d[/b]. Δηλαδή θα διαγράψει όσες γραμμές έχουν την λέξη emacs. Η δεύτερη εντολή θα ψάξει για γραμμές που έχουν τη λέξη usr και θα εκτελέσει την εντολή [b]s[/b] η οποία θα αλλάξει το sbin με το bin. Το συγκεκριμένο παράδειγμα είναι απλό και θα μπορούσε να γίνει και μόνο με την [b]s.[/b] Η τρίτη εντολή θα βρει όσες γραμμές έχουν την λέξη vim και διαγράψει τις υπόλοιπες. Δηλαδή είναι το αντίστροφο της [b]g[/b].</p>
+<p>H εντολή που μπορούμε να εκτελέσουμε πρέπει να είναι εντολή του ex. Για παράδειγμα αν θέλουμε να σβήσουμε 10 χαρακτήρες με την εντολή [b]10x[/b] αυτό δεν γίνεται. Αν θέλουμε να εκτελέσουμε μια εντολή του vim μπορούμε να χρησιμοποιήσουμε το πρόθεμα [b]normal[/b] όπως φαίνεται παρακάτω:</p>
+<p>[code]
+:g/vim/normal 10x
+[/code]</p>
+<p>Η παραπάνω εντολή λέει στο vim να σβήσει τους πρώτους 10 χαρακτήρες από κάθε γραμμή που περιέχει την λέξη vim.</p>
+<h1 id="vim">Εκτελώντας εντολές μέσα από τον vim</h1>
+<p>Η εντολή [b]:![/b] μας επιτρέπει να δούμε την έξοδο κάποιας εντολής. Δηλαδή αν γράψουμε [b]:!ls[/b] θα μας εμφανίσει τα αρχεία που υπάρχουν στον τρέχοντα κατάλογο. Εκτός από αυτό πολλές φορές θέλουμε και να επεξεργαστούμε την έξοδο της εντολής ή απλά να την εισάγουμε στο αρχείο μας. Αυτό μπορεί να γίνει αν συνδυάσουμε τις εντολές [b]:r[/b] και [b]:![/b] π.χ</p>
+<p>[code]
+:r !ls
+[/code]</p>
+<p>και έχουμε το αποτέλεσμα της [b]ls[/b] κατευθείαν μέσα στο buffer μας.</p>
+<p>Μπορούμε επίσης να κάνουμε και το αντίθετο. Αντί να εισάγουμε την έξοδο μιας εντολής στο buffer μας, να στείλουμε το buffer ως είσοδο μιας εντολής. Αυτό γίνεται με το πρόθεμα [b]%[/b]</p>
+<p>[code]
+Hello World 
+:%!rev 
+dlroW olleH
+[/code]</p>
+<p>Στο παραπάνω παράδειγμα, έχουμε "Hello World" και λέμε πάρτο και δωσ' το ως είσοδο στην εντολή [b]rev[/b] η οποία αναποδογυρίζει την είσοδο της οπότε το buffer μας γίνεται [b]dlroW olleH[/b].</p>
+<h1 id="_5">Ενεργοποίηση διάφορων επιλογών</h1>
+<p>Υπάρχουν πολλές επιλογές που μπορούν να δηλωθούν στο .vimrc ή κατά την διάρκεια του vim.</p>
+<h2 id="background-bg">background (bg)</h2>
+<p>Όταν χρησιμοποιούμε το vim και όχι το gvim, μερικές φορές δεν λειτουργεί σωστά η αυτόματη ανίχνευση του φόντου του τερματικού με συνέπεια να μην φαίνονται καλά τα χρώματα. Για αυτό το λόγο μπορούμε να δηλώσουμε</p>
+<p>[code]
+set background=dark 
+ή 
+set background=light
+[/code]</p>
+<h2 id="hlsearch-hls">hlsearch (hls)</h2>
+<p>Όταν ψάξουμε κάτι, το vim το τονίζει ώστε να φαίνεται εύκολα. Αν τελειώσουμε αυτό που θέλαμε να κάνουμε και δεν θέλουμε να βλέπουμε τονισμένο κείμενο στα υπόλοιπα αποτελέσματα απενεργοποιούμε αυτή την επιλογή με</p>
+<p>[code]
+:set nohls
+[/code]</p>
+<p>Αν ψάξουμε κάτι νέο, τότε θα ενεργοποιηθεί αυτόματα πάλι.</p>
+<h2 id="list">list</h2>
+<p>Εμφανίζει [b]$[/b] στο τέλος κάθε γραμμής και [b]^I[/b] για κάθε tab, έτσι μπορεί να μας διευκολύνει να διακρίνουμε τα tab όταν έχουμε κώδικα.</p>
+<h2 id="listchars-lcs">listchars (lcs)</h2>
+<p>Η κανονική λειτουργία του list δεν είναι και πολύ χρήσιμη. Με την listchars μπορούμε να αλλάξουμε την λειτουργία της. Οι επιλογές που δέχεται είναι οι εξής:</p>
+<p>[code]
+eol:x Θα εμφανίζει τον χαρακτήρα x στο τέλος κάθε γραμμής 
+tab:xy Για κάθε tab θα εμφανίζει στην αρχή τον χαρακτήρα x και έπειτα τον χαρακτήρα y μέχρι να τελειώσει το tab 
+trail:x Θα εμφανίζει τον χαρακτήρα x για όσες spaces υπάρχουν στο τέλος της γραμμής 
+extends:x Όταν η γραμμή είναι μεγαλύτερη από ό,τι χωράει στην οθόνη θα εμφανίζει τον χαρακτήρα x για να μας δείξει ότι η γραμμή φεύγει εκτός οθόνης
+[/code]</p>
+<p>Ένα παράδειγμα είναι το παρακάτω 
+[code]
+set listchars=eol:$,tab:&gt;-,trail:. 
+highlight SpecialKey ctermfg=red
+[/code]
+[code]
+1) printf("foo\n"); 
+2)[color=red]&gt;------[/color]printf("foo\n");[color=red]...[/color]$
+[/code]</p>
+<p>Το αποτέλεσμα φαίνεται στην μορφή 2) όπου βλέπουμε ότι χρησιμοποιούνται 8άρια tabs και ότι στο τέλος ξέφυγαν 3 spaces που πρέπει να σβήσουμε από τον κώδικα.</p>
+<h2 id="textwidth-tw">textwidth (tw)</h2>
+<p>Αν δηλωθεί ορίζει το μέγεθος κάθε γραμμής. Αν επιχειρήσουμε να περάσουμε το όριο αυτό θα γίνει αυτόματα wrap στην επόμενη γραμμή. Κανονικά είναι απενεργοποιημένη γιατί έχει νόημα σε κώδικα και όχι οπουδήποτε. Για να την ενεργοποιήσουμε σε συγκεκριμένο τύπο αρχείων μπορούμε να χρησιμοποιήσουμε τις [i]autocommands[/i] του vim. π.χ</p>
+<p>[code]
+autocmd FileType c setlocal textwidth=78
+[/code]</p>
+<p>Η παραπάνω εντολή λέει ότι αν το αρχείο που έχουμε φορτώσει είναι αρχείο C, τότε θέσε μέγιστο όριο γραμμής τους 78 χαρακτήρες. Η [b]setlocal[/b] θέτει την παράμετρο μόνο για το τοπικό buffer. Αν είχαμε ανοίξει πολλά αρχεία και χρησιμοποιούσαμε την [b]set[/b] τότε θα έθεται την [b]tw[/b] και για εκείνα το οποίο δεν θέλουμε.</p>
+<h2 id="c_space_errors">c_space_errors</h2>
+<p>Αυτή δεν είναι παράμετρος του vim αλλά του syntax highlighter της C. Αν δηλωθεί, τότε θα εμφανίζει τα spaces που βρίσκονται στο τέλος με κόκκινο. Πρέπει να δηλωθεί πριν φορτωθεί ο syntax highlighter π.χ
+[code] 
+let c_space_errors = 1 syntax on
+[/code]
+και λειτουργεί ανεξάρτητα της list και μόνο σε C αρχεία. Η list είναι πιο εύχρηστη.
+[/list]</p>
+<h1 id="registers">Registers</h1>
+<p>[code]
+The quick brown fox jumps over the lazy dog
+Τρεία πουλάκια κάθονταν.
+[/code]</p>
+<p>Ας υποθέσουμε ότι έχουμε το παραπάνω κείμενο. Θέλουμε να αντιγράψουμε 50 γραμμές πιο κάτω το κείμενο με την αλεπού, οπότε πηγαίνουμε τον δρομέα πάνω του και πληκτρολογούμε [b]yy[/b] για να αντιγραφεί η γραμμή. Τώρα μένει να πάμε το δρομέα εκεί που θέλουμε και να πατήσουμε [b]p[/b] για να γίνει η επικόλληση. Βλέπουμε όμως ότι το τρία το έχουμε γράψει λάθος οπότε πληκτρολογούμε x και σβήνουμε το έψιλον. Αφού έχουμε μετακινηθεί 50 πιο κάτω πληκτρολογούμε p και βλέπουμε έκπληκτοι και νευριασμένοι ότι γίνεται επικόλληση το έψιλον που σβήσαμε.</p>
+<p>Κάθε εντολή που πραγματοποιεί αλλαγές τις εισάγει σε κάποιο register (κάτι σαν buffer). Οπότε με την εκτέλεση της x το αποτέλεσμα της yy έπαψε να υπάρχει.</p>
+<p>Εκτός από τον default register το vi μας επιτρέπει να χρησιμοποιήσουμε 26 ακόμη registers με ονόματα a-z. Για να προσπελάσουμε τον κάθε register χρησιμοποιούμε το [b]"[/b].</p>
+<p>Οπότε στην παραπάνω περίπτωση μπορούμε αντί για [b]yy[/b] να δώσουμε [b]"ayy[/b] οπότε το αποτέλεσμα θα μπει στον [b]a[/b] register και δεν θα χαθεί όταν σβήσουμε το έψιλον. Έπειτα για να γίνει η επικόλληση δίνουμε [b]"ap[/b].</p>
+<h1 id="marks">Marks</h1>
+<p>Στο προηγούμενο μήνυμα είπαμε ότι αν εκτελέσουμε πχ [b]5dd[/b] θα σβήσουμε 5 γραμμές. Μπορεί όμως να μην ξέρουμε πόσες ακριβώς είναι οι γραμμές και εννοείται πως δεν θα κάτσουμε να μετράμε. Εδώ έρχονται τα marks τα οποία μας επιτρέπουν να μαρκάρουμε μια περιοχή και να εκτελούμε εντολές πάνω της. Τα marks είναι πάλι 26 με ονόματα a-z αλλά αυτή τη φορά χρησιμοποιούμε το [b]'[/b] (μονό εισαγωγικό).</p>
+<p>Ας υποθέσουμε ότι αυτό που μόλις έγραψα ήταν κείμενο στο vi. Ο δρομέας είναι στο "Στο" και πληκτρολογούμε ma. Αυτό λέει ότι μαρκάρισε την γραμμή ώς a. Έπειτα πηγαίνουμε το δρομέα στη γραμμή "Τα marks". Αν πληκτρολογήσουμε [b]y'a[/b] θα αντιγράψει τις 6 αυτές γραμμές, ενώ με [b]d'a[/b] μπορούμε να τις σβήσουμε.</p>
+<p>Τα marks είναι χρήσιμα αλλά η Visual κατάσταση δίνει μεγαλύτερη εποπτεία οπότε δεν πολύ χρησιμοποιούνται.</p>
+<h1 id="backreferences-patterns">Backreferences και Patterns</h1>
+<p>Αυτό δεν είναι καθαρά vim αλλά και το sed και πολλά εργαλεία έχουν την ίδια σύνταξη. Είναι τεράστιο κεφάλαιο αλλά επειδή αναφέραμε την εντολή <a href="#s">s</a> πρέπει να αναφέρουμε και τα backreferences.</p>
+<p>Οι πιο βασικοί μεταχαρακτήρες που ισχύουν σε patterns είναι οι ακόλουθοι.
+[code]
+. = Οποιοσδήποτε χαρακτήρας
+* = Ο προηγούμενος χαρακτήρας μπορεί να υπάρχει όσες φορές θέλει
+^ = αρχή της γραμμής
+$ = τέλος της γραμμής
+[/code]</p>
+<p>Παραδείγματα:
+[code]
+H.llo = Hallo, Hbllo, Hello κτλ
+^Hello = Η γραμμή αρχίζει με Hello.
+World$ = Η γραμμή τελειώνει με World
+H.*o = Οποιαδήποτε λέξη αρχίζει με H και περιέχει o
+      (Το . λέει οποιοσδήποτε χαρακτήρας και το * όσες φορές
+      θέλει ο προηγούμενος οπότε πιάνει τα πάντα)
+[/code]</p>
+<p>Τα backreferences χρησιμοποιούνται όταν θέλουμε να κρατήσουμε ένα μέρος του pattern. Δηλώνονται με τα [b]([/b] και [b])[/b]
+[code]
+Ο Κώστας είναι ψηλός και ο Γιώργος είναι ψηλός
+[/code]</p>
+<p>Θέλουμε να αλλάξουμε την παραπάνω πρόταση ώστε να λέει ο Γιώργος είναι πολύ ψηλός. Η κλασική εντολή θα ήταν
+[code]
+s/ψηλός/πολύ ψηλός/
+[/code]</p>
+<p>Σε αυτή την περίπτωση όμως θα αλλάξει τον Κώστα ή με <a href="#global">g</a> και τον Κώστα. Άρα τι εντολή να βάλουμε; Εδώ θα χρησιμοποιήσουμε τα backreferences δηλαδή τις αναφορές.</p>
+<p>[code]s/(Γιώργος.*) ψηλός/\1 πολύ ψηλός/[/code]</p>
+<p>Το [b]Γιώργος.* ψηλός[/b] σημαίνει ψάξε για μια φράση που αρχίζει με την λέξη Γιώργος, μετά ακολουθεί οτιδήποτε και τελειώνει στη λέξη ψηλός. Οι quoted παρενθέσεις λένε ότι το κομμάτι αυτό το χρειάζομαι οπότε έχε το υπ' όψιν σου και θα στο ζητήσω κάποια στιγμή. Αυτό όλο θα το αντικαταστήσεις με την φράση [b]\1 πολύ ψηλός[/b], όπου [b]\1[/b] σημαίνει η πρώτη αναφορά που σου ζήτησα. Δηλαδή η φράση [b]Γιώργος είναι ψηλός[/b] αντικαθίσταται με την φράση [b]Γιώργος είναι πολύ ψηλός[/b]</p>
+<h1 id="foldmethod">Απόκρυψη (δίπλωση) πληροφοριών με την foldmethod</h1>
+<p>Το vim μάς επιτρέπει να αποκρύπτουμε (διπλώνουμε) πληροφορίες για ευκολότερη ανάγνωση. Αυτό χρησιμεύει σε μεγάλα κείμενα με πολλαπλές ενότητες.
+Η παράμετρος που δηλώνει την μέθοδο που θα χρησιμοποιηθεί για το δίπλωμα είναι η [b]foldmethod[/b]. Κανονικά όταν τρέχουμε το vim είναι επιλεγμένη η [i]manual[/i] για αυτό και δεν γίνεται κανένα δίπλωμα. Ακόμη, υπάρχουν οι [i]indent[/i],[i]syntax[/i],[i]expr[/i],[i]marker[/i].</p>
+<p>Η [i]expr[/i] δέχεται ως όρισμα μια εντολή της αρεσκείας μας με βάση την οποία ορίζει το δίπλωμα. Είναι πολύ δυνατή αλλά δεν χρησιμοποιείται πολύ συχνά.</p>
+<p>Η [i]indent[/i] και η [i]syntax[/i] έχουν παρόμοια λειτουργία στις περισσότερες περιπτώσεις. Ας δούμε για παράδειγμα τον παρακάτω κώδικα:
+[code]</p>
+<h1 id="include-wzxhzdk16">include <stdio.h></h1>
+<h1 id="include-wzxhzdk17">include <stdlib.h></h1>
+<p>int fact(int n);</p>
+<p>int main(void)
+{
+        int i;
+        int k;</p>
+<div class="codehilite"><pre>    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">k</span><span class="o">=</span><span class="n">fact</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Factorial of %d = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+
+
+<p>}</p>
+<p>int fact(int n)
+{
+        int res = 0;
+        if (n &gt;= 0) {
+                if (n &lt;= 1)
+                        res = 1;
+                else
+                        res = fact(n-1) * n;
+        }
+        return res;
+}
+[/code]</p>
+<p>Αν εκτελέσουμε [b]:set foldmethod=indent[/b] αυτή θα διπλώσει τον κώδικα μας με βάση την κάθε βαθμίδα indentation και θα προκύψει το εξής:
+[code]</p>
+<h1 id="include-wzxhzdk18">include <stdio.h></h1>
+<h1 id="include-wzxhzdk19">include <stdlib.h></h1>
+<p>int fact(int n);</p>
+<p 8="8" _--="
++--" i_-------------------_="i;-------------------
+" int="int" lines:="lines:">int main(void)</p>
+<p>int fact(int n)
+{             <br />
++--  8 lines: int res = 0;----------
+}
+[/code]</p>
+<p>Όπως ήταν αναμενόμενο μας έκλεισε όλες τις δηλώσεις με βάση το indentation. Η μέθοδος αυτή λειτουργεί για οποιοδήποτε κείμενο χρησιμοποιεί indentation. </p>
+<p>Αντίθετα η [i]syntax[/i] χρειάζεται να έχει δηλωθεί η σύνταξη του κάθε τύπου αρχείου για να λειτουργήσει, το vim όμως έχει ενσωματωμένες συντάξεις για πάρα πολλούς τύπους αρχείων. Ας δούμε τώρα πόσο διαφορετική θα είναι αυτή η μέθοδος.
+[code]</p>
+<h1 id="include-wzxhzdk20">include <stdio.h></h1>
+<h1 id="include-wzxhzdk21">include <stdlib.h></h1>
+<p>int fact(int n);</p>
+<p>int main(void)
++-- 10 lines: {-----------------------</p>
+<p>int fact(int n)
++-- 10 lines: {-----------------------
+[/code]
+Εδώ βλέπουμε ότι αναγνωρίζεται η σύνταξη της C. Έτσι γνωρίζει ότι έχουμε δηλώσει κάποιες συναρτήσεις και γι' αυτό μας κρύβει όλη την συνάρτηση, οπότε οπτικά είναι καλύτερο για μεγάλους κώδικες.</p>
+<p>Κακά τα ψέμματα, τα αποτελέσματα και με τις δύο μεθόδους ήταν άθλια. Δεν μπορείς να δεις τίποτα. Σε αυτό παίζει ρόλο η επιλογή [b]foldlevel[/b] η οποία ορίζει από ποια βαθμίδα και έπειτα θα γίνεται το δίπλωμα. Κανονικά έχει την τιμή 0 οπότε διπλώνονται όλες οι δηλώσεις. Οι περισσότεροι χρήστες βρίσκουν για κώδικα την τιμή 1 ως βέλτιστη, η οποία διπλώνει δηλώσεις από την 2η βαθμίδα και έπειτα. Ας δούμε τι αποτέλεσμα θα έχει αυτό στις δύο προηγούμενες περιπτώσεις.</p>
+<p>[i]indent[/i]
+[code]</p>
+<h1 id="include-wzxhzdk22">include <stdio.h></h1>
+<h1 id="include-wzxhzdk23">include <stdlib.h></h1>
+<p>int fact(int n);</p>
+<p>int main(void)
+{
+        int i;
+        int k;</p>
+<div class="codehilite"><pre>    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</pre></div>
+
+
+<p>+---  2 lines: k=fact(i);---------
+        }
+        return 0;
+}</p>
+<p>int fact(int n)
+{
+        int res = 0;
+        if (n &gt;= 0) {
++---  4 lines: if (n &lt;= 1)-----------
+        }
+        return res;
+}
+[/code]</p>
+<p>Τώρα το αποτέλεσμα είναι πολύ καλύτερο. Έχουμε μια ιδέα τι κάνει η κάθε συνάρτηση και αποκρύπτονται πχ οι λεπτομέρειες του for.</p>
+<p>[b]syntax[/b]
+[code]</p>
+<h1 id="include-wzxhzdk24">include <stdio.h></h1>
+<h1 id="include-wzxhzdk25">include <stdlib.h></h1>
+<p>int fact(int n);</p>
+<p>int main(void)
+{
+        int i;
+        int k;</p>
+<p>+---  4 lines: for (i = 1; i &lt; 8; i++) {------
+        return 0;
+}       </p>
+<p>int fact(int n)
+{
+        int res = 0;
++---  6 lines: if (n &gt;= 0) {-------------------
+        return res;
+}
+[/code]</p>
+<p>Όπως και πριν το αποτέλεσμα της syntax είναι καλύτερο οπτικά γιατί γνωρίζει τις ιδιαιτερότητες της C.</p>
+<p>[b][i]Συνδυασμοί πλήκτρων[i][/b]
+Όλες οι εντολές αναδίπλωσης ξεκινούν με [b]z[/b].</p>
+<p>[code]
+zo = Άνοιγμα του fold στη θέση του δρομέα
+zO = Άνοιγμα του fold καθώς και αυτών που βρίσκονται μέσα σε αυτό
+zc = Κλείσιμο του fold στη θέση του δρομέα
+zC = Κλείσιμο του fold καθώς και αυτών που βρίσκονται μέσα σε αυτό
+za = Εναλλαγή της κατάστασης του fold (Άνοιγμα/Κλείσιμο)
+zA = Εναλλαγή της κατάστασης και αυτών που βρίσκονται μέσα
+zj = Μετακίνηση του δρομέα στο επόμενο fold
+zk = Μετακίνηση του δρομέα στο προηγούμενο fold
+zi = Εναλλαγή της κατάστασης foldenable με συνέπεια το άνοιγμα ή κλείσιμο όλων των folds
+zM = Θέτει στην foldlevel την τιμή 0 κλείνοντας ουσιαστικά όλα τα folds
+zR = Θέτει στην foldlevel την μέγιστη τιμή ανοίγοντας ουσιαστικά όλα τα folds
+zm = Μειώνει την foldlevel κατά 1 κλείνοντας μια βαθμίδα από folds
+zr = Αυξάνει την foldlevel κατά 1 ανοίγοντας μια βαθμίδα από folds
+[/code]</p>
+<p>Ας δούμε τώρα και την τρίτη μέθοδο που είναι η [b]marker[/b]. Εδώ επιλέγουμε πως θέλουμε να γίνει δίπλωμα μόνο όπου υπάρχουν οι markers [b]{{{[/b] και [b]}}}[/b]. Αυτή η μέθοδος έχει το καλό ότι επιλέγουμε εμείς να κάνουμε folding μόνο εκεί που θέλουμε να γίνει. Δεν χρησιμοποιείται πάρα πολύ σε κώδικα αλλά συνήθως σε αρχεία που δεν έχουν κάποια σύνταξη ή indentation.</p>
+<p>[code]</p>
+<h1 id="_6">{{{ Γεια σου κόσμε</h1>
+<p>echo Hello World</p>
+<h1 id="_7">}}}</h1>
+<p>/<em> {{{ Γεια σου κόσμε </em>/
+printf("Hello World\n");
+/<em> }}} </em>/
+[/code]</p>
+<p>Τα παραπάνω είναι δύο παραδείγματα για shell και C. Το κείμενο που βάζουμε μετά τον {{{ marker θα εμφανίζεται ως περιγραφή όταν το fold είναι κλειστό.</p>
+<p>Υπάρχουν αρκετοί στους οποίους οι μέθοδοι [i]indent[/i] και [i]syntax[/i] δεν αρέσουν γιατί δυσκολεύουν αντί να ευκολύνουν στη συγγραφή κώδικα. Υπάρχουν όμως περιπτώσεις που βολεύει η χρήση των [i]markers[/i] όπως πχ στα αρχεία εκκίνησης του zsh. Για παράδειγμα ένα αρχείο zshrc μπορεί να φαίνεται ως εξής:</p>
+<p>[code] 
++-- 36 lines: Δήλωση του prompt ---------------------</p>
+<p>+-- 57 lines: Λειτουργίες πλήκτρων -------------------</p>
+<p>+-- 64 lines: Δήλωση μεταβλητών --------------------</p>
+<p>+-- 41 lines: Δήλωση συντομεύσεων (aliases) ----
+κτλ
+[/code]</p>
+<p>Έτσι, όταν θέλoυμε να αλλάξουμε ή να προσθέσουμε κάτι δεν χρειάζεται να ψάχνουμε μέσα σε 700 γραμμές. Απλά πηγαίνουμε στην κατηγορία που θέλουμε και ανοίγουμε το fold.
+[/list]</p>
+<p>Καλά και χρυσά τα folds, αλλά δεν μπορούμε κάθε φορά που ανοίγουμε ένα αρχείο να γράφουμε [b]:set foldmethod=τάδε[/b]. Για αυτό το λόγο, το vim υποστηρίζει τα λεγόμενα [b]modelines[/b] που είναι γραμμές οι οποίες λένε στο vim ποιες παραμέτρους να ενεργοποιήσει για το συγκεκριμένο αρχείο.
+[code]
+[κείμενο]&lt;κενό&gt;vim:παράμετροι 
+[κείμενο]&lt;κενό&gt;vim:set παράμετροι: [κείμενο]
+[/code]
+Αυτές είναι οι δύο μορφές που μπορούμε να χρησιμοποιήσουμε για να δηλώσουμε την modeline. Το vim ψάχνει ένα αριθμό γραμμών στην αρχή και στο τέλος του αρχείου για πιθανά modelines, έτσι μπορούμε να την δηλώσουμε είτε στην αρχή είτε στο τέλος του αρχείου μας.</p>
+<p>Πιθανά παραδείγματα
+[code]</p>
+<h1 id="vimfiletypezshfoldmethodmarker">vim:filetype=zsh:foldmethod=marker</h1>
+<p>[/code]</p>
+<p>Όπως αναφέρθηκε πιο πάνω μπορεί να χρησιμοποιηθεί στα αρχεία του zsh. Ο τύπος του αρχείου θα αναγνωριζόταν αυτόματα αλλά καλό είναι να τον δηλώνουμε. Όπως βλέπουμε στην σύνταξη, η πρώτη μορφή δεν επιτρέπει κείμενο στο τέλος, οπότε σε συγκεκριμένες περιπτώσεις πρέπει να χρησιμοποιηθεί η δεύτερη μορφή.</p>
+<div class="codehilite"><pre><span class="cm">/* vim:filetype=c:foldmethod=syntax *ΛΑΘΟΣ* </span>
+<span class="cm">/* vim:set filetype=c:foldmethod=syntax */</span> <span class="o">*</span><span class="err">ΣΩΣΤΟ</span><span class="o">*</span>
+</pre></div>
+
+
+<p>Οι modelines χρησιμοποιούνται για να δηλώσουμε οτιδήποτε παραμέτρους θέλουμε να ισχύουν για το συγκεκριμένο αρχείο μας και όχι μόνο για το folding. Έτσι, για λόγους ασφαλείας, δεν διαβάζονται όταν ο χρήστης είναι ο root. Αν ανοίξουμε ένα αρχείο ως root, θα πρέπει να εκτελέσουμε [b]:set foldmethod=τάδε[/b] ακόμη και αν υπάρχει modeline.</p>
+<h1 id="colorcolumn">Η εντολή colorcolumn</h1>
+<p>Για προγραμματισμό, παρόμοια και εξίσου χρήσιμη είναι και η colorcolumn. Πολλά IDE έχουν μια (πράσινη συνήθως) κατακόρυφη γραμμή που δηλώνει τα όρια του κώδικα για παράδειγμα 80 στήλες. Η colorcolumn κάνει ακριβώς το ίδιο. Το μόνο κακό είναι ότι λόγω της φύσης του vim έχει πλάτος ένα χαρακτήρα οπότε είναι λίγο χοντροκομμένη και μπορεί να κουράζει κάποιους. Μπορεί εύκολα να χρησιμοποιηθεί μόνο σε αρχεία προγραμματισμού.</p>
+<div class="codehilite"><pre><span class="n">autocmd</span> <span class="n">FileType</span> <span class="n">c</span> <span class="n">setlocal</span> <span class="n">textwidth</span><span class="o">=</span><span class="mi">78</span> 
+<span class="n">autocmd</span> <span class="n">FileType</span> <span class="n">c</span> <span class="n">setlocal</span> <span class="n">colorcolumn</span><span class="o">=+</span><span class="mi">1</span>
+</pre></div>
+
+
+<p>Πχ. σε αρχεία γλώσσας C να χρησιμοποιούνται το πολύ 78 στήλες (από τη μάνα του το vim δεν πειράζει τον κώδικα αλλά τα σχόλια αναδιπλώνονται αυτόματα αν περάσουν τις 78 στήλες) και να χρωματιστεί η στήλη textwidth+1 δηλαδή η 79.</p>
+<h1 id="_8">Τοποθεσία κέρσορα</h1>
+<div class="codehilite"><pre><span class="p">:</span><span class="nx">hi</span> <span class="nx">CursorLine</span>   <span class="n">cterm</span><span class="o">=</span><span class="kc">NONE</span> <span class="n">ctermbg</span><span class="o">=</span><span class="nx">lightgrey</span>
+<span class="p">:</span><span class="nx">hi</span> <span class="nx">CursorColumn</span> <span class="n">cterm</span><span class="o">=</span><span class="kc">NONE</span> <span class="n">ctermbg</span><span class="o">=</span><span class="nx">lightgrey</span>
+<span class="p">:</span><span class="nx">nnoremap</span> <span class="o">&lt;</span><span class="nx">Leader</span><span class="o">&gt;</span><span class="nx">c</span> <span class="p">:</span><span class="nb">set</span> <span class="nx">cursorline</span><span class="o">!</span> <span class="nx">cursorcolumn</span><span class="o">!&lt;</span><span class="nx">CR</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p>Με τον συγκεκριμένο κώδικα γίνονται 3 πράγματα:
+1) το highlight είναι γκρι
+2) ΔΕΝ είναι υπογραμμισμένο
+3) ΔΕΝ είναι ενεργοποιημένο, αλλά μπορεί πολύ εύκολα να ενεργοποιηθεί/απενεργοποιηθεί πατώντας [b]\c[/b].</p>
+<h1 id="_9">Ελληνικός ορθογράφος</h1>
+<p>Αν η διανομή μας έχει πακέτο με το Ελληνικό αρχείο ορθογραφίας του vim, τότε απλά το εγκαθιστούμε, Αν όχι, τότε πρέπει να το δημιουργήσουμε με βάση μία λίστα λέξεων. Πολλές διανομές εγκαθιστούν λίστες λέξεων για Ελληνικά για aspell, myspell,  αλλά ας υποθέσουμε ότι δεν έχουμε τέτοιο πακέτο οπότε ας το κατεβάσουμε.</p>
+<div class="codehilite"><pre><span class="n">mkdir</span> <span class="n">foo</span><span class="p">;</span> <span class="n">cd</span> <span class="n">foo</span> 
+<span class="n">wget</span> <span class="n">http</span><span class="o">:</span><span class="c1">//extensions.services.openoffice.org/e-files/1411/2/el_gr_v110.oxt </span>
+<span class="n">unzip</span> <span class="n">el_gr_v100</span><span class="p">.</span><span class="n">oxt</span>
+</pre></div>
+
+
+<p>Τα αρχεία που μας ενδιαφέρουν είναι το <strong>el_GR.dic</strong> που είναι η λίστα με τις λέξεις και το <strong>el_GR.aff</strong> που έχει διάφορα χαρακτηριστικά των Ελληνικών. Έπειτα τρέχουμε το vim για να δημιουργήσουμε το αρχείο και τρέχουμε</p>
+<div class="codehilite"><pre><span class="o">:</span><span class="n">mkspell</span> <span class="n">el</span> <span class="n">el_GR</span>
+</pre></div>
+
+
+<p>Η εντολή θα δημιουργήσει ένα αρχείο <strong>el.utf-8.spl</strong> ή <strong>el.iso8859-7.spl</strong> ανάλογα με το encoding που έχoυμε με βάση τα αρχεία <strong>.aff</strong> και <strong>.dic</strong> που έχουν πρόθεμα <strong>el_GR</strong>. Έπειτα απλά πρέπει να το βάλουμε στο σωστό μέρος.</p>
+<div class="codehilite"><pre><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/</span><span class="p">.</span><span class="n">vim</span><span class="o">/</span><span class="n">spell</span> 
+<span class="n">mv</span> <span class="n">el</span><span class="p">.</span><span class="n">utf</span><span class="o">-</span><span class="mf">8.</span><span class="n">spl</span> <span class="o">~/</span><span class="p">.</span><span class="n">vim</span><span class="o">/</span><span class="n">spell</span>
+</pre></div>
+
+
+<p>Από εδώ και πέρα έχουμε Ελληνικό ορθογράφο ο οποίος ενεργοποιείται με</p>
+<div class="codehilite"><pre><span class="o">:</span><span class="n">set</span> <span class="n">spell</span> <span class="n">spelllang</span><span class="o">=</span><span class="n">el</span>
+</pre></div>
+
+
+<p>Τέλος μπορούμε να έχουμε ταυτόχρονα 2 λεξικά ενεργοποιημένα (πχ ελληνικό - αγγλικό)</p>
+<div class="codehilite"><pre><span class="o">:</span><span class="n">set</span> <span class="n">spell</span> <span class="n">spelllang</span><span class="o">=</span><span class="n">el</span><span class="p">,</span><span class="n">en</span>
+</pre></div>
+
+
+<p>Για το λόγο αυτό παράξαμε παραπάνω την «precompiled» μορφή ώστε το vim να αναγνωρίζει γρήγορα μια λέξη και να μπορούμε να έχουμε φορτωμένα πολλά λεξικά. Ουσιαστικά η mkspell κάνει το αρχείο binary για να γίνεται πιο γρήγορα το matching.</p>
+<h1 id="vimrc">Παράδειγμα .vimrc</h1>
+<p><em>Τα διπλά αυτάκια <strong>"</strong> δηλώνουν σχόλια.</em></p>
+<div class="codehilite"><pre><span class="s2">&quot;Με την autoread αν το αρχείο έχει αλλάξει από το άνοιγμα του αλλά δεν</span>
+<span class="s2">&quot;</span><span class="err">έχει</span> <span class="err">γίνει</span> <span class="err">κάποια</span> <span class="err">αλλαγή</span> <span class="err">από</span> <span class="err">εμάς</span><span class="p">,</span> <span class="err">τότε</span> <span class="err">διαβάζει</span> <span class="err">ξανά</span> <span class="err">αυτόματα</span> <span class="err">το</span> <span class="err">αρχείο</span><span class="nx">.</span> 
+<span class="s2">&quot;Το lazyredraw δεν σχεδιάζει ξανά την οθόνη κατά την εκτέλεση των macros.</span>
+
+<span class="s2">set autoread</span>
+<span class="s2">set lazyredraw</span>
+<span class="s2">set nomodeline</span>
+<span class="s2">set nobackup        &quot;</span><span class="err">δεν</span> <span class="err">κάνει</span> <span class="err">αυτόματα</span> <span class="nx">backups</span>
+<span class="nb">set</span> <span class="n">viminfo</span><span class="o">=</span><span class="s2">&quot;NONE&quot;</span>  <span class="s2">&quot;απενεργοποιεί το .viminfo</span>
+
+<span class="s2">&quot;</span><span class="err">Απενεργοποίηση</span> <span class="err">του</span> <span class="nx">mouse</span> 
+ <span class="k">if</span> <span class="nx">has</span><span class="p">(</span><span class="s1">&#39;mouse&#39;</span><span class="p">)</span>
+     <span class="nb">set</span> <span class="n">mouse</span><span class="o">=</span><span class="nx">a</span>
+ <span class="nx">endif</span>
+
+<span class="s2">&quot;Σκοτεινό φόντο και εμφάνιση των tabs και των τελικών spaces σε κώδικα.</span>
+<span class="s2">set background=dark</span>
+<span class="s2">set listchars=eol:$,tab:&gt;-,trail:.</span>
+<span class="s2">highlight SpecialKey ctermfg=red</span>
+<span class="s2">let c_space_errors = 1</span>
+
+<span class="s2">&quot;</span><span class="err">Διάφορες</span> <span class="nb">custom</span> <span class="err">λέξεις</span> <span class="err">και</span> <span class="nx">patterns</span> <span class="err">που</span> <span class="err">θέλω</span> <span class="err">να</span> <span class="err">είναι</span> <span class="err">τονισμένες</span><span class="nx">.</span>
+<span class="nx">syntax</span> <span class="k">match</span> <span class="nx">TadeName</span> <span class="s2">&quot;Pattern&quot;</span>
+<span class="nx">highlight</span> <span class="k">match</span> <span class="nx">TadeName</span> <span class="n">ctermfg</span><span class="o">=</span><span class="nx">tadexroma</span>
+
+<span class="s2">&quot;Όταν διαβάζω αρχεία που βρίσκονται μέσα στο /var/log δηλαδή logs να πηγαίνει</span>
+<span class="s2">&quot;</span><span class="err">αυτόματα</span> <span class="err">στο</span> <span class="err">τέλος</span> <span class="err">του</span> <span class="err">αρχείου</span><span class="nx">.</span> <span class="err">Μέσα</span> <span class="err">στον</span> <span class="p">/</span><span class="nb">var</span><span class="p">/</span><span class="k">log</span> <span class="err">όμως</span> <span class="err">το</span> <span class="nx">Slackware</span> <span class="err">έχει</span>
+<span class="s2">&quot;και άλλους καταλόγους όπως π.χ τον κατάλογο με τις πληροφορίες των πακέτων.</span>
+<span class="s2">&quot;</span><span class="err">Εκεί</span> <span class="err">δεν</span> <span class="err">θέλω</span> <span class="err">να</span> <span class="err">με</span> <span class="err">πηγαίνει</span> <span class="err">στο</span> <span class="err">τέλος</span><span class="nx">.</span> <span class="err">Παλαιότερα</span> <span class="err">είχα</span> <span class="nb">regexp</span> <span class="err">αλλά</span> <span class="err">από</span> <span class="err">μια</span>
+<span class="s2">&quot;έκδοση και μετά δεν έπαιζε οπότε μετράω τις / που υπάρχουν στο όνομα.</span>
+<span class="s2">&quot;</span><span class="err">Αν</span> <span class="err">χαλάσει</span> <span class="err">το</span> <span class="k">match</span><span class="p">,</span> <span class="err">να</span> <span class="err">το</span> <span class="err">κάνω</span> <span class="nx">stridx</span><span class="p">(</span><span class="nb">s</span><span class="p">:</span><span class="nb">name</span><span class="p">,</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+<span class="nx">autocmd</span> <span class="nx">BufReadPost</span> <span class="p">/</span><span class="nb">var</span><span class="p">/</span><span class="k">log</span><span class="o">/*</span>
+<span class="o">\</span> <span class="k">let</span> <span class="n">s</span><span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="nx">expand</span><span class="p">(</span><span class="s2">&quot;&lt;afile&gt;:p&quot;</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">\</span> <span class="k">if</span> <span class="k">match</span><span class="p">(</span><span class="nb">s</span><span class="p">:</span><span class="nb">name</span><span class="p">,</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">|</span>
+<span class="o">\</span>   <span class="nx">exe</span> <span class="s2">&quot;normal G&quot;</span> <span class="o">|</span>
+<span class="o">\</span> <span class="nx">endif</span> <span class="o">|</span>
+<span class="o">\</span> <span class="nx">unlet</span><span class="o">!</span> <span class="nb">s</span><span class="p">:</span><span class="nb">name</span>
+
+<span class="s2">&quot;Μερικές φορές θέλω να κάνω επικόλληση κάτι χωρίς όμως να χαλάσει η δομή του.</span>
+<span class="s2">&quot;</span><span class="err">Το</span> <span class="nx">vim</span> <span class="err">παρέχει</span> <span class="err">την</span> <span class="err">επιλογή</span> <span class="nx">paste</span> <span class="err">για</span> <span class="err">αυτό</span><span class="nx">.</span> <span class="err">Έτσι</span> <span class="err">με</span> <span class="err">το</span> <span class="nx">F10</span> <span class="err">αλλάζω</span> <span class="err">την</span> <span class="err">επιλογή</span><span class="nx">.</span>
+<span class="s2">&quot;Επίσης το F2 ενεργοποιεί/απενεργοποιεί την list ώστε να βλέπω σε κώδικα αν</span>
+<span class="s2">&quot;</span><span class="err">έχω</span> <span class="err">ξεχάσει</span> <span class="err">κενά</span> <span class="err">ή</span> <span class="nb">tabs</span> <span class="err">και</span> <span class="err">το</span> <span class="nx">F8</span> <span class="err">απενεργοποιεί</span> <span class="err">την</span> <span class="nx">hlsearch</span> <span class="err">όταν</span> <span class="err">έχω</span> <span class="err">βρει</span>
+<span class="s2">&quot;αυτό που θέλω και δεν θέλω να βλέπω πλέον τα highlights.</span>
+<span class="s2">&quot;</span><span class="nb">Key</span> <span class="nx">Mappings</span>
+<span class="nb">set</span> <span class="n">pastetoggle</span><span class="o">=&lt;</span><span class="nx">F10</span><span class="o">&gt;</span>
+<span class="nx">nmap</span> <span class="o">&lt;</span><span class="nx">silent</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nx">F2</span><span class="o">&gt;</span> <span class="p">:</span><span class="nb">set</span> <span class="nb">list</span><span class="o">!&lt;</span><span class="nx">cr</span><span class="o">&gt;</span>
+<span class="nx">imap</span> <span class="o">&lt;</span><span class="nx">silent</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nx">F2</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nx">esc</span><span class="o">&gt;</span><span class="p">:</span><span class="nb">set</span> <span class="nb">list</span><span class="o">!&lt;</span><span class="nx">cr</span><span class="o">&gt;</span><span class="nx">a</span>
+<span class="nx">nmap</span> <span class="o">&lt;</span><span class="nx">silent</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nx">F8</span><span class="o">&gt;</span> <span class="p">:</span><span class="nb">set</span> <span class="nx">hls</span><span class="o">!&lt;</span><span class="nx">cr</span><span class="o">&gt;</span>
+
+<span class="s2">&quot;Τα leader και localleader είναι κάποια εικονικά πλήκτρα για την εύκολη χρήση</span>
+<span class="s2">&quot;</span><span class="err">συνδυασμών</span><span class="nx">.</span> <span class="err">Κανονικά</span> <span class="err">είναι</span> <span class="err">ρυθμισμένα</span> <span class="err">να</span> <span class="err">χρησιμοποιούν</span> <span class="err">το</span> <span class="nx">backslash</span> <span class="err">αλλά</span>
+<span class="s2">&quot;μπορούμε να αλλάξουμε την τιμή τους. Οι καρτέλες δεν έχουν και πολύ νόημα</span>
+<span class="s2">&quot;</span><span class="err">σε</span> <span class="nx">X</span> <span class="err">τερματικά</span> <span class="err">μια</span> <span class="err">και</span> <span class="err">υποστηρίζουν</span> <span class="err">και</span> <span class="err">αυτά</span> <span class="err">καρτέλες</span> <span class="err">αλλά</span> <span class="err">είναι</span> <span class="err">χρήσιμες</span> <span class="err">στην</span>
+<span class="s2">&quot;κονσόλα.</span>
+
+<span class="s2">&quot;</span><span class="err">Αλλαγή</span> <span class="err">των</span> <span class="err">πλήκτρων</span> <span class="nx">leader</span> <span class="err">από</span> <span class="err">το</span> <span class="nb">default</span> <span class="o">\</span>
+<span class="s2">&quot;let mapleader = &#39;,&#39;</span>
+<span class="s2">&quot;</span><span class="k">let</span> <span class="n">maplocalleader</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span>
+
+<span class="s2">&quot;Αποθήκευση αρχείου</span>
+<span class="s2">nmap &lt;leader&gt;w :w&lt;cr&gt;</span>
+
+<span class="s2">&quot;</span><span class="err">Μεταφορά</span> <span class="err">στο</span> <span class="err">προηγούμενο</span><span class="o">/</span><span class="err">επόμενο</span> <span class="nx">buffer</span>
+<span class="nx">nmap</span> <span class="o">&lt;</span><span class="nx">leader</span><span class="o">&gt;</span><span class="nb">n</span> <span class="p">:</span><span class="nx">bn</span><span class="o">&lt;</span><span class="nx">cr</span><span class="o">&gt;</span>
+<span class="nx">nmap</span> <span class="o">&lt;</span><span class="nx">leader</span><span class="o">&gt;</span><span class="nx">p</span> <span class="p">:</span><span class="nx">bp</span><span class="o">&lt;</span><span class="nx">cr</span><span class="o">&gt;</span>
+
+<span class="s2">&quot;Άνοιγμα νέας καρτέλας</span>
+<span class="s2">nmap &lt;leader&gt;to :tabnew&lt;cr&gt;</span>
+<span class="s2">&quot;</span><span class="err">Κλείσιμο</span> <span class="err">τρέχουσας</span> <span class="err">καρτέλας</span>
+<span class="nx">nmap</span> <span class="o">&lt;</span><span class="nx">leader</span><span class="o">&gt;</span><span class="nx">tc</span> <span class="p">:</span><span class="nx">tabclose</span><span class="o">&lt;</span><span class="nx">cr</span><span class="o">&gt;</span>
+<span class="s2">&quot;Μεταφορά στην προηγούμενη/επόμενη καρτέλα</span>
+<span class="s2">nmap &lt;leader&gt;tn :tabnext&lt;cr&gt;</span>
+<span class="s2">nmap &lt;leader&gt;tp :tabprev&lt;cr&gt;</span>
+
+<span class="s2">&quot;</span><span class="err">Κατάργηση</span> <span class="err">των</span> <span class="err">βελακίων</span> <span class="err">ώστε</span> <span class="err">να</span> <span class="err">γίνουν</span> <span class="err">συνήθεια</span> <span class="err">τα</span> <span class="nx">hjkl.</span> 
+<span class="s2">&quot;Τα απενεργοποιούμε μόνο στην normal κατάσταση</span>
+<span class="s2">&quot;</span><span class="err">γιατί</span> <span class="err">στην</span> <span class="nb">insert</span> <span class="err">και</span> <span class="err">στην</span> <span class="nb">command</span> <span class="err">δεν</span> <span class="err">υπάρχουν</span> <span class="err">εναλλακτικές</span> <span class="p">(</span><span class="err">εκτός</span> <span class="err">από</span> <span class="nx">macros</span><span class="p">)</span><span class="nx">.</span>
+
+<span class="k">if</span> <span class="o">&amp;</span><span class="nb">encoding</span> <span class="o">==</span> <span class="s2">&quot;utf-8&quot;</span>
+  <span class="nx">nnoremap</span> <span class="o">&lt;</span><span class="nb">Left</span><span class="o">&gt;</span>     <span class="p">:</span><span class="nx">echoerr</span> <span class="s2">&quot;Το h αγκάθια έχει?&quot;</span><span class="o">&lt;</span><span class="nx">cr</span><span class="o">&gt;</span>
+  <span class="nx">nnoremap</span> <span class="o">&lt;</span><span class="nb">Down</span><span class="o">&gt;</span>     <span class="p">:</span><span class="nx">echoerr</span> <span class="s2">&quot;Το j αγκάθια έχει?&quot;</span><span class="o">&lt;</span><span class="nx">cr</span><span class="o">&gt;</span>
+  <span class="nx">nnoremap</span> <span class="o">&lt;</span><span class="nb">Up</span><span class="o">&gt;</span>       <span class="p">:</span><span class="nx">echoerr</span> <span class="s2">&quot;Το k αγκάθια έχει?&quot;</span><span class="o">&lt;</span><span class="nx">cr</span><span class="o">&gt;</span>
+  <span class="nx">nnoremap</span> <span class="o">&lt;</span><span class="nb">Right</span><span class="o">&gt;</span>    <span class="p">:</span><span class="nx">echoerr</span> <span class="s2">&quot;Το l αγκάθια έχει?&quot;</span><span class="o">&lt;</span><span class="nx">cr</span><span class="o">&gt;</span>
+  <span class="nx">nnoremap</span> <span class="o">&lt;</span><span class="nx">PageUp</span><span class="o">&gt;</span>   <span class="p">:</span><span class="nx">echoerr</span> <span class="s2">&quot;Το Ctrl-B αγκάθια έχει?&quot;</span><span class="o">&lt;</span><span class="nx">cr</span><span class="o">&gt;</span>
+  <span class="nx">nnoremap</span> <span class="o">&lt;</span><span class="nx">PageDown</span><span class="o">&gt;</span> <span class="p">:</span><span class="nx">echoerr</span> <span class="s2">&quot;Το Ctrl-F αγκάθια έχει?&quot;</span><span class="o">&lt;</span><span class="nx">cr</span><span class="o">&gt;</span>
+<span class="nx">endif</span>
+
+<span class="s2">&quot;Για συγγραφή latex</span>
+<span class="s2">&quot;</span><span class="nx">assign</span> <span class="nx">keyboard</span> <span class="nx">commands</span> <span class="k">while</span> <span class="nx">using</span> <span class="nx">the</span> <span class="nx">greek</span> <span class="nx">keyboard</span><span class="p">:</span>
+<span class="kt">map</span> <span class="err">Α</span> <span class="nx">A</span>
+<span class="kt">map</span> <span class="err">Β</span> <span class="nx">B</span>
+<span class="kt">map</span> <span class="err">Ψ</span> <span class="nx">C</span>
+<span class="kt">map</span> <span class="err">Δ</span> <span class="nb">D</span>
+<span class="kt">map</span> <span class="err">Ε</span> <span class="nx">E</span>
+<span class="kt">map</span> <span class="err">Φ</span> <span class="nb">F</span>
+<span class="kt">map</span> <span class="err">Γ</span> <span class="nx">G</span>
+<span class="kt">map</span> <span class="err">Η</span> <span class="nx">H</span>
+<span class="kt">map</span> <span class="err">Ι</span> <span class="nx">I</span>
+<span class="kt">map</span> <span class="err">Ξ</span> <span class="nx">J</span>
+<span class="kt">map</span> <span class="err">Κ</span> <span class="nx">K</span>
+<span class="kt">map</span> <span class="err">Λ</span> <span class="nx">L</span>
+<span class="kt">map</span> <span class="err">Μ</span> <span class="nx">M</span>
+<span class="kt">map</span> <span class="err">Ν</span> <span class="nb">N</span>
+<span class="kt">map</span> <span class="err">Ο</span> <span class="nx">O</span>
+<span class="kt">map</span> <span class="err">Π</span> <span class="nx">P</span>
+<span class="kt">map</span> <span class="nx">Q</span> <span class="nx">Q</span>
+<span class="kt">map</span> <span class="err">Ρ</span> <span class="nb">R</span>
+<span class="kt">map</span> <span class="err">Σ</span> <span class="nb">S</span>
+<span class="kt">map</span> <span class="err">Τ</span> <span class="nb">T</span>
+<span class="kt">map</span> <span class="err">Θ</span> <span class="nx">U</span>
+<span class="kt">map</span> <span class="err">Ω</span> <span class="nx">V</span>
+<span class="kt">map</span> <span class="nx">W</span> <span class="nx">W</span>
+<span class="kt">map</span> <span class="err">Χ</span> <span class="nx">X</span>
+<span class="kt">map</span> <span class="err">Υ</span> <span class="nx">Y</span>
+<span class="kt">map</span> <span class="err">Ζ</span> <span class="nb">Z</span>
+<span class="kt">map</span> <span class="err">α</span> <span class="nx">a</span>
+<span class="kt">map</span> <span class="err">β</span> <span class="nx">b</span>
+<span class="kt">map</span> <span class="err">ψ</span> <span class="nx">c</span>
+<span class="kt">map</span> <span class="err">δ</span> <span class="nb">d</span>
+<span class="kt">map</span> <span class="err">ε</span> <span class="nx">e</span>
+<span class="kt">map</span> <span class="err">φ</span> <span class="nb">f</span>
+<span class="kt">map</span> <span class="err">γ</span> <span class="nx">g</span>
+<span class="kt">map</span> <span class="err">η</span> <span class="nx">h</span>
+<span class="kt">map</span> <span class="err">ι</span> <span class="nx">i</span>
+<span class="kt">map</span> <span class="err">ξ</span> <span class="nx">j</span>
+<span class="kt">map</span> <span class="err">κ</span> <span class="nx">k</span>
+<span class="kt">map</span> <span class="err">λ</span> <span class="nx">l</span>
+<span class="kt">map</span> <span class="err">μ</span> <span class="nx">m</span>
+<span class="kt">map</span> <span class="err">ν</span> <span class="nb">n</span>
+<span class="kt">map</span> <span class="err">ο</span> <span class="nx">o</span>
+<span class="kt">map</span> <span class="err">π</span> <span class="nx">p</span>
+<span class="kt">map</span> <span class="nx">q</span> <span class="nx">q</span>
+<span class="kt">map</span> <span class="err">ρ</span> <span class="nb">r</span>
+<span class="kt">map</span> <span class="err">σ</span> <span class="nb">s</span>
+<span class="kt">map</span> <span class="err">τ</span> <span class="nb">t</span>
+<span class="kt">map</span> <span class="err">θ</span> <span class="nx">u</span>
+<span class="kt">map</span> <span class="err">ω</span> <span class="nx">v</span>
+<span class="kt">map</span> <span class="err">ς</span> <span class="nx">w</span>
+<span class="kt">map</span> <span class="err">χ</span> <span class="nx">x</span>
+<span class="kt">map</span> <span class="err">υ</span> <span class="nx">y</span>
+<span class="kt">map</span> <span class="err">ζ</span> <span class="nb">z</span>
+</pre></div>
+
+
+<h1 id="credits">Credits</h1>
+<p>Τα credits στους imitheos, arkara, tsigarid. 
+Όποιος κατάφερε και διάβασε μέχρι εδώ είναι ήρωας... </p>
+    </div>
+
+        <footer>
+        <ul class="tags">
+        Tags:
+                    <li><a href="../../../../tag/vim.html">vim</a></li>
+                </ul>
+    </footer>
+    
+        <div class="share">
+        <a href="https://twitter.com/share" class="twitter-share-button"
+           data-count="horizontal" data-text="Ένας σύντομος οδηγός για τον vim"
+           data-via="_axil">Tweet</a>
+    </div>
+    <script src="//platform.twitter.com/widgets.js"></script>
+    
+        <div id="disqus_thread"></div>
+    <script>
+        var disqus_identifier = "http://axilleas.github.com/el/blog/2013/vimtips",
+            disqus_developer = "1";
+
+        (function () {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.src = 'http://kissmyarch.disqus.com/embed.js';
+            (document.head || document.body).appendChild(dsq);
+        })();
+    </script>
+    </article>
+    </div>
+
+    <div class="container footnote">
+                        <a href="javascript:window.print();" title="Print">Print</a>
+                    </div>
+
+    <div class="bottom">
+        <div class="container">
+            <div class="about">
+                <h3>About me</h3>
+                <p>
+I'm an open source enthousiast. I love spaghetti and westerns.
+</p>
+                                <div class="github-badge">
+                    <iframe src="http://githubbadge.appspot.com/badge/axilleas?s=1"
+                            style="border: 0; height: 150px; width: 200px; overflow: hidden;"></iframe>
+                </div>
+                                <p>
+                   You want to contact me? See <a href="../../../../about/">here</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer">
+            <span>Powered by <a href="http://docs.getpelican.com">
+                Pelican</a> using <a href="https://github.com/BYK/pelican-neat">
+                neat theme</a>. 
+            </span>
+            <nav>
+                <ul>
+                                        <li><a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a></li>
+                                    <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img
+                    alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+         <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://animal.foss.ntua.gr/~axil/stats/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "5"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+</body>
+</html>
