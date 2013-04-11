@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title>Bringing GitLab in Fedora</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="-1" />
+        <link href="http://fonts.googleapis.com/css?family=ABeeZee|Carrois+Gothic|Source+Code+Pro:400,700" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Duru+Sans&amp;subset=latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../../../../theme/style/reset.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../theme/style/screen.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../theme/style/friendly.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../theme/style/print.css" type="text/css" media="print" />
+                                <link href="http://axilleas.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+        </head>
+<body>
+    <header id="main">
+        <div class="container">
+            <div class="logo">
+                <p><a href="/" title="Home">Over the line</a> <span class="welcome">that rug really tied the room together...</span></p>
+            </div>
+        </div>
+    </header>
+
+    <div class="splash">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a></li>
+                                                <li><a href="/about/">whoami</a></li>
+                                            <li><a href="../../../../archives.html" title="Archive">Archive</a></li>
+                <li><a href="../../../../feeds/all.rss.xml">RSS</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container content">
+        <article>
+    <header>
+        <h1><a href="/en/blog/2013/bringing-gitlab-in-fedora/" rel="bookmark">
+    Bringing GitLab in Fedora
+</a></h1>
+<time datetime="2013-04-07 00:00:00" pubdate>Posted on
+    Sun 07 April 2013
+</time>
+<address class="vcard author">
+    by <a class="url fn" href="../../../../author/axil.html">
+    axil</a>
+</address>
+    </header>
+
+    <div class="body">
+        <p>So, I decided to write some info regarding my involvement for this year's
+<a href="http://www.google-melange.com/gsoc/homepage/google/gsoc2013" title="Google Summer of Code 2013">Google Summer of Code</a>. I have been using/testing GitLab since
+version 2.0 (almost a year now) and I am thrilled to see how much it has
+growed since. This year I got a little more involved into this and
+I made <a href="https://github.com/gitlabhq/gitlabhq/commits/master/doc/install/installation.md?author=axilleas">two</a> <a href="https://github.com/gitlabhq/gitlabhq/commits/master/lib/tasks/gitlab/check.rake?author=axilleas">commits</a> upstream. Nothing fancy, but I hope to
+contribute more as time passes by.</p>
+<p>In the rest of this article I will try to explain what GitLab is,
+how Fedora is involved into all this and what are the benefits of this involvement.
+This is the first of many follow-up posts I intend to write, so keep tight!</p>
+<div class="toc">
+<ul>
+<li><a href="#what-is-gitlab">What is GitLab?</a></li>
+<li><a href="#fedoras-involvement-so-far">Fedora's involvement so far</a></li>
+<li><a href="#what-are-the-benefits">What are the benefits</a><ul>
+<li><a href="#get-more-ruby-packages-in-the-repos">Get more ruby packages in the repos</a></li>
+<li><a href="#a-new-service-for-fedorahostedorg">A new service for fedorahosted.org</a></li>
+</ul>
+</li>
+<li><a href="#next-steps-and-things-to-overcome">Next steps and things to overcome</a></li>
+</ul>
+</div>
+<h1 id="what-is-gitlab">What is GitLab?</h1>
+<p><a href="http://blog.gitlab.com" title="GitLab home page">GitLab</a> is an <a href="https://github.com/gitlabhq/gitlabhq" title="GitLab on Github :p">open source</a> MIT licenced <a href="http://git-scm.com" title="git home page">git</a> repository
+management application. It is built on <a href="http://rubyonrails.org/" title="Ruby on Rails">Ruby on Rails</a> and is
+one of the most popular projects featured on <a href="https://github.com/popular/starred" title="GitLab featured in Github's most popular repos">Github</a>.
+It is used by many companies as their internal git management repository.
+The reason it gained so much popularity is that it bares a strong resemblance
+to github's <a href="http://gitlab.org/screenshots/" title="GitLab screenshots">looks</a> and <a href="http://blog.gitlab.com/features/" title="GitLab features">feels</a>.
+It is a project with great potential, under heavy development with a release
+cycle every month. That makes it possible to apply bug fixes quite regularly
+and test new features. And since a picture is worth a thousand words, here is
+a <a href="http://demo.gitlab.com/users/sign_in" title="GitLab demo site">demo site</a> where you can test all the latest features.</p>
+<h1 id="fedoras-involvement-so-far">Fedora's involvement so far</h1>
+<p>The thought of GitLab being packaged and deployed for <a href="http://fedorahosted.org">Fedora Hosted</a> isn't new.
+It all started last March when <a href="https://fedoraproject.org/wiki/User:Mojavelinux">Dan Allen</a> <a href="https://lists.fedoraproject.org/pipermail/infrastructure/2012-March/011463.html">proposed</a> GitLab 
+to be used for Fedora Hosted. If you follow the conversation it summarizes to some key points:</p>
+<ul>
+<li>Projects pages should be ideally hosted as <code>$projectname.fedorahosted.org</code>.</li>
+<li>GitLab and its dependencies should be packaged for Fedora and EPEL 6.</li>
+<li>Puppetize the whole thing up. <a href="https://forge.puppetlabs.com/sbadia/gitlab">There</a> are <a href="https://forge.puppetlabs.com/lboynton/gitlab">some</a> configs, but they'll sure need some adjustment.</li>
+<li>We need to form a team of maintainers for longterm support even after GSoC is over.</li>
+</ul>
+<p>There was even a <a href="https://groups.google.com/forum/?fromgroups=#!topic/gitlabhq/SQMDi-yyXmU">post</a> in GitLab's list, also by Dan Allen,
+bringing the project to the attention of the GitLab community.
+The most interesting thing was that the <a href="https://github.com/randx">lead developer</a> of GitLab 
+was more than willing to help. In the end, there was an <a href="https://fedoraproject.org/wiki/GSOC_2012/Student_Application_babakb/GitlabSetup" title="Student application for GitLab at GSoC 2012">application</a> but 
+unfortunately that was the last anyone heard about the project.</p>
+<p>So, here we are a year after with me applying for the project. To be exact
+there is <a href="https://lists.fedoraproject.org/pipermail/summer-coding/2013-March/000286.html">another</a> sudent interested in this as well, so that makes it two of us.
+I have already expressed my interest in <a href="https://lists.fedoraproject.org/pipermail/ruby-sig/2013-March/001270.html">RubySIG</a> and in the <a href="https://lists.fedoraproject.org/pipermail/infrastructure/2013-March/012631.html">infrastructure</a> mailing list.
+I was glad to see that there was a positive response from Dan Allen,
+as well as some valuable advice from user <a href="https://fedoraproject.org/wiki/User:Ktdreyer">Ken Dreyer</a> who currently 
+tries to deal with <a href="https://fedoraproject.org/wiki/User:Ktdreyer/Gitorious">Gitorious</a>.</p>
+<h1 id="what-are-the-benefits">What are the benefits</h1>
+<p>There are two major benefits for Fedora.</p>
+<h2 id="get-more-ruby-packages-in-the-repos">Get more ruby packages in the repos</h2>
+<p>Prior to addressing my interest in the mailing lists, I approached <a href="https://fedoraproject.org/wiki/User:Vondruch">Vít Ondruch</a> to get some feedback about this task.
+He was very helpful and pointed me to what should be done as a first step.
+That is</p>
+<ol>
+<li>identify which gems are missing in Fedora and package them,</li>
+<li>compile a list of gems GitLab is using, including all their dependencies (and possibly bundled dependencies).</li>
+</ol>
+<p>For the first task, I used a hackish bash script which first accumulates 
+all rubygems in a file and then removes the duplicate packages and the ones
+that are documentation.</p>
+<div class="codehilite"><pre><span class="c">#!/bin/bash</span>
+
+<span class="nv">file_raw</span><span class="o">=</span><span class="s1">&#39;/home/axil/tools/fedora-gitlab/rubygems_fedora_raw&#39;</span>
+<span class="nv">file_new</span><span class="o">=</span><span class="s1">&#39;/home/axil/tools/fedora-gitlab/rubygems_fedora&#39;</span>
+
+yum search all rubygem | awk <span class="s1">&#39;{print $1}&#39;</span> &gt; <span class="nv">$file_raw</span>
+
+sed -e <span class="s1">&#39;s/rubygem-//g&#39;</span> -e <span class="s1">&#39;s/.noarch//g&#39;</span> -e <span class="s1">&#39;s/.x86_64//g&#39;</span> <span class="se">\</span>
+-e <span class="s1">&#39;/i686/d&#39;</span> -e <span class="s1">&#39;/==/d&#39;</span> -e <span class="s1">&#39;/:/d&#39;</span> -e <span class="s1">&#39;/-doc/d&#39;</span> &lt; <span class="nv">$file_raw</span> &gt; <span class="nv">$file_new</span>
+</pre></div>
+
+
+<p>In order to find what gems GitLab depends on, I used the <a href="https://github.com/gitlabhq/gitlabhq/blob/master/Gemfile.lock">Gemfile.lock</a> 
+and wrote a simple python <a href="https://github.com/axilleas/fedora-gitlab/blob/master/gemfile.py">script</a><sup id="fnref:python-script"><a class="footnote-ref" href="#fn:python-script" rel="footnote">1</a></sup> that computes how many and which gems 
+Fedora and GitLab have in common. Below are some draft<sup id="fnref:draft_numbers"><a class="footnote-ref" href="#fn:draft_numbers" rel="footnote">2</a></sup> numbers and a bar chart.</p>
+<div id="rubygems_chart"></div>
+
+<blockquote>
+<p>Gitlab uses: <strong>203</strong> gems.</p>
+<p>Fedora has packaged: <strong>385</strong> gems.</p>
+<p>There are <strong>97</strong> common gems.</p>
+<p>There should be packaged: <strong>106</strong> gems.</p>
+<p>Fedora will have <strong>27.53 %</strong> more ruby packages, that is <strong>482</strong> gems in total.</p>
+</blockquote>
+<p>Not bad, <strong>106</strong> more ruby packages! That is a plus now that Fedora is considered 
+one of <a href="https://bugs.ruby-lang.org/projects/ruby-trunk/wiki/20SupportedPlatforms">Ruby's supported platforms</a>. </p>
+<p><strong>Update:</strong> I just found out about the <a href="http://isitfedoraruby.com/stats/gemfile_tool">gemfile tool</a> that isitfedoraruby.com<sup id="fnref:isitfedruby"><a class="footnote-ref" href="#fn:isitfedruby" rel="footnote">3</a></sup>
+is using. This will come in handy. </p>
+<h2 id="a-new-service-for-fedorahostedorg">A new service for fedorahosted.org</h2>
+<p>After the packaging is done, the next big thing is the deployment process on 
+<a href="http://fedorahosted.org">Fedora Hosted</a> as a new service. Quoting Dan Allen's <a href="https://lists.fedoraproject.org/pipermail/infrastructure/2013-March/012680.html">thought</a>: </p>
+<blockquote>
+<p>One of the key reasons I've been pushing for GitLab is because I see the
+potential it has for drastically improving the discoverability of the
+Fedora code base and encourage participation. I've been involved with a lot
+of projects on GitHub and I'm amazed by how simple it is to submit changes
+(to both code and documentation). In fact, it's often easier to send a
+patch with a description of the change than to create an issue...flipping
+the normal bug submitting process on its head.</p>
+<p>GitHub also works because it enables collaboration over coordination. You
+don't have to ask for permission on GitHub. You just do it. Then you can
+easily track when they get pulled in or changes are requested. (the same is
+true of GitLab).</p>
+<p>With GitLab, we can bring that experience to the Fedora community. It's a
+large enough community (esp in terms of repositories), that I'm positive
+we'd see that collaboration kindle within the Fedora instance.</p>
+</blockquote>
+<p>So yeah, this is a big deal from this point of view :)</p>
+<h1 id="next-steps-and-things-to-overcome">Next steps and things to overcome</h1>
+<p>There is certainly a lot more to do. For starters, as a Fedora newbie, 
+I have to run through the <a href="https://fedoraproject.org/wiki/Packaging:Ruby">Ruby guidelines</a> and learn 
+about the philosophy of rpm. Luckily, I am not a linux newbie (I've been 
+using Archlinux for 5 years) and I am adopting rapidly.
+Then, I need to learn some Ruby. I have already printed <em><a href="http://mislav.uniqpath.com/poignant-guide">why's (poignant) Guide to Ruby</a></em>
+which is considered a must read, and believe me it is! (download the pdf from <a href="https://github.com/downloads/mislav/poignant-guide/whys-poignant-guide-to-ruby.pdf">here</a>). 
+<a href="http://ruby.learncodethehardway.org/book/">Learn Ruby the hard way</a> is also a good starting point. Ι think I'm on the right track.</p>
+<p>Now, as far as the packaging process is concerned, here is what more needs to be done:</p>
+<ul>
+<li>MariaDB support. Since MariaDB will be the <a href="https://lists.fedoraproject.org/pipermail/devel/2013-January/176584.html" title="Proposed F19 Feature: Replace MySQL with MariaDB">default</a> <a href="https://fedoraproject.org/wiki/Features/ReplaceMySQLwithMariaDB" title="Features/ReplaceMySQLwithMariaDB">implementation</a> of MySQL in Fedora 19, GitLab will need to support it.</li>
+<li>Write systemd service files. I had made an <a href="https://github.com/axilleas/gitlab-recipes/tree/master/systemd">attempt</a> two months ago when I was trying to set up GitLab on Archlinux, but it is far from perfect.</li>
+<li>Packages to be EPEL compatible. A great advantage if GitLab gets packaged for Fedora, is that it would make it as easy as pie to install on a server running Red Hat, Centos, or some other rpm based distro.</li>
+<li>Ruby 2.0 compatibility. I don't think that'll be much of a stopper since GitLab is in the <a href="https://github.com/gitlabhq/gitlabhq/commit/52cd655f71c6a5393b71640c13cd95e35e8d2624">process</a> of supporting it, but I put it here just in case.</li>
+</ul>
+<p>That's all for now. If you read through here you should have a good understanding
+of this project's goal. More posts to come!</p>
+<!--Load the AJAX API-->
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<script type="text/javascript">
+
+  // Load the Visualization API and the piechart package.
+  google.load('visualization', '1.0', {'packages':['corechart']});
+
+  // Set a callback to run when the Google Visualization API is loaded.
+  google.setOnLoadCallback(drawChart);
+
+  // Callback that creates and populates a data table,  
+  // instantiates the pie chart, passes in the data and
+  // draws it.
+  function drawChart() {
+
+  // Create the data table.
+  var data = new google.visualization.DataTable();
+  data.addColumn('string', '');
+  data.addColumn('number', 'rubygems');
+  data.addRows([
+    ['GitLab', 203],
+    ['Fedora', 385],
+    ['Common', 97],
+    ['To be packaged', 106],
+    ['Total after packaging', 482]
+    ]);
+
+  // Set chart options
+  var options = {'title':'Numbers calculated on 08-04-2013', 'width':600, 'height':500};
+
+  // Instantiate and draw our chart, passing in some options.
+  var chart = new google.visualization.BarChart(document.getElementById('rubygems_chart'));
+  chart.draw(data, options);
+  }
+</script>
+
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:python-script">
+<p>I should write it in ruby, I know :p&#160;<a class="footnote-backref" href="#fnref:python-script" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:draft_numbers">
+<p>I say draft, mainly because that is a raw calculation of GitLab's dependencies. One has to take into account the different/old versions that may exist between Fedora and GtiLab. There are also some packages GitLab pulls from git and not rubygems.org. &#160;<a class="footnote-backref" href="#fnref:draft_numbers" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:isitfedruby">
+<p><a href="http://isitfedoraruby.com">isitfedoraruby.com</a> is a cool web app that was the result of <a href="https://fedoraproject.org/wiki/GSOC_2012/Student_Application_Zuhao/IsItFedoraRuby">last year's GSoC</a>.&#160;<a class="footnote-backref" href="#fnref:isitfedruby" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+    </div>
+
+        <footer>
+        <ul class="tags">
+        Tags:
+                    <li><a href="../../../../tag/fedora.html">fedora</a></li>
+                    <li><a href="../../../../tag/gitlab.html">gitlab</a></li>
+                    <li><a href="../../../../tag/gscoc.html">gscoc</a></li>
+                    <li><a href="../../../../tag/ruby.html">ruby</a></li>
+                    <li><a href="../../../../tag/rails.html">rails</a></li>
+                </ul>
+    </footer>
+    
+        <div class="share">
+        <a href="https://twitter.com/share" class="twitter-share-button"
+           data-count="horizontal" data-text="Bringing GitLab in Fedora"
+           data-via="_axil">Tweet</a>
+    </div>
+    <script src="//platform.twitter.com/widgets.js"></script>
+    
+        <div id="disqus_thread"></div>
+    <script>
+        var disqus_identifier = "http://axilleas.github.com/en/blog/2013/bringing-gitlab-in-fedora/",
+            disqus_developer = "1";
+
+        (function () {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.src = 'http://kissmyarch.disqus.com/embed.js';
+            (document.head || document.body).appendChild(dsq);
+        })();
+    </script>
+    </article>
+    </div>
+
+    <div class="container footnote">
+                        <a href="javascript:window.print();" title="Print">Print</a>
+                    </div>
+
+    <div class="bottom">
+        <div class="container">
+            <div class="about">
+                <h3>About me</h3>
+                <p>
+I'm an open source enthousiast. I love spaghetti and westerns.
+</p>
+                                <div class="github-badge">
+                    <iframe src="http://githubbadge.appspot.com/badge/axilleas?s=1"
+                            style="border: 0; height: 150px; width: 200px; overflow: hidden;"></iframe>
+                </div>
+                                <p>
+                   You want to contact me? See <a href="../../../../about/">here</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer">
+            <span>Powered by <a href="http://docs.getpelican.com">
+                Pelican</a> using <a href="https://github.com/BYK/pelican-neat">
+                neat theme</a>. 
+            </span>
+            <nav>
+                <ul>
+                                        <li><a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a></li>
+                                    <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img
+                    alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+</body>
+</html>
