@@ -37,11 +37,16 @@ PATH = 'src'
 STATIC_PATHS = ['images', 'files']
 
 ARTICLE_EXCLUDES = ('pages','drafts',)
-ARTICLE_URL = "{lang}/blog/{date:%Y}/{slug}/"
+ARTICLE_URL = "{lang}/blog/{date:%Y}/{slug}"
 ARTICLE_SAVE_AS = "{lang}/blog/{date:%Y}/{slug}/index.html"
+ARTICLE_LANG_URL = "{lang}/blog/{date:%Y}/{slug}"
+ARTICLE_LANG_SAVE_AS = "{lang}/blog/{date:%Y}/{slug}/index.html"
 
 DISPLAY_PAGES_ON_MENU = True
-PAGE_URL = "{slug}/"
+PAGE_URL = "{slug}"
 PAGE_SAVE_AS = "{slug}/index.html"
-PAGE_LANG_URL = "{lang}/{slug}/"
+PAGE_LANG_URL = "{lang}/{slug}"
 PAGE_LANG_SAVE_AS = "{lang}/{slug}/index.html"
+
+PIWIK_URL = 'animal.foss.ntua.gr/~axil/stats'
+PIWIK_SITE_ID = 5
