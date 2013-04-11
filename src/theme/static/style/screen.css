@@ -10,7 +10,6 @@ a {
 
 a:hover {
     color:#4a82d9;
-    border-bottom:1px solid #4a82d9;
 }
 
 sup {
@@ -44,6 +43,7 @@ sup {
 .readmore:hover { 
     background:#dee8f8;
     text-decoration: none;
+    border-bottom:0.5px solid #4a82d9;
 }
 
 ol,ul{
