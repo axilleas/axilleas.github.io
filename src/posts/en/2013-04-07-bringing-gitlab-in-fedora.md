@@ -1,6 +1,6 @@
 Title: Bringing GitLab in Fedora
 Tags: fedora, gitlab, gscoc, ruby, rails
-Categories: linux
+Category: linux
 Lang: en
 
 So, I decided to write some info regarding my involvement for this year's
@@ -22,7 +22,7 @@ This is the first of many follow-up posts I intend to write, so keep tight!
 
 [GitLab][gl-site] is an [open source][gl-github] MIT licenced [git] repository
 management application. It is built on [Ruby on Rails][rails] and is
-one of the most popular projects featured on [Github][github-popular].
+one of the most [popular][github-popular] projects featured on Github.
 It is used by many companies as their internal git management repository.
 The reason it gained so much popularity is that it bares a strong resemblance
 to github's [looks][gl-screenshots] and [feels][gl-features].
@@ -36,7 +36,8 @@ a [demo site][gl-demosite] where you can test all the latest features.
 
 The thought of GitLab being packaged and deployed for [Fedora Hosted] isn't new.
 It all started last March when [Dan Allen][] [proposed][gl-proposal2012] GitLab 
-to be used for Fedora Hosted. If you follow the conversation it summarizes to some key points:
+to be used as a service for Fedora Hosted. If you follow the conversation 
+it summarizes to some key points:
 
   - Projects pages should be ideally hosted as `$projectname.fedorahosted.org`.
   - GitLab and its dependencies should be packaged for Fedora and EPEL 6.
