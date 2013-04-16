@@ -25,6 +25,9 @@ DEFAULT_LANG = 'en'
 DEFAULT_PAGINATION = 3
 SITE_SOURCE = 'https://github.com/axilleas/axilleas.github.io/tree/source'
 
+AUTHOR_EMAIL = u'axilleas@archlinux.gr'
+AUTHOR_EMAIL_HASH = md5(AUTHOR_EMAIL).hexdigest()
+
 FEED_DOMAIN = SITEURL
 FEED_RSS = 'feeds/all.rss.xml'
 CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
