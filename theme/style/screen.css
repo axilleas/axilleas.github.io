@@ -10,7 +10,6 @@ a {
 
 a:hover {
     color:#4a82d9;
-    border-bottom:1px solid #4a82d9;
 }
 
 sup {
@@ -41,9 +40,14 @@ sup {
     float: right;
 }
 
+
 .readmore:hover { 
-    background:#dee8f8;
+
     text-decoration: none;
+    background: none repeat scroll 0% 0% rgb(1, 129, 235);
+    text-shadow: none;
+    color: rgb(248, 248, 248);
+    border-bottom:0.5px solid #4a82d9;
 }
 
 ol,ul{
@@ -56,8 +60,11 @@ ul {
 
 h1 {
     color: #003153;
-    font-size: 25px;
-    margin: 10px 0;
+    font-size: 2.125em;
+    line-height: 1.52941;
+    margin: 1.52941em 0px 0.764706em;
+}
+
 }
 
 dd {
@@ -193,7 +200,6 @@ table tbody tr:hover{
 
 .toc ul{
     margin-left:0;
-    list-style-type:none;
     font-size:0.875em;
     line-height:1.8571428571428572;
 }
@@ -315,20 +321,25 @@ article .body {
 
 article .body h2 {
     color: #003153;
-    font-size: 21px;
-    margin: 20px 0;
+    font-size: 1.625em;
+    line-height: 1;
+    margin: 2em 0px 1em;
 }
 
 article .body h3 {
     border-bottom: 1px #ddd solid;
     color: #2a5e82;
     font-size: 18px;
-    margin: 20px 0;
+    margin: 2em 0px 1em;
 }
 
 article .body p {
     color: #333;
-    margin-top: 20px;
+
+    margin: 1.625em 0px 0px;
+    word-spacing: 0.25em;
+}
+
 }
 
 article .body p a {
