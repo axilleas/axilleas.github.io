@@ -10,7 +10,6 @@ a {
 
 a:hover {
     color:#4a82d9;
-    border-bottom:1px solid #4a82d9;
 }
 
 sup {
@@ -48,6 +47,7 @@ sup {
     background: none repeat scroll 0% 0% rgb(1, 129, 235);
     text-shadow: none;
     color: rgb(248, 248, 248);
+    border-bottom:0.5px solid #4a82d9;
 }
 
 ol,ul{
