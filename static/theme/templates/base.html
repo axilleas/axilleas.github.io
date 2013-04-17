@@ -65,6 +65,8 @@
         <div class="container">
             <div class="about">
                 <h3>About me</h3>
+                 <img alt="Me!" class="avatar"
+                     src="http://www.gravatar.com/avatar/{{ AUTHOR_EMAIL_HASH }}?size=64">
                 <p>{{ AUTHOR_SHORTBIO }}</p>
                 {% if GITHUB_USERNAME and GITHUB_BADGE %}
                 <div class="github-badge">
@@ -73,7 +75,7 @@
                 </div>
                 {% endif %}
                 <p>
-                   You want to contact me? See <a href="{{ SITEURL }}/about/">here</a>.
+                   Read more about me <a href="{{ SITEURL }}/about/">here</a>.
                 </p>
             </div>
         </div>
@@ -96,6 +98,6 @@
             </nav>
         </div>
     </footer>
-
+    {% include "piwik.html" %}
 </body>
 </html>
