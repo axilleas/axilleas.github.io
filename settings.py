@@ -53,5 +53,5 @@ PAGE_SAVE_AS = "{slug}/index.html"
 PAGE_LANG_URL = "{lang}/{slug}"
 PAGE_LANG_SAVE_AS = "{lang}/{slug}/index.html"
 
-PIWIK_URL = 'animal.foss.ntua.gr/~axil/stats'
+PIWIK_URL = ''
 PIWIK_SITE_ID = 5

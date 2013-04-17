@@ -22,7 +22,10 @@ I've been using [Archlinux][] as my main distribution since 2007.
 I maintain several packages at the [AUR][] and I try to contribute to the
 [Archwiki][] whenever I can. I am also a member of an unofficial package
 team in Greece, where we serve a [repository][archlinuxgr] with popular packages that
-aren't in the official repos. 
+aren't in the official repos. I have also contributed to the localization
+of pacman and the AUR interface. Check my transifex profile at Contact Details.
+Recently I helped to package the [snf-image-creator][snf-arch] tool of 
+the [synnefo][] IaaS.
 
 ### Fedora
 Recently I started getting involved with [Fedora][], mainly because
@@ -51,12 +54,6 @@ order to hack it :p
 
 ## Favorites
 
-### Movies
-
-  - The big Lebowski: This is where my blog's name is taken :)
-
-**More to come...**
-
 ### Food
 I looooove food. I also love to cook :) My favorite chef is Jamie Oliver
 and I have almost all of his shows and have atempted to cook a bunch of his 
@@ -65,16 +62,27 @@ it was sure worth the effort.
 
 I'll post some of my favorite recipes in due time.
 
+### Movies
+
+  - The big Lebowski: This is where my blog's name is taken :)
+
+**More to come...**
+
+### Music
+
+**TODO**
 
 ## Contact Details
 
-    Email : axilleas [at] archlinux.gr
-    IRC: irc.freenode.net : axil42
-    Github: axilleas
-    Twitter: _axil
-    Google+: https://plus.google.com/u/0/108076288136257590130
-    PGP key: 0xABF99BE5
+    Email       : axilleas [at] archlinux.gr
+    IRC         : axil42 (freenode)
+    Github      : axilleas
+    Twitter     : _axil
+    Google+     : https://plus.google.com/u/0/108076288136257590130
+    Transifex   : https://transifex.com/accounts/profile/kissmyarch/
+    PGP key     : 0xABF99BE5
 
+[snf-arch]: http://www.synnefo.org/docs/snf-image-creator/latest/install.html#arch-linux
 [semfe]: http://semfe.ntua.gr "School of Applied Mathematical and Physical Sciences"
 [ntua]: http://ntua.gr "National Technical University of Athens"
 [foss]: https://foss.ntua.gr
@@ -97,3 +105,4 @@ I'll post some of my favorite recipes in due time.
 [g+tok]: 
 [tokaido-photos-db]: https://www.facebook.com/tokaidogr/photos_stream
 [tokaido-artwork]: https://github.com/tokaidogr/artwork
+[synnefo]: http://www.synnefo.org/
