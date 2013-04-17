@@ -15,16 +15,16 @@ benefits for GitLab as well.
 
 - Fedora is one of the bigest open source communities (if not the bigest)
 so far, with a very strong community base. If GitLab were to be supported
-officially, it would gain much more reputation and set up as the de facto
+officially, it would gain much more reputation and probably  set up as the de facto
 git management system for other orgs that want control over their personal 
 git repositories.
 
-- rpm packages. "One click install" for Fedora, Red Hat, Centos and other
+- rpm packages means "One click install" for Fedora, Red Hat, Centos and other
 rpm based distros. Huge profit, as sysadmins will not have to worry about
 the manual installation process.
 
-- extra git service for fedorahosted.org. I expect many people to switch
-their git hosting from bare gitweb to GitLab. It will enhance collaboration
+- As an extra git service for fedorahosted.org, I expect many people to switch
+their git hosting from the bare gitweb to GitLab. It will enhance collaboration
 and make coding more fun as it will be an interactive process.
 
 
@@ -45,7 +45,6 @@ feedback :)
 Cheers!
 
 Axilleas
-
 
 
 [0] https://groups.google.com/forum/?fromgroups=#!topic/gitlabhq/SQMDi-yyXmU
