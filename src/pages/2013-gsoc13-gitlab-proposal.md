@@ -1,6 +1,6 @@
 Title: GSoC 2013: Idea to setup GitLab as a frontend to fedorahosted.org (again!)
 Slug: gsoc13-gitlab-proposal
-Status: hidden
+Status: draft
 
 Hello GitLab devs and community!
 
