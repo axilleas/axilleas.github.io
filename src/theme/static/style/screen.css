@@ -1,6 +1,11 @@
+@import url(http://fonts.googleapis.com/css?family=Duru+Sans);
+@import url(http://fonts.googleapis.com/css?family=ABeeZee:400,400italic);
+@import url(http://fonts.googleapis.com/css?family=Carrois+Gothic);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700&subset=latin,greek);
+
 body {
     color: #434343;
-    font: normal 12px 'Duru Sans', sans-serif;
+    font: normal 12px 'Duru Sans', 'Open Sans', sans-serif;
 }
 
 a {
@@ -62,8 +67,6 @@ h1 {
     font-size: 2.125em;
     line-height: 1.52941;
     margin: 1.52941em 0px 0.764706em;
-}
-
 }
 
 dd {
