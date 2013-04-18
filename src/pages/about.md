@@ -34,6 +34,14 @@ and users who are always willing to help and that's the beauty with it :)
 I'll probably fill in more info once I get more involved (which is something 
 I intend to do).
 
+### GitLab
+GitLab is an open source git repository application, built on Ruby on Rails.
+I have been using it since version 2.0 and started contributing as of version 4.0.
+In [this](|filename|/pages/gitlab-accepted-patches.md) page you will find all my 
+patches that were accepted by upstream. A relative article can be found [
+here](|filename|/posts/en/2013-04-07-bringing-gitlab-to-fedora.md).
+
+
 ## Hobbies/Interests
 
 ### Aikido
