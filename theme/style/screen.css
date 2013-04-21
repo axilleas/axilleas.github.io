@@ -38,7 +38,7 @@ sup {
 }
 
 .footnote a {
-    color: #888;p
+    color: #888;
 }
 
 .readmore { 
@@ -157,7 +157,6 @@ table th {
     background-color:#21519c;
     color:white;
     background-image:-webkit-gradient(linear, center bottom, left bottom, from(#21519c), to(#255cb1));
-    background-image:linear-gradient(center bottom, #21519c, #255cb1);
 }
 
 table th a {
@@ -340,8 +339,6 @@ article .body p {
 
     margin: 1.625em 0px 0px;
     word-spacing: 0.25em;
-}
-
 }
 
 article .body p a {
