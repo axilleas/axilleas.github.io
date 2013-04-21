@@ -12,9 +12,9 @@ This is a reminder page for the patches I sent and were accepted to GitLab.
 | os_name systemd support | [bd40579][] |   [3603][]   |
 | Typo in gitlab.yml      | [4fe1c89][] |   [3604][]   |
 
-[See the list on github.][closed]
+[See the list on github.][commits]
 
-[closed]: https://github.com/gitlabhq/gitlabhq/pulls/axilleas?direction=desc&page=1&sort=created&state=closed
+[commits]: https://github.com/gitlabhq/gitlabhq/commits/?author=axilleas
 
 [7305d98]: https://github.com/gitlabhq/gitlabhq/commit/7305d98c8e486b47ba6e90a9a4fe3b223d519827
 [3602]: https://github.com/gitlabhq/gitlabhq/pull/3602
