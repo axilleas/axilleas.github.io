@@ -1,7 +1,7 @@
 Title: GitLab - the story so far
 Category: talks
 Tags: gitlab, ruby, rails, git
-Status: hidden
+Status: draft
 
 ### Milestones
 
