@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title>GitLab - the story so far</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="-1" />
+        <link rel="stylesheet" href="../theme/style/reset.css" type="text/css" />
+        <link rel="stylesheet" href="../theme/style/screen.css" type="text/css" />
+        <link rel="stylesheet" href="../theme/style/friendly.css" type="text/css" />
+        <link rel="stylesheet" href="../theme/style/print.css" type="text/css" media="print" />
+                                <link href="http://axilleas.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+        </head>
+<body>
+    <header id="main">
+        <div class="container">
+            <div class="logo">
+                <p><a href="/" title="Home">Over the line</a> <span class="welcome">that rug really tied the room together...</span></p>
+            </div>
+        </div>
+    </header>
+
+    <div class="splash">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a></li>
+                                                <li><a href="/about">whoami</a></li>
+                                    <li><a href="/links">Links</a></li>
+                                            <li><a href="../archives.html" title="Archive">Archive</a></li>
+                <li><a href="../feeds/all.rss.xml">RSS</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container content">
+        <article>
+    <header>
+        <h1><a href="/en/blog/2013/gitlab-the-story-so-far" rel="bookmark">
+    GitLab - the story so far
+</a></h1>
+<time datetime="2013-04-25 00:00:00" pubdate>Posted on
+    Thu 25 April 2013
+</time>
+<address class="vcard author">
+    by <a class="url fn" href="../author/axil.html">
+    axil</a>
+</address>
+    </header>
+
+    <div class="body">
+        <h3 id="milestones">Milestones</h3>
+<ul>
+<li>1.0.1 -&gt; Gitosis</li>
+<li>2.0.0 -&gt; Gitolite</li>
+<li>2.3.0 -&gt; Fully open sourced under MIT</li>
+<li>5.0.0 -&gt; From gitolite to gitlab-shell (easier development)</li>
+</ul>
+<h3 id="timeline">Timeline</h3>
+<p>2 years before 09/2011: 
+  - 1 member team</p>
+<p>Now:
+  - 11 members
+  - large community
+  - 10.000 organizations using it (images: michigan, brightbox, phusion, blackberry etc.)
+  - Github top 50</p>
+<h2 id="built-with">Built with</h2>
+<h3 id="backend">Backend</h3>
+<ul>
+<li>rails </li>
+<li>sidekiq (process queue manager, creating background jobs, logging, system monitoring, scheduling, user notification)</li>
+<li>puma (ruby webserver) (introduced in 5.1, previously unicorn) puma.io</li>
+<li>redis (key-value store, data structure server)</li>
+<li>gitlab-shell (replacemenet for gitolite in 5.0, manage authorized_keys, repositories)</li>
+<li>mysql/postgresql</li>
+</ul>
+<h3 id="frontend">Frontend</h3>
+<ul>
+<li>bootstrap (twitter)</li>
+<li>coffescript (javascript)</li>
+</ul>
+<h2 id="features">Features</h2>
+<ul>
+<li>enable/disable signup</li>
+<li>login with ldap, pam (5.2), omni_auth(google, twitter, github)</li>
+<li>repository access 5 access level, branch protection</li>
+<li>merge requests (MR) - PR on github</li>
+<li>Issue tracker</li>
+<li>Code review (comments in diff)</li>
+<li>team, group, gollum wiki (clonable)</li>
+<li>snippets (like gists)</li>
+<li>import existing repos (eg. github, bitbucket, gitweb)</li>
+<li>commit timeline</li>
+</ul>
+<h2 id="comparison">Comparison</h2>
+<ul>
+<li>gitorious</li>
+<li>github enterprise</li>
+</ul>
+<h2 id="links">Links</h2>
+<ul>
+<li></li>
+</ul>
+    </div>
+
+        <footer>
+        <ul class="tags">
+        Tags:
+                    <li><a href="../tag/gitlab.html">gitlab</a></li>
+                    <li><a href="../tag/ruby.html">ruby</a></li>
+                    <li><a href="../tag/rails.html">rails</a></li>
+                    <li><a href="../tag/git.html">git</a></li>
+                </ul>
+    </footer>
+    
+        <div class="share">
+        <a href="https://twitter.com/share" class="twitter-share-button"
+           data-count="horizontal" data-text="GitLab - the story so far"
+           data-via="_axil">Tweet</a>
+    </div>
+    <script src="//platform.twitter.com/widgets.js"></script>
+    
+        <div id="disqus_thread"></div>
+    <script>
+        var disqus_identifier = "http://axilleas.github.com/en/blog/2013/gitlab-the-story-so-far",
+            disqus_developer = "1";
+
+        (function () {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.src = 'http://kissmyarch.disqus.com/embed.js';
+            (document.head || document.body).appendChild(dsq);
+        })();
+    </script>
+    </article>
+    </div>
+
+    <div class="container footnote">
+                        <a href="javascript:window.print();" title="Print">Print</a>
+                    </div>
+
+    <div class="bottom">
+        <div class="container">
+            <div class="about">
+                <h3>About me</h3>
+                 <img alt="Me!" class="avatar"
+                     src="http://www.gravatar.com/avatar/189dd503cde0386260ece5338e3e212b?size=64">
+                <p>
+I'm an open source enthusiast who loves spaghetti and westerns.
+Currently I am struggling to graduate and get involved in as many
+projects as I can :)
+</p>
+                                <div class="github-badge">
+                    <iframe src="http://githubbadge.appspot.com/badge/axilleas?s=1"
+                            style="border: 0; height: 150px; width: 200px; overflow: hidden;"></iframe>
+                </div>
+                                <p>
+                   Read more about me <a href="../about/">here</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer">
+            <span>Powered by <a href="http://docs.getpelican.com">
+                Pelican</a> using <a href="https://github.com/BYK/pelican-neat">
+                neat theme</a>. 
+            </span>
+            <nav>
+                <ul>
+                                        <li><a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a></li>
+                                    <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img
+                    alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+         <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://animal.foss.ntua.gr/~axil/stats/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "5"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+</body>
+</html>
