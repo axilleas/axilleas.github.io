@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Over the line</title><link href="http://axilleas.github.io/" rel="alternate"></link><link href="http://axilleas.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://axilleas.github.io/</id><updated>2013-04-07T00:00:00+03:00</updated><entry><title>Bringing GitLab to Fedora</title><link href="http://axilleas.github.io/en/blog/2013/bringing-gitlab-in-fedora" rel="alternate"></link><updated>2013-04-07T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.github.io,2013-04-07:en/blog/2013/bringing-gitlab-in-fedora</id><summary type="html">&lt;p&gt;So, I decided to write some info regarding my involvement for this year's
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Over the line</title><link href="http://axilleas.github.io/" rel="alternate"></link><link href="http://axilleas.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://axilleas.github.io/</id><updated>2013-05-02T00:00:00+03:00</updated><entry><title>Nominated for Space Apps Challenge 2013</title><link href="http://axilleas.github.io/en/blog/2013/nasa-spaceappschallenge-2013" rel="alternate"></link><updated>2013-05-02T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.github.io,2013-05-02:en/blog/2013/nasa-spaceappschallenge-2013</id><summary type="html">&lt;p&gt;During the weekend of 20th and 21st of April we gathered at &lt;a href="https://hackerspace.gr"&gt;hackerpace.gr&lt;/a&gt;
+and started hacking for NASA's space apps challenge. From their &lt;a href="http://spaceappschallenge.org/about/"&gt;webpage&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The International Space Apps Challenge is an international mass collaboration 
+focused on space exploration that takes place over 48-hours in cities around 
+the world. The event embraces collaborative problem solving with a goal of 
+producing relevant open-source solutions to address global needs applicable to
+both life on Earth and life in space. NASA is leading this global collaboration 
+along with a number of additional government collaborators and 100+ local 
+partner organizations.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;16 people, 2 teams, 2 days, 2 globally nominated projects:
+&lt;code&gt;popeye on mars&lt;/code&gt; and &lt;code&gt;anapNEO&lt;/code&gt;. See &lt;a href="https://plus.google.com/u/0/photos/117312389370621956919/albums/5868971703249663889" title="Space App Challenge 2013 at hackerspace.gr"&gt;here&lt;/a&gt; some photos. 
+Thank you &lt;a href="https://mozilla.org"&gt;mozilla&lt;/a&gt; for all the pizzas and souvlakia :)&lt;/p&gt;
+&lt;h1 id="popeye-on-mars"&gt;Popeye on Mars&lt;/h1&gt;
+&lt;p&gt;Our solution is a deployable, reusable spinach greenhouse for Mars.
+Internally, a fully equipped aeroponic system operates for ~45 days,
+having all the needed resources, sensors and electronic systems to
+stabilize the internal environment and help the spinach growth. Also,
+there are systems for harvesting produced oxygen during the process
+and the plants at the end of it. Externally, photovoltaic panels
+provide power, while several cover layers protect the system against
+Mars extreme conditions.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://spaceappschallenge.org/project/pom"&gt;Project page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.youtube.com/watch?feature=player_embedded&amp;amp;v=kBl5lzwcYlQ"&gt;Video&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="anapneo"&gt;anapNEO&lt;/h1&gt;
+&lt;p&gt;anapNEO is a web app build on Django and HTML, CSS, JS that enables
+the submission and ranking of NEO findings. Focused on UX simplicity
+and streamlining of the registration and submission process, a user
+signs up easily using Persona, and creates a user account (with basic
+information). She then lands on a (public too!) Dashboard that
+displays all latest submissions and can submit a new finding. You can
+also vote on findings affecting the score and (yet to implement)
+expose those on an API.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://spaceappschallenge.org/project/anapneo"&gt;Project page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.youtube.com/watch?feature=player_embedded&amp;amp;v=u5eSPSy4ix8"&gt;Video&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="nasa"></category><category term="hsgr"></category><category term="django"></category><category term="spinach"></category><category term="popeye"></category></entry><entry><title>Bringing GitLab to Fedora</title><link href="http://axilleas.github.io/en/blog/2013/bringing-gitlab-in-fedora" rel="alternate"></link><updated>2013-04-07T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.github.io,2013-04-07:en/blog/2013/bringing-gitlab-in-fedora</id><summary type="html">&lt;p&gt;So, I decided to write some info regarding my involvement for this year's
 &lt;a href="http://www.google-melange.com/gsoc/homepage/google/gsoc2013" title="Google Summer of Code 2013"&gt;Google Summer of Code&lt;/a&gt;. I have been using/testing GitLab since
 version 2.0 (almost a year now) and I am thrilled to see how much it has
 growed since. This year I got a little more involved into this and
