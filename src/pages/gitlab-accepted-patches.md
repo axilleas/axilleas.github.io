@@ -11,10 +11,21 @@ This is a reminder page for the patches I sent and were accepted to GitLab.
 | Check Redis version     | [7305d98][] |   [3602][]   |
 | os_name systemd support | [bd40579][] |   [3603][]   |
 | Typo in gitlab.yml      | [4fe1c89][] |   [3604][]   |
+| Typo in deploy_keys/haml| [f60486a][] |   [3765][]   |
+| Update installation.md  | [3a5d90c][] |   [3766][]   |
+| Update docs             | [830afbc][] |   [3760][]   |
 
-[See the list on github.][commits]
 
-[commits]: https://github.com/gitlabhq/gitlabhq/commits/?author=axilleas
+[See the full list on github.][commits]
+
+[3760]: https://github.com/gitlabhq/gitlabhq/pull/3760
+[830afbc]: https://github.com/gitlabhq/gitlabhq/commit/830afbc3d2cff5c8c22f18c4b266d08019b34039
+
+[3a5d90c]: https://github.com/gitlabhq/gitlabhq/commit/3a5d90c4a3c1b1cf6fae6e1ef9210593961971d1
+[3766]: https://github.com/gitlabhq/gitlabhq/pull/3766
+
+[f60486a]: https://github.com/gitlabhq/gitlabhq/commit/f60486a0c42a7167d283bc64a8fbcdb0fa5533a2
+[3765]: https://github.com/gitlabhq/gitlabhq/pull/3765
 
 [7305d98]: https://github.com/gitlabhq/gitlabhq/commit/7305d98c8e486b47ba6e90a9a4fe3b223d519827
 [3602]: https://github.com/gitlabhq/gitlabhq/pull/3602
@@ -30,3 +41,5 @@ This is a reminder page for the patches I sent and were accepted to GitLab.
 
 [655e68a]: https://github.com/gitlabhq/gitlabhq/commit/655e68a0adc391013bea1dd4ef3838edde7c3f97
 [2998]: https://github.com/gitlabhq/gitlabhq/pull/2998
+
+[commits]: https://github.com/gitlabhq/gitlabhq/commits/?author=axilleas
