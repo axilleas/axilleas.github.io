@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Over the line</title><link>http://axilleas.github.io/</link><description></description><atom:link href="http://axilleas.github.io/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 02 May 2013 00:00:00 +0300</lastBuildDate><item><title>Nominated for Space Apps Challenge 2013</title><link>http://axilleas.github.io/en/blog/2013/nasa-spaceappschallenge-2013</link><description>&lt;p&gt;During the weekend of 20th and 21st of April we gathered at &lt;a href="https://hackerspace.gr"&gt;hackerpace.gr&lt;/a&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Over the line</title><link>http://axilleas.github.io/</link><description></description><atom:link href="http://axilleas.github.io/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 13 May 2013 00:00:00 +0300</lastBuildDate><item><title>Codeschool offers 2-day hall pass to all courses</title><link>http://axilleas.github.io/en/blog/2013/codeschool-two-day-hall-pass</link><description>&lt;p&gt;&lt;img alt="codeschool-logo" src="https://d1tijy5l7mg5kk.cloudfront.net/assets/press_kit/logo-full-text-842f207391207c249d46b10fb166a8cb.png" /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="http://www.codeschool.com/"&gt;Code School&lt;/a&gt; is an online learning platform that teaches a variety of
+programming and web design skills. Courses range from beginner to advanced
+levels and you get to earn rewards and badges as you learn.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Courses cover a variety of technologies including among others &lt;code&gt;Git&lt;/code&gt;, &lt;code&gt;Ruby&lt;/code&gt;, 
+&lt;code&gt;Backbone.js&lt;/code&gt;, &lt;code&gt;Sass&lt;/code&gt;, &lt;code&gt;Rails&lt;/code&gt;, &lt;code&gt;jQuery&lt;/code&gt;. Each course has a unique environment 
+and some their own theme song, which is kinda cool. Here is the &lt;a href="http://www.codeschool.com/jingles"&gt;special page&lt;/a&gt; where 
+you can find all these songs. &lt;/p&gt;
+&lt;p&gt;Normally, there is a monthly &lt;a href="http://www.codeschool.com/enroll"&gt;subscription&lt;/a&gt; that costs only 25$ and 
+grants you access to all courses and screencasts, with download links for the 
+videos and the presentations.&lt;/p&gt;
+&lt;p&gt;The current offer covers a 2 day free pass for all courses and screencasts. &lt;a href="http://go.codeschool.com/3UBpUQ"&gt;Here&lt;/a&gt; 
+is my affiliate link&lt;sup id="fnref:afflink"&gt;&lt;a class="footnote-ref" href="#fn:afflink" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; to get you started (shameless promo :p). 
+For each person that signs up, you get two more free days until you reach a 
+limit of 30. During this weekend I finished the &lt;a href="http://www.codeschool.com/courses/ruby-bits"&gt;Ruby Bits&lt;/a&gt; and &lt;a href="http://www.codeschool.com/courses/git-real"&gt;Git Real&lt;/a&gt;
+courses and I have to admit I learned a lot. My next goal is the famous &lt;a href="http://www.codeschool.com/courses/rails-for-zombies-redux"&gt;Rails for Zombies&lt;/a&gt; 
+which I am looking forward to complete!&lt;/p&gt;
+&lt;p&gt;So, what are you waiting for? &lt;a href="http://go.codeschool.com/3UBpUQ"&gt;Go&lt;/a&gt; and learn some realy cool stuff!&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:afflink"&gt;
+&lt;p&gt;I got an email from codeschool about this offer and there doesn't seem to be a clear url to reach it. That's why I am posting the affiliate url.&amp;#160;&lt;a class="footnote-backref" href="#fnref:afflink" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Mon, 13 May 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.github.io,2013-05-13:en/blog/2013/codeschool-two-day-hall-pass</guid><category>codeschool</category><category>ruby</category><category>courses</category><category>javascript</category><category>html</category><category>css</category></item><item><title>Nominated for Space Apps Challenge 2013</title><link>http://axilleas.github.io/en/blog/2013/nasa-spaceappschallenge-2013</link><description>&lt;p&gt;During the weekend of 20th and 21st of April we gathered at &lt;a href="https://hackerspace.gr"&gt;hackerpace.gr&lt;/a&gt;
 and started hacking for NASA's space apps challenge. From their &lt;a href="http://spaceappschallenge.org/about/"&gt;webpage&lt;/a&gt;:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The International Space Apps Challenge is an international mass collaboration 
