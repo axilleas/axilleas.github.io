@@ -29,7 +29,7 @@ the [synnefo][] IaaS.
 
 ### Fedora
 Recently I started getting involved with [Fedora][], mainly because
-of the [GSoC 2013][] program. It has a vast community with many developers
+of the [GSoC 2013](|filename|/posts/en/2013-04-07-bringing-gitlab-to-fedora.md) program. It has a vast community with many developers
 and users who are always willing to help and that's the beauty with it :)
 I'll probably fill in more info once I get more involved (which is something 
 I intend to do).
