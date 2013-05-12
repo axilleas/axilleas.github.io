@@ -60,6 +60,14 @@ order to hack it :p
 
 **I'll post a link with my photos once I get them sorted**
 
+### Online Courses
+
+Probably not much of a hobby but I do these on my free time, so:
+
+- [Codeschool report card][codeschool]
+- [Coursera profile][coursera]
+
+
 ## Favorites
 
 ### Food
@@ -73,22 +81,44 @@ I'll post some of my favorite recipes in due time.
 ### Movies
 
   - The big Lebowski: This is where my blog's name is taken :)
-
-**More to come...**
+  - Sin City
+  
+**I will be adding more, frequently.**
 
 ### Music
 
+The list is so vast that I will probably forget someone. Those with an asterisk,
+I have seen them live (some more than once):
+
+
+####Progressive rock/metal
+
+Pink Floyd, Tool**\***, Dream Theater**\***, Queensryche**\***, Pain of Salvation**\***, 
+Fates Warning**\***, 
+
+
+####Jazz
+
 **TODO**
 
-## Contact Details
+####Rock
+
+**TODO**
+
+
+## Contact details
 
     Email       : axilleas [at] archlinux.gr
     IRC         : axil42 (freenode)
+    PGP key     : 0xABF99BE5
     Github      : axilleas
     Twitter     : _axil
     Google+     : https://plus.google.com/u/0/108076288136257590130
     Transifex   : https://transifex.com/accounts/profile/kissmyarch/
-    PGP key     : 0xABF99BE5
+
+
+[codeschool]: http://www.codeschool.com/users/axil
+[coursera]: 
 
 [snf-arch]: http://www.synnefo.org/docs/snf-image-creator/latest/install.html#arch-linux
 [semfe]: http://semfe.ntua.gr "School of Applied Mathematical and Physical Sciences"

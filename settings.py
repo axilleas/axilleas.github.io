@@ -3,9 +3,9 @@ from hashlib import md5
 
 AUTHOR = u"axil"
 AUTHOR_SHORTBIO = '''
-I'm an open source enthousiast who loves spaghetti and westerns.
+I'm an open source enthusiast who loves spaghetti and westerns.
 Currently I am struggling to graduate and get involved in as many
-projects as I can :)
+projects as I can, which admitedly isn't the best combination :p
 '''
 SITENAME = u"Over the line"
 SITEURL = 'http://axilleas.github.io'
