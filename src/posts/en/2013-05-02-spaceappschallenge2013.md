@@ -4,6 +4,9 @@ Category: misc
 Tags: nasa, hsgr, django, spinach, popeye
 Lang: en
 
+***Update***: The Popeye on Mars project came [first][] in "Best Mission Concept" 
+category. Congrats guys!
+
 During the weekend of 20th and 21st of April we gathered at [hackerpace.gr](https://hackerspace.gr)
 and started hacking for NASA's space apps challenge. From their [webpage](http://spaceappschallenge.org/about/):
 
@@ -50,3 +53,4 @@ expose those on an API.
 
 
 [photos]: https://plus.google.com/u/0/photos/117312389370621956919/albums/5868971703249663889 "Space App Challenge 2013 at hackerspace.gr"
+[first]: http://www.nasa.gov/home/hqnews/2013/may/HQ_13-152_Space_App_Challenge_winners.html
