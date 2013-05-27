@@ -4,6 +4,8 @@ Tags: fedora, gitlab, gscoc, ruby, rails
 Category: linux
 Lang: en
 
+***Update***: I just got a confirmation mail that my proposal got accepted! [Read here](|filename|2013-05-27-accepted-for-gsoc-2013.md)
+
 So, I decided to write some info regarding my involvement for this year's
 [Google Summer of Code][gsoc]. I have been using/testing GitLab since
 version 2.0 (almost a year now) and I am thrilled to see how much it has
