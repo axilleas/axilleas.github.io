@@ -24,6 +24,11 @@ sup {
     top:-0.7em;
 }
 
+img {
+	max-width: 100%;
+	height: auto;
+}
+
 .footnote {
     font-size:0.85em;
     line-height:2.1666666666666665;
