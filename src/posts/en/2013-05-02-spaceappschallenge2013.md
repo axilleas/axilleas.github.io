@@ -1,6 +1,6 @@
 Title: Nominated for Space Apps Challenge 2013
 Slug: nasa-spaceappschallenge-2013
-Category: misc
+Category: geek
 Tags: nasa, hsgr, django, spinach, popeye
 Lang: en
 
