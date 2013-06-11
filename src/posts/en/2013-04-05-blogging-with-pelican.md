@@ -1,6 +1,6 @@
 Title: Blogging with pelican
 Tags: pelican, python, jinja
-Category: tutorialz
+Category: geek
 Lang: en
 Status: draft
 
