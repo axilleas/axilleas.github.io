@@ -82,7 +82,7 @@ And the new results are:
   >
   > There should be packaged **70** gems.
   >
-  > Fedora will have **15.18 %** more ruby packages, that is **534** gems in total.
+  > Fedora will have **15.18 %** more ruby packages, that is **531** gems in total.
 
 
 ### Gem tree dependencies
