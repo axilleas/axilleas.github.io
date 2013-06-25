@@ -65,7 +65,7 @@ Comparing those two lists we end up with this &lt;a href="https://github.com/axi
 &lt;p&gt;Fedora has packaged &lt;strong&gt;461&lt;/strong&gt; gems.&lt;/p&gt;
 &lt;p&gt;There are &lt;strong&gt;73&lt;/strong&gt; common gems.&lt;/p&gt;
 &lt;p&gt;There should be packaged &lt;strong&gt;70&lt;/strong&gt; gems.&lt;/p&gt;
-&lt;p&gt;Fedora will have &lt;strong&gt;15.18 %&lt;/strong&gt; more ruby packages, that is &lt;strong&gt;534&lt;/strong&gt; gems in total.&lt;/p&gt;
+&lt;p&gt;Fedora will have &lt;strong&gt;15.18 %&lt;/strong&gt; more ruby packages, that is &lt;strong&gt;531&lt;/strong&gt; gems in total.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id="gem-tree-dependencies"&gt;Gem tree dependencies&lt;/h3&gt;
 &lt;p&gt;There are a lot of gems that depend on each other which means one has to
