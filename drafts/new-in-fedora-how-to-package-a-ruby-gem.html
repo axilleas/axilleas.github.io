@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title>New in Fedora: How to package a Ruby gem</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="-1" />
+        <link rel="stylesheet" href="../theme/style/reset.css" type="text/css" />
+        <link rel="stylesheet" href="../theme/style/screen.css" type="text/css" />
+        <link rel="stylesheet" href="../theme/style/friendly.css" type="text/css" />
+        <link rel="stylesheet" href="../theme/style/print.css" type="text/css" media="print" />
+                                <link href="http://axilleas.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+        </head>
+<body>
+    <header id="main">
+        <div class="container">
+            <div class="logo">
+                <p><a href="/" title="Home">Over the line</a> <span class="welcome">that rug really tied the room together...</span></p>
+            </div>
+        </div>
+    </header>
+
+    <div class="splash">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a></li>
+                                                <li><a href="/about">whoami</a></li>
+                                            <li><a href="../archives.html" title="Archive">Archive</a></li>
+                <li><a href="../feeds/all.rss.xml">RSS</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container content">
+        <article>
+    <header>
+        <h1><a href="/en/blog/2013/new-in-fedora-how-to-package-a-ruby-gem" rel="bookmark">
+    New in Fedora: How to package a Ruby gem
+</a></h1>
+<time datetime="2013-06-12 00:00:00" pubdate>Posted on
+    Wed 12 June 2013
+</time>
+<address class="vcard author">
+    by <a class="url fn" href="../author/axil.html">
+    axil</a>
+</address>
+    </header>
+
+    <div class="body">
+        <p>The GSoC period has officially started and since I will be dealing mainly with
+Ruby gems
+Ok this is going to be a really long post so bare with patience. There are bits
+and pieces </p>
+<div class="toc">
+<ul>
+<li><a href="#where-to-begin">Where to begin</a><ul>
+<li><a href="#gem2rpm">gem2rpm</a></li>
+</ul>
+</li>
+<li><a href="#anatomy-of-a-spec-file">Anatomy of a spec file</a><ul>
+<li><a href="#prep">prep</a></li>
+<li><a href="#build">build</a></li>
+<li><a href="#install">install</a></li>
+<li><a href="#check">check</a></li>
+<li><a href="#files">files</a></li>
+</ul>
+</li>
+<li><a href="#testing">Testing</a><ul>
+<li><a href="#rpmlint-is-your-friend">rpmlint is your friend</a></li>
+<li><a href="#mock">mock</a></li>
+<li><a href="#koji">koji</a></li>
+<li><a href="#difficulties-in-running-tests">Difficulties in running tests</a></li>
+</ul>
+</li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#link-references">Link references</a><ul>
+<li><a href="#package-maintainers">Package maintainers</a></li>
+<li><a href="#guidelines">Guidelines</a></li>
+<li><a href="#packaging-guides">Packaging Guides</a></li>
+<li><a href="#git">Git</a></li>
+<li><a href="#testing-specsrpmrpm">Testing spec/srpm/rpm</a></li>
+<li><a href="#policy">Policy</a></li>
+<li><a href="#review">Review</a></li>
+<li><a href="#misc">Misc</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="where-to-begin">Where to begin</h2>
+<h3 id="gem2rpm">gem2rpm</h3>
+<ul>
+<li>Previously the gem2rpm used to create a variable rubyabi = 1.9.1 and call ruby(abi) = %{rubyabi}, which is now done by "ruby(release)"?
+Those two are functionally same, right?</li>
+</ul>
+<p>More or less the ruby(release) is typically used without version and if the version is used, it should be MRI version, not ABI version.
+Prefer to put %check after %install</p>
+<p>1) it is optional section, so it is nice to see %prep, %build and %install all in one look not disturbed by any other section
+2) it depends on implementation, but the %check section might be executable only on installed package. If that is the case, then it is natural to see it after the %install section
+3) during the build, the %check is executed after %install section, so it is just convenient to follow the order in .spec file as well.</p>
+<h2 id="anatomy-of-a-spec-file">Anatomy of a spec file</h2>
+<h3 id="prep">prep</h3>
+<h3 id="build">build</h3>
+<h3 id="install">install</h3>
+<h3 id="check">check</h3>
+<ul>
+<li>Running tests
+if they are bundled in gem, they goes into -doc subpackage, if they are not included, I typically unpack them in %check section and don't have to care about them anymore
+it is very important to execute the test suites, if possible
+it is the only way how we can check if the gem works or not, if we upgrade Ruby in Fedora, etc. It is not possible to go and test manually every gem during the rebuild</li>
+</ul>
+<p>for example, as in here http://pkgs.fedoraproject.org/cgit/rubygem-gem2rpm.git/tree/rubygem-gem2rpm.spec</p>
+<p>Generally, if there's a spec dir, run "rspec spec/" and if there's a test dir, run "testrb -Ilib /test/<path>"?</p>
+<p>generally yes ... but that are just the most common testing frameworks ... also, if the testrb is tricky sometimes the -Ilib is optional and it depends how the test files are structured under the test directory</p>
+<p>it also sometimes happens that the test passes although no test was executed at all, so one needs to be careful</p>
+<ul>
+<li>What to do with tests, spec directories.</li>
+</ul>
+<p>generally, we apply https://fedoraproject.org/wiki/Packaging:Guidelines?rd=Packaging/Guidelines#PackageDocumentation on them</p>
+<p>Normally tests are only run at package buildtime. They should not be included in the binary rpms that users install on their systems. You may make an exception for this if the package makes public use of the test suite at runtime (for instance, an application package that has a --selftest command line switch that runs its testsuite.) </p>
+<p>i.e. they are not essential, therefore they go to -doc subpackage and there is also this remark: Do not ship tests</p>
+<ul>
+<li>By "not ship tests" does it mean the tests shouldn't be in the main package but can be in the doc subpackage?</li>
+</ul>
+<p>the original meaning was to %exclude them, or rm -rf them ... but keeping in -doc subpackage is good as well
+A couple of packages do rm -rf them: each maintainer has a bit different preference.</p>
+<h3 id="files">files</h3>
+<ul>
+<li>
+<p>Which files would go in %files doc?
+%files doc README CHANGELOG
+%files LICENSE
+the rest, it depends what is it good for</p>
+</li>
+<li>
+<p>Manual pages</p>
+</li>
+</ul>
+<p>In theory, you should not keep them, since they will be installed among other man pages</p>
+<p>Example: http://pkgs.fedoraproject.org/cgit/rubygem-bundler.git/tree/rubygem-bundler.spec#n72</p>
+<p>This is how it is in bundler, however, bundler need the man pages internally.</p>
+<p>In case of other Gem, they get installed in eg " /usr/share/gems/gems/guard-1.8.0/man/guard.1{,html}", I would say that once the "real" man pages are created, we can drop their source</p>
+<p>But it is more or less up to you, they should go into -doc subpackage anyway, if you like to keep them in the package</p>
+<p>-- Do I need to find out the man section number manually?
+Should be man1, it is already in its name, and probably in its content</p>
+<p>Hidden files</p>
+<ul>
+<li>
+<p>I normally put the .travis.yml, .irbrc, .document etc in %files doc. But since they are hidden, what is the suggested way around it (rpmlint complains)?
+Use %exclude .*, you should always exclude hidden files unless there is some special need</p>
+</li>
+<li>
+<p>Or rm {%buildroot}{%gem_instdir}/.*?</p>
+</li>
+</ul>
+<p>Ideally, such files should not be included in gem</p>
+<ul>
+<li>Suppose there was a dot file that was actually being used, that would be caught during running the test? I just include them to be on a safe side.</li>
+</ul>
+<p>There might be some test configurations, but I do not remember any case, where the test would fail without it
+Please exclude them all.</p>
+<p>rpmlint message:
+'hidden-file-or-dir',
+'''The file or directory is hidden. You should see if this is normal, and delete it from the package if not.''',</p>
+<ul>
+<li>What if someone excludes Gemfile, Rakefile and the gemspec?</li>
+</ul>
+<p>Non of them are super important, you can point it in review, that you would keep them and your reasons.
+The submitter tells you his reasons and you decide together.</p>
+<h2 id="testing">Testing</h2>
+<h3 id="rpmlint-is-your-friend">rpmlint is your friend</h3>
+<ul>
+<li>rpmlint gives this: rubygem-{gem-name}.noarch: E: script-without-shebang /usr/share/gems/gems/{gem-name}-1.1.0/lib/
+Choose one: add shebang or remove executable permission. (I was told on #fedora-devel, that this happens if files are set executable without shebang)
+eg specfile : https://bugzilla.redhat.com/show_bug.cgi?id=839650 | http://v3.sk/~hexo/rpm/rubygem-awesome_print.spec</li>
+</ul>
+<h3 id="mock">mock</h3>
+<h3 id="koji">koji</h3>
+<h3 id="difficulties-in-running-tests">Difficulties in running tests</h3>
+<p>koji / mock builds will not have a live running instance of mysql just to perform that check.
+If a test requires a running instance of mysql, it will not work regardless.
+Any fedora build system will fail the test, and the package will not finish.</p>
+<ul>
+<li>So should I just try the tests locally and comment them out if I ever have to use the build system?</li>
+</ul>
+<p>koji and mock will not have a running dbms.  so yes, you can ifdef them out or comment them - but they will not run properly.
+If there are tests that do not require a running dbms, by all means- yes you should run them.
+The best bet is to try them out locally during rpmbuild -ba, and comment them afterwards, isn't it?
+Or build your spec so that it only runs %check when you pass "--with checks" or somesuch define.
+koji builds wont pass any --with/--without params, so the default should work
+Example of a package with --with checks parameters : http://www.rpm.org/wiki/PackagerDocs/ConditionalBuilds
+That should let you have a single .spec file that works with checks (outside of mock) and without checks for koji/mock builds.
+Above, the word "checks" is not reserved, just seemed fitting.  use whatever you think fits best to describe it.</p>
+<h2 id="faq">FAQ</h2>
+<ul>
+<li>Another question is about runtime dependencies and development dependencies. Wouldn't the development dependencies be important for the test suite to run successfully?</li>
+</ul>
+<p>Of course for running test suite, you have to specify correct BuildRequires.
+On the other hand they are not 100% the same as development dependencies specified by the gem.
+There is cases like activerecord, where in ideal world, you would like to run its test suite against every DB adapter.
+In reality, it is hard to setup PG to be able to run the test suite against it.
+So now, the test suite does not run against PG, therefore you dont have to specify BR: rubygem(pg).
+There are cases like tilt, where it can work with plenty of markup gems.
+Not every of them is in Fedora yet, but tilt is useful even with one of them.
+It is always good to document such cases, like "test suite could run against PG, 
+but it his hard to setup", "tilt supports markaby, but we don't have it in Fedora yet".</p>
+<ul>
+<li>So what you are saying is that rubygems.org might list several dev dependencies, but not all might be necessary.</li>
+</ul>
+<p>Yes. For example, rake is listed as a development dependency, but we are trying to avoid the BR on rake.
+Rake is example of hurting of extra gems. It tends to bring in a lot of cruft, such as hoe, etc.
+These are really needed just for development, not for packaging or running test suite.</p>
+<ul>
+<li>While this can reduce the packaging job, how do I find out these gems that can be ignored?</li>
+</ul>
+<p>bundler .... any time you see bundler needed for development, please get rid of it</p>
+<p>DM(datamapper) is not needed, I am pretty sure
+Actually, you see, the orm_adapter, that is exactly the thing I was speaking about
+It is obvious from the name, that it tries to hide differencies between several ORMs in Ruby
+We have activerecord, so you run at least the AR test suite part
+If we get DM into fedora, that would be good time to add the DM dependency and run the DM part of test suite as well
+And there is dependency on sqlite3, I am pretty sure that you should be able to run the test suite also against other DB engines with proper setup, but it would be hard probably
+So its about trade-offs you can learn this just by experimenting I am afraid ... hard to document</p>
+<ul>
+<li>
+<p>If I have a gem that provides a configuration.yml.example for rspec, and expects me to rename the file to configuration.yml with my details in it, how do I go about it? Or can I just skip it? (eg. mysql2-0.3.12b6)</p>
+</li>
+<li>
+<p>How do you know if a new version of a gem has come out? It could happen that you packaged a gem, and it works fine for years.
+https://fedoraproject.org/wiki/Upstream_release_monitoring</p>
+</li>
+<li>
+<p>Where do I check if packages are being reviewed/built by Koji?
+https://admin.fedoraproject.org/pkgdb/ or https://apps.fedoraproject.org/packages/
+Each provides a bit different information. For a review, you need to check BZ or you can use isitfedoraruby.com.
+But for the review, only the BZ, or fedora-package-review ML</p>
+</li>
+</ul>
+<p>Tip: you can package the gem you are going to review yourself and then you can do just diff ;) ... something like competition</p>
+<p>Errors while running a test suite: </p>
+<ul>
+<li>
+<p>"fatal: Not a git repository (or any parent up to mount point /home)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set)."</p>
+</li>
+<li>
+<p>Answer Looks like the tests would only work if they were run over the Git repository: 
+ http://pkgs.fedoraproject.org/cgit/rubygem-bundler.git/tree/rubygem-bundler.spec#n96</p>
+</li>
+</ul>
+<p>If there's a package A that has a BuildRequires: B, and A and B are both being packaged by me, how do I ask m
+ock to include package B (it is not in the repos) while testing package A?
+With the --installdeps flag and also, the dependency chains can get pretty large... so you might want to look into creating 
+your own local repository, either on a web server or on the filesystem with file:///
+It is easier to just dump them in a local repo, run createrepo, and let yum do its job.</p>
+<p>mockchain was suggested as a solution on #fedora-devel.</p>
+<p>"buildroot overrides" is suggested for Koji or just wait for the packages to get into stableW
+When you file your review bugs, make sure you set the "depends on" items properly, so reviewers can see what should be reviewed first</p>
+<h2 id="link-references">Link references</h2>
+<h3 id="package-maintainers">Package maintainers</h3>
+<ul>
+<li><a href="https://fedoraproject.org/wiki/Category:Package_Maintainers">Category:Package Maintainers</a></li>
+</ul>
+<h3 id="guidelines">Guidelines</h3>
+<ul>
+<li><a href="https://fedoraproject.org/wiki/Packaging:Guidelines">Packaging</a></li>
+<li><a href="https://fedoraproject.org/wiki/Packaging:LicensingGuidelines">Licensing</a></li>
+<li><a href="https://fedoraproject.org/wiki/Packaging:NamingGuidelines">Naming</a></li>
+<li><a href="https://fedoraproject.org/wiki/Packaging:DistTag">Dist Tag</a></li>
+<li><a href="https://fedoraproject.org/wiki/Packaging:ReviewGuidelines">Review</a></li>
+</ul>
+<h3 id="packaging-guides">Packaging Guides</h3>
+<ul>
+<li><a href="https://fedoraproject.org/wiki/Packaging:Ruby">Packaging Ruby</a></li>
+<li><a href="https://fedoraproject.org/wiki/How_to_create_an_RPM_package">How to create an RPM package</a></li>
+<li><a href="https://fedoraproject.org/wiki/Packaging_tricks">Packaging tricks</a></li>
+<li><a href="https://fedoraproject.org/wiki/Packaging:ScriptletSnippets">Scriptlet Snippets</a></li>
+<li><a href="https://fedoraproject.org/wiki/Scripts_for_package_maintainers">Scripts for package maintainers</a></li>
+<li><a href="https://fedoraproject.org/wiki/Package_update_HOWTO">Package update HOWTO</a></li>
+<li><a href="http://docs.fedoraproject.org/en-US/Fedora_Draft_Documentation/0.1/html/Packagers_Guide/">Packagers Guide</a></li>
+</ul>
+<h3 id="git">Git</h3>
+<ul>
+<li><a href="https://fedoraproject.org/wiki/Using_Fedora_GIT">Using Fedora GIT</a></li>
+<li><a href="https://fedoraproject.org/wiki/Using_git_FAQ_for_package_maintainers">Using git FAQ for package maintainers</a></li>
+</ul>
+<h3 id="testing-specsrpmrpm">Testing spec/srpm/rpm</h3>
+<ul>
+<li><a href="https://fedoraproject.org/wiki/Common_Rpmlint_issues">Common Rpmlint issues</a></li>
+<li><a href="https://fedoraproject.org/wiki/Using_Mock_to_test_package_builds">Using Mock to test package builds</a></li>
+<li><a href="https://fedoraproject.org/wiki/Using_the_Koji_build_system">Using the Koji build system</a></li>
+<li><a href="https://fedoraproject.org/wiki/Test_Machine_Resources_For_Package_Maintainers">Test Machine Resources For Package_Maintainers</a></li>
+</ul>
+<h3 id="policy">Policy</h3>
+<ul>
+<li><a href="https://fedoraproject.org/wiki/Package_maintainer_policy">Package maintainer policy</a></li>
+<li><a href="https://fedoraproject.org/wiki/Package_maintainer_responsibilities">Package maintainer responsibilities</a></li>
+</ul>
+<h3 id="review">Review</h3>
+<ul>
+<li><a href="https://fedoraproject.org/wiki/Package_Review_Process">Package Review Process</a></li>
+<li><a href="https://fedoraproject.org/wiki/Policy_for_stalled_package_reviews">Policy for stalled package reviews</a></li>
+</ul>
+<h3 id="misc">Misc</h3>
+<ul>
+<li><a href="https://fedoraproject.org/wiki/Fedorapeople_Repos">Fedorapeople Repos</a></li>
+</ul>
+    </div>
+
+        <footer>
+        <ul class="tags">
+        Tags:
+                    <li><a href="../tag/fedora.html">fedora</a></li>
+                    <li><a href="../tag/gsoc.html">gsoc</a></li>
+                    <li><a href="../tag/rubygem.html">rubygem</a></li>
+                    <li><a href="../tag/ruby.html">ruby</a></li>
+                    <li><a href="../tag/packaging.html">packaging</a></li>
+                </ul>
+    </footer>
+    
+        <div class="share">
+        <a href="https://twitter.com/share" class="twitter-share-button"
+           data-count="horizontal" data-text="New in Fedora: How to package a Ruby gem"
+           data-via="_axil">Tweet</a>
+    </div>
+    <script src="//platform.twitter.com/widgets.js"></script>
+    
+        <div id="disqus_thread"></div>
+    <script>
+        var disqus_identifier = "http://axilleas.github.com/en/blog/2013/new-in-fedora-how-to-package-a-ruby-gem",
+            disqus_developer = "1";
+
+        (function () {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.src = 'http://kissmyarch.disqus.com/embed.js';
+            (document.head || document.body).appendChild(dsq);
+        })();
+    </script>
+    </article>
+    </div>
+
+    <div class="container footnote">
+                        <a href="javascript:window.print();" title="Print">Print</a>
+                    </div>
+
+    <div class="bottom">
+        <div class="container">
+            <div class="about">
+                <h3>About me</h3>
+                 <img alt="Me!" class="avatar"
+                     src="http://www.gravatar.com/avatar/189dd503cde0386260ece5338e3e212b?size=64">
+                <p>
+I'm an open source enthusiast who loves spaghetti and westerns.
+Currently I am struggling to graduate and get involved in as many
+projects as I can, which admitedly isn't the best combination :p
+</p>
+                                <div class="github-badge">
+                    <iframe src="http://githubbadge.appspot.com/badge/axilleas?s=1"
+                            style="border: 0; height: 150px; width: 200px; overflow: hidden;"></iframe>
+                </div>
+                                <p>
+                   Read more about me <a href="../about/">here</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer">
+            <span>Powered by <a href="http://docs.getpelican.com">
+                Pelican</a> using <a href="https://github.com/BYK/pelican-neat">
+                neat theme</a>. 
+            </span>
+            <nav>
+                <ul>
+                                        <li><a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a></li>
+                                    <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img
+                    alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+         <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://animal.foss.ntua.gr/~axil/stats/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "5"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+</body>
+</html>

@@ -1,5 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Over the line</title><link href="http://axilleas.github.io/" rel="alternate"></link><link href="http://axilleas.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://axilleas.github.io/</id><updated>2013-06-11T00:00:00+03:00</updated><entry><title>Connect to Transmission through an ssh encrypted session</title><link href="http://axilleas.github.io/en/blog/2013/connect-to-transmission-through-an-ssh-encrypted-session" rel="alternate"></link><updated>2013-06-11T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.github.io,2013-06-11:en/blog/2013/connect-to-transmission-through-an-ssh-encrypted-session</id><summary type="html">&lt;p&gt;Use case: You have a remote machine with high bandwidth and you want to turn it 
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Over the line</title><link href="http://axilleas.github.io/" rel="alternate"></link><link href="http://axilleas.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://axilleas.github.io/</id><updated>2013-06-25T00:00:00+03:00</updated><entry><title>GSoC - Weekly update 1</title><link href="http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-1" rel="alternate"></link><updated>2013-06-25T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.github.io,2013-06-25:en/blog/2013/gsoc-weekly-update-1</id><summary type="html">&lt;p&gt;It's been over a week that GSoC started and here is a weekly report of what achieved
+so far.&lt;/p&gt;
+&lt;h2 id="weekly-process"&gt;Weekly process&lt;/h2&gt;
+&lt;h3 id="workflow"&gt;Workflow&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://trello.com/board/gitlab/51b844202ed21a6735011b25"&gt;Trello board&lt;/a&gt; - This is a web app in which you can manage your workflow by adding
+tasks that are to be completed. I set it up to remind me the things I have to accomplish
+in due time. Cool thing is that there is an android app too, so I can manage it
+from wherever I am :)&lt;/p&gt;
+&lt;h3 id="first-package"&gt;First package&lt;/h3&gt;
+&lt;p&gt;I submitted my first package to Bugzilla for review. Yay! It is called &lt;a href="https://bugzilla.redhat.com/show_bug.cgi?id=969877"&gt;timers&lt;/a&gt;
+and is of course a rubygem (what else :p). Not a big deal, just an easy one to get
+me started.&lt;/p&gt;
+&lt;h3 id="list-of-gems-to-package"&gt;List of gems to package&lt;/h3&gt;
+&lt;p&gt;I re-calculated GitLab's gem dependencies, this time including only the ones
+needed for runtime. I ditched from the list the ones that are used for testting/development.
+Not that they are not useful, but because for the time being runtime dependencies
+are a priority. I used a really ugly hack but it works for now. Here is how:
+Clone &lt;a href="https://github.com/gitlabhq/gitlabhq"&gt;GitLab&lt;/a&gt;, cd into it and run:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;bundle &lt;span class="nb"&gt;exec &lt;/span&gt;install --deployment --without &lt;span class="nb"&gt;test &lt;/span&gt;development
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will install all deps included in the Gemfile except for the ones in test and 
+development groups. Then, using a for loop we can iterate under the &lt;code&gt;vendor/bundle/ruby/1.9.1/gems&lt;/code&gt;
+directory and write the results in a file.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;for &lt;/span&gt;i in &lt;span class="sb"&gt;`&lt;/span&gt;ls vendor/bundle/ruby/1.9.1/gems&lt;span class="sb"&gt;`&lt;/span&gt;; &lt;span class="k"&gt;do &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$i&lt;/span&gt; &amp;gt;&amp;gt; ../gitlab53-gems; &lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The list contains gems in the format of &lt;code&gt;gem_name-1.0.0&lt;/code&gt; so I had to clean that
+up a little. I used some string methods in the &lt;a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/gemfile.py#L30"&gt;python script&lt;/a&gt; and stored those values
+in a dictionary where key is the gem name and value its version. Then the names
+list was easily retrievable. All I had to do is call the &lt;code&gt;keys()&lt;/code&gt; method on
+the dictionary and store the result in a &lt;a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/rubygems_gitlab"&gt;file&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Then, I had somehow to include in the list of already packaged gems, the ones that 
+are submitted in bugzilla for review. No need to work on them if their specfile
+is already submitted for review, right? For that I used the &lt;a href="https://fedorahosted.org/python-bugzilla/"&gt;python-bugzilla&lt;/a&gt;
+tool that queries a Bugzilla instance and spits nice &lt;a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/rubygems_bugzilla_raw"&gt;formated results&lt;/a&gt;.
+The query is pretty much self explanatory. In the end I just sorted them according
+to their bug status.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;bugzilla query --product&lt;span class="o"&gt;=&lt;/span&gt;fedora --bug_status&lt;span class="o"&gt;=&lt;/span&gt;new,assigned --component&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Package Review&amp;#39;&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+--short_desc&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;rubygem-&amp;#39;&lt;/span&gt; | sort -k2 -r &amp;gt; &lt;span class="nv"&gt;$bugzilla_gems_raw&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Below, using the same query methods and some sed/awk magic&lt;sup id="fnref:json"&gt;&lt;a class="footnote-ref" href="#fn:json" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;, we end up with a file
+containing only the names of gems that are submitted for review in Bugzilla.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;bugzilla query --product&lt;span class="o"&gt;=&lt;/span&gt;fedora --bug_status&lt;span class="o"&gt;=&lt;/span&gt;new,assigned --component&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Package Review&amp;#39;&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+--short_desc&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;rubygem-&amp;#39;&lt;/span&gt; | awk &lt;span class="s1"&gt;&amp;#39;BEGIN { FS = &amp;quot; - &amp;quot; }; { print $3 }&amp;#39;&lt;/span&gt; | awk &lt;span class="s1"&gt;&amp;#39;BEGIN { FS = &amp;quot;:&amp;quot; }; { print $2 }&amp;#39;&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+| sed -e &lt;span class="s1"&gt;&amp;#39;s/rubygem-//&amp;#39;&lt;/span&gt; | sort -k1 &amp;gt; &lt;span class="nv"&gt;$bugzilla_gems&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;That list, combined with the query from the official repos, results in the &lt;a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/rubygems_fedora"&gt;final&lt;/a&gt;
+one which has all the Ruby gems already packaged or are to be packaged for Fedora.&lt;/p&gt;
+&lt;p&gt;I also wrote a method to store those values in a &lt;a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/gemfile.py#L95"&gt;dictionary&lt;/a&gt; in the format
+of &lt;code&gt;dict = { gem_name: [bug_id, status, assignee, description] }&lt;/code&gt;. It might come
+in handy in the future, who knows!&lt;/p&gt;
+&lt;p&gt;Next step was to find the missing gems that I will have to package for Fedora.
+Comparing those two lists we end up with this &lt;a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/rubygems_missing"&gt;list&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;And the new results are:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Gitlab uses &lt;strong&gt;143&lt;/strong&gt; runtime gems.&lt;/p&gt;
+&lt;p&gt;Fedora has packaged &lt;strong&gt;461&lt;/strong&gt; gems.&lt;/p&gt;
+&lt;p&gt;There are &lt;strong&gt;73&lt;/strong&gt; common gems.&lt;/p&gt;
+&lt;p&gt;There should be packaged &lt;strong&gt;70&lt;/strong&gt; gems.&lt;/p&gt;
+&lt;p&gt;Fedora will have &lt;strong&gt;15.18 %&lt;/strong&gt; more ruby packages, that is &lt;strong&gt;534&lt;/strong&gt; gems in total.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="gem-tree-dependencies"&gt;Gem tree dependencies&lt;/h3&gt;
+&lt;p&gt;There are a lot of gems that depend on each other which means one has to
+be picky as to what to package first. The best way would be: given a package,
+find its dependency tree and start packaging first the leafs that have no children
+going all the way up until you reach to the root.&lt;/p&gt;
+&lt;p&gt;I started writing a &lt;a href="https://github.com/axilleas/fedora/tree/master/gitlab-deps/gemtree"&gt;script&lt;/a&gt; in ruby as a way to better learn the language,
+but I have yet to iplement the DFS algorithm which will traverse through all
+dependencies. Any comments on how to best approach this are welcomed!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Update!!&lt;/em&gt;&lt;/strong&gt; I just found out this reaaally cool site: &lt;a href="https://gemlou.pe"&gt;https://gemlou.pe&lt;/a&gt;
+which parses rubygems.org and lists the runtime tree dependencies of a gem through 
+javascript!&lt;/p&gt;
+&lt;h3 id="article-about-gem-packaging"&gt;Article about gem packaging&lt;/h3&gt;
+&lt;p&gt;I started writing an article about packaging a Ruby gem in Fedora. I want to
+note down the whole process, beginning from the use of gem2rpm to the review process.
+At first I wanted to have it finished by this week, but the information is so vast
+that I will take my time and write it piece by piece. You can follow the process &lt;a href="https://github.com/axilleas/axilleas.github.io/blob/source/src/posts/en/2013-06-12-fedora-rubygem-packaging.md"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="todo"&gt;TODO&lt;/h2&gt;
+&lt;p&gt;Some TODOs for this week:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Continue writing the article about Rubygem packaging&lt;/li&gt;
+&lt;li&gt;Make some unofficial package reviews in order to get &lt;a href="https://fedoraproject.org/wiki/Join_the_package_collection_maintainers#Get_Sponsored"&gt;sponsored&lt;/a&gt; as a packager&lt;/li&gt;
+&lt;li&gt;Make more package submissions (I have some specfiles ready)&lt;/li&gt;
+&lt;li&gt;Start wikifying the process (like the &lt;a href="https://fedoraproject.org/wiki/User:Ktdreyer/Gitorious"&gt;Gitorious&lt;/a&gt; page)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="extras"&gt;Extras&lt;/h2&gt;
+&lt;p&gt;Apart from the GSoC program that is an awesome experience, there are some other
+cool stuff going on this summer. &lt;/p&gt;
+&lt;p&gt;First one is &lt;a href="http://euruko2013.org/"&gt;Euruko&lt;/a&gt; which will take place in
+Athens, so it will be easy to attend. I have already purchased a ticket. I am sure
+that it's gonna be awesome and I'll get to meet the GitLab devs as well :)&lt;/p&gt;
+&lt;p&gt;The other one is a MOOC by UC Berkley and is a course about agile development and SaaS.
+It has two parts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.edx.org/course/uc-berkeley/cs-169-1x/software-service/993"&gt;CS169.1x&lt;/a&gt; starts on July 2nd and is lasting 5 weeks&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.edx.org/course/uc-berkeley/cs-169-2x/software-service/1005"&gt;CS169.2x&lt;/a&gt; starts on August 13th and is lasting 6 weeks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The language they use is Ruby and the framework on which they build the apps is
+Rails. I am going to attend both courses as it is strictly related to GitLab and
+my GSoC involvement. Actually, I already bought the accompanying &lt;a href="http://www.saasbook.info/"&gt;book&lt;/a&gt; (not mandatory)
+and started reading it :)&lt;/p&gt;
+&lt;p&gt;I will try to be more on schedule next time and post about my progress at the end
+of each week.&lt;/p&gt;
+&lt;p&gt;Cheers!&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:json"&gt;
+&lt;p&gt;It would make matters easier if the query returned a json file. I haven't
+seen anything in the man page about json support.&amp;#160;&lt;a class="footnote-backref" href="#fnref:json" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</summary><category term="gsoc"></category><category term="fedora"></category></entry><entry><title>Connect to Transmission through an ssh encrypted session</title><link href="http://axilleas.github.io/en/blog/2013/connect-to-transmission-through-an-ssh-encrypted-session" rel="alternate"></link><updated>2013-06-11T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.github.io,2013-06-11:en/blog/2013/connect-to-transmission-through-an-ssh-encrypted-session</id><summary type="html">&lt;p&gt;Use case: You have a remote machine with high bandwidth and you want to turn it 
 in a torrent server.&lt;/p&gt;
 &lt;div class="toc"&gt;
 &lt;ul&gt;
