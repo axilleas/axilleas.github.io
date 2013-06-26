@@ -63,8 +63,8 @@ and is of course a rubygem (what else :p). Not a big deal, just an easy one to g
 me started.</p>
 <h3 id="list-of-gems-to-package">List of gems to package</h3>
 <p>I re-calculated GitLab's gem dependencies, this time including only the ones
-needed for runtime. I ditched from the list the ones that are used for testting/development.
-Not that they are not useful, but because for the time being runtime dependencies
+needed for runtime. I ditched from the list the ones that are used for testing/development.
+Not that they are not useful, but for the time being runtime dependencies
 are a priority. I used a really ugly hack but it works for now. Here is how:
 Clone <a href="https://github.com/gitlabhq/gitlabhq">GitLab</a>, cd into it and run:</p>
 <div class="codehilite"><pre>bundle <span class="nb">exec </span>install --deployment --without <span class="nb">test </span>development
