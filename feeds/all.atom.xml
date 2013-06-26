@@ -118,7 +118,7 @@ of each week.&lt;/p&gt;
 seen anything in the man page about json support.&amp;#160;&lt;a class="footnote-backref" href="#fnref:json" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="gsoc"></category><category term="fedora"></category></entry><entry><title>Connect to Transmission through an ssh encrypted session</title><link href="http://axilleas.github.io/en/blog/2013/connect-to-transmission-through-an-ssh-encrypted-session" rel="alternate"></link><updated>2013-06-11T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.github.io,2013-06-11:en/blog/2013/connect-to-transmission-through-an-ssh-encrypted-session</id><summary type="html">&lt;p&gt;Use case: You have a remote machine with high bandwidth and you want to turn it 
+&lt;/div&gt;</summary><category term="gsoc"></category><category term="fedora"></category><category term="gitlab"></category></entry><entry><title>Connect to Transmission through an ssh encrypted session</title><link href="http://axilleas.github.io/en/blog/2013/connect-to-transmission-through-an-ssh-encrypted-session" rel="alternate"></link><updated>2013-06-11T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.github.io,2013-06-11:en/blog/2013/connect-to-transmission-through-an-ssh-encrypted-session</id><summary type="html">&lt;p&gt;Use case: You have a remote machine with high bandwidth and you want to turn it 
 in a torrent server.&lt;/p&gt;
 &lt;div class="toc"&gt;
 &lt;ul&gt;
