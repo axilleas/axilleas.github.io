@@ -20,8 +20,8 @@ me started.
 
 ### List of gems to package
 I re-calculated GitLab's gem dependencies, this time including only the ones
-needed for runtime. I ditched from the list the ones that are used for testting/development.
-Not that they are not useful, but because for the time being runtime dependencies
+needed for runtime. I ditched from the list the ones that are used for testing/development.
+Not that they are not useful, but for the time being runtime dependencies
 are a priority. I used a really ugly hack but it works for now. Here is how:
 Clone [GitLab][], cd into it and run:
   
