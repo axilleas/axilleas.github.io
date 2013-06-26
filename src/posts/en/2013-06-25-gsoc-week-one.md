@@ -1,5 +1,5 @@
 Title: GSoC - Weekly update 1
-Tags: gsoc, fedora
+Tags: gsoc, fedora, gitlab
 Category: geek
 
 It's been over a week that GSoC started and here is a weekly report of what achieved
