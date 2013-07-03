@@ -1,5 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Over the line</title><link>http://axilleas.github.io/</link><description></description><atom:link href="http://axilleas.github.io/feeds/fedora.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 25 Jun 2013 00:00:00 +0300</lastBuildDate><item><title>GSoC - Weekly update 1</title><link>http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-1</link><description>&lt;p&gt;It's been over a week that GSoC started and here is a weekly report of what achieved
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Over the line</title><link>http://axilleas.github.io/</link><description></description><atom:link href="http://axilleas.github.io/feeds/fedora.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 02 Jul 2013 00:00:00 +0300</lastBuildDate><item><title>GSoC - Weekly update 2</title><link>http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-2</link><description>&lt;p&gt;Unfortunately this week hasn't been very productive due to lack of time. I managed
+to package 5-6 more gems, but I haven't submit them in Bugzilla yet. As always, the
+most difficult and time consuming task is to make all the test suites provided
+with each gem pass. And believe me this isn't always easy. So, here is what I did
+this week.&lt;/p&gt;
+&lt;h2 id="meeting-gitlab-devs"&gt;Meeting GitLab devs&lt;/h2&gt;
+&lt;p&gt;We arranged a google hangout and we talked about the progress I make.
+They were kind enough to ask whether I need help with something. 
+Then I got to meet in person &lt;a href="https://github.com/dosire"&gt;Sytse Sijbrandij&lt;/a&gt; and &lt;a href="https://github.com/maxlazio"&gt;Marin Jankovski&lt;/a&gt; 
+during &lt;a href="http://euruko2013.org/"&gt;Euruko 2013&lt;/a&gt;. Really cool guys.&lt;/p&gt;
+&lt;p&gt;Our main concern was about the gems that are GitLab's forks and how we should
+deal with them since it is very unlikely they get accepted into the official Fedora
+repos. See next week TODOs about that matter.&lt;/p&gt;
+&lt;h2 id="wikification-and-versioning-process"&gt;Wikification and versioning process&lt;/h2&gt;
+&lt;p&gt;I started a wiki page on &lt;a href="https://fedoraproject.org/wiki/User:Axilleas/GitLab"&gt;GitLab&lt;/a&gt;, listing all the &lt;a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/rubygems_missing"&gt;dependencies&lt;/a&gt; and their versions.
+I said version&lt;strong&gt;s&lt;/strong&gt; because we have to deal with version mismatch, &lt;a href="https://fedoraproject.org/wiki/GSOC_2013/Student_Application_Axilleas/Gitlab%28463%29#Version_mismatch"&gt;remember&lt;/a&gt;?
+I am working on a script to get them automatically on a table. So far, I can extract
+GitLab's and upstream versions whereas I still need Fedora's. Here's how I do it.&lt;/p&gt;
+&lt;h3 id="gitlab"&gt;GitLab&lt;/h3&gt;
+&lt;p&gt;gem versions are retrieved from &lt;a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/gemfile.py#L30"&gt;this&lt;/a&gt; dictionary. Pretty simple.&lt;/p&gt;
+&lt;h3 id="upstream"&gt;Upstream&lt;/h3&gt;
+&lt;p&gt;Using &lt;a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/gemfile.py#L83"&gt;this&lt;/a&gt; method by qeuerying the API of rubygems.org and iterrating
+through the missing gems, I can get in a list of the latest gem versions.&lt;/p&gt;
+&lt;h3 id="fedora"&gt;Fedora&lt;/h3&gt;
+&lt;p&gt;There is this nice tool in ruby called &lt;a href="https://rubygems.org/gems/pkgwat"&gt;pkgwat&lt;/a&gt; which queries Fedora's repo
+database. This is also used by &lt;a href="https://github.com/zuhao/isitfedoraruby/blob/master/app/models/rpm_importer.rb#L46"&gt;isitfedoraruby&lt;/a&gt;, which unfortunately doesn't have
+an API. This would make my work a lot easier.&lt;/p&gt;
+&lt;p&gt;So, I decided to give this a shot by first &lt;a href="https://github.com/axilleas/fedora/blob/master/packages/rubygem-pkgwat/rubygem-pkgwat.spec"&gt;packaging&lt;/a&gt; it. This is what I am learning
+here, isn't it? I thought this would be a matter of time since it only depends on
+one unpackaged gem, &lt;a href="https://rubygems.org/gems/sanitize"&gt;sanitize&lt;/a&gt; (which ironically is needed by GitLab too).&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;(And I just whipped out a mosquito. Where the hell are they going 14.30 in the afternoon?...)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The process that I thought would take me 30 minutes top, still goes on.
+You see, &lt;code&gt;pkgwat&lt;/code&gt; has a fixed dependency on &lt;code&gt;nokogiri 1.5.5&lt;/code&gt; whereas the latest
+&lt;code&gt;sanitize 2.0.4&lt;/code&gt; requires &lt;code&gt;nokogiri&amp;gt;=1.6.0&lt;/code&gt;. On Fedora we have &lt;code&gt;nokogiri 1.5.9&lt;/code&gt;.
+Let me draw that for you.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Dependency hell" src="http://axilleas.github.io/static/images/pkgwat.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Welcome to Gem dependency hell. The only way to install it is through
+&lt;code&gt;gem install pkwat&lt;/code&gt;...&lt;/p&gt;
+&lt;h2 id="package-review"&gt;Package review&lt;/h2&gt;
+&lt;p&gt;My first informal review in order to be sponsored as a packager was 
+&lt;a href="https://bugzilla.redhat.com/show_bug.cgi?id=927374"&gt;rubygem-rugged&lt;/a&gt;. I did all my homework and I tested the given
+SPEC and SRPM with fedora-review, I built the rpm using both mock and rpmbuild 
+and then ran rpmlint against the produced packages. I made a few notes of 
+what I thought needed fixing and with some help from Vit&lt;sup id="fnref:cheat"&gt;&lt;a class="footnote-ref" href="#fn:cheat" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; I submited
+my review.&lt;/p&gt;
+&lt;h2 id="package-submission"&gt;Package submission&lt;/h2&gt;
+&lt;p&gt;Last week I submited for review &lt;a href="https://bugzilla.redhat.com/show_bug.cgi?id=969877"&gt;rubygem-timers&lt;/a&gt;, this week it
+is &lt;a href="https://bugzilla.redhat.com/show_bug.cgi?id=978284"&gt;rubygem-redis&lt;/a&gt;. One package a week you say? Dude are you
+ever going to package all these gems? Well, submiting a package for review
+in bugzilla takes some time, as I carefully check to follow the guidelines
+as much as I can. The toughest part of it all are the testing suites.
+A test may rely on other gems that are not in Fedora yet, so I try to package 
+them as well. &lt;a href="https://github.com/axilleas/fedora/tree/master/packages"&gt;Here&lt;/a&gt; you will find some packages I am working on. 
+Most of them are not submited for review yet.&lt;/p&gt;
+&lt;h2 id="todos-for-next-week"&gt;TODOs for next week&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Get more packages finished&lt;/li&gt;
+&lt;li&gt;Complete the version table in wiki&lt;/li&gt;
+&lt;li&gt;Start porting gemfile.py into ruby (eventually)&lt;/li&gt;
+&lt;li&gt;Continue writing the article about Rubygem packaging&lt;/li&gt;
+&lt;li&gt;Talk to infra team to see how that forked-gem-packaging will go&lt;/li&gt;
+&lt;li&gt;I am just a placeholder, nothing useful here, I just wanted to continue the stairs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:cheat"&gt;
+&lt;p&gt;I actually did seek for some help in &lt;a href="https://lists.fedoraproject.org/pipermail/ruby-sig/2013-July/001373.html"&gt;Ruby-SIG&lt;/a&gt; ML :p&amp;#160;&lt;a class="footnote-backref" href="#fnref:cheat" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 02 Jul 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.github.io,2013-07-02:en/blog/2013/gsoc-weekly-update-2</guid><category>gsoc</category><category>fedora</category><category>gitlab</category></item><item><title>GSoC - Weekly update 1</title><link>http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-1</link><description>&lt;p&gt;It's been over a week that GSoC started and here is a weekly report of what achieved
 so far.&lt;/p&gt;
 &lt;h2 id="weekly-process"&gt;Weekly process&lt;/h2&gt;
 &lt;h3 id="workflow"&gt;Workflow&lt;/h3&gt;
