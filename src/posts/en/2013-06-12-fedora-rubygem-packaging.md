@@ -3,11 +3,25 @@ Status: draft
 Category: geek
 Tags: fedora, gsoc, rubygem, ruby, packaging
 
-The GSoC period has officially started and since I will be dealing mainly with
-Ruby gems
-Ok this is going to be a really long post so bare with patience. There are bits
-and pieces 
+TODO: dude cookies -> dude lines :p
+
+Ok, this is going to be a really long post so bare with me, there are cookies along
+the way :)
+
+It's been almost three months that I have been dealing with packaging in Fedora
+and especially with Ruby gems. In this article I'll talk about the things I learned
+these past months, the difficulties I encountered and how I got past them. 
+Hopefully, this is going to be a good starting point for all those wanting to
+contribute in Fedora Ruby gem packaging and have a hard time understanding 
+the process (like I used to).
+
+To be honest, there is a ton of information one has to process and this might be
+a little overwhelming in the beginning. 
+
+There are bits and pieces 
  
+In the rest of the article I am focusing on `ruby >= 1.9.1` and Fedora >= 19.
+[Different][wiki-old] guidelines apply to previous versions.
 
 [TOC]
 
@@ -251,3 +265,13 @@ When you file your review bugs, make sure you set the "depends on" items properl
 ### Misc
 - [Fedorapeople Repos](https://fedoraproject.org/wiki/Fedorapeople_Repos)
 
+
+----------------
+
+NOTES
+
+1) don't forget to rpmlint on doc packages as well.
+
+
+---
+[wiki-old]: https://fedoraproject.org/w/index.php?title=Packaging:Ruby&oldid=306009
