@@ -1,5 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Over the line</title><link>http://axilleas.github.io/</link><description></description><atom:link href="http://axilleas.github.io/feeds/geek.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 02 Jul 2013 00:00:00 +0300</lastBuildDate><item><title>GSoC - Weekly update 2</title><link>http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-2</link><description>&lt;p&gt;Unfortunately this week hasn't been very productive due to lack of time. I managed
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Over the line</title><link>http://axilleas.github.io/</link><description></description><atom:link href="http://axilleas.github.io/feeds/geek.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 09 Jul 2013 00:00:00 +0300</lastBuildDate><item><title>GSoC - Weekly update 3 and 4</title><link>http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-3-and-4</link><description>&lt;p&gt;Here is what I have been doing the last two weeks.&lt;/p&gt;
+&lt;div class="toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#work-on-packages"&gt;Work on packages&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#sanitize"&gt;sanitize&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#boostrap-sass"&gt;boostrap-sass&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orm_adapter"&gt;orm_adapter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#devise"&gt;devise&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#gems-and-their-versions-in-json-format"&gt;Gems and their versions in json format&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#version-table-in-wiki"&gt;Version table in wiki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#init-repository"&gt;Init repository&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#rubygem-packaging-article"&gt;Rubygem packaging article&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#todo-next-week"&gt;TODO next week&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h2 id="work-on-packages"&gt;Work on packages&lt;/h2&gt;
+&lt;p&gt;I ran gem2rpm on all gems and saved their specs in a &lt;a href="https://github.com/axilleas/fedora/tree/master/packages/tmp"&gt;tmp&lt;/a&gt; folder
+so that I can easily modify them later. I intend to split them in categories
+according to the bundled gems in GitLab's &lt;a href="https://github.com/gitlabhq/gitlabhq/blob/master/Gemfile#L11-L143"&gt;Gemfile&lt;/a&gt; that are needed for production.
+Below are some gems that are either almost ready for Bugzilla or submitted. There
+are a dozen more that I work with but haven't pushed any changes to github. Will
+do soon.&lt;/p&gt;
+&lt;h3 id="sanitize"&gt;sanitize&lt;/h3&gt;
+&lt;p&gt;Not yet submitted to BZ as it needs nokogiri 1.6.0 whereas in Fedora
+we still have 1.5.9. Will have to talk to the maintainer of nokogiri for an update.&lt;/p&gt;
+&lt;h3 id="boostrap-sass"&gt;boostrap-sass&lt;/h3&gt;
+&lt;p&gt;Submitted in &lt;a href="https://bugzilla.redhat.com/show_bug.cgi?id=982679"&gt;Bugzilla&lt;/a&gt;. This is a tricky one as per the package guidelines,
+as it ships with some javascript files that are distributed from &lt;a href="https://github.com/twitter/bootstrap"&gt;Twitter bootstrap&lt;/a&gt;,
+which are considered a bundle. And if you don't already know it, bundling is
+prohibited by the &lt;a href="https://fedoraproject.org/wiki/Packaging:Guidelines#Duplication_of_system_libraries"&gt;packaging guidelines&lt;/a&gt;. You can follow the discussion
+in the Bugzilla. There is also an interesting discussion going on in packaging ML,
+about web Assets/JavaScript guidelines and are proposed some [drafts][js-drafts].
+This could probably alter the packaging structure of bootstrap-sass, but I don't
+expect it anytime soon.&lt;/p&gt;
+&lt;h3 id="orm_adapter"&gt;orm_adapter&lt;/h3&gt;
+&lt;p&gt;Some tests are skipped because they require some gems not yet packaged for Fedora,
+but that is a &lt;a href="https://lists.fedoraproject.org/pipermail/ruby-sig/2013-July/001384.html"&gt;little acceptable&lt;/a&gt;. This is a dependency of devise (see
+below). To be submitted soon.&lt;/p&gt;
+&lt;h3 id="devise"&gt;devise&lt;/h3&gt;
+&lt;p&gt;&lt;a href="http://github.com/plataformatec/devise"&gt;Devise&lt;/a&gt; provides ready-made authentication and user management for rails
+applications. It is a very popular rack application among the rails community, so
+it'll be cool to get it into Fedora's repos :)
+Submission is on the way along with orm_adapter.&lt;/p&gt;
+&lt;h2 id="gems-and-their-versions-in-json-format"&gt;Gems and their versions in json format&lt;/h2&gt;
+&lt;p&gt;As I've mentioned before, one of the main problems about packaging GitLab, is
+the version mismatch between GitLab, Fedora and upstream gems. I have added some
+more functions to my &lt;a href="https://github.com/axilleas/gsoc/blob/master/gemfile.py"&gt;script&lt;/a&gt; and now it saves the gems with their corresponding
+version in a json format. There are three files: &lt;code&gt;gitlab.json&lt;/code&gt;, &lt;code&gt;fedora.json&lt;/code&gt; and 
+ &lt;code&gt;upstream.json&lt;/code&gt;. &lt;/p&gt;
+&lt;p&gt;I haven't added a flag to those methods yet, so one has to run it through the python
+interpreter for now. Here's how:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install &lt;a href="https://fedorahosted.org/python-bugzilla/‎"&gt;python-bugzilla&lt;/a&gt; and &lt;a href="http://pkgwat.readthedocs.org/en/latest/"&gt;pkgwat.api&lt;/a&gt; if not already.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git clone https://github.com/axilleas/gsoc.git &amp;amp;&amp;amp; cd gsoc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Start your python interpreter (I prefer ipython)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;import gemfile as g&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dicts = g.populate_dicts()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[gitlab, fedora, upstream] = dicts&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;It will take a couple of minutes since it uses pkgwat.api to query the Fedora
+database for the gems in Rawhide, and rubygems.org for the upstream versions.
+&lt;code&gt;dicts&lt;/code&gt; is a tuple containing all three dictionaries. With the last command we
+unpacked the dictionaries of the tuple. So now calling gitlab, you have the gitlab
+dictionary and so on.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; All methods are called using the runtime gems of the current version of 
+GitLab, which are 143 for now. According to those gems we then search the Fedora
+package database and quering rubygems.org's API.&lt;/p&gt;
+&lt;h2 id="version-table-in-wiki"&gt;Version table in wiki&lt;/h2&gt;
+&lt;p&gt;There is now a &lt;a href="https://fedoraproject.org/wiki/User:Axilleas/GitLab#Packages"&gt;table&lt;/a&gt; in the wiki for an easy reference about the versions
+of gems. Where you see &lt;code&gt;None&lt;/code&gt; it means it hasn't been packaged for Fedora yet.
+This is now &lt;a href="https://github.com/axilleas/gsoc/blob/master/gemfile.py#L217"&gt;automatically&lt;/a&gt; accomplished by running the script. &lt;/p&gt;
+&lt;p&gt;Further below is a list of the gems to be packaged. Those that are submitted to
+Bugzilla are accompanied with a link to their review. I am working on automating
+this process, it should be something similar to how the wiki table is generated.&lt;/p&gt;
+&lt;p&gt;Also, I modified the output a little bit to be more readable. For example:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;------------------------------------------------------&lt;/span&gt;
+&lt;span class="n"&gt;Gitlab&lt;/span&gt; &lt;span class="n"&gt;runtime&lt;/span&gt; &lt;span class="n"&gt;gems&lt;/span&gt;  &lt;span class="o"&gt;:&lt;/span&gt;  &lt;span class="mi"&gt;143&lt;/span&gt;
+&lt;span class="n"&gt;Gems&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;Fedora&lt;/span&gt; &lt;span class="n"&gt;repos&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt;  &lt;span class="mi"&gt;380&lt;/span&gt;
+&lt;span class="n"&gt;Common&lt;/span&gt; &lt;span class="n"&gt;gems&lt;/span&gt;          &lt;span class="o"&gt;:&lt;/span&gt;  &lt;span class="mi"&gt;64&lt;/span&gt;
+&lt;span class="n"&gt;To&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;packaged&lt;/span&gt;       &lt;span class="o"&gt;:&lt;/span&gt;  &lt;span class="mi"&gt;79&lt;/span&gt;
+&lt;span class="n"&gt;Pending&lt;/span&gt; &lt;span class="n"&gt;review&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;BZ&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt;  &lt;span class="mi"&gt;11&lt;/span&gt;
+&lt;span class="n"&gt;When&lt;/span&gt; &lt;span class="n"&gt;BZ&lt;/span&gt; &lt;span class="n"&gt;go&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;repos&lt;/span&gt;  &lt;span class="o"&gt;:&lt;/span&gt;  &lt;span class="mi"&gt;68&lt;/span&gt;
+
+&lt;span class="n"&gt;Fedora&lt;/span&gt; &lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="mf"&gt;20.79&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;more&lt;/span&gt; &lt;span class="n"&gt;ruby&lt;/span&gt; &lt;span class="n"&gt;packages&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;that&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="mi"&gt;459&lt;/span&gt; &lt;span class="n"&gt;gems&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;total&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="o"&gt;------------------------------------------------------&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2 id="init-repository"&gt;Init repository&lt;/h2&gt;
+&lt;p&gt;I have created a repository at fedorapeople.org to start populating it with packages
+I build, but take a long time to get to Fedora repos. This should be a good chance
+to test the packages they make it to Rawhide.&lt;/p&gt;
+&lt;p&gt;Most gems come with a bundled test suite. Running tests during gem packaging
+can sometimes be cumbersome but it is the only way to test that the gem really
+works, at least according to the suite. To my experience, getting the tests run
+requires a big amount of your time during package building, so in this test repo
+expect to find many packages without their tests run. At least this is going to
+be the case at the beginning.&lt;/p&gt;
+&lt;h2 id="rubygem-packaging-article"&gt;Rubygem packaging article&lt;/h2&gt;
+&lt;p&gt;Half done, nothing commited yet, I have everything local. This takes more time
+than I expected, as I want it to be easily understandable by people that don't
+have a clue, but also a good guide for more experienced users. I am rather picky
+and I read what I write many times, so yeah, this is going to take longer to finish.&lt;/p&gt;
+&lt;h2 id="todo-next-week"&gt;TODO next week&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Categorize gems according to their dependencies.&lt;/li&gt;
+&lt;li&gt;Submit 5-10 more gems.&lt;/li&gt;
+&lt;li&gt;Deploy GitLab on a Fedora server and test with some packaged gems. This is going to hit me hard I feel it :p&lt;/li&gt;
+&lt;li&gt;Maybe write an unofficial guide of how to install GitLab in Fedora, haven't checked if there is a guide out in the internets.&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 09 Jul 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.github.io,2013-07-09:en/blog/2013/gsoc-weekly-update-3-and-4</guid><category>gsoc</category><category>fedora</category><category>gitlab</category></item><item><title>GSoC - Weekly update 2</title><link>http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-2</link><description>&lt;p&gt;Unfortunately this week hasn't been very productive due to lack of time. I managed
 to package 5-6 more gems, but I haven't submit them in Bugzilla yet. As always, the
 most difficult and time consuming task is to make all the test suites provided
 with each gem pass. And believe me this isn't always easy. So, here is what I did
