@@ -110,7 +110,7 @@ article footer {
 article .body blockquote p {
     color: #003153;
     margin-top: 0;
-    padding: 10px 15px;
+    padding: 5px 10px;
 }
 
 strong {
@@ -132,15 +132,23 @@ code {
     padding:0 2px;
 }
 
+.codehilite {
+    background: none repeat scroll 0% 0% transparent;
+
+}
+
 pre {
-    background-color: #eaf7ff;
-    border: 1px solid #d1e3ef;
-    border-radius: 10px;
-    color: #003153;
-    margin-top: 0px;
-    overflow-x: auto;
-    padding: 10px 20px;
+    white-space: pre-wrap;
+    border-radius: 4px 4px 4px 4px;
+    background-color: rgb(245, 245, 245);
     font-size: 90%;
+    padding: 8.5px;
+    display: block;
+    margin: 20px 0px 0px 0px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    line-height: 18px;
+    word-break: break-all;
+    overflow-x: auto;
 }
 
 pre code {
