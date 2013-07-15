@@ -58,25 +58,7 @@
         {% block footnote %}{% endblock %}
     </div>
 
-    <div class="bottom">
-        <div class="container">
-            <div class="about">
-                <h3>About me</h3>
-                 <img alt="Me!" class="avatar"
-                     src="http://www.gravatar.com/avatar/{{ AUTHOR_EMAIL_HASH }}?size=64">
-                <p>{{ AUTHOR_SHORTBIO }}</p>
-                {% if GITHUB_USERNAME and GITHUB_BADGE %}
-                <div class="github-badge">
-                    <iframe src="http://githubbadge.appspot.com/badge/{{ GITHUB_USERNAME }}?s=1"
-                            style="border: 0; height: 150px; width: 200px; overflow: hidden;"></iframe>
-                </div>
-                {% endif %}
-                <p>
-                   Read more about me <a href="{{ SITEURL }}/about/">here</a>.
-                </p>
-            </div>
-        </div>
-    </div>
+
 
     <footer>
         <div class="container footer">
