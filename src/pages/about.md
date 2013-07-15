@@ -108,7 +108,7 @@ Fates Warning**\***,
 
 ## Contact details
 
-    Email       : axilleas [at] archlinux.gr
+    Email       : axilleas [at] axilleas [dot] me
     IRC         : axil42 (freenode)
     PGP key     : 0xABF99BE5
     Github      : axilleas
@@ -118,7 +118,7 @@ Fates Warning**\***,
 
 
 [codeschool]: http://www.codeschool.com/users/axil
-[coursera]: 
+[coursera]: https://www.coursera.org/user/i/e06596beaed7e29b9557eb5c2bb94b73
 
 [snf-arch]: http://www.synnefo.org/docs/snf-image-creator/latest/install.html#arch-linux
 [semfe]: http://semfe.ntua.gr "School of Applied Mathematical and Physical Sciences"
