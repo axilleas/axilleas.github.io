@@ -63,14 +63,14 @@ during <a href="http://euruko2013.org/">Euruko 2013</a>. Really cool guys.</p>
 deal with them since it is very unlikely they get accepted into the official Fedora
 repos. See next week TODOs about that matter.</p>
 <h2 id="wikification-and-versioning-process">Wikification and versioning process</h2>
-<p>I started a wiki page on <a href="https://fedoraproject.org/wiki/User:Axilleas/GitLab">GitLab</a>, listing all the <a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/rubygems_missing">dependencies</a> and their versions.
+<p>I started a wiki page on <a href="https://fedoraproject.org/wiki/User:Axilleas/GitLab">GitLab</a>, listing all the <a href="https://github.com/axilleas/gsoc/blob/master/rubygems_missing">dependencies</a> and their versions.
 I said version<strong>s</strong> because we have to deal with version mismatch, <a href="https://fedoraproject.org/wiki/GSOC_2013/Student_Application_Axilleas/Gitlab%28463%29#Version_mismatch">remember</a>?
 I am working on a script to get them automatically on a table. So far, I can extract
 GitLab's and upstream versions whereas I still need Fedora's. Here's how I do it.</p>
 <h3 id="gitlab">GitLab</h3>
-<p>gem versions are retrieved from <a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/gemfile.py#L30">this</a> dictionary. Pretty simple.</p>
+<p>gem versions are retrieved from <a href="https://github.com/axilleas/gsoc/blob/master/gemfile.py#L30">this</a> dictionary. Pretty simple.</p>
 <h3 id="upstream">Upstream</h3>
-<p>Using <a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/gemfile.py#L83">this</a> method by qeuerying the API of rubygems.org and iterrating
+<p>Using <a href="https://github.com/axilleas/gsoc/blob/master/gemfile.py#L83">this</a> method by qeuerying the API of rubygems.org and iterrating
 through the missing gems, I can get in a list of the latest gem versions.</p>
 <h3 id="fedora">Fedora</h3>
 <p>There is this nice tool in ruby called <a href="https://rubygems.org/gems/pkgwat">pkgwat</a> which queries Fedora's repo

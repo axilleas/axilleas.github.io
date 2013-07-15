@@ -90,7 +90,7 @@ this process, it should be something similar to how the wiki table is generated.
 
 
 &lt;h2 id="init-repository"&gt;Init repository&lt;/h2&gt;
-&lt;p&gt;I have created a repository at fedorapeople.org to start populating it with packages
+&lt;p&gt;I have created a repository at &lt;a href="http://repos.fedorapeople.org/repos/axilleas/gitlab/"&gt;fedorapeople.org&lt;/a&gt; to start populating it with packages
 I build, but take a long time to get to Fedora repos. This should be a good chance
 to test the packages they make it to Rawhide.&lt;/p&gt;
 &lt;p&gt;Most gems come with a bundled test suite. Running tests during gem packaging
@@ -124,14 +124,14 @@ during &lt;a href="http://euruko2013.org/"&gt;Euruko 2013&lt;/a&gt;. Really cool
 deal with them since it is very unlikely they get accepted into the official Fedora
 repos. See next week TODOs about that matter.&lt;/p&gt;
 &lt;h2 id="wikification-and-versioning-process"&gt;Wikification and versioning process&lt;/h2&gt;
-&lt;p&gt;I started a wiki page on &lt;a href="https://fedoraproject.org/wiki/User:Axilleas/GitLab"&gt;GitLab&lt;/a&gt;, listing all the &lt;a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/rubygems_missing"&gt;dependencies&lt;/a&gt; and their versions.
+&lt;p&gt;I started a wiki page on &lt;a href="https://fedoraproject.org/wiki/User:Axilleas/GitLab"&gt;GitLab&lt;/a&gt;, listing all the &lt;a href="https://github.com/axilleas/gsoc/blob/master/rubygems_missing"&gt;dependencies&lt;/a&gt; and their versions.
 I said version&lt;strong&gt;s&lt;/strong&gt; because we have to deal with version mismatch, &lt;a href="https://fedoraproject.org/wiki/GSOC_2013/Student_Application_Axilleas/Gitlab%28463%29#Version_mismatch"&gt;remember&lt;/a&gt;?
 I am working on a script to get them automatically on a table. So far, I can extract
 GitLab's and upstream versions whereas I still need Fedora's. Here's how I do it.&lt;/p&gt;
 &lt;h3 id="gitlab"&gt;GitLab&lt;/h3&gt;
-&lt;p&gt;gem versions are retrieved from &lt;a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/gemfile.py#L30"&gt;this&lt;/a&gt; dictionary. Pretty simple.&lt;/p&gt;
+&lt;p&gt;gem versions are retrieved from &lt;a href="https://github.com/axilleas/gsoc/blob/master/gemfile.py#L30"&gt;this&lt;/a&gt; dictionary. Pretty simple.&lt;/p&gt;
 &lt;h3 id="upstream"&gt;Upstream&lt;/h3&gt;
-&lt;p&gt;Using &lt;a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/gemfile.py#L83"&gt;this&lt;/a&gt; method by qeuerying the API of rubygems.org and iterrating
+&lt;p&gt;Using &lt;a href="https://github.com/axilleas/gsoc/blob/master/gemfile.py#L83"&gt;this&lt;/a&gt; method by qeuerying the API of rubygems.org and iterrating
 through the missing gems, I can get in a list of the latest gem versions.&lt;/p&gt;
 &lt;h3 id="fedora"&gt;Fedora&lt;/h3&gt;
 &lt;p&gt;There is this nice tool in ruby called &lt;a href="https://rubygems.org/gems/pkgwat"&gt;pkgwat&lt;/a&gt; which queries Fedora's repo
@@ -210,14 +210,14 @@ directory and write the results in a file.&lt;/p&gt;
 
 
 &lt;p&gt;The list contains gems in the format of &lt;code&gt;gem_name-1.0.0&lt;/code&gt; so I had to clean that
-up a little. I used some string methods in the &lt;a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/gemfile.py#L30"&gt;python script&lt;/a&gt; and stored those values
+up a little. I used some string methods in the &lt;a href="https://github.com/axilleas/gsoc/blob/master/gemfile.py#L30"&gt;python script&lt;/a&gt; and stored those values
 in a dictionary where key is the gem name and value its version. Then the names
 list was easily retrievable. All I had to do is call the &lt;code&gt;keys()&lt;/code&gt; method on
-the dictionary and store the result in a &lt;a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/rubygems_gitlab"&gt;file&lt;/a&gt;.&lt;/p&gt;
+the dictionary and store the result in a &lt;a href="https://github.com/axilleas/gsoc/blob/master/rubygems_gitlab"&gt;file&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Then, I had somehow to include in the list of already packaged gems, the ones that 
 are submitted in bugzilla for review. No need to work on them if their specfile
 is already submitted for review, right? For that I used the &lt;a href="https://fedorahosted.org/python-bugzilla/"&gt;python-bugzilla&lt;/a&gt;
-tool that queries a Bugzilla instance and spits nice &lt;a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/rubygems_bugzilla_raw"&gt;formated results&lt;/a&gt;.
+tool that queries a Bugzilla instance and spits nice &lt;a href="https://github.com/axilleas/gsoc/blob/master/rubygems_bugzilla_raw"&gt;formated results&lt;/a&gt;.
 The query is pretty much self explanatory. In the end I just sorted them according
 to their bug status.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;bugzilla query --product&lt;span class="o"&gt;=&lt;/span&gt;fedora --bug_status&lt;span class="o"&gt;=&lt;/span&gt;new,assigned --component&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Package Review&amp;#39;&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
@@ -228,18 +228,18 @@ to their bug status.&lt;/p&gt;
 &lt;p&gt;Below, using the same query methods and some sed/awk magic&lt;sup id="fnref:json"&gt;&lt;a class="footnote-ref" href="#fn:json" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;, we end up with a file
 containing only the names of gems that are submitted for review in Bugzilla.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;bugzilla query --product&lt;span class="o"&gt;=&lt;/span&gt;fedora --bug_status&lt;span class="o"&gt;=&lt;/span&gt;new,assigned --component&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Package Review&amp;#39;&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
---short_desc&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;rubygem-&amp;#39;&lt;/span&gt; | awk &lt;span class="s1"&gt;&amp;#39;BEGIN { FS = &amp;quot; - &amp;quot; }; { print $3 }&amp;#39;&lt;/span&gt; | awk &lt;span class="s1"&gt;&amp;#39;BEGIN { FS = &amp;quot;:&amp;quot; }; { print $2 }&amp;#39;&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
-| sed -e &lt;span class="s1"&gt;&amp;#39;s/rubygem-//&amp;#39;&lt;/span&gt; | sort -k1 &amp;gt; &lt;span class="nv"&gt;$bugzilla_gems&lt;/span&gt;
+--short_desc&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;rubygem-&amp;#39;&lt;/span&gt; | awk &lt;span class="s1"&gt;&amp;#39;BEGIN { FS = &amp;quot; - &amp;quot; }; { print $3 }&amp;#39;&lt;/span&gt; | awk &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="s1"&gt;&amp;#39;BEGIN { FS = &amp;quot;:&amp;quot; }; { print $2 }&amp;#39;&lt;/span&gt; | sed -e &lt;span class="s1"&gt;&amp;#39;s/rubygem-//&amp;#39;&lt;/span&gt; | sort -k1 &amp;gt; &lt;span class="nv"&gt;$bugzilla_gems&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;That list, combined with the query from the official repos, results in the &lt;a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/rubygems_fedora"&gt;final&lt;/a&gt;
+&lt;p&gt;That list, combined with the query from the official repos, results in the &lt;a href="https://github.com/axilleas/gsoc/blob/master/rubygems_fedora"&gt;final&lt;/a&gt;
 one which has all the Ruby gems already packaged or are to be packaged for Fedora.&lt;/p&gt;
-&lt;p&gt;I also wrote a method to store those values in a &lt;a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/gemfile.py#L95"&gt;dictionary&lt;/a&gt; in the format
+&lt;p&gt;I also wrote a method to store those values in a &lt;a href="https://github.com/axilleas/gsoc/blob/master/gemfile.py#L95"&gt;dictionary&lt;/a&gt; in the format
 of &lt;code&gt;dict = { gem_name: [bug_id, status, assignee, description] }&lt;/code&gt;. It might come
 in handy in the future, who knows!&lt;/p&gt;
 &lt;p&gt;Next step was to find the missing gems that I will have to package for Fedora.
-Comparing those two lists we end up with this &lt;a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/rubygems_missing"&gt;list&lt;/a&gt;.&lt;/p&gt;
+Comparing those two lists we end up with this &lt;a href="https://github.com/axilleas/gsoc/blob/master/rubygems_missing"&gt;list&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;And the new results are:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Gitlab uses &lt;strong&gt;143&lt;/strong&gt; runtime gems.&lt;/p&gt;
@@ -385,7 +385,7 @@ sed -e &lt;span class="s1"&gt;&amp;#39;s/rubygem-//g&amp;#39;&lt;/span&gt; -e &l
 
 
 &lt;p&gt;In order to find what gems GitLab depends on, I used the &lt;a href="https://github.com/gitlabhq/gitlabhq/blob/master/Gemfile.lock"&gt;Gemfile.lock&lt;/a&gt; 
-and wrote a simple python &lt;a href="https://github.com/axilleas/fedora-gitlab/blob/master/gemfile.py"&gt;script&lt;/a&gt;&lt;sup id="fnref:python-script"&gt;&lt;a class="footnote-ref" href="#fn:python-script" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; that computes how many and which gems 
+and wrote a simple python &lt;a href="https://github.com/axilleas/gsoc/blob/master/gemfile.py"&gt;script&lt;/a&gt;&lt;sup id="fnref:python-script"&gt;&lt;a class="footnote-ref" href="#fn:python-script" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; that computes how many and which gems 
 Fedora and GitLab have in common. Below are some draft&lt;sup id="fnref:draft_numbers"&gt;&lt;a class="footnote-ref" href="#fn:draft_numbers" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt; numbers and a bar chart.&lt;/p&gt;
 &lt;div id="rubygems_chart"&gt;&lt;/div&gt;
 

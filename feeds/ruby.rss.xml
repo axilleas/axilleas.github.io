@@ -107,7 +107,7 @@ sed -e &lt;span class="s1"&gt;&amp;#39;s/rubygem-//g&amp;#39;&lt;/span&gt; -e &l
 
 
 &lt;p&gt;In order to find what gems GitLab depends on, I used the &lt;a href="https://github.com/gitlabhq/gitlabhq/blob/master/Gemfile.lock"&gt;Gemfile.lock&lt;/a&gt; 
-and wrote a simple python &lt;a href="https://github.com/axilleas/fedora-gitlab/blob/master/gemfile.py"&gt;script&lt;/a&gt;&lt;sup id="fnref:python-script"&gt;&lt;a class="footnote-ref" href="#fn:python-script" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; that computes how many and which gems 
+and wrote a simple python &lt;a href="https://github.com/axilleas/gsoc/blob/master/gemfile.py"&gt;script&lt;/a&gt;&lt;sup id="fnref:python-script"&gt;&lt;a class="footnote-ref" href="#fn:python-script" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; that computes how many and which gems 
 Fedora and GitLab have in common. Below are some draft&lt;sup id="fnref:draft_numbers"&gt;&lt;a class="footnote-ref" href="#fn:draft_numbers" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt; numbers and a bar chart.&lt;/p&gt;
 &lt;div id="rubygems_chart"&gt;&lt;/div&gt;
 

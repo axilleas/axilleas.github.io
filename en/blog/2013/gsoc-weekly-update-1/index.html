@@ -79,14 +79,14 @@ directory and write the results in a file.</p>
 
 
 <p>The list contains gems in the format of <code>gem_name-1.0.0</code> so I had to clean that
-up a little. I used some string methods in the <a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/gemfile.py#L30">python script</a> and stored those values
+up a little. I used some string methods in the <a href="https://github.com/axilleas/gsoc/blob/master/gemfile.py#L30">python script</a> and stored those values
 in a dictionary where key is the gem name and value its version. Then the names
 list was easily retrievable. All I had to do is call the <code>keys()</code> method on
-the dictionary and store the result in a <a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/rubygems_gitlab">file</a>.</p>
+the dictionary and store the result in a <a href="https://github.com/axilleas/gsoc/blob/master/rubygems_gitlab">file</a>.</p>
 <p>Then, I had somehow to include in the list of already packaged gems, the ones that 
 are submitted in bugzilla for review. No need to work on them if their specfile
 is already submitted for review, right? For that I used the <a href="https://fedorahosted.org/python-bugzilla/">python-bugzilla</a>
-tool that queries a Bugzilla instance and spits nice <a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/rubygems_bugzilla_raw">formated results</a>.
+tool that queries a Bugzilla instance and spits nice <a href="https://github.com/axilleas/gsoc/blob/master/rubygems_bugzilla_raw">formated results</a>.
 The query is pretty much self explanatory. In the end I just sorted them according
 to their bug status.</p>
 <div class="codehilite"><pre>bugzilla query --product<span class="o">=</span>fedora --bug_status<span class="o">=</span>new,assigned --component<span class="o">=</span><span class="s1">&#39;Package Review&#39;</span> <span class="se">\</span>
@@ -97,18 +97,18 @@ to their bug status.</p>
 <p>Below, using the same query methods and some sed/awk magic<sup id="fnref:json"><a class="footnote-ref" href="#fn:json" rel="footnote">1</a></sup>, we end up with a file
 containing only the names of gems that are submitted for review in Bugzilla.</p>
 <div class="codehilite"><pre>bugzilla query --product<span class="o">=</span>fedora --bug_status<span class="o">=</span>new,assigned --component<span class="o">=</span><span class="s1">&#39;Package Review&#39;</span> <span class="se">\</span>
---short_desc<span class="o">=</span><span class="s1">&#39;rubygem-&#39;</span> | awk <span class="s1">&#39;BEGIN { FS = &quot; - &quot; }; { print $3 }&#39;</span> | awk <span class="s1">&#39;BEGIN { FS = &quot;:&quot; }; { print $2 }&#39;</span> <span class="se">\</span>
-| sed -e <span class="s1">&#39;s/rubygem-//&#39;</span> | sort -k1 &gt; <span class="nv">$bugzilla_gems</span>
+--short_desc<span class="o">=</span><span class="s1">&#39;rubygem-&#39;</span> | awk <span class="s1">&#39;BEGIN { FS = &quot; - &quot; }; { print $3 }&#39;</span> | awk <span class="se">\</span>
+<span class="s1">&#39;BEGIN { FS = &quot;:&quot; }; { print $2 }&#39;</span> | sed -e <span class="s1">&#39;s/rubygem-//&#39;</span> | sort -k1 &gt; <span class="nv">$bugzilla_gems</span>
 </pre></div>
 
 
-<p>That list, combined with the query from the official repos, results in the <a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/rubygems_fedora">final</a>
+<p>That list, combined with the query from the official repos, results in the <a href="https://github.com/axilleas/gsoc/blob/master/rubygems_fedora">final</a>
 one which has all the Ruby gems already packaged or are to be packaged for Fedora.</p>
-<p>I also wrote a method to store those values in a <a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/gemfile.py#L95">dictionary</a> in the format
+<p>I also wrote a method to store those values in a <a href="https://github.com/axilleas/gsoc/blob/master/gemfile.py#L95">dictionary</a> in the format
 of <code>dict = { gem_name: [bug_id, status, assignee, description] }</code>. It might come
 in handy in the future, who knows!</p>
 <p>Next step was to find the missing gems that I will have to package for Fedora.
-Comparing those two lists we end up with this <a href="https://github.com/axilleas/fedora/blob/master/gitlab-deps/rubygems_missing">list</a>.</p>
+Comparing those two lists we end up with this <a href="https://github.com/axilleas/gsoc/blob/master/rubygems_missing">list</a>.</p>
 <p>And the new results are:</p>
 <blockquote>
 <p>Gitlab uses <strong>143</strong> runtime gems.</p>
