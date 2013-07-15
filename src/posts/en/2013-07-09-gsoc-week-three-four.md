@@ -99,7 +99,7 @@ Also, I modified the output a little bit to be more readable. For example:
 
 ## Init repository
 
-I have created a repository at fedorapeople.org to start populating it with packages
+I have created a repository at [fedorapeople.org][] to start populating it with packages
 I build, but take a long time to get to Fedora repos. This should be a good chance
 to test the packages they make it to Rawhide.
 
@@ -124,7 +124,7 @@ and I read what I write many times, so yeah, this is going to take longer to fin
 - Deploy GitLab on a Fedora server and test with some packaged gems. This is going to hit me hard I feel it :p
 - Maybe write an unofficial guide of how to install GitLab in Fedora, haven't checked if there is a guide out in the internets.
 
-
+[fedorapeople.org]: http://repos.fedorapeople.org/repos/axilleas/gitlab/
 [js-draft]: https://lists.fedoraproject.org/pipermail/packaging/2013-July/009304.html
 [Gemfile]: https://github.com/gitlabhq/gitlabhq/blob/master/Gemfile#L11-L143
 [list-test]: https://lists.fedoraproject.org/pipermail/ruby-sig/2013-July/001384.html

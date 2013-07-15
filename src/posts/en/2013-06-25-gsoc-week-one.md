@@ -59,8 +59,8 @@ containing only the names of gems that are submitted for review in Bugzilla.
 
     ::bash
     bugzilla query --product=fedora --bug_status=new,assigned --component='Package Review' \
-    --short_desc='rubygem-' | awk 'BEGIN { FS = " - " }; { print $3 }' | awk 'BEGIN { FS = ":" }; { print $2 }' \
-    | sed -e 's/rubygem-//' | sort -k1 > $bugzilla_gems
+    --short_desc='rubygem-' | awk 'BEGIN { FS = " - " }; { print $3 }' | awk \
+    'BEGIN { FS = ":" }; { print $2 }' | sed -e 's/rubygem-//' | sort -k1 > $bugzilla_gems
 
 That list, combined with the query from the official repos, results in the [final][]
 one which has all the Ruby gems already packaged or are to be packaged for Fedora.
@@ -145,13 +145,13 @@ seen anything in the man page about json support.
 [Trello board]: https://trello.com/board/gitlab/51b844202ed21a6735011b25
 [timers]: https://bugzilla.redhat.com/show_bug.cgi?id=969877
 [GitLab]: https://github.com/gitlabhq/gitlabhq
-[python script]: https://github.com/axilleas/fedora/blob/master/gitlab-deps/gemfile.py#L30
-[gitlab53-gems]: https://github.com/axilleas/fedora/blob/master/gitlab-deps/rubygems_gitlab
+[python script]: https://github.com/axilleas/gsoc/blob/master/gemfile.py#L30
+[gitlab53-gems]: https://github.com/axilleas/gsoc/blob/master/rubygems_gitlab
 [pb]: https://fedorahosted.org/python-bugzilla/
-[bz-query]: https://github.com/axilleas/fedora/blob/master/gitlab-deps/rubygems_bugzilla_raw
-[final]: https://github.com/axilleas/fedora/blob/master/gitlab-deps/rubygems_fedora
-[bz-dict]: https://github.com/axilleas/fedora/blob/master/gitlab-deps/gemfile.py#L95
-[missing-gems]: https://github.com/axilleas/fedora/blob/master/gitlab-deps/rubygems_missing
+[bz-query]: https://github.com/axilleas/gsoc/blob/master/rubygems_bugzilla_raw
+[final]: https://github.com/axilleas/gsoc/blob/master/rubygems_fedora
+[bz-dict]: https://github.com/axilleas/gsoc/blob/master/gemfile.py#L95
+[missing-gems]: https://github.com/axilleas/gsoc/blob/master/rubygems_missing
 [gemtree]: https://github.com/axilleas/fedora/tree/master/gitlab-deps/gemtree
 [Gitorious]: https://fedoraproject.org/wiki/User:Ktdreyer/Gitorious
 [sponsored]: https://fedoraproject.org/wiki/Join_the_package_collection_maintainers#Get_Sponsored

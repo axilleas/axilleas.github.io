@@ -94,11 +94,11 @@ Most of them are not submited for review yet.
 [packaging]: https://github.com/axilleas/fedora/blob/master/packages/rubygem-pkgwat/rubygem-pkgwat.spec
 [pkgwat]: https://rubygems.org/gems/pkgwat
 [isitfedoraruby]: https://github.com/zuhao/isitfedoraruby/blob/master/app/models/rpm_importer.rb#L46
-[upstream]: https://github.com/axilleas/fedora/blob/master/gitlab-deps/gemfile.py#L83
-[gl-deps]: https://github.com/axilleas/fedora/blob/master/gitlab-deps/gemfile.py#L30
+[upstream]: https://github.com/axilleas/gsoc/blob/master/gemfile.py#L83
+[gl-deps]: https://github.com/axilleas/gsoc/blob/master/gemfile.py#L30
 [gl]: https://fedoraproject.org/wiki/User:Axilleas/GitLab
 [gsoc-prop]: https://fedoraproject.org/wiki/GSOC_2013/Student_Application_Axilleas/Gitlab%28463%29#Version_mismatch
-[dependencies]: https://github.com/axilleas/fedora/blob/master/gitlab-deps/rubygems_missing
+[dependencies]: https://github.com/axilleas/gsoc/blob/master/rubygems_missing
 [rugged]: https://bugzilla.redhat.com/show_bug.cgi?id=927374
 [redis]: https://bugzilla.redhat.com/show_bug.cgi?id=978284
 [timers]: https://bugzilla.redhat.com/show_bug.cgi?id=969877

@@ -73,11 +73,10 @@ That is
   1. identify which gems are missing in Fedora and package them,
   2. compile a list of gems GitLab is using, including all their dependencies (and possibly bundled dependencies).
  
-
 For the first task, I used a hackish bash script which first accumulates 
 all rubygems in a file and then removes the duplicate packages and the ones
 that are documentation.
-    
+
     ::bash
     #!/bin/bash
 
@@ -179,7 +178,7 @@ of this project's goal. More posts to come!
 [gem2rpm]: https://github.com/lutter/gem2rpm "convert ruby gems to rpms"
 [deploy-quote]: https://lists.fedoraproject.org/pipermail/infrastructure/2013-March/012680.html
 [ruby-supported]: https://bugs.ruby-lang.org/projects/ruby-trunk/wiki/20SupportedPlatforms
-[gemfile.py]: https://github.com/axilleas/fedora-gitlab/blob/master/gemfile.py
+[gemfile.py]: https://github.com/axilleas/gsoc/blob/master/gemfile.py
 [Gemfile.lock]: https://github.com/gitlabhq/gitlabhq/blob/master/Gemfile.lock
 [Vít Ondruch]: https://fedoraproject.org/wiki/User:Vondruch
 [gsoc]: http://www.google-melange.com/gsoc/homepage/google/gsoc2013 "Google Summer of Code 2013"
