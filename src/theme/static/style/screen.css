@@ -315,6 +315,7 @@ article > header.float {
 article ol {
     list-style-type:decimal;
     padding-left:40px;
+    padding-top:20px;
 }
 
 article > header time {
