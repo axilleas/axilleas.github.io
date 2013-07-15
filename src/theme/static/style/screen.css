@@ -355,7 +355,7 @@ article .body p a {
 article .body ul {
     display: block;
     list-style: square inside;
-    margin: 20px 0 0 25px;
+    margin: 5px 0 0 15px;
 }
 
 .body ul li {

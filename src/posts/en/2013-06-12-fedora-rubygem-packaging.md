@@ -1,7 +1,7 @@
 Title: New in Fedora: How to package a Ruby gem
 Status: draft
 Category: geek
-Tags: fedora, gsoc, rubygem, ruby, packaging
+Tags: fedora, rubygem, ruby, packaging
 
 TODO: dude cookies -> dude lines :p
 
@@ -16,27 +16,27 @@ contribute in Fedora Ruby gem packaging and have a hard time understanding
 the process (like I used to).
 
 To be honest, there is a ton of information one has to process and this might be
-a little overwhelming in the beginning. 
+a little overwhelming in the beginning. I'll try to guide you through what to read
+first and not get lost. At the end of this article I have compiled a list of helpful
+links.
 
-There are bits and pieces 
+There are bits and pieces that I took from discussion on irc or questions in [Ruby-sig][]
+mailing list.
  
-In the rest of the article I am focusing on `ruby >= 1.9.1` and Fedora >= 19.
-[Different][wiki-old] guidelines apply to previous versions.
+I am focusing on `ruby >= 1.9.1` and Fedora >= 19. [Different][wiki-old] guidelines
+apply to previous versions. Maybe I will dedicate a section of how to build on older
+versions or EPEL, but that is not my priority for now.
 
 [TOC]
 
 ## Where to begin
-### gem2rpm
 
-- Previously the gem2rpm used to create a variable rubyabi = 1.9.1 and call ruby(abi) = %{rubyabi}, which is now done by "ruby(release)"?
-Those two are functionally same, right?
+If you are completely new to packaging then [How to create an RPM package](https://fedoraproject.org/wiki/How_to_create_an_RPM_package)
+is a good starting point. The next step is to read [Packaging Ruby](https://fedoraproject.org/wiki/Packaging:Ruby)
+for specific Ruby guidelines.
 
-More or less the ruby(release) is typically used without version and if the version is used, it should be MRI version, not ABI version.
-Prefer to put %check after %install
+In short you should do 
 
-1) it is optional section, so it is nice to see %prep, %build and %install all in one look not disturbed by any other section
-2) it depends on implementation, but the %check section might be executable only on installed package. If that is the case, then it is natural to see it after the %install section
-3) during the build, the %check is executed after %install section, so it is just convenient to follow the order in .spec file as well.
 
 
 ## Anatomy of a spec file
@@ -118,8 +118,20 @@ rpmlint message:
 Non of them are super important, you can point it in review, that you would keep them and your reasons.
 The submitter tells you his reasons and you decide together.
 
+## Know thy tools
 
-## Testing
+### gem2rpm
+
+- Previously the gem2rpm used to create a variable rubyabi = 1.9.1 and call ruby(abi) = %{rubyabi}, which is now done by "ruby(release)"?
+Those two are functionally same, right?
+
+More or less the ruby(release) is typically used without version and if the version is used, it should be MRI version, not ABI version.
+Prefer to put %check after %install
+
+1) it is optional section, so it is nice to see %prep, %build and %install all in one look not disturbed by any other section
+2) it depends on implementation, but the %check section might be executable only on installed package. If that is the case, then it is natural to see it after the %install section
+3) during the build, the %check is executed after %install section, so it is just convenient to follow the order in .spec file as well.
+
 ### rpmlint is your friend
 
 - rpmlint gives this: rubygem-{gem-name}.noarch: E: script-without-shebang /usr/share/gems/gems/{gem-name}-1.1.0/lib/
@@ -271,7 +283,7 @@ When you file your review bugs, make sure you set the "depends on" items properl
 NOTES
 
 1) don't forget to rpmlint on doc packages as well.
-
+2) test cases: cp -r test .%{gem_instdir} before pushd.
 
 ---
 [wiki-old]: https://fedoraproject.org/w/index.php?title=Packaging:Ruby&oldid=306009
