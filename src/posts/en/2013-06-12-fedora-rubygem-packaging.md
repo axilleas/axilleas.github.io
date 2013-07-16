@@ -35,7 +35,10 @@ If you are completely new to packaging then [How to create an RPM package](https
 is a good starting point. The next step is to read [Packaging Ruby](https://fedoraproject.org/wiki/Packaging:Ruby)
 for specific Ruby guidelines.
 
-In short you should do 
+In short you should do:
+
+0. rpmdev-setuptree
+1. sudo yum install gem2rpm
 
 
 
