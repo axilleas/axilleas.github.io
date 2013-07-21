@@ -1,7 +1,364 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Over the line</title><link>http://axilleas.github.io/</link><description></description><atom:link href="http://axilleas.github.io/feeds/tech.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 27 May 2013 00:00:00 +0300</lastBuildDate><item><title>Accepted for GSoC 2013</title><link>http://axilleas.github.io/en/blog/2013/accepted-for-gsoc-2013</link><description>&lt;p&gt;&lt;img alt="gsoc-logo" src="https://1-ps.googleusercontent.com/sx/s.google-melange.appspot.com/www.google-melange.com/soc/content/2-1-20130521/images/gsoc/logo/924x156xbanner-gsoc2013.png.pagespeed.ic.Z9V_lgyiqp.jpg" /&gt;&lt;/p&gt;
-&lt;p&gt;Sooo, I am happy to announce that I got accepted to this year's Google Summer of Code!
-Couldn't be more happy right now :)&lt;/p&gt;
-&lt;p&gt;For those that have no idea, here is my &lt;a href="https://fedoraproject.org/wiki/GSOC_2013/Student_Application_Axilleas/Gitlab%28463%29"&gt;proposal&lt;/a&gt; on Fedora's wiki (&lt;a href="https://fedoraproject.org/wiki/User:Axilleas"&gt;my user&lt;/a&gt;). 
-I have in mind to make a follow post on how I dealt with all this the past three months.&lt;/p&gt;
-&lt;p&gt;Special thanks to &lt;a href="https://github.com/johngian"&gt;John Giannelos&lt;/a&gt; for pressuring me to apply :p&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Mon, 27 May 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.github.io,2013-05-27:en/blog/2013/accepted-for-gsoc-2013</guid><category>gsoc</category><category>fedora</category><category>gitlab</category><category>superexcited</category></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Over the line</title><link>http://axilleas.github.io/</link><description></description><atom:link href="http://axilleas.github.io/feeds/tech.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 21 Jul 2013 00:00:00 +0300</lastBuildDate><item><title>I got approved as a packager, now what?</title><link>http://axilleas.github.io/en/blog/2013/i-got-approved-as-a-packager-now-what</link><description>&lt;p&gt;This must have been the most intense week in terms of learning how the build 
+system/process work in Fedora. I finally got approved as a packager and that means
+more responsibility from my side. Unfortunately, the instrusctions in the wiki
+are sometimes sparsed into different places and one has to read a lot and ask
+around in order not to make any mistakes. For a newcomer all this information
+is at least overwhelming and you have to even put a lot of thinking into asking
+the right question in order to get the right answer.&lt;/p&gt;
+&lt;p&gt;I'm starting to believe that this is intentional as a continuous test to one's
+understanding of how things work in Fedora. No pain no gain they say. &lt;/p&gt;
+&lt;p&gt;Anyway, I kinda managed to understand most of it and below I will describe the
+process I followed hoping to help any future-to-be packagers. I will describe the
+whole process of my first package submission including the outputs of many commands
+that were new to me. &lt;a href="https://fedoraproject.org/wiki/New_package_process_for_existing_contributors"&gt;This&lt;/a&gt; wiki page sums it up, but read it after understanding 
+the process. There is also a nice guide called &lt;a href="http://shakthimaan.com/downloads/glv/howtos/packaging-rpm-workflow.html"&gt;packaging rpm workflow&lt;/a&gt; that shows
+the workflow of the whole process from the very beginning. Nice read.&lt;/p&gt;
+&lt;p&gt;With the kind help of the people at &lt;code&gt;#fedora-devel&lt;/code&gt; I was able to pull it through, 
+so thanks guys :)&lt;/p&gt;
+&lt;div class="toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#route-to-follow-after-your-approval"&gt;Route to follow after your approval&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#scm-request"&gt;SCM request&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#commit-build-and-upload-your-package"&gt;Commit, build and upload your package&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#steps-with-fedpkg-and-git"&gt;Steps with fedpkg and git&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#build-on-koji"&gt;Build on koji&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#submit-your-package-to-current-versions-of-fedora"&gt;Submit your package to current versions of Fedora&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#push-your-package-to-bodhi"&gt;Push your package to bodhi&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#faq"&gt;FAQ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#epilogue"&gt;Epilogue&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h1 id="route-to-follow-after-your-approval"&gt;Route to follow after your approval&lt;/h1&gt;
+&lt;p&gt;Congratulations you promoted to a &lt;a href="https://fedoraproject.org/wiki/How_to_get_sponsored_into_the_packager_group"&gt;packager&lt;/a&gt;! After your approval, there are a
+bunch of things to do, summarized into two big steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Make a &lt;a href="https://fedoraproject.org/wiki/Package_SCM_admin_requests"&gt;scm request&lt;/a&gt; in your bugzilla review request&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;fedpkg&lt;/code&gt; to &lt;a href="https://fedoraproject.org/wiki/Join_the_package_collection_maintainers#Add_Package_to_Source_Code_Management_.28SCM.29_system_and_Set_Owner"&gt;commit, build and upload your package&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Let's break it down.&lt;/p&gt;
+&lt;h2 id="scm-request"&gt;SCM request&lt;/h2&gt;
+&lt;p&gt;Must read: &lt;a href="https://fedoraproject.org/wiki/Package_SCM_admin_requests"&gt;Package SCM admin requests&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;For starters, scm stands for &lt;em&gt;Source Code Management&lt;/em&gt;.
+After your package approval, there are two steps as far as the Bugzilla concerns. &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;set fedora-cvs flag to ?&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Make a new comment including the following form completed:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gh"&gt;New Package SCM Request&lt;/span&gt;
+&lt;span class="gh"&gt;=======================&lt;/span&gt;
+Package Name: 
+Short Description: 
+Owners: 
+Branches: 
+InitialCC:
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Hit &lt;code&gt;Save Changes&lt;/code&gt; to save both 1 and 2. See &lt;a href="https://bugzilla.redhat.com/show_bug.cgi?id=982679"&gt;how&lt;/a&gt; I did it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Let me tell you a little secret if you are new to bugzilla like I am. Make any
+changes you need to, even leave a comment and then hit &lt;code&gt;Save Changes&lt;/code&gt; to save ALL
+the changes you've made. There are two buttons for this: one in the upper right
+corner and one below the &lt;code&gt;Additional Comments&lt;/code&gt; form. Either one will do just fine.
+This may sound stupid but I wansn't aware of it, so I first left a comment and then
+changed the flag, resulting to send a mail update twice.&lt;/p&gt;
+&lt;h2 id="commit-build-and-upload-your-package"&gt;Commit, build and upload your package&lt;/h2&gt;
+&lt;p&gt;Must read: &lt;a href="https://fedoraproject.org/wiki/Join_the_package_collection_maintainers#Add_Package_to_Source_Code_Management_.28SCM.29_system_and_Set_Owner"&gt;Add Package to Source Code Management (SCM) system and Set Owner&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After the scm request, you will receive some e-mails from Bugzilla and PackageDB
+stating that you are good to go. If you visit &lt;a href="http://pkgs.fedoraproject.org/cgit/"&gt;cgit&lt;/a&gt; you will see your bare repository.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Bare repo" src="http://axilleas.github.io/static/images/rubygem-bootstrap-sass.git-bare-2013-07-20-14-28-50.png" /&gt;&lt;/p&gt;
+&lt;p&gt;The whole building process works using &lt;code&gt;fedpkg&lt;/code&gt; and git commands, so if you are
+not familiar with git, I suggest the &lt;a href="https://fedoraproject.org/wiki/Using_git_FAQ_for_package_maintainers"&gt;Fedora wiki page&lt;/a&gt;. For a more
+comprehensive approach I highly recommend the &lt;a href="http://git-scm.com/book"&gt;Pro Git book&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="steps-with-fedpkg-and-git"&gt;Steps with fedpkg and git&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Create a directory to have all your package builds neat and tidy.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;mkdir ~/fedora-scm
+&lt;span class="nb"&gt;cd&lt;/span&gt; ~/fedora-scm
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Clone the newly created git repository.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;fedpkg clone rubygem-bootstrap-sass
+&lt;span class="nb"&gt;cd &lt;/span&gt;rubygem-bootstrap-sass
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The contents of git config are:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;[core]&lt;/span&gt;
+  &lt;span class="na"&gt;repositoryformatversion&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;0&lt;/span&gt;
+&lt;span class="s"&gt;  filemode = true&lt;/span&gt;
+&lt;span class="s"&gt;  bare = false&lt;/span&gt;
+&lt;span class="s"&gt;  logallrefupdates = true&lt;/span&gt;
+&lt;span class="k"&gt;[remote &amp;quot;origin&amp;quot;]&lt;/span&gt;
+  &lt;span class="na"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;ssh://axilleas@pkgs.fedoraproject.org/rubygem-bootstrap-sass&lt;/span&gt;
+&lt;span class="s"&gt;  fetch = +refs/heads/*:refs/remotes/origin/*&lt;/span&gt;
+&lt;span class="k"&gt;[branch &amp;quot;master&amp;quot;]&lt;/span&gt;
+ &lt;span class="na"&gt;remote&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;origin&lt;/span&gt;
+&lt;span class="s"&gt; merge = refs/heads/master&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Import the src.rpm:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;fedpkg import /var/lib/mock/fedora-rawhide-x86_64/results/rubygem-bootstrap-sass-f20.src.rpm
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You should see something like this:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;Uploading: 4f0c887ea7cd95812edcc6b8b01b9329  bootstrap-sass-2.3.2.1.gem
+&lt;span class="c"&gt;######################################################################## 100.0%&lt;/span&gt;
+Uploaded and added to .gitignore: bootstrap-sass-2.3.2.1.gem
+...
+diff status of all files to be commited
+...
+New content staged and new sources uploaded.
+Commit &lt;span class="k"&gt;if &lt;/span&gt;happy or revert with: git reset --hard HEAD
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now we have 3 files in our directory:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;axil&lt;/span&gt; &lt;span class="n"&gt;axil&lt;/span&gt; &lt;span class="mi"&gt;86528&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;2.3.2.1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gem&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rw&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;axil&lt;/span&gt; &lt;span class="n"&gt;axil&lt;/span&gt;  &lt;span class="mi"&gt;2314&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;spec&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rw&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;axil&lt;/span&gt; &lt;span class="n"&gt;axil&lt;/span&gt;    &lt;span class="mi"&gt;61&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="n"&gt;sources&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;sources is a text file with the source package (gem) and its md5 hash.
+Notice that the gem name was automatically placed to the &lt;code&gt;.gitignore&lt;/code&gt;.
+Running &lt;code&gt;git status&lt;/code&gt; we see that there are 3 files in the &lt;a href="http://git-scm.com/about/staging-area"&gt;staging area&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# On branch master&lt;/span&gt;
+&lt;span class="c"&gt;# Changes to be committed:&lt;/span&gt;
+&lt;span class="c"&gt;#   (use &amp;quot;git reset HEAD &amp;lt;file&amp;gt;...&amp;quot; to unstage)&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;#       modified:   .gitignore&lt;/span&gt;
+&lt;span class="c"&gt;#       new file:   rubygem-bootstrap-sass.spec&lt;/span&gt;
+&lt;span class="c"&gt;#       modified:   sources&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you are indeed happy with the changes, commit them and push to master (rawhide) branch.
+Use the bugzilla id from your review request. No scripts are parsing this, it is just for reference.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Initial import (#982679).&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, if you visit again the cgit web page, you will see that the changes are submitted.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Bare repo" src="http://axilleas.github.io/static/images/rubygem-bootstrap-sass.git-init-2013-07-20-15-58-58.png" /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="build-on-koji"&gt;Build on koji&lt;/h3&gt;
+&lt;p&gt;Lastly, give this command to start a build on &lt;a href="https://fedoraproject.org/wiki/Koji"&gt;koji&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;fedpkg build
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Output:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;Building&lt;/span&gt; &lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;2.3.2.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.f&lt;/span&gt;&lt;span class="n"&gt;c20&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;rawhide&lt;/span&gt;
+&lt;span class="n"&gt;Created&lt;/span&gt; &lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5631690&lt;/span&gt;
+&lt;span class="n"&gt;Task&lt;/span&gt; &lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//koji.fedoraproject.org/koji/taskinfo?taskID=5631690&lt;/span&gt;
+&lt;span class="n"&gt;Watching&lt;/span&gt; &lt;span class="n"&gt;tasks&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;may&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;safely&lt;/span&gt; &lt;span class="n"&gt;interrupted&lt;/span&gt;&lt;span class="p"&gt;)...&lt;/span&gt;
+&lt;span class="mi"&gt;5631690&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rawhide&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;md5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arm02&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;builder11&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fedoraproject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="mi"&gt;5631691&lt;/span&gt; &lt;span class="n"&gt;buildSRPMFromSCM&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;md5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buildvm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;25.&lt;/span&gt;&lt;span class="n"&gt;phx2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fedoraproject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="mi"&gt;5631716&lt;/span&gt; &lt;span class="n"&gt;buildArch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;2.3.2.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.f&lt;/span&gt;&lt;span class="n"&gt;c20&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rpm&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;noarch&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buildvm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;01.&lt;/span&gt;&lt;span class="n"&gt;phx2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fedoraproject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="mi"&gt;5631691&lt;/span&gt; &lt;span class="n"&gt;buildSRPMFromSCM&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;md5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buildvm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;25.&lt;/span&gt;&lt;span class="n"&gt;phx2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fedoraproject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;closed&lt;/span&gt;
+&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;free&lt;/span&gt;  &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt;  &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;done&lt;/span&gt;  &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;failed&lt;/span&gt;
+&lt;span class="mi"&gt;5631716&lt;/span&gt; &lt;span class="n"&gt;buildArch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;2.3.2.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.f&lt;/span&gt;&lt;span class="n"&gt;c20&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rpm&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;noarch&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buildvm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;01.&lt;/span&gt;&lt;span class="n"&gt;phx2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fedoraproject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;closed&lt;/span&gt;
+&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;free&lt;/span&gt;  &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt;  &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;done&lt;/span&gt;  &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;failed&lt;/span&gt;
+&lt;span class="mi"&gt;5631737&lt;/span&gt; &lt;span class="n"&gt;tagBuild&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;noarch&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;closed&lt;/span&gt;
+&lt;span class="mi"&gt;5631690&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rawhide&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;md5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arm02&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;builder11&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fedoraproject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;closed&lt;/span&gt;
+&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;free&lt;/span&gt;  &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt;  &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="n"&gt;done&lt;/span&gt;  &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;failed&lt;/span&gt;
+
+&lt;span class="mi"&gt;5631690&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rawhide&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;054f742970e4&lt;/span&gt;&lt;span class="n"&gt;b930bc55a5d3802fb31d26c57d0d&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;completed&lt;/span&gt; &lt;span class="n"&gt;successfully&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;A notification mail will be sent to you once the build is complete and the
+package will appear automagically at rawhide repos. If you want to push a
+package to a stable version of Fedora, keep reading.&lt;/p&gt;
+&lt;h3 id="submit-your-package-to-current-versions-of-fedora"&gt;Submit your package to current versions of Fedora&lt;/h3&gt;
+&lt;p&gt;This step is optional if you want to maintain other versions than rawhide.
+Switch to the corresponding version branch with &lt;code&gt;fx&lt;/code&gt;, where &lt;code&gt;x&lt;/code&gt; the version of Fedora:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;fedpkg switch-branch f19
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Running &lt;code&gt;git branch -r&lt;/code&gt; reveals our branches so far:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;origin/HEAD -&amp;gt; origin/master
+origin/f19
+origin/master
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Tip:&lt;/strong&gt; I suggest you use a shell where it shows you the branch you are in.
+I recommend zsh and if you look at &lt;a href="https://github.com/robbyrussell/oh-my-zsh"&gt;oh-my-zsh&lt;/a&gt;, almost all themes included
+support this. Mine for example is: &lt;/p&gt;
+&lt;p&gt;&lt;img alt="My zsh theme" src="http://axilleas.github.io/static/images/zsh-git-branch.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Get the changes from master branch, push and build like before:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;git merge master
+git push
+fedpkg build
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="push-your-package-to-bodhi"&gt;Push your package to bodhi&lt;/h3&gt;
+&lt;p&gt;If your local machine's username is the same as your FAS one, skip this step.
+This option is hidden from the wiki guide, I spoted it &lt;a href="https://fedoraproject.org/wiki/Package_update_HOWTO#Submit_your_update_to_Bodhi"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;export BODHI_USER=axilleas &amp;gt;&amp;gt; ~/.zshrc&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;source&lt;/span&gt; ~/.zshrc
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Replace &lt;code&gt;.zshrc&lt;/code&gt; with your shell's rc.&lt;/p&gt;
+&lt;p&gt;The final step is to submit your package to bodhi in order to be processed and
+reach the repositories. You have two options: either via terminal or via the webui 
+of bodhi. Choose what fits you best.&lt;/p&gt;
+&lt;p&gt;If you prefer the webui method then go to &lt;a href="https://admin.fedoraproject.org/updates/new/"&gt;this link&lt;/a&gt;, login and fill
+in the blanks.&lt;/p&gt;
+&lt;p&gt;There are tooltips for each section explaining what should be filled,
+but let's take a look:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align="left"&gt;Description&lt;/th&gt;
+&lt;th align="left"&gt;Option&lt;/th&gt;
+&lt;th align="left"&gt;Meaning&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align="left"&gt;Package&lt;/td&gt;
+&lt;td align="left"&gt;rubygem-bootstrap-sass&lt;/td&gt;
+&lt;td align="left"&gt;Start typing your package name and it will autocomplete&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="left"&gt;Type&lt;/td&gt;
+&lt;td align="left"&gt;newpackage&lt;/td&gt;
+&lt;td align="left"&gt;Since this is the first package I chose newpackage&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="left"&gt;Request&lt;/td&gt;
+&lt;td align="left"&gt;Testing&lt;/td&gt;
+&lt;td align="left"&gt;For the package to first land in updates-testing before goes in stable(recommended)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="left"&gt;Bugs&lt;/td&gt;
+&lt;td align="left"&gt;982679&lt;/td&gt;
+&lt;td align="left"&gt;The bugzilla id of your review request. This way it will change its status automatically&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="left"&gt;Notes&lt;/td&gt;
+&lt;td align="left"&gt;Package description&lt;/td&gt;
+&lt;td align="left"&gt;Additional notes, eg. why you made this update, what are the bugfixes if it is a bugfix, etc.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="left"&gt;Suggest Reboot&lt;/td&gt;
+&lt;td align="left"&gt;untick&lt;/td&gt;
+&lt;td align="left"&gt;Recommend that the user restart their machines after they install this update&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="left"&gt;Enable karma&lt;/td&gt;
+&lt;td align="left"&gt;tick&lt;/td&gt;
+&lt;td align="left"&gt;Enable update request automation based on &lt;a href="https://fedoraproject.org/wiki/QA:Update_feedback_guidelines"&gt;user feedback&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="left"&gt;Threshold to stable&lt;/td&gt;
+&lt;td align="left"&gt;3&lt;/td&gt;
+&lt;td align="left"&gt;This is the defaul value. It needs 3 points to get to stable repos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="left"&gt;Threshold for unpushing&lt;/td&gt;
+&lt;td align="left"&gt;-3&lt;/td&gt;
+&lt;td align="left"&gt;If it gets 3 points it rejects the package from testing&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Your other option is to do the update through terminal. This only works with branches
+other than rawhide. If you try to push to rawhide, &lt;code&gt;fedpkg&lt;/code&gt; will warn you.&lt;/p&gt;
+&lt;p&gt;When you issue the command below, you will have to edit a template using the default
+system editor which is &lt;code&gt;vi&lt;/code&gt;. If you have a different preference eg. &lt;code&gt;vim&lt;/code&gt;, use
+the export command. While in &lt;code&gt;f19&lt;/code&gt; branch:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;EDITOR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;vim
+fedpkg update
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The template is this:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;[ rubygem-bootstrap-sass-2.3.2.1-1.fc19 ]&lt;/span&gt;
+
+&lt;span class="c1"&gt;# bugfix, security, enhancement, newpackage (required)&lt;/span&gt;
+&lt;span class="na"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
+
+&lt;span class="c1"&gt;# testing, stable&lt;/span&gt;
+&lt;span class="na"&gt;request&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;testing&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Bug numbers: 1234,9876&lt;/span&gt;
+&lt;span class="na"&gt;bugs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Description of your update&lt;/span&gt;
+&lt;span class="na"&gt;notes&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Here is where you give an explanation of your update.&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Enable request automation based on the stable/unstable karma thresholds&lt;/span&gt;
+&lt;span class="na"&gt;autokarma&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;True&lt;/span&gt;
+&lt;span class="na"&gt;stable_karma&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;3&lt;/span&gt;
+&lt;span class="na"&gt;unstable_karma&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;-3&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Automatically close bugs when this marked as stable&lt;/span&gt;
+&lt;span class="na"&gt;close_bugs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;True&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Suggest that users restart after update&lt;/span&gt;
+&lt;span class="na"&gt;suggest_reboot&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;False&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Once you make all the appropriate changes, save it and close it. You will be
+asked your FAS password to complete the process and you will get a similar output:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;================================================================================&lt;/span&gt;
+     &lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;2.3.2.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.f&lt;/span&gt;&lt;span class="n"&gt;c19&lt;/span&gt;
+&lt;span class="o"&gt;================================================================================&lt;/span&gt;
+    &lt;span class="nl"&gt;Release:&lt;/span&gt; &lt;span class="n"&gt;Fedora&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;
+     &lt;span class="nl"&gt;Status:&lt;/span&gt; &lt;span class="n"&gt;pending&lt;/span&gt;
+       &lt;span class="nl"&gt;Type:&lt;/span&gt; &lt;span class="n"&gt;newpackage&lt;/span&gt;
+      &lt;span class="nl"&gt;Karma:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+       &lt;span class="nl"&gt;Bugs:&lt;/span&gt; &lt;span class="mi"&gt;982679&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Review&lt;/span&gt; &lt;span class="n"&gt;Request&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Twitter&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
+           &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Bootstrap&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;converted&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;Sass&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;ready&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;drop&lt;/span&gt; &lt;span class="n"&gt;into&lt;/span&gt;
+           &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Rails&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;Compass&lt;/span&gt;
+      &lt;span class="nl"&gt;Notes:&lt;/span&gt; &lt;span class="n"&gt;Initial&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt;
+  &lt;span class="nl"&gt;Submitter:&lt;/span&gt; &lt;span class="n"&gt;axilleas&lt;/span&gt;
+  &lt;span class="nl"&gt;Submitted:&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;07&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt;
+
+  &lt;span class="nl"&gt;https:&lt;/span&gt;&lt;span class="c1"&gt;//admin.fedoraproject.org/updates/rubygem-bootstrap-sass-2.3.2.1-1.fc19&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;After the submission, your package will go through these &lt;a href="https://fedoraproject.org/wiki/Bodhi#Package_States"&gt;states&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id="faq"&gt;FAQ&lt;/h1&gt;
+&lt;p&gt;Here are some questions that I had during this process and their answers from
+people in &lt;code&gt;#fedora-devel&lt;/code&gt; which I thank them once again.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; During &lt;code&gt;fedpkg import src.rpm&lt;/code&gt;, do I need to provide a &lt;code&gt;foo-f20.src.rpm&lt;/code&gt; or &lt;code&gt;foo-f19.src.rpm&lt;/code&gt; will work too?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; You can virtually take any valid fedora/rhel srpm regardless on which version it was created.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; What if I accidentally run &lt;code&gt;fedpkg update&lt;/code&gt; for rawhide (master branch)?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; New versions of fedpkg should refuse.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; If in a package review the spec's release version was bumped, should I revert the release to 1 prior to pushing in cgit?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A:&lt;/strong&gt; No, it is not needed.&lt;/p&gt;
+&lt;h1 id="epilogue"&gt;Epilogue&lt;/h1&gt;
+&lt;p&gt;This was quite an adventure and I learned a lot. I am sure this is only the tip
+of the iceberg and there's a lot more to come. This post took me literally one
+day to compose as I was virtually recording the process as I performed it, hope
+it was worth it. If you find any mistake or you want to add something please do
+leave a comment. Next big article the Rubygem packaging How to ;)&lt;/p&gt;
+&lt;p&gt;Cheers!&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Sun, 21 Jul 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.github.io,2013-07-21:en/blog/2013/i-got-approved-as-a-packager-now-what</guid><category>fedora</category><category>packaging</category><category>fedpkg</category><category>bodhi</category><category>git</category></item></channel></rss>
