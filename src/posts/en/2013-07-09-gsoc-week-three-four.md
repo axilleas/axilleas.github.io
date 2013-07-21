@@ -125,7 +125,7 @@ and I read what I write many times, so yeah, this is going to take longer to fin
 - Maybe write an unofficial guide of how to install GitLab in Fedora, haven't checked if there is a guide out in the internets.
 
 [fedorapeople.org]: http://repos.fedorapeople.org/repos/axilleas/gitlab/
-[js-draft]: https://lists.fedoraproject.org/pipermail/packaging/2013-July/009304.html
+[js-drafts]: https://lists.fedoraproject.org/pipermail/packaging/2013-July/009304.html
 [Gemfile]: https://github.com/gitlabhq/gitlabhq/blob/master/Gemfile#L11-L143
 [list-test]: https://lists.fedoraproject.org/pipermail/ruby-sig/2013-July/001384.html
 [Devise]: http://github.com/plataformatec/devise
