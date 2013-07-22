@@ -1,45 +1,15 @@
-Title: GSoC - Weekly update 5
-Tags: gsoc, fedora, gitlab, packaging, fedpkg, git
-Category: tech
+Title: Fedora - maintaining unofficial repositories
+Tags: fedora, packaging
+Category: linux
 Status: draft
 
+## My workflow on maintaining unofficial repositories
 
+Along with submitting package reviews, I crafted an [unofficial repo][] of packages
+I am working on, not yet submitted for review due to many reasons. If you want to
+try any of them give it a go.
 
-As you may know, I am in the process of writing an article on how to package Ruby
-gems in Fedora. This is the only type of package I have been dealing with for the
-past months, so I am far from an avid packager. But, as a structure and wiki freak I
-like to have everything in order, even understandable by completely newbies, so
-this is going to be very comprehensive. Progress is being made :)
-
-[TOC]
-
-
-
-
-# Packages
-
-## hashie
-
-## omniauth
-
-## bootstrap-sass
-
-Approved
-
-## timers
-
-Approved
-
-## rugged
-
-Approved?
-
-
-
-# My workflow of maintaining unofficial repositories
-
-
-## Create repos 
+### Create repos 
 
 First, I created the directory structure for my [gitlab repository][] locally on
 my machine:
@@ -49,7 +19,7 @@ my machine:
 
 Alternatively you can use the [script][repo-create] mentioned in the wiki.
 
-## Process
+### Process
 
 
 - Run `mock -r fedora-19-x86_64 ../SRPMS/rubygem-foo-ver-real-dist.src.rpm`
@@ -93,21 +63,4 @@ repo_rawhide='$HOME/repos/gitlab/fedora-rawhide'
 rsync -avr $mock_dir/**/result/*.rpm
 
 updaterepo:
-
-
-
-# How to package a Ruby gem - blog post status
-
-https://trello.com/c/oGOKkvBn/6-weekly-blog-posts
-
-
-# TODO next week
-
-- google midterm evaluation
-- more packages
-
-
-
-[repo-create]: https://fedoraproject.org/wiki/Fedorapeople_Repos#Script_for_easy_create_tree_local_repo_directory
-[gitlab repository]: http://repos.fedorapeople.org/repos/axilleas/gitlab/
 
