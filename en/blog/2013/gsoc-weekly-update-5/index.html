@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title>GSoC - Weekly update 5</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="-1" />
+        <link rel="stylesheet" href="../../../../theme/style/reset.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../theme/style/screen.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../theme/style/friendly.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../theme/style/print.css" type="text/css" media="print" />
+                                <link href="http://axilleas.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+        </head>
+<body>
+    <header id="main">
+        <div class="container">
+            <div class="logo">
+                <p><a href="/" title="Home">Over the line</a> <span class="welcome">that rug really tied the room together...</span></p>
+            </div>
+        </div>
+    </header>
+
+    <div class="splash">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a></li>
+                                                <li><a href="/about">whoami</a></li>
+                                    <li><a href="/rss">Rss Feed</a></li>
+                                            <li><a href="../../../../archives.html" title="Archive">Archive</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container content">
+        <article>
+    <header>
+        <h1><a href="/en/blog/2013/gsoc-weekly-update-5" rel="bookmark">
+    GSoC - Weekly update 5
+</a></h1>
+<time datetime="2013-07-22 00:00:00" pubdate>Posted on
+    Mon 22 July 2013
+</time>
+<address class="vcard author">
+    by <a class="url fn" href="../../../../author/axil.html">
+    axil</a>
+</address>
+<span class="category">in <a href="../../../../category/linux.html">
+    linux</a>.
+        </span>
+    </header>
+
+    <div class="body">
+        <p>I can't believe that a month has already passed! I keep learning new things, mostly
+on packaging, and the cool fact is that many of them are through my Review Requests.
+The discussion between the reviewer and the reviewee can sometimes be very productive
+leading to learning new things I previously ignored.</p>
+<p>This post would be a long one but I decided to split it up, because some sections
+deserved there own space.</p>
+<p>The first split is named <a href="../../../../en/blog/2013/i-got-approved-as-a-packager-now-what">I got approved as a packager, now what?</a>
+and it refers to all new Fedora packagers :)</p>
+<p>The second one is going to talk about maintaining an unofficial repo and I will
+describe my workflow and the potential scripts that facilitate the whole process.</p>
+<p>And here is the rest of my progress during the fifth week. </p>
+<div class="toc">
+<ul>
+<li><a href="#packages">Packages</a></li>
+<li><a href="#how-to-package-a-ruby-gem-blog-post-status">How to package a Ruby gem - blog post status</a></li>
+<li><a href="#todo-next-week">TODO next week</a></li>
+</ul>
+</div>
+<h2 id="packages">Packages</h2>
+<p>This is the first time that some packages of mine got approved:</p>
+<ol>
+<li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=985358">hashie</a></li>
+<li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=982679">bootstrap-sass</a></li>
+<li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=969877">timers</a></li>
+</ol>
+<p>I am also working on <a href="https://bugzilla.redhat.com/show_bug.cgi?id=927374">rubygem-rugged</a> as a reviewer this time. This is much more
+difficult than being the reviewee, since it needs a lot testing from your side
+and a good understanding of the guidelines.</p>
+<p>And of course there is a bunch of other gems I am working on but not ready to
+submit yet. As always, my progress is noted in this <a href="https://trello.com/c/IOzzF6MQ/16-gem-packaging-phase-1">trello board</a>.</p>
+<h2 id="how-to-package-a-ruby-gem-blog-post-status">How to package a Ruby gem - blog post status</h2>
+<p>As you may know, I am in the process of writing an article on how to package Ruby
+gems in Fedora. This is the only type of package I have been dealing with for the
+past months, so I am far from an avid packager in general. But, as a structure
+and wiki freak I like to have everything in order, even understandable by completely
+newbies, so this is going to be very comprehensive. Progress is being made :)</p>
+<p>You can now watch the progress <a href="https://trello.com/c/oGOKkvBn/6-weekly-blog-posts">here</a>.</p>
+<h2 id="todo-next-week">TODO next week</h2>
+<ul>
+<li>Submit more packages</li>
+<li>Set up GitLab on a Fedora machine and check if packaged bundler works</li>
+<li>Take on reviews of packages concerning the gsoc project</li>
+</ul>
+    </div>
+
+        <footer>
+        <ul class="tags">
+        Tags:
+                    <li><a href="../../../../tag/gsoc.html">gsoc</a></li>
+                    <li><a href="../../../../tag/fedora.html">fedora</a></li>
+                    <li><a href="../../../../tag/gitlab.html">gitlab</a></li>
+                    <li><a href="../../../../tag/packaging.html">packaging</a></li>
+                </ul>
+    </footer>
+    
+        <div class="share">
+        <a href="https://twitter.com/share" class="twitter-share-button"
+           data-count="horizontal" data-text="GSoC - Weekly update 5"
+           data-via="_axil">Tweet</a>
+    </div>
+    <script src="//platform.twitter.com/widgets.js"></script>
+    
+        <div id="disqus_thread"></div>
+    <script>
+        var disqus_identifier = "http://axilleas.github.com/en/blog/2013/gsoc-weekly-update-5",
+            disqus_developer = "1";
+
+        (function () {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.src = 'http://kissmyarch.disqus.com/embed.js';
+            (document.head || document.body).appendChild(dsq);
+        })();
+    </script>
+    </article>
+    </div>
+
+    <div class="container footnote">
+                        <a href="javascript:window.print();" title="Print">Print</a>
+                    </div>
+
+
+
+    <footer>
+        <div class="container footer">
+            <span>Powered by <a href="http://docs.getpelican.com">
+                Pelican</a> using <a href="https://github.com/BYK/pelican-neat">
+                neat theme</a>. 
+            </span>
+            <nav>
+                <ul>
+                                        <li><a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a></li>
+                                    <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img
+                    alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+         <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://animal.foss.ntua.gr/~axil/stats/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "5"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+</body>
+</html>
