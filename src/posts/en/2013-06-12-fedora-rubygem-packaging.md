@@ -74,6 +74,18 @@ A couple of packages do rm -rf them: each maintainer has a bit different prefere
 
 ### files
 
+- LICENSE files **always** go under `%files` macro and is marked as `%doc`
+- We exclude all files beginning with a dot (one can remove them as well durging `%install`)
+- All files that the gem can live without, meaning they are not needed during runtime, go under `%files doc`
+- Anything that seems like documentation is marked with the `%doc` macro. For example
+if you see something like Changelog, Readme, Contributing or History mark it as `%doc`.
+- If you want to include tests in shipped package, do it in the doc subpackage.
+In our example I shipped the `spec/` folder.
+- Other files like Gemfile, Rakefile, Guardfile, could be placed under `%files doc`
+but NOT marked as `%doc` as they clearly are not documentation. Again, someone can
+exclude/rm all those files and not ship them, but I prefer to include them.
+- `hashie.gemspec` is interpreted as `%{gem_name}.gemspec`. In general it is good practice to use macros wherever possible.
+
 - Which files would go in %files doc?
 %files doc README CHANGELOG
 %files LICENSE
@@ -258,17 +270,7 @@ After:
   
 Explanation:
 
-- LICENSE files **always** go under `%files` macro and is marked as `%doc`
-- We exclude all files beginning with a dot (one can remove them as well durging `%install`)
-- All files that the gem can live without, meaning they are not needed during runtime, go under `%files doc`
-- Anything that seems like documentation is marked with the `%doc` macro. For example
-if you see something like Changelog, Readme, Contributing or History mark it as `%doc`.
-- If you want to include tests in shipped package, do it in the doc subpackage.
-In our example I shipped the `spec/` folder.
-- Other files like Gemfile, Rakefile, Guardfile, could be placed under `%files doc`
-but NOT marked as `%doc` as they clearly are not documentation. Again, someone can
-exclude/rm all those files and not ship them, but I prefer to include them.
-- `hashie.gemspec` is interpreted as `%{gem_name}.gemspec`. In general it is good practice to use macros wherever possible.
+Anatomy of a spec file -> files
 
 6. Save our changes and run rpmbuild again: `:w` and `:!rpmbuild -ba %`
 If everything builds fine, the last you should see is:
@@ -327,14 +329,20 @@ or for rawhide:
 
     rpmlint /var/lib/mock/fedora-rawhide-x86_64/result/*rpm
   
-Optionally you can run a koji build for a final test that everything builds fine:
+  Optionally you can run a koji build for a final test that everything builds fine:
 
     koji build --scratch rawhide ../SRPMS/rubygem-hashie-2.0.5-1.fc19.src.rpm
 
+### Additional to consider
 
 This was an easy package. Other gems are more difficult to package, for example:
 
 - gem with c extensions
+
+1. run rpmbuild and let it fail
+2. check where is the soname. In general `ls BUILDROOT/gem-name/lib`.
+if in lib ..
+
 - gem that doesn't ship its tests
 - gem that is missing packages needed for building and are not in Fedora's repos
 - gem that includes non executable scripts

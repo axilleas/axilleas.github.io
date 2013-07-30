@@ -1,13 +1,15 @@
 Title: Fedora - maintaining unofficial repositories
-Tags: fedora, packaging
+Tags: fedora, packaging, gitlab
 Category: linux
 Status: draft
 
-## My workflow on maintaining unofficial repositories
 
 Along with submitting package reviews, I crafted an [unofficial repo][] of packages
 I am working on, not yet submitted for review due to many reasons. If you want to
 try any of them give it a go.
+
+
+## My workflow on maintaining unofficial repositories
 
 ### Create repos 
 
@@ -17,6 +19,7 @@ my machine:
     ::bash
     mkdir -pv ~/repos/gitlab/fedora-{19,rawhide}/{noarch,x86_64,i386,SRPMS}
 
+As you can see, I am building for rawhide and Fedora 19.
 Alternatively you can use the [script][repo-create] mentioned in the wiki.
 
 ### Process
