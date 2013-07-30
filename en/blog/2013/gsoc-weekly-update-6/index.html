@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title>GSoC - Weekly update 6</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="-1" />
+        <link rel="stylesheet" href="../../../../theme/style/reset.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../theme/style/screen.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../theme/style/friendly.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../theme/style/print.css" type="text/css" media="print" />
+                                <link href="http://axilleas.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+        </head>
+<body>
+    <header id="main">
+        <div class="container">
+            <div class="logo">
+                <p><a href="/" title="Home">Over the line</a> <span class="welcome">that rug really tied the room together...</span></p>
+            </div>
+        </div>
+    </header>
+
+    <div class="splash">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a></li>
+                                                <li><a href="/about">whoami</a></li>
+                                    <li><a href="/rss">Rss Feed</a></li>
+                                            <li><a href="../../../../archives.html" title="Archive">Archive</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container content">
+        <article>
+    <header>
+        <h1><a href="/en/blog/2013/gsoc-weekly-update-6" rel="bookmark">
+    GSoC - Weekly update 6
+</a></h1>
+<time datetime="2013-07-30 00:00:00" pubdate>Posted on
+    Tue 30 July 2013
+</time>
+<address class="vcard author">
+    by <a class="url fn" href="../../../../author/axil.html">
+    axil</a>
+</address>
+<span class="category">in <a href="../../../../category/linux.html">
+    linux</a>.
+        </span>
+    </header>
+
+    <div class="body">
+        <p>Here is what I have been doing the past week.</p>
+<div class="toc">
+<ul>
+<li><a href="#packages">Packages</a><ul>
+<li><a href="#charlock_holmes">charlock_holmes</a></li>
+<li><a href="#omniauth">omniauth</a></li>
+<li><a href="#sanitize">sanitize</a></li>
+<li><a href="#orm_adapter">orm_adapter</a></li>
+</ul>
+</li>
+<li><a href="#update-to-gitlab-54">Update to GitLab 5.4</a></li>
+</ul>
+</div>
+<h2 id="packages">Packages</h2>
+<h3 id="charlock_holmes">charlock_holmes</h3>
+<p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=989143">Pending review</a></p>
+<p>This one gave me some headaches as it is a gem with c extensions and as it turned
+out I didn't ship the soname in the right directory. It took me some time but I
+finally understood how that works. Here are the steps I follow when packaging gems
+with c extensions.</p>
+<ol>
+<li>
+<p>From the initial spec file that gem2rpm creates, comment the line below:</p>
+<div class="codehilite"><pre>mv %<span class="o">{</span>buildroot<span class="o">}</span>%<span class="o">{</span>gem_instdir<span class="o">}</span>/lib/shared_object.so %<span class="o">{</span>buildroot<span class="o">}</span>%<span class="o">{</span>gem_extdir_mri<span class="o">}</span>/lib/
+</pre></div>
+
+
+</li>
+<li>
+<p>Run <code>rpmbuild -bi rubygem-charlock_holmes.spec</code> in order not to remove the
+  <em>BUILDROOT</em> directory.</p>
+</li>
+<li>
+<p>Find the soname files that get created:</p>
+<div class="codehilite"><pre>find ~/rpmbuild/BUILDROOT/rubygem-charlock_holmes-0.6.9.4-1.fc19.x86_64/ -name <span class="s1">&#39;*.so&#39;</span>
+
+Output
+------
+~/rpmbuild/BUILDROOT/rubygem-charlock_holmes-0.6.9.4-1.fc19.x86_64/usr/share/gems/gems/charlock_holmes-0.6.9.4/ext/charlock_holmes/charlock_holmes.so
+~/rpmbuild/BUILDROOT/rubygem-charlock_holmes-0.6.9.4-1.fc19.x86_64/usr/share/gems/gems/charlock_holmes-0.6.9.4/lib/charlock_holmes/charlock_holmes.so
+</pre></div>
+
+
+<p>There are 2 files, one in <code>lib/</code> dir and one in <code>ext/</code> dir. We should ship the one in
+<code>lib/</code> dir, so in our spec file we replace the line that we commented before with:</p>
+<div class="codehilite"><pre>mkdir -p %<span class="o">{</span>buildroot<span class="o">}</span>%<span class="o">{</span>gem_extdir_mri<span class="o">}</span>/lib/%<span class="o">{</span>gem_name<span class="o">}</span>/
+mv %<span class="o">{</span>buildroot<span class="o">}</span>%<span class="o">{</span>gem_libdir<span class="o">}</span>/%<span class="o">{</span>gem_name<span class="o">}</span>/%<span class="o">{</span>gem_name<span class="o">}</span>.so %<span class="o">{</span>buildroot<span class="o">}</span>%<span class="o">{</span>gem_extdir_mri<span class="o">}</span>/lib/%<span class="o">{</span>gem_name<span class="o">}</span>/
+
+<span class="c"># Remove the binary extension sources and build leftovers.</span>
+rm -rf %<span class="o">{</span>buildroot<span class="o">}</span>/%<span class="o">{</span>gem_instdir<span class="o">}</span>/ext/
+</pre></div>
+
+
+<p>See what I did there? The lib dir when I used find was:</p>
+<div class="codehilite"><pre><span class="o">~/</span><span class="n">rpmbuild</span><span class="o">/</span><span class="n">BUILDROOT</span><span class="o">/</span><span class="n">rubygem</span><span class="o">-</span><span class="n">charlock_holmes</span><span class="o">-</span><span class="mf">0.6.9.4</span><span class="o">-</span><span class="mf">1.f</span><span class="n">c19</span><span class="p">.</span><span class="n">x86_64</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">charlock_holmes</span><span class="o">-</span><span class="mf">0.6.9.4</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">charlock_holmes</span><span class="o">/</span><span class="n">charlock_holmes</span><span class="p">.</span><span class="n">so</span>
+</pre></div>
+
+
+<p>which when written with macros translates to:</p>
+<div class="codehilite"><pre><span class="c">%{buildroot}%{gem_libdir}/%{gem_name}/%{gem_name}.so</span>
+</pre></div>
+
+
+<p>which in turn gets copied to:</p>
+<div class="codehilite"><pre>%<span class="o">{</span>buildroot<span class="o">}</span>%<span class="o">{</span>gem_extdir_mri<span class="o">}</span>/lib/%<span class="o">{</span>gem_name<span class="o">}</span>/
+</pre></div>
+
+
+</li>
+</ol>
+<p>Tl;dr;
+Follow the directory structure of <code>lib/</code> where the soname resides and remove the
+<code>ext/</code>.</p>
+<p>Beware that there are cases where this structure is not the same and the soname
+is found right in <code>lib/</code> dir and not in <code>lib/%{gem_name}/</code>.</p>
+<p>Take for example <a href="http://pkgs.fedoraproject.org/cgit/rubygem-pg.git/tree/rubygem-pg.spec#n61">rubygem-pg</a> compared to <a href="https://github.com/axilleas/fedora/blob/master/packages/rubygem-charlock_holmes/rubygem-charlock_holmes.spec#L54">rubygem-charlock_holmes</a>.</p>
+<h3 id="omniauth">omniauth</h3>
+<p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=989775">Pending review</a></p>
+<p>I had some hard time with this too as it was failing the test suite. It turned out
+I was missing a BuildRequires dependency. A huge thanks to <a href="https://fedoraproject.org/wiki/User:Ktdreyer">Ken Dreyer</a> who
+pointed me out to the right direction in the <a href="https://lists.fedoraproject.org/pipermail/ruby-sig/2013-July/001393.html">mailing list</a> as well as giving
+some nice tips about the packaging workflow.</p>
+<h3 id="sanitize">sanitize</h3>
+<p>This was an easy one and was immediately accepted when <a href="https://bugzilla.redhat.com/show_bug.cgi?id=989132">reviewed</a>.</p>
+<h3 id="orm_adapter">orm_adapter</h3>
+<p>This is pending a <a href="https://bugzilla.redhat.com/show_bug.cgi?id=988938">review</a>.</p>
+<h2 id="update-to-gitlab-54">Update to GitLab 5.4</h2>
+<p>I updated the dependencies to version 5.4. Overall nothing changed except for the
+addition of unicorn, which is already submitted for <a href="https://bugzilla.redhat.com/show_bug.cgi?id=786636">review</a>.</p>
+    </div>
+
+        <footer>
+        <ul class="tags">
+        Tags:
+                    <li><a href="../../../../tag/gsoc.html">gsoc</a></li>
+                    <li><a href="../../../../tag/fedora.html">fedora</a></li>
+                    <li><a href="../../../../tag/gitlab.html">gitlab</a></li>
+                    <li><a href="../../../../tag/packaging.html">packaging</a></li>
+                </ul>
+    </footer>
+    
+        <div class="share">
+        <a href="https://twitter.com/share" class="twitter-share-button"
+           data-count="horizontal" data-text="GSoC - Weekly update 6"
+           data-via="_axil">Tweet</a>
+    </div>
+    <script src="//platform.twitter.com/widgets.js"></script>
+    
+        <div id="disqus_thread"></div>
+    <script>
+        var disqus_identifier = "http://axilleas.github.com/en/blog/2013/gsoc-weekly-update-6",
+            disqus_developer = "1";
+
+        (function () {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.src = 'http://kissmyarch.disqus.com/embed.js';
+            (document.head || document.body).appendChild(dsq);
+        })();
+    </script>
+    </article>
+    </div>
+
+    <div class="container footnote">
+                        <a href="javascript:window.print();" title="Print">Print</a>
+                    </div>
+
+
+
+    <footer>
+        <div class="container footer">
+            <span>Powered by <a href="http://docs.getpelican.com">
+                Pelican</a> using <a href="https://github.com/BYK/pelican-neat">
+                neat theme</a>. 
+            </span>
+            <nav>
+                <ul>
+                                        <li><a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a></li>
+                                    <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img
+                    alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+         <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://animal.foss.ntua.gr/~axil/stats/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "5"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+</body>
+</html>

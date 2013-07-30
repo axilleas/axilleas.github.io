@@ -1,5 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Over the line</title><link>http://axilleas.github.io/</link><description></description><atom:link href="http://axilleas.github.io/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 22 Jul 2013 00:00:00 +0300</lastBuildDate><item><title>GSoC - Weekly update 5</title><link>http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-5</link><description>&lt;p&gt;I can't believe that a month has already passed! I keep learning new things, mostly
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Over the line</title><link>http://axilleas.github.io/</link><description></description><atom:link href="http://axilleas.github.io/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 30 Jul 2013 00:00:00 +0300</lastBuildDate><item><title>GSoC - Weekly update 6</title><link>http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-6</link><description>&lt;p&gt;Here is what I have been doing the past week.&lt;/p&gt;
+&lt;div class="toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#packages"&gt;Packages&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#charlock_holmes"&gt;charlock_holmes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#omniauth"&gt;omniauth&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#sanitize"&gt;sanitize&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orm_adapter"&gt;orm_adapter&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#update-to-gitlab-54"&gt;Update to GitLab 5.4&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h2 id="packages"&gt;Packages&lt;/h2&gt;
+&lt;h3 id="charlock_holmes"&gt;charlock_holmes&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://bugzilla.redhat.com/show_bug.cgi?id=989143"&gt;Pending review&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This one gave me some headaches as it is a gem with c extensions and as it turned
+out I didn't ship the soname in the right directory. It took me some time but I
+finally understood how that works. Here are the steps I follow when packaging gems
+with c extensions.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;From the initial spec file that gem2rpm creates, comment the line below:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;mv %&lt;span class="o"&gt;{&lt;/span&gt;buildroot&lt;span class="o"&gt;}&lt;/span&gt;%&lt;span class="o"&gt;{&lt;/span&gt;gem_instdir&lt;span class="o"&gt;}&lt;/span&gt;/lib/shared_object.so %&lt;span class="o"&gt;{&lt;/span&gt;buildroot&lt;span class="o"&gt;}&lt;/span&gt;%&lt;span class="o"&gt;{&lt;/span&gt;gem_extdir_mri&lt;span class="o"&gt;}&lt;/span&gt;/lib/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run &lt;code&gt;rpmbuild -bi rubygem-charlock_holmes.spec&lt;/code&gt; in order not to remove the
+  &lt;em&gt;BUILDROOT&lt;/em&gt; directory.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Find the soname files that get created:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;find ~/rpmbuild/BUILDROOT/rubygem-charlock_holmes-0.6.9.4-1.fc19.x86_64/ -name &lt;span class="s1"&gt;&amp;#39;*.so&amp;#39;&lt;/span&gt;
+
+Output
+------
+~/rpmbuild/BUILDROOT/rubygem-charlock_holmes-0.6.9.4-1.fc19.x86_64/usr/share/gems/gems/charlock_holmes-0.6.9.4/ext/charlock_holmes/charlock_holmes.so
+~/rpmbuild/BUILDROOT/rubygem-charlock_holmes-0.6.9.4-1.fc19.x86_64/usr/share/gems/gems/charlock_holmes-0.6.9.4/lib/charlock_holmes/charlock_holmes.so
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;There are 2 files, one in &lt;code&gt;lib/&lt;/code&gt; dir and one in &lt;code&gt;ext/&lt;/code&gt; dir. We should ship the one in
+&lt;code&gt;lib/&lt;/code&gt; dir, so in our spec file we replace the line that we commented before with:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;mkdir -p %&lt;span class="o"&gt;{&lt;/span&gt;buildroot&lt;span class="o"&gt;}&lt;/span&gt;%&lt;span class="o"&gt;{&lt;/span&gt;gem_extdir_mri&lt;span class="o"&gt;}&lt;/span&gt;/lib/%&lt;span class="o"&gt;{&lt;/span&gt;gem_name&lt;span class="o"&gt;}&lt;/span&gt;/
+mv %&lt;span class="o"&gt;{&lt;/span&gt;buildroot&lt;span class="o"&gt;}&lt;/span&gt;%&lt;span class="o"&gt;{&lt;/span&gt;gem_libdir&lt;span class="o"&gt;}&lt;/span&gt;/%&lt;span class="o"&gt;{&lt;/span&gt;gem_name&lt;span class="o"&gt;}&lt;/span&gt;/%&lt;span class="o"&gt;{&lt;/span&gt;gem_name&lt;span class="o"&gt;}&lt;/span&gt;.so %&lt;span class="o"&gt;{&lt;/span&gt;buildroot&lt;span class="o"&gt;}&lt;/span&gt;%&lt;span class="o"&gt;{&lt;/span&gt;gem_extdir_mri&lt;span class="o"&gt;}&lt;/span&gt;/lib/%&lt;span class="o"&gt;{&lt;/span&gt;gem_name&lt;span class="o"&gt;}&lt;/span&gt;/
+
+&lt;span class="c"&gt;# Remove the binary extension sources and build leftovers.&lt;/span&gt;
+rm -rf %&lt;span class="o"&gt;{&lt;/span&gt;buildroot&lt;span class="o"&gt;}&lt;/span&gt;/%&lt;span class="o"&gt;{&lt;/span&gt;gem_instdir&lt;span class="o"&gt;}&lt;/span&gt;/ext/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;See what I did there? The lib dir when I used find was:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;rpmbuild&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;BUILDROOT&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;charlock_holmes&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.6.9.4&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.f&lt;/span&gt;&lt;span class="n"&gt;c19&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x86_64&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;gems&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;gems&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;charlock_holmes&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.6.9.4&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;charlock_holmes&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;charlock_holmes&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;so&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;which when written with macros translates to:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;%{buildroot}%{gem_libdir}/%{gem_name}/%{gem_name}.so&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;which in turn gets copied to:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;%&lt;span class="o"&gt;{&lt;/span&gt;buildroot&lt;span class="o"&gt;}&lt;/span&gt;%&lt;span class="o"&gt;{&lt;/span&gt;gem_extdir_mri&lt;span class="o"&gt;}&lt;/span&gt;/lib/%&lt;span class="o"&gt;{&lt;/span&gt;gem_name&lt;span class="o"&gt;}&lt;/span&gt;/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Tl;dr;
+Follow the directory structure of &lt;code&gt;lib/&lt;/code&gt; where the soname resides and remove the
+&lt;code&gt;ext/&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Beware that there are cases where this structure is not the same and the soname
+is found right in &lt;code&gt;lib/&lt;/code&gt; dir and not in &lt;code&gt;lib/%{gem_name}/&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Take for example &lt;a href="http://pkgs.fedoraproject.org/cgit/rubygem-pg.git/tree/rubygem-pg.spec#n61"&gt;rubygem-pg&lt;/a&gt; compared to &lt;a href="https://github.com/axilleas/fedora/blob/master/packages/rubygem-charlock_holmes/rubygem-charlock_holmes.spec#L54"&gt;rubygem-charlock_holmes&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="omniauth"&gt;omniauth&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://bugzilla.redhat.com/show_bug.cgi?id=989775"&gt;Pending review&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I had some hard time with this too as it was failing the test suite. It turned out
+I was missing a BuildRequires dependency. A huge thanks to &lt;a href="https://fedoraproject.org/wiki/User:Ktdreyer"&gt;Ken Dreyer&lt;/a&gt; who
+pointed me out to the right direction in the &lt;a href="https://lists.fedoraproject.org/pipermail/ruby-sig/2013-July/001393.html"&gt;mailing list&lt;/a&gt; as well as giving
+some nice tips about the packaging workflow.&lt;/p&gt;
+&lt;h3 id="sanitize"&gt;sanitize&lt;/h3&gt;
+&lt;p&gt;This was an easy one and was immediately accepted when &lt;a href="https://bugzilla.redhat.com/show_bug.cgi?id=989132"&gt;reviewed&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="orm_adapter"&gt;orm_adapter&lt;/h3&gt;
+&lt;p&gt;This is pending a &lt;a href="https://bugzilla.redhat.com/show_bug.cgi?id=988938"&gt;review&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="update-to-gitlab-54"&gt;Update to GitLab 5.4&lt;/h2&gt;
+&lt;p&gt;I updated the dependencies to version 5.4. Overall nothing changed except for the
+addition of unicorn, which is already submitted for &lt;a href="https://bugzilla.redhat.com/show_bug.cgi?id=786636"&gt;review&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 30 Jul 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.github.io,2013-07-30:en/blog/2013/gsoc-weekly-update-6</guid><category>gsoc</category><category>fedora</category><category>gitlab</category><category>packaging</category></item><item><title>GSoC - Weekly update 5</title><link>http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-5</link><description>&lt;p&gt;I can't believe that a month has already passed! I keep learning new things, mostly
 on packaging, and the cool fact is that many of them are through my Review Requests.
 The discussion between the reviewer and the reviewee can sometimes be very productive
 leading to learning new things I previously ignored.&lt;/p&gt;

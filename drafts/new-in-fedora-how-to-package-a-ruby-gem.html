@@ -92,7 +92,10 @@ versions or EPEL, but that is not my priority for now.</p>
 </li>
 </ul>
 </li>
-<li><a href="#my-workflow">My workflow</a></li>
+<li><a href="#my-workflow">My workflow</a><ul>
+<li><a href="#additional-to-consider">Additional to consider</a></li>
+</ul>
+</li>
 <li><a href="#faq">FAQ</a></li>
 <li><a href="#link-references">Link references</a><ul>
 <li><a href="#package-maintainers">Package maintainers</a></li>
@@ -144,6 +147,19 @@ it is the only way how we can check if the gem works or not, if we upgrade Ruby 
 A couple of packages do rm -rf them: each maintainer has a bit different preference.</p>
 <h3 id="files">files</h3>
 <ul>
+<li>LICENSE files <strong>always</strong> go under <code>%files</code> macro and is marked as <code>%doc</code></li>
+<li>We exclude all files beginning with a dot (one can remove them as well durging <code>%install</code>)</li>
+<li>All files that the gem can live without, meaning they are not needed during runtime, go under <code>%files doc</code></li>
+<li>Anything that seems like documentation is marked with the <code>%doc</code> macro. For example
+if you see something like Changelog, Readme, Contributing or History mark it as <code>%doc</code>.</li>
+<li>If you want to include tests in shipped package, do it in the doc subpackage.
+In our example I shipped the <code>spec/</code> folder.</li>
+<li>Other files like Gemfile, Rakefile, Guardfile, could be placed under <code>%files doc</code>
+but NOT marked as <code>%doc</code> as they clearly are not documentation. Again, someone can
+exclude/rm all those files and not ship them, but I prefer to include them.</li>
+<li>
+<p><code>hashie.gemspec</code> is interpreted as <code>%{gem_name}.gemspec</code>. In general it is good practice to use macros wherever possible.</p>
+</li>
 <li>
 <p>Which files would go in %files doc?
 %files doc README CHANGELOG
@@ -318,20 +334,8 @@ gives these errors:</p>
 
 
 <p>Explanation:</p>
-<ul>
-<li>LICENSE files <strong>always</strong> go under <code>%files</code> macro and is marked as <code>%doc</code></li>
-<li>We exclude all files beginning with a dot (one can remove them as well durging <code>%install</code>)</li>
-<li>All files that the gem can live without, meaning they are not needed during runtime, go under <code>%files doc</code></li>
-<li>Anything that seems like documentation is marked with the <code>%doc</code> macro. For example
-if you see something like Changelog, Readme, Contributing or History mark it as <code>%doc</code>.</li>
-<li>If you want to include tests in shipped package, do it in the doc subpackage.
-In our example I shipped the <code>spec/</code> folder.</li>
-<li>Other files like Gemfile, Rakefile, Guardfile, could be placed under <code>%files doc</code>
-but NOT marked as <code>%doc</code> as they clearly are not documentation. Again, someone can
-exclude/rm all those files and not ship them, but I prefer to include them.</li>
-<li>
-<p><code>hashie.gemspec</code> is interpreted as <code>%{gem_name}.gemspec</code>. In general it is good practice to use macros wherever possible.</p>
-</li>
+<p>Anatomy of a spec file -&gt; files</p>
+<ol>
 <li>
 <p>Save our changes and run rpmbuild again: <code>:w</code> and <code>:!rpmbuild -ba %</code>
 If everything builds fine, the last you should see is:</p>
@@ -348,7 +352,7 @@ If everything builds fine, the last you should see is:</p>
 <p>Output:
 3 packages and 0 specfiles checked; 0 errors, 0 warnings.</p>
 </li>
-</ul>
+</ol>
 <p>Cool, so far so good.</p>
 <ol>
 <li>Time to include the test suite.</li>
@@ -400,10 +404,22 @@ no errors as well. </p>
 </pre></div>
 
 
+<h3 id="additional-to-consider">Additional to consider</h3>
 <p>This was an easy package. Other gems are more difficult to package, for example:</p>
 <ul>
-<li>gem with c extensions</li>
-<li>gem that doesn't ship its tests</li>
+<li>
+<p>gem with c extensions</p>
+</li>
+<li>
+<p>run rpmbuild and let it fail</p>
+</li>
+<li>
+<p>check where is the soname. In general <code>ls BUILDROOT/gem-name/lib</code>.
+if in lib ..</p>
+</li>
+<li>
+<p>gem that doesn't ship its tests</p>
+</li>
 <li>gem that is missing packages needed for building and are not in Fedora's repos</li>
 <li>gem that includes non executable scripts</li>
 </ul>

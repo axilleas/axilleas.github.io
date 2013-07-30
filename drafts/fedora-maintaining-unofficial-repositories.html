@@ -52,10 +52,10 @@
     </header>
 
     <div class="body">
-        <h2 id="my-workflow-on-maintaining-unofficial-repositories">My workflow on maintaining unofficial repositories</h2>
-<p>Along with submitting package reviews, I crafted an [unofficial repo][] of packages
+        <p>Along with submitting package reviews, I crafted an [unofficial repo][] of packages
 I am working on, not yet submitted for review due to many reasons. If you want to
 try any of them give it a go.</p>
+<h2 id="my-workflow-on-maintaining-unofficial-repositories">My workflow on maintaining unofficial repositories</h2>
 <h3 id="create-repos">Create repos</h3>
 <p>First, I created the directory structure for my [gitlab repository][] locally on
 my machine:</p>
@@ -63,7 +63,8 @@ my machine:</p>
 </pre></div>
 
 
-<p>Alternatively you can use the [script][repo-create] mentioned in the wiki.</p>
+<p>As you can see, I am building for rawhide and Fedora 19.
+Alternatively you can use the [script][repo-create] mentioned in the wiki.</p>
 <h3 id="process">Process</h3>
 <ul>
 <li>Run <code>mock -r fedora-19-x86_64 ../SRPMS/rubygem-foo-ver-real-dist.src.rpm</code></li>
@@ -109,6 +110,7 @@ repo_rawhide='$HOME/repos/gitlab/fedora-rawhide'</p>
         Tags:
                     <li><a href="../tag/fedora.html">fedora</a></li>
                     <li><a href="../tag/packaging.html">packaging</a></li>
+                    <li><a href="../tag/gitlab.html">gitlab</a></li>
                 </ul>
     </footer>
     
