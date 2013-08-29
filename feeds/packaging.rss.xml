@@ -74,7 +74,7 @@ again to check everything is in order. If the build exits with no error, I try
 to make the tests work. I give myself 10-15 minutes topfor each gem, as I am
 targeting to test the GitLab installation and not submit them to Bugzilla.
 Of course during the whole process, I keep track what fails and what not, so
-that I can come back later. You can see &lt;a href="https://github.com/axilleas/gsoc/blob/master/builderrors.log"&gt;here&lt;/a&gt; my progress.&lt;/p&gt;
+that I can come back later. You can see &lt;a href="https://github.com/axilleas/gsoc/blob/master/packaging.md"&gt;here&lt;/a&gt; my progress.&lt;/p&gt;
 &lt;p&gt;After the build runs fine, I use &lt;code&gt;mock&lt;/code&gt; to test that a package is not missing
 from the BuildRequires. Exit the &lt;code&gt;rpmbuild&lt;/code&gt; screen, enter &lt;code&gt;mock&lt;/code&gt;, which is in
 &lt;code&gt;~/rpmbuild/SRPMS/&lt;/code&gt;, so with a simple &lt;code&gt;mock rubygem-foo-1.0-1.src.rpm&lt;/code&gt; begins
