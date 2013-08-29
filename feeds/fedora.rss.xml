@@ -1,5 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Over the line</title><link>http://axilleas.github.io/</link><description></description><atom:link href="http://axilleas.github.io/feeds/fedora.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 27 Aug 2013 00:00:00 +0300</lastBuildDate><item><title>SELinux policy for nginx and GitLab unix socket in Fedora 19</title><link>http://axilleas.github.io/en/blog/2013/selinux-policy-for-nginx-and-gitlab-unix-socket-in-fedora-19</link><description>&lt;p&gt;The installation of GitLab in Fedora 19 went fine. I followed the official installation
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Over the line</title><link>http://axilleas.github.io/</link><description></description><atom:link href="http://axilleas.github.io/feeds/fedora.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 29 Aug 2013 00:00:00 +0300</lastBuildDate><item><title>GSoC - Weekly update 9 and 10</title><link>http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-9-and-10</link><description>&lt;p&gt;I've been busy the past two weeks with some personal stuff so I got a little behind.
+Here's what happened in the GitLab front.&lt;/p&gt;
+&lt;div class="toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#finish-packaging-remaining-gems"&gt;Finish packaging remaining gems&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#gitlab-deploy"&gt;GitLab deploy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#coordinate-packaging-with-debian"&gt;Coordinate packaging with Debian&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#todo"&gt;TODO&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h2 id="finish-packaging-remaining-gems"&gt;Finish packaging remaining gems&lt;/h2&gt;
+&lt;p&gt;Now, all (hopefully) runtime dependencies are packaged and pushed in my public &lt;a href="http://repos.fedorapeople.org/repos/axilleas/gitlab/fedora-19/"&gt;gitlab-repo&lt;/a&gt;.
+The majority of them are not ready for official submission in Bugzilla, but I kept track
+of those that pass the standards in order to be submitted. Unfortunately they are only 5...&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;escape_utils&lt;/span&gt;
+&lt;span class="n"&gt;http_parser&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rb&lt;/span&gt;
+&lt;span class="n"&gt;modernizr&lt;/span&gt;
+&lt;span class="n"&gt;yajl&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;ruby&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;already&lt;/span&gt; &lt;span class="n"&gt;submitted&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//bugzilla.redhat.com/show_bug.cgi?id=823351)&lt;/span&gt;
+&lt;span class="n"&gt;settingslogic&lt;/span&gt;
+&lt;span class="n"&gt;stamp&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;For now I have also packaged the forks as they need some more work to be accepted in Fedora.
+&lt;a href="https://github.com/axilleas/gsoc/blob/master/packaging.md#gem-packaging-on-gitlab-forks"&gt;Here&lt;/a&gt; I have pointed out their differences with original gems.&lt;/p&gt;
+&lt;h2 id="gitlab-deploy"&gt;GitLab deploy&lt;/h2&gt;
+&lt;p&gt;I deployed &lt;a href="https://fedora.axilleas.me"&gt;GitLab in Fedora 19&lt;/a&gt; on a VPS following the standard installation, meaning all gems
+are bundled under &lt;code&gt;vendor/bundle/&lt;/code&gt;. You can visit it, but it may not be functional as I am now in the
+process of replacing the bundled gems with the system ones. Expect more info on this in a following post.&lt;/p&gt;
+&lt;h2 id="coordinate-packaging-with-debian"&gt;Coordinate packaging with Debian&lt;/h2&gt;
+&lt;p&gt;In other news, I found out that Debian is also in the process of packaging GitLab, so I contacted them through
+their &lt;a href="http://debian.2.n7.nabble.com/Regarding-gitlab-td2843993.html"&gt;Ruby ML&lt;/a&gt; regarding this. If you follow the discussion you will understand that the main
+problem for them is also how to package the forked gems. Hopefully we will come to a solution.&lt;/p&gt;
+&lt;h2 id="todo"&gt;TODO&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Build dummy &lt;code&gt;gitlab.spec&lt;/code&gt; with all runtime &lt;code&gt;Requires&lt;/code&gt; for easy test install&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;bundle install --local&lt;/code&gt; and progressively test the required gems&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Thu, 29 Aug 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.github.io,2013-08-29:en/blog/2013/gsoc-weekly-update-9-and-10</guid><category>gsoc</category><category>fedora</category><category>gitlab</category><category>packaging</category></item><item><title>SELinux policy for nginx and GitLab unix socket in Fedora 19</title><link>http://axilleas.github.io/en/blog/2013/selinux-policy-for-nginx-and-gitlab-unix-socket-in-fedora-19</link><description>&lt;p&gt;The installation of GitLab in Fedora 19 went fine. I followed the official installation
 guide with some deviations where necessary, mostly taken from the CentOS guide in
 &lt;a href="https://github.com/gitlabhq/gitlab-recipes"&gt;gitlab-recipes&lt;/a&gt;. I setup nginx using the ssl &lt;a href="https://github.com/gitlabhq/gitlab-recipes/blob/master/web-server/nginx/gitlab-ssl"&gt;config&lt;/a&gt;, and poked some holes
 in &lt;a href="https://github.com/gitlabhq/gitlab-recipes/tree/master/install/centos#8-configure-the-firewall"&gt;iptables&lt;/a&gt;. For systemd services I used &lt;a href="https://github.com/gitlabhq/gitlab-recipes/tree/master/init/systemd"&gt;these files&lt;/a&gt;.&lt;/p&gt;
