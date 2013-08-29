@@ -197,7 +197,7 @@ In this process, there are two key stoppers that need to be resolved.
 [synnefo]: http://www.synnefo.org/
 [okeanos]: https://okeanos.grnet.gr/home/
 [GRNET]: https://www.grnet.gr/en/
-[builderrors]: https://github.com/axilleas/gsoc/blob/master/builderrors.log
+[builderrors]: https://github.com/axilleas/gsoc/blob/master/packaging.md
 [script]: https://github.com/axilleas/gsoc/blob/master/repo-update
 [repo_update]: https://fedoraproject.org/wiki/Fedorapeople_Repos#Script_for_easy_repo_update
 [mock-init]: https://fedoraproject.org/wiki/Using_Mock_to_test_package_builds#Building_packages_that_depend_on_packages_not_in_a_repository
