@@ -2,7 +2,7 @@
 <html>
     <head>
     <meta charset="utf-8">
-        <title>GSoC - Weekly update 9 and 10</title>
+        <title>GitLab gem install benchmarking with bundler 1.4</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="Pragma" content="no-cache" />
@@ -36,11 +36,11 @@
     <div class="container content">
         <article>
     <header>
-        <h1><a href="/en/blog/2013/gsoc-weekly-update-9-and-10" rel="bookmark">
-    GSoC - Weekly update 9 and 10
+        <h1><a href="/en/blog/2013/gitlab-gem-install-benchmarking-with-bundler-14" rel="bookmark">
+    GitLab gem install benchmarking with bundler 1.4
 </a></h1>
-<time datetime="2013-08-29 00:00:00" pubdate>Posted on
-    Thu 29 August 2013
+<time datetime="2013-08-31 00:00:00" pubdate>Posted on
+    Sat 31 August 2013
 </time>
 <address class="vcard author">
     by <a class="url fn" href="../../../../author/axil.html">
@@ -52,59 +52,81 @@
     </header>
 
     <div class="body">
-        <p>I've been busy the past two weeks with some personal stuff so I got a little behind.
-Here's what happened in the GitLab front.</p>
-<div class="toc">
-<ul>
-<li><a href="#finish-packaging-remaining-gems">Finish packaging remaining gems</a></li>
-<li><a href="#gitlab-deploy">GitLab deploy</a></li>
-<li><a href="#coordinate-packaging-with-debian">Coordinate packaging with Debian</a></li>
-<li><a href="#todo">TODO</a></li>
-</ul>
-</div>
-<h2 id="finish-packaging-remaining-gems">Finish packaging remaining gems</h2>
-<p>Now, all (hopefully) runtime dependencies are packaged and pushed in my public <a href="http://repos.fedorapeople.org/repos/axilleas/gitlab/fedora-19/">gitlab-repo</a>.
-The majority of them are not ready for official submission in Bugzilla, but I kept track
-of those that pass the standards in order to be submitted. Unfortunately they are only 5...</p>
-<div class="codehilite"><pre><span class="n">escape_utils</span>
-<span class="n">http_parser</span><span class="p">.</span><span class="n">rb</span>
-<span class="n">modernizr</span>
-<span class="n">yajl</span><span class="o">-</span><span class="n">ruby</span> <span class="p">(</span><span class="n">already</span> <span class="n">submitted</span> <span class="n">https</span><span class="o">:</span><span class="c1">//bugzilla.redhat.com/show_bug.cgi?id=823351)</span>
-<span class="n">settingslogic</span>
-<span class="n">stamp</span>
+        <p>It appears that the new <code>bundler 1.4.0</code> will <a href="https://github.com/bundler/bundler/pull/2481">support</a> parallel gem installation. Thanks to <a href="http://robots.thoughtbot.com/post/59584648154/parallel-gem-installing-using-bundler">thoughtbot's post</a>
+that brought that to my attention :)</p>
+<p>Now, since I've been dealing daily with GitLab for the past four months, I thought it would be a good candidate for testing.</p>
+<p>I tried it on my production server which is a QEMU VM machine. Here are the specs<sup id="fnref:cpuinfo"><a class="footnote-ref" href="#fn:cpuinfo" rel="footnote">1</a></sup>:</p>
+<div class="codehilite"><pre><span class="n">Operating</span> <span class="n">System</span>  <span class="o">:</span> <span class="n">Debian</span> <span class="mi">7</span>
+<span class="n">Linux</span> <span class="n">kernel</span>      <span class="o">:</span> <span class="mf">3.2.0</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="n">amd64</span>
+<span class="n">RAM</span>               <span class="o">:</span> <span class="mi">4</span><span class="n">GB</span>
+<span class="n">CPU</span>               <span class="o">:</span> <span class="mi">4</span><span class="o">-</span><span class="n">cores</span>
 </pre></div>
 
 
-<p>For now I have also packaged the forks as they need some more work to be accepted in Fedora.
-<a href="https://github.com/axilleas/gsoc/blob/master/packaging.md#gem-packaging-on-gitlab-forks">Here</a> I have pointed out their differences with original gems.</p>
-<h2 id="gitlab-deploy">GitLab deploy</h2>
-<p>I deployed <a href="https://fedora.axilleas.me">GitLab in Fedora 19</a> on a VPS following the standard installation, meaning all gems
-are bundled under <code>vendor/bundle/</code>. You can visit it, but it may not be functional as I am now in the
-process of replacing the bundled gems with the system ones. Expect more info on this in a following post.</p>
-<h2 id="coordinate-packaging-with-debian">Coordinate packaging with Debian</h2>
-<p>In other news, I found out that Debian is also in the process of packaging GitLab, so I contacted them through
-their <a href="http://debian.2.n7.nabble.com/Regarding-gitlab-td2843993.html">Ruby ML</a> regarding this. If you follow the discussion you will understand that the main
-problem for them is also how to package the forked gems. Hopefully we will come to a solution.</p>
-<h2 id="todo">TODO</h2>
-<ul>
-<li>Build dummy <code>gitlab.spec</code> with all runtime <code>Requires</code> for easy test install</li>
-<li>Use <code>bundle install --local</code> and progressively test the required gems</li>
-</ul>
+<p>On to the installation of bundler's <code>pre</code> version:</p>
+<div class="codehilite"><pre><span class="n">gem</span> <span class="n">install</span> <span class="n">bundler</span> <span class="o">--</span><span class="n">pre</span>
+</pre></div>
+
+
+<p>Next step the actual benchmarking. Make sure you either perform a new GitLab installation or
+remove the <code>vendor/bundle/</code> directory. I used the same command the official installation suggests:</p>
+<div class="codehilite"><pre><span class="n">RAILS_ENV</span><span class="o">=</span><span class="n">production</span> <span class="n">bundle</span> <span class="n">install</span> <span class="o">--</span><span class="n">without</span> <span class="n">postgres</span> <span class="n">development</span> <span class="n">test</span> <span class="n">aws</span>
+</pre></div>
+
+
+<p>and I kept track of the output of four different numbers of jobs to run in parallel.
+As you'll see, the recommended option is to use as many jobs as your cpu cores.</p>
+<p>Next table depicts the difference in gem installation time which is pretty impressive.</p>
+<table>
+<thead>
+<tr>
+<th>#jobs</th>
+<th align="left">time</th>
+<th align="center">% difference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 (default)</td>
+<td align="left">281.91s user 47.21s system 39% cpu <strong>13:43.34</strong> total</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td>4</td>
+<td align="left">286.28s user 48.60s system 104% cpu <strong>5:20.65</strong> total</td>
+<td align="center">61 %</td>
+</tr>
+<tr>
+<td>8</td>
+<td align="left">267.65s user 43.41s system 128% cpu <strong>4:01.71</strong> total</td>
+<td align="center">71 %</td>
+</tr>
+<tr>
+<td>12</td>
+<td align="left">262.71s user 42.90s system 136% cpu <strong>3:43.31</strong> total</td>
+<td align="center">73 %</td>
+</tr>
+<tr>
+<td>16</td>
+<td align="left">256.37s user 41.47s system 139% cpu <strong>3:34.05</strong> total</td>
+<td align="center">74 %</td>
+</tr>
+</tbody>
+</table>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:cpuinfo">
+<p>See full <code>/proc/cpuinfo</code> in this <a href="https://gist.github.com/axilleas/6399274">gist</a>.&#160;<a class="footnote-backref" href="#fnref:cpuinfo" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
     </div>
 
-        <footer>
-        <ul class="tags">
-        Tags:
-                    <li><a href="../../../../tag/gsoc.html">gsoc</a></li>
-                    <li><a href="../../../../tag/fedora.html">fedora</a></li>
-                    <li><a href="../../../../tag/gitlab.html">gitlab</a></li>
-                    <li><a href="../../../../tag/packaging.html">packaging</a></li>
-                </ul>
-    </footer>
     
         <div class="share">
         <a href="https://twitter.com/share" class="twitter-share-button"
-           data-count="horizontal" data-text="GSoC - Weekly update 9 and 10"
+           data-count="horizontal" data-text="GitLab gem install benchmarking with bundler 1.4"
            data-via="_axil">Tweet</a>
     </div>
     <script src="//platform.twitter.com/widgets.js"></script>

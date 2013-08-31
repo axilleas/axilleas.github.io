@@ -1,5 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Over the line</title><link href="http://axilleas.github.io/" rel="alternate"></link><link href="http://axilleas.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://axilleas.github.io/</id><updated>2013-08-29T00:00:00+03:00</updated><entry><title>GSoC - Weekly update 9 and 10</title><link href="http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-9-and-10" rel="alternate"></link><updated>2013-08-29T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.github.io,2013-08-29:en/blog/2013/gsoc-weekly-update-9-and-10</id><summary type="html">&lt;p&gt;I've been busy the past two weeks with some personal stuff so I got a little behind.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Over the line</title><link href="http://axilleas.github.io/" rel="alternate"></link><link href="http://axilleas.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://axilleas.github.io/</id><updated>2013-08-31T00:00:00+03:00</updated><entry><title>GitLab gem install benchmarking with bundler 1.4</title><link href="http://axilleas.github.io/en/blog/2013/gitlab-gem-install-benchmarking-with-bundler-14" rel="alternate"></link><updated>2013-08-31T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.github.io,2013-08-31:en/blog/2013/gitlab-gem-install-benchmarking-with-bundler-14</id><summary type="html">&lt;p&gt;It appears that the new &lt;code&gt;bundler 1.4.0&lt;/code&gt; will &lt;a href="https://github.com/bundler/bundler/pull/2481"&gt;support&lt;/a&gt; parallel gem installation. Thanks to &lt;a href="http://robots.thoughtbot.com/post/59584648154/parallel-gem-installing-using-bundler"&gt;thoughtbot's post&lt;/a&gt;
+that brought that to my attention :)&lt;/p&gt;
+&lt;p&gt;Now, since I've been dealing daily with GitLab for the past four months, I thought it would be a good candidate for testing.&lt;/p&gt;
+&lt;p&gt;I tried it on my production server which is a QEMU VM machine. Here are the specs&lt;sup id="fnref:cpuinfo"&gt;&lt;a class="footnote-ref" href="#fn:cpuinfo" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;Operating&lt;/span&gt; &lt;span class="n"&gt;System&lt;/span&gt;  &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Debian&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;
+&lt;span class="n"&gt;Linux&lt;/span&gt; &lt;span class="n"&gt;kernel&lt;/span&gt;      &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;3.2.0&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;amd64&lt;/span&gt;
+&lt;span class="n"&gt;RAM&lt;/span&gt;               &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="n"&gt;GB&lt;/span&gt;
+&lt;span class="n"&gt;CPU&lt;/span&gt;               &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cores&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;On to the installation of bundler's &lt;code&gt;pre&lt;/code&gt; version:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;gem&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;bundler&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;pre&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Next step the actual benchmarking. Make sure you either perform a new GitLab installation or
+remove the &lt;code&gt;vendor/bundle/&lt;/code&gt; directory. I used the same command the official installation suggests:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;RAILS_ENV&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;production&lt;/span&gt; &lt;span class="n"&gt;bundle&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;without&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt; &lt;span class="n"&gt;development&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="n"&gt;aws&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;and I kept track of the output of four different numbers of jobs to run in parallel.
+As you'll see, the recommended option is to use as many jobs as your cpu cores.&lt;/p&gt;
+&lt;p&gt;Next table depicts the difference in gem installation time which is pretty impressive.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;#jobs&lt;/th&gt;
+&lt;th align="left"&gt;time&lt;/th&gt;
+&lt;th align="center"&gt;% difference&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1 (default)&lt;/td&gt;
+&lt;td align="left"&gt;281.91s user 47.21s system 39% cpu &lt;strong&gt;13:43.34&lt;/strong&gt; total&lt;/td&gt;
+&lt;td align="center"&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td align="left"&gt;286.28s user 48.60s system 104% cpu &lt;strong&gt;5:20.65&lt;/strong&gt; total&lt;/td&gt;
+&lt;td align="center"&gt;61 %&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td align="left"&gt;267.65s user 43.41s system 128% cpu &lt;strong&gt;4:01.71&lt;/strong&gt; total&lt;/td&gt;
+&lt;td align="center"&gt;71 %&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td align="left"&gt;262.71s user 42.90s system 136% cpu &lt;strong&gt;3:43.31&lt;/strong&gt; total&lt;/td&gt;
+&lt;td align="center"&gt;73 %&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;16&lt;/td&gt;
+&lt;td align="left"&gt;256.37s user 41.47s system 139% cpu &lt;strong&gt;3:34.05&lt;/strong&gt; total&lt;/td&gt;
+&lt;td align="center"&gt;74 %&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:cpuinfo"&gt;
+&lt;p&gt;See full &lt;code&gt;/proc/cpuinfo&lt;/code&gt; in this &lt;a href="https://gist.github.com/axilleas/6399274"&gt;gist&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:cpuinfo" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</summary></entry><entry><title>GSoC - Weekly update 9 and 10</title><link href="http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-9-and-10" rel="alternate"></link><updated>2013-08-29T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.github.io,2013-08-29:en/blog/2013/gsoc-weekly-update-9-and-10</id><summary type="html">&lt;p&gt;I've been busy the past two weeks with some personal stuff so I got a little behind.
 Here's what happened in the GitLab front.&lt;/p&gt;
 &lt;div class="toc"&gt;
 &lt;ul&gt;
