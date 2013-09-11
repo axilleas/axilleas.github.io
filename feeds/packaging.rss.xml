@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Over the line</title><link>http://axilleas.github.io/</link><description></description><atom:link href="http://axilleas.github.io/feeds/packaging.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 29 Aug 2013 00:00:00 +0300</lastBuildDate><item><title>GSoC - Weekly update 9 and 10</title><link>http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-9-and-10</link><description>&lt;p&gt;I've been busy the past two weeks with some personal stuff so I got a little behind.
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Over the line</title><link>http://axilleas.github.io/</link><description></description><atom:link href="http://axilleas.github.io/feeds/packaging.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 12 Sep 2013 00:00:00 +0300</lastBuildDate><item><title>GSoC - Weekly update 11 and 12</title><link>http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-11-and-12</link><description>&lt;p&gt;So far, I managed to &lt;a href="https://fedora.axilleas.me"&gt;deploy GitLab&lt;/a&gt; on a Fedora 19 machine using only packaged gems either from
+the official repos or a &lt;a href="http://repos.fedorapeople.org/repos/axilleas/gitlab/fedora-19/"&gt;custom&lt;/a&gt; one I have created.&lt;/p&gt;
+&lt;p&gt;Below you will find some more info as well as the url of the testing environment. 
+You can use/test it and report any issues &lt;a href="https://github.com/axilleas/gsoc/issues"&gt;here&lt;/a&gt;. If anyone needs an admin account 
+for further testing just let me know. Just bare in mind that you might see some 500 errors as I will be trying some things.&lt;/p&gt;
+&lt;p&gt;More or less, here is the workflow I followed:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Set up GitLab in a VM following the official installation guide and test everything works&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rm -rf /vendor/bundle&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Test with &lt;code&gt;bundle install --local RAILS_ENV=production&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;See the dependency differences&lt;/li&gt;
+&lt;li&gt;Install with &lt;code&gt;yum&lt;/code&gt; the gems in Gemfile&lt;/li&gt;
+&lt;li&gt;Replace in Gemfile/Gemfile.lock with Fedora versions&lt;/li&gt;
+&lt;li&gt;Repeat steps 3,4,5,6&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For details on what is replaced see this &lt;a href="https://github.com/axilleas/gsoc/blob/master/Gemfile.lock.diff"&gt;Gemfile.lock.diff&lt;/a&gt;.
+The systemd services I used can be found &lt;a href="https://github.com/axilleas/gsoc/tree/master/systemd"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;There are a lot to be done yet until this reaches to the official repos but that's a start.&lt;/p&gt;
+&lt;h2 id="todo"&gt;TODO&lt;/h2&gt;
+&lt;h3 id="short-term"&gt;Short term&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Write the gitlab.spec that will glue all the dependencies together&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="long-term"&gt;Long term&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Commit as many specs as  possible to BZ.&lt;/li&gt;
+&lt;li&gt;GitLab forks: one option is to patch upstream with GitLab's changes. Second but rather avoided is to to ask FPC for an exception and package the forks as they are.&lt;/li&gt;
+&lt;li&gt;Coordinate efforts with Debian ruby team (&lt;a href="http://debian.2.n7.nabble.com/Regarding-gitlab-td2843993.html"&gt;related discussion&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Deploy on rawhide: when GitLab supports rails 4. That depends on many dependencies gems as well.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="longer-term"&gt;Longer term&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;port to EPEL&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Thu, 12 Sep 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.github.io,2013-09-12:en/blog/2013/gsoc-weekly-update-11-and-12</guid><category>gsoc</category><category>fedora</category><category>gitlab</category><category>packaging</category></item><item><title>GSoC - Weekly update 9 and 10</title><link>http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-9-and-10</link><description>&lt;p&gt;I've been busy the past two weeks with some personal stuff so I got a little behind.
 Here's what happened in the GitLab front.&lt;/p&gt;
 &lt;div class="toc"&gt;
 &lt;ul&gt;
