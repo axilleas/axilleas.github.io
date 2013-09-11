@@ -29,7 +29,7 @@ versions or EPEL, but that is not my priority for now.
 
 [TOC]
 
-## Where to begin
+# Where to begin
 
 If you are completely new to packaging then [How to create an RPM package](https://fedoraproject.org/wiki/How_to_create_an_RPM_package)
 is a good starting point. The next step is to read [Packaging Ruby](https://fedoraproject.org/wiki/Packaging:Ruby)
@@ -39,11 +39,14 @@ In short you should do
 
 
 
-## Anatomy of a spec file
-### prep
-### build
-### install
-### check
+# Anatomy of a spec file
+
+http://www.rpm.org/max-rpm/ch-rpm-inside.html
+
+## prep
+## build
+## install
+## check
 
 - Running tests
 if they are bundled in gem, they goes into -doc subpackage, if they are not included, I typically unpack them in %check section and don't have to care about them anymore
@@ -72,7 +75,12 @@ i.e. they are not essential, therefore they go to -doc subpackage and there is a
 the original meaning was to %exclude them, or rm -rf them ... but keeping in -doc subpackage is good as well
 A couple of packages do rm -rf them: each maintainer has a bit different preference.
 
-### files
+%check
+pushd %{buildroot}%{gem_instdir}
+ruby -I. -e "Dir.glob('test/**/*_test.rb').each {|t| require t}"
+popd
+
+## files
 
 - LICENSE files **always** go under `%files` macro and is marked as `%doc`
 - We exclude all files beginning with a dot (one can remove them as well durging `%install`)
@@ -130,9 +138,9 @@ rpmlint message:
 Non of them are super important, you can point it in review, that you would keep them and your reasons.
 The submitter tells you his reasons and you decide together.
 
-## Know thy tools
+# Know thy tools
 
-### gem2rpm
+## gem2rpm
 
 - Previously the gem2rpm used to create a variable rubyabi = 1.9.1 and call ruby(abi) = %{rubyabi}, which is now done by "ruby(release)"?
 Those two are functionally same, right?
@@ -144,17 +152,19 @@ Prefer to put %check after %install
 2) it depends on implementation, but the %check section might be executable only on installed package. If that is the case, then it is natural to see it after the %install section
 3) during the build, the %check is executed after %install section, so it is just convenient to follow the order in .spec file as well.
 
-### rpmlint is your friend
+## rpmlint is your friend
 
 - rpmlint gives this: rubygem-{gem-name}.noarch: E: script-without-shebang /usr/share/gems/gems/{gem-name}-1.1.0/lib/
 Choose one: add shebang or remove executable permission. (I was told on #fedora-devel, that this happens if files are set executable without shebang)
 eg specfile : https://bugzilla.redhat.com/show_bug.cgi?id=839650 | http://v3.sk/~hexo/rpm/rubygem-awesome_print.spec
 
-### mock
+## mock
 
-### koji
+## koji
 
-### Difficulties in running tests
+## Difficulties
+
+### Test suites
 
 koji / mock builds will not have a live running instance of mysql just to perform that check.
 If a test requires a running instance of mysql, it will not work regardless.
@@ -192,6 +202,58 @@ examples.
 did such change. It's even better practice to include a link to a discussion with
 upstream mentioning the bug you encountered or a fix to be released soon.
 
+### Shebangs and executables
+
+```
+# Fix anything executable that does not have a shebang
+for file in `find ./%{gem_instdir} -type f -perm /a+x`; do
+    [ -z "`head -n 1 $file | grep \"^#!/\"`" ] && chmod -v 644 $file
+done
+
+# Find files with a shebang that do not have executable permissions
+for file in `find ./%{gem_instdir} -type f ! -perm /a+x -name "*.rb"`; do
+    [ ! -z "`head -n 1 $file | grep \"^#!/\"`" ] && chmod -v 755 $file
+done
+```
+
+### Relax dependencies
+
+example: http://pkgs.fedoraproject.org/cgit/rubygem-actionpack.git/tree/?h=f19
+
+Under `%prep`
+
+```
+pushd .%{gem_dir}
+%patch1 -p0
+%patch2 -p1
+popd
+```
+
+Patching gemspec workflow:
+
+```
+rpmbuild -bc foo.spec
+cd ~/rpmbuild/BUILD/foo/usr/share/gems/
+cp specifications/foo.{gemspec,.old}
+edit specification/foo.gemspec
+diff -rupN specifications/foo.gemspec.old specifications/foo.gemspec  > ~/rpmbuild/SOURCES/rubygem-foo-relax-bar-dependency.patch
+```
+
+where foo the name of upstream gem we are packaging and bar the name of the gem
+that foo depends on and we want to use a greater version.
+
+
+%{gem_dir} => /usr/share/gems/
+
+path => specifications/foo.gemspec => use `-p0`:
+
+    specifications/foo.gemspec.orig
+    specifications/foo.gemspec
+
+path => dir/specifications/foo.gemspec => use `-p1`:
+
+    a/specifications/foo.gemspec
+    b/specifications/foo.gemspec
 
 ## My workflow
 
