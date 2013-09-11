@@ -2,11 +2,6 @@
 from hashlib import md5
 
 AUTHOR = u"axil"
-AUTHOR_SHORTBIO = '''
-I'm an open source enthusiast who loves spaghetti and westerns.
-Currently I am struggling to graduate and get involved in as many
-projects as I can, which admitedly isn't the best combination :p
-'''
 SITENAME = u"Over the line"
 SITEURL = 'http://axilleas.github.io'
 SITE_TAGLINE = u'that rug really tied the room together...'
@@ -14,7 +9,7 @@ TIMEZONE = 'Europe/Athens'
 
 GITHUB_URL = 'http://github.com/axilleas'
 GITHUB_USERNAME = 'axilleas'
-GITHUB_BADGE = True
+GITHUB_BADGE = False
 DISQUS_SITENAME = 'kissmyarch'
 TWITTER_USERNAME = '_axil'
 #PDF_PROCESSOR = True
