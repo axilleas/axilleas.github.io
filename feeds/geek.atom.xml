@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Over the line</title><link href="http://axilleas.github.io/" rel="alternate"></link><link href="http://axilleas.github.io/feeds/geek.atom.xml" rel="self"></link><id>http://axilleas.github.io/</id><updated>2013-07-09T00:00:00+03:00</updated><entry><title>GSoC - Weekly update 3 and 4</title><link href="http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-3-and-4" rel="alternate"></link><updated>2013-07-09T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.github.io,2013-07-09:en/blog/2013/gsoc-weekly-update-3-and-4</id><summary type="html">&lt;p&gt;Here is what I have been doing the last two weeks.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Over the line</title><link href="http://axilleas.me/" rel="alternate"></link><link href="http://axilleas.me/feeds/geek.atom.xml" rel="self"></link><id>http://axilleas.me/</id><updated>2013-07-09T00:00:00+03:00</updated><entry><title>GSoC - Weekly update 3 and 4</title><link href="http://axilleas.me/en/blog/2013/gsoc-weekly-update-3-and-4" rel="alternate"></link><updated>2013-07-09T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.me,2013-07-09:en/blog/2013/gsoc-weekly-update-3-and-4</id><summary type="html">&lt;p&gt;Here is what I have been doing the last two weeks.&lt;/p&gt;
 &lt;div class="toc"&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="#work-on-packages"&gt;Work on packages&lt;/a&gt;&lt;ul&gt;
@@ -110,7 +110,7 @@ and I read what I write many times, so yeah, this is going to take longer to fin
 &lt;li&gt;Submit 5-10 more gems.&lt;/li&gt;
 &lt;li&gt;Deploy GitLab on a Fedora server and test with some packaged gems. This is going to hit me hard I feel it :p&lt;/li&gt;
 &lt;li&gt;Maybe write an unofficial guide of how to install GitLab in Fedora, haven't checked if there is a guide out in the internets.&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="gsoc"></category><category term="fedora"></category><category term="gitlab"></category></entry><entry><title>GSoC - Weekly update 2</title><link href="http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-2" rel="alternate"></link><updated>2013-07-02T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.github.io,2013-07-02:en/blog/2013/gsoc-weekly-update-2</id><summary type="html">&lt;p&gt;Unfortunately this week hasn't been very productive due to lack of time. I managed
+&lt;/ul&gt;</summary><category term="gsoc"></category><category term="fedora"></category><category term="gitlab"></category></entry><entry><title>GSoC - Weekly update 2</title><link href="http://axilleas.me/en/blog/2013/gsoc-weekly-update-2" rel="alternate"></link><updated>2013-07-02T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.me,2013-07-02:en/blog/2013/gsoc-weekly-update-2</id><summary type="html">&lt;p&gt;Unfortunately this week hasn't been very productive due to lack of time. I managed
 to package 5-6 more gems, but I haven't submit them in Bugzilla yet. As always, the
 most difficult and time consuming task is to make all the test suites provided
 with each gem pass. And believe me this isn't always easy. So, here is what I did
@@ -145,7 +145,7 @@ one unpackaged gem, &lt;a href="https://rubygems.org/gems/sanitize"&gt;sanitize&
 You see, &lt;code&gt;pkgwat&lt;/code&gt; has a fixed dependency on &lt;code&gt;nokogiri 1.5.5&lt;/code&gt; whereas the latest
 &lt;code&gt;sanitize 2.0.4&lt;/code&gt; requires &lt;code&gt;nokogiri&amp;gt;=1.6.0&lt;/code&gt;. On Fedora we have &lt;code&gt;nokogiri 1.5.9&lt;/code&gt;.
 Let me draw that for you.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Dependency hell" src="http://axilleas.github.io/static/images/pkgwat.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Dependency hell" src="http://axilleas.me/images/pkgwat.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Welcome to Gem dependency hell. The only way to install it is through
 &lt;code&gt;gem install pkwat&lt;/code&gt;...&lt;/p&gt;
 &lt;h2 id="package-review"&gt;Package review&lt;/h2&gt;
@@ -180,7 +180,7 @@ Most of them are not submited for review yet.&lt;/p&gt;
 &lt;p&gt;I actually did seek for some help in &lt;a href="https://lists.fedoraproject.org/pipermail/ruby-sig/2013-July/001373.html"&gt;Ruby-SIG&lt;/a&gt; ML :p&amp;#160;&lt;a class="footnote-backref" href="#fnref:cheat" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="gsoc"></category><category term="fedora"></category><category term="gitlab"></category></entry><entry><title>GSoC - Weekly update 1</title><link href="http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-1" rel="alternate"></link><updated>2013-06-25T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.github.io,2013-06-25:en/blog/2013/gsoc-weekly-update-1</id><summary type="html">&lt;p&gt;It's been over a week that GSoC started and here is a weekly report of what achieved
+&lt;/div&gt;</summary><category term="gsoc"></category><category term="fedora"></category><category term="gitlab"></category></entry><entry><title>GSoC - Weekly update 1</title><link href="http://axilleas.me/en/blog/2013/gsoc-weekly-update-1" rel="alternate"></link><updated>2013-06-25T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.me,2013-06-25:en/blog/2013/gsoc-weekly-update-1</id><summary type="html">&lt;p&gt;It's been over a week that GSoC started and here is a weekly report of what achieved
 so far.&lt;/p&gt;
 &lt;h2 id="weekly-process"&gt;Weekly process&lt;/h2&gt;
 &lt;h3 id="workflow"&gt;Workflow&lt;/h3&gt;
@@ -299,7 +299,7 @@ of each week.&lt;/p&gt;
 seen anything in the man page about json support.&amp;#160;&lt;a class="footnote-backref" href="#fnref:json" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="gsoc"></category><category term="fedora"></category><category term="gitlab"></category></entry><entry><title>Connect to Transmission through an ssh encrypted session</title><link href="http://axilleas.github.io/en/blog/2013/connect-to-transmission-through-an-ssh-encrypted-session" rel="alternate"></link><updated>2013-06-11T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.github.io,2013-06-11:en/blog/2013/connect-to-transmission-through-an-ssh-encrypted-session</id><summary type="html">&lt;p&gt;Use case: You have a remote machine with high bandwidth and you want to turn it 
+&lt;/div&gt;</summary><category term="gsoc"></category><category term="fedora"></category><category term="gitlab"></category></entry><entry><title>Connect to Transmission through an ssh encrypted session</title><link href="http://axilleas.me/en/blog/2013/connect-to-transmission-through-an-ssh-encrypted-session" rel="alternate"></link><updated>2013-06-11T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.me,2013-06-11:en/blog/2013/connect-to-transmission-through-an-ssh-encrypted-session</id><summary type="html">&lt;p&gt;Use case: You have a remote machine with high bandwidth and you want to turn it 
 in a torrent server.&lt;/p&gt;
 &lt;div class="toc"&gt;
 &lt;ul&gt;
@@ -361,23 +361,23 @@ dictates, use it only on slow connections (client side).&lt;/li&gt;
 &lt;p&gt;After you run the above script and see the &lt;em&gt;Connection established&lt;/em&gt; message, it's
 time to open transgui and connect to the remote server. Make a new connection as
 it appears in the image below. &lt;/p&gt;
-&lt;p&gt;&lt;img alt="Connect to transgui" src="http://axilleas.github.io/static/images/transgui_connection.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Connect to transgui" src="http://axilleas.me/images/transgui_connection.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Default username:password is &lt;code&gt;transmission&lt;/code&gt;. If you want to change it, either 
 pass it as a parameter when running &lt;code&gt;transmission-daemon&lt;/code&gt; (see man page) or edit 
 &lt;code&gt;$HOME/.config/transmission-daemon/settings.json&lt;/code&gt; with the daemon stopped.&lt;/p&gt;
 &lt;p&gt;Some more screens:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Download dialog" src="http://axilleas.github.io/static/images/down_dialog.png" /&gt;
+&lt;p&gt;&lt;img alt="Download dialog" src="http://axilleas.me/images/down_dialog.png" /&gt;
 &lt;em&gt;The dialog that appears when you open a torrent file&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Downloading Fedora" src="http://axilleas.github.io/static/images/fedora_torrent.png" /&gt;
+&lt;p&gt;&lt;img alt="Downloading Fedora" src="http://axilleas.me/images/fedora_torrent.png" /&gt;
 &lt;em&gt;Main download page&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Now all that remains is to retrieve the downloaded data. There are numerous ways 
 to do so, like using &lt;code&gt;scp&lt;/code&gt;, &lt;code&gt;rync&lt;/code&gt;, &lt;code&gt;ftp&lt;/code&gt;, &lt;code&gt;sftp&lt;/code&gt;, &lt;code&gt;sshfs&lt;/code&gt; etc, each serving its 
-own purpose.&lt;/p&gt;</summary><category term="transmission"></category><category term="ssh"></category><category term="torrent"></category></entry><entry><title>Accepted for GSoC 2013</title><link href="http://axilleas.github.io/en/blog/2013/accepted-for-gsoc-2013" rel="alternate"></link><updated>2013-05-27T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.github.io,2013-05-27:en/blog/2013/accepted-for-gsoc-2013</id><summary type="html">&lt;p&gt;&lt;img alt="gsoc-logo" src="https://1-ps.googleusercontent.com/sx/s.google-melange.appspot.com/www.google-melange.com/soc/content/2-1-20130521/images/gsoc/logo/924x156xbanner-gsoc2013.png.pagespeed.ic.Z9V_lgyiqp.jpg" /&gt;&lt;/p&gt;
+own purpose.&lt;/p&gt;</summary><category term="transmission"></category><category term="ssh"></category><category term="torrent"></category></entry><entry><title>Accepted for GSoC 2013</title><link href="http://axilleas.me/en/blog/2013/accepted-for-gsoc-2013" rel="alternate"></link><updated>2013-05-27T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.me,2013-05-27:en/blog/2013/accepted-for-gsoc-2013</id><summary type="html">&lt;p&gt;&lt;img alt="gsoc-logo" src="https://1-ps.googleusercontent.com/sx/s.google-melange.appspot.com/www.google-melange.com/soc/content/2-1-20130521/images/gsoc/logo/924x156xbanner-gsoc2013.png.pagespeed.ic.Z9V_lgyiqp.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;Sooo, I am happy to announce that I got accepted to this year's Google Summer of Code!
 Couldn't be more happy right now :)&lt;/p&gt;
 &lt;p&gt;For those that have no idea, here is my &lt;a href="https://fedoraproject.org/wiki/GSOC_2013/Student_Application_Axilleas/Gitlab%28463%29"&gt;proposal&lt;/a&gt; on Fedora's wiki (&lt;a href="https://fedoraproject.org/wiki/User:Axilleas"&gt;my user&lt;/a&gt;). 
 I have in mind to make a follow post on how I dealt with all this the past three months.&lt;/p&gt;
-&lt;p&gt;Special thanks to &lt;a href="https://github.com/johngian"&gt;John Giannelos&lt;/a&gt; for pressuring me to apply :p&lt;/p&gt;</summary><category term="gsoc"></category><category term="fedora"></category><category term="gitlab"></category><category term="superexcited"></category></entry><entry><title>Codeschool offers 2-day hall pass to all courses</title><link href="http://axilleas.github.io/en/blog/2013/codeschool-two-day-hall-pass" rel="alternate"></link><updated>2013-05-13T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.github.io,2013-05-13:en/blog/2013/codeschool-two-day-hall-pass</id><summary type="html">&lt;p&gt;&lt;img alt="codeschool-logo" src="https://d1tijy5l7mg5kk.cloudfront.net/assets/press_kit/logo-full-text-842f207391207c249d46b10fb166a8cb.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Special thanks to &lt;a href="https://github.com/johngian"&gt;John Giannelos&lt;/a&gt; for pressuring me to apply :p&lt;/p&gt;</summary><category term="gsoc"></category><category term="fedora"></category><category term="gitlab"></category><category term="superexcited"></category></entry><entry><title>Codeschool offers 2-day hall pass to all courses</title><link href="http://axilleas.me/en/blog/2013/codeschool-two-day-hall-pass" rel="alternate"></link><updated>2013-05-13T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.me,2013-05-13:en/blog/2013/codeschool-two-day-hall-pass</id><summary type="html">&lt;p&gt;&lt;img alt="codeschool-logo" src="https://d1tijy5l7mg5kk.cloudfront.net/assets/press_kit/logo-full-text-842f207391207c249d46b10fb166a8cb.png" /&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a href="http://www.codeschool.com/"&gt;Code School&lt;/a&gt; is an online learning platform that teaches a variety of
 programming and web design skills. Courses range from beginner to advanced
@@ -404,7 +404,7 @@ which I am looking forward to complete!&lt;/p&gt;
 &lt;p&gt;I got an email from codeschool about this offer and there doesn't seem to be a clear url to reach it. That's why I am posting the affiliate url.&amp;#160;&lt;a class="footnote-backref" href="#fnref:afflink" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</summary><category term="codeschool"></category><category term="ruby"></category><category term="courses"></category><category term="javascript"></category><category term="html"></category><category term="css"></category></entry><entry><title>Nominated for Space Apps Challenge 2013</title><link href="http://axilleas.github.io/en/blog/2013/nasa-spaceappschallenge-2013" rel="alternate"></link><updated>2013-05-02T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.github.io,2013-05-02:en/blog/2013/nasa-spaceappschallenge-2013</id><summary type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;Update&lt;/em&gt;&lt;/strong&gt;: The Popeye on Mars project came &lt;a href="http://www.nasa.gov/home/hqnews/2013/may/HQ_13-152_Space_App_Challenge_winners.html"&gt;first&lt;/a&gt; in "Best Mission Concept" 
+&lt;/div&gt;</summary><category term="codeschool"></category><category term="ruby"></category><category term="courses"></category><category term="javascript"></category><category term="html"></category><category term="css"></category></entry><entry><title>Nominated for Space Apps Challenge 2013</title><link href="http://axilleas.me/en/blog/2013/nasa-spaceappschallenge-2013" rel="alternate"></link><updated>2013-05-02T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.me,2013-05-02:en/blog/2013/nasa-spaceappschallenge-2013</id><summary type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;Update&lt;/em&gt;&lt;/strong&gt;: The Popeye on Mars project came &lt;a href="http://www.nasa.gov/home/hqnews/2013/may/HQ_13-152_Space_App_Challenge_winners.html"&gt;first&lt;/a&gt; in "Best Mission Concept" 
 category. Congrats guys!&lt;/p&gt;
 &lt;p&gt;During the weekend of 20th and 21st of April we gathered at &lt;a href="https://hackerspace.gr"&gt;hackerpace.gr&lt;/a&gt;
 and started hacking for NASA's space apps challenge. From their &lt;a href="http://spaceappschallenge.org/about/"&gt;webpage&lt;/a&gt;:&lt;/p&gt;
@@ -445,7 +445,7 @@ expose those on an API.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://spaceappschallenge.org/project/anapneo"&gt;Project page&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.youtube.com/watch?feature=player_embedded&amp;amp;v=u5eSPSy4ix8"&gt;Video&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="nasa"></category><category term="hsgr"></category><category term="django"></category><category term="spinach"></category><category term="popeye"></category></entry><entry><title>Bringing GitLab to Fedora</title><link href="http://axilleas.github.io/en/blog/2013/bringing-gitlab-in-fedora" rel="alternate"></link><updated>2013-04-07T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.github.io,2013-04-07:en/blog/2013/bringing-gitlab-in-fedora</id><summary type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;Update&lt;/em&gt;&lt;/strong&gt;: I just got a confirmation mail that my proposal got accepted! &lt;a href="http://axilleas.github.io/en/blog/2013/accepted-for-gsoc-2013"&gt;Read here.&lt;/a&gt;&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="nasa"></category><category term="hsgr"></category><category term="django"></category><category term="spinach"></category><category term="popeye"></category></entry><entry><title>Bringing GitLab to Fedora</title><link href="http://axilleas.me/en/blog/2013/bringing-gitlab-in-fedora" rel="alternate"></link><updated>2013-04-07T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.me,2013-04-07:en/blog/2013/bringing-gitlab-in-fedora</id><summary type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;Update&lt;/em&gt;&lt;/strong&gt;: I just got a confirmation mail that my proposal got accepted! &lt;a href="http://axilleas.me/en/blog/2013/accepted-for-gsoc-2013"&gt;Read here.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;So, I decided to write some info regarding my involvement for this year's
 &lt;a href="http://www.google-melange.com/gsoc/homepage/google/gsoc2013" title="Google Summer of Code 2013"&gt;Google Summer of Code&lt;/a&gt;. I have been using/testing GitLab since
 version 2.0 (almost a year now) and I am thrilled to see how much it has

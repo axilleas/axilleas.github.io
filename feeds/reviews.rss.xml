@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Over the line</title><link>http://axilleas.me/</link><description></description><atom:link href="http://axilleas.me/feeds/reviews.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 31 Dec 2013 00:00:00 +0200</lastBuildDate><item><title>Coming soon book review - GitLab repository management</title><link>http://axilleas.me/en/blog/2013/coming-soon-book-review-gitlab-repository-management</link><description>&lt;p&gt;&lt;img alt="GitLab Repository Management" src="http://www.packtpub.com/sites/default/files/1794OS.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;If you don't already know it, &lt;a href="https://twitter.com/JonathanMH_com"&gt;Jonathan M. Hethey&lt;/a&gt; has recently published a &lt;a href="http://bit.ly/1fTUYMy"&gt;book&lt;/a&gt; 
+about GitLab on packtpub. I am in the process of reviewing it, so wait for a new post very soon :)&lt;/p&gt;
+&lt;p&gt;I'll attach the preface so you can get a glimpse of what the book covers.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In this book, we will take a tour of the version control system GitLab, which is based
+on Git. It's open source and has many great features that we will learn chapter wise
+as listed here. First, we will take a look at what GitLab can do for us, and later we
+will see how we can install it on a server and configure it to match our needs.
+The next step is to take a close look at the web interface, and then we will learn
+how to handle permissions and teams, document our code, track issues, and show
+example workflows.
+Lastly, we will learn how to perform maintenance for our installation, including the
+creation of backups and upgrading to the most recent version. We will also cover
+getting in touch with the community and developers on the respective channels.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Btw, there is a limited offer on packtpub untill this Friday 3rd January, so you can grab an e-book copy
+for only $5.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 31 Dec 2013 00:00:00 +0200</pubDate><guid>tag:axilleas.me,2013-12-31:en/blog/2013/coming-soon-book-review-gitlab-repository-management</guid><category>gitlab</category><category>book</category><category>review</category></item></channel></rss>

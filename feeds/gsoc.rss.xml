@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Over the line</title><link>http://axilleas.github.io/</link><description></description><atom:link href="http://axilleas.github.io/feeds/gsoc.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 12 Sep 2013 00:00:00 +0300</lastBuildDate><item><title>GSoC - Weekly update 11 and 12</title><link>http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-11-and-12</link><description>&lt;p&gt;So far, I managed to &lt;a href="https://fedora.axilleas.me"&gt;deploy GitLab&lt;/a&gt; on a Fedora 19 machine using only packaged gems either from
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Over the line</title><link>http://axilleas.me/</link><description></description><atom:link href="http://axilleas.me/feeds/gsoc.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 12 Sep 2013 00:00:00 +0300</lastBuildDate><item><title>GSoC - Weekly update 11 and 12</title><link>http://axilleas.me/en/blog/2013/gsoc-weekly-update-11-and-12</link><description>&lt;p&gt;So far, I managed to &lt;a href="https://fedora.axilleas.me"&gt;deploy GitLab&lt;/a&gt; on a Fedora 19 machine using only packaged gems either from
 the official repos or a &lt;a href="http://repos.fedorapeople.org/repos/axilleas/gitlab/fedora-19/"&gt;custom&lt;/a&gt; one I have created.&lt;/p&gt;
 &lt;p&gt;Below you will find some more info as well as the url of the testing environment. 
 You can use/test it and report any issues &lt;a href="https://github.com/axilleas/gsoc/issues"&gt;here&lt;/a&gt;. If anyone needs an admin account 
@@ -32,7 +32,7 @@ The systemd services I used can be found &lt;a href="https://github.com/axilleas
 &lt;h3 id="longer-term"&gt;Longer term&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;port to EPEL&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Thu, 12 Sep 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.github.io,2013-09-12:en/blog/2013/gsoc-weekly-update-11-and-12</guid><category>gsoc</category><category>fedora</category><category>gitlab</category><category>packaging</category></item><item><title>GSoC - Weekly update 9 and 10</title><link>http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-9-and-10</link><description>&lt;p&gt;I've been busy the past two weeks with some personal stuff so I got a little behind.
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Thu, 12 Sep 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2013-09-12:en/blog/2013/gsoc-weekly-update-11-and-12</guid><category>gsoc</category><category>fedora</category><category>gitlab</category><category>packaging</category></item><item><title>GSoC - Weekly update 9 and 10</title><link>http://axilleas.me/en/blog/2013/gsoc-weekly-update-9-and-10</link><description>&lt;p&gt;I've been busy the past two weeks with some personal stuff so I got a little behind.
 Here's what happened in the GitLab front.&lt;/p&gt;
 &lt;div class="toc"&gt;
 &lt;ul&gt;
@@ -69,7 +69,7 @@ problem for them is also how to package the forked gems. Hopefully we will come 
 &lt;ul&gt;
 &lt;li&gt;Build dummy &lt;code&gt;gitlab.spec&lt;/code&gt; with all runtime &lt;code&gt;Requires&lt;/code&gt; for easy test install&lt;/li&gt;
 &lt;li&gt;Use &lt;code&gt;bundle install --local&lt;/code&gt; and progressively test the required gems&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Thu, 29 Aug 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.github.io,2013-08-29:en/blog/2013/gsoc-weekly-update-9-and-10</guid><category>gsoc</category><category>fedora</category><category>gitlab</category><category>packaging</category></item><item><title>GSoC - Weekly update 7 and 8</title><link>http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-7-and-8</link><description>&lt;p&gt;The past week or so, I have been trying to package every gem GitLab needs, in Fedora 19.
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Thu, 29 Aug 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2013-08-29:en/blog/2013/gsoc-weekly-update-9-and-10</guid><category>gsoc</category><category>fedora</category><category>gitlab</category><category>packaging</category></item><item><title>GSoC - Weekly update 7 and 8</title><link>http://axilleas.me/en/blog/2013/gsoc-weekly-update-7-and-8</link><description>&lt;p&gt;The past week or so, I have been trying to package every gem GitLab needs, in Fedora 19.
 This is something I should have done from the start, but better late than never.
 Now that I have quite learnt the rubygem packaging process, I follow a certain
 workflow that gets the job done pretty quickly (described below).&lt;/p&gt;
@@ -259,7 +259,7 @@ and their different versions of gems.&lt;/p&gt;
 &lt;p&gt;All that thanks to &lt;a href="https://okeanos.grnet.gr/home/"&gt;okeanos&lt;/a&gt;, a &lt;a href="https://www.grnet.gr/en/"&gt;GRNET&lt;/a&gt;'s public cloud service which provides cloud services to the whole Greek research and academic community. More info &lt;a href="http://www.synnefo.org/"&gt;here&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:cloud" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 13 Aug 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.github.io,2013-08-13:en/blog/2013/gsoc-weekly-update-7-and-8</guid><category>gsoc</category><category>fedora</category><category>gitlab</category><category>packaging</category></item><item><title>GSoC - Weekly update 6</title><link>http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-6</link><description>&lt;p&gt;Here is what I have been doing the past week.&lt;/p&gt;
+&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 13 Aug 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2013-08-13:en/blog/2013/gsoc-weekly-update-7-and-8</guid><category>gsoc</category><category>fedora</category><category>gitlab</category><category>packaging</category></item><item><title>GSoC - Weekly update 6</title><link>http://axilleas.me/en/blog/2013/gsoc-weekly-update-6</link><description>&lt;p&gt;Here is what I have been doing the past week.&lt;/p&gt;
 &lt;div class="toc"&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="#packages"&gt;Packages&lt;/a&gt;&lt;ul&gt;
@@ -347,13 +347,13 @@ some nice tips about the packaging workflow.&lt;/p&gt;
 &lt;p&gt;This is pending a &lt;a href="https://bugzilla.redhat.com/show_bug.cgi?id=988938"&gt;review&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="update-to-gitlab-54"&gt;Update to GitLab 5.4&lt;/h2&gt;
 &lt;p&gt;I updated the dependencies to version 5.4. Overall nothing changed except for the
-addition of unicorn, which is already submitted for &lt;a href="https://bugzilla.redhat.com/show_bug.cgi?id=786636"&gt;review&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 30 Jul 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.github.io,2013-07-30:en/blog/2013/gsoc-weekly-update-6</guid><category>gsoc</category><category>fedora</category><category>gitlab</category><category>packaging</category></item><item><title>GSoC - Weekly update 5</title><link>http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-5</link><description>&lt;p&gt;I can't believe that a month has already passed! I keep learning new things, mostly
+addition of unicorn, which is already submitted for &lt;a href="https://bugzilla.redhat.com/show_bug.cgi?id=786636"&gt;review&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 30 Jul 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2013-07-30:en/blog/2013/gsoc-weekly-update-6</guid><category>gsoc</category><category>fedora</category><category>gitlab</category><category>packaging</category></item><item><title>GSoC - Weekly update 5</title><link>http://axilleas.me/en/blog/2013/gsoc-weekly-update-5</link><description>&lt;p&gt;I can't believe that a month has already passed! I keep learning new things, mostly
 on packaging, and the cool fact is that many of them are through my Review Requests.
 The discussion between the reviewer and the reviewee can sometimes be very productive
 leading to learning new things I previously ignored.&lt;/p&gt;
 &lt;p&gt;This post would be a long one but I decided to split it up, because some sections
 deserved there own space.&lt;/p&gt;
-&lt;p&gt;The first split is named &lt;a href="http://axilleas.github.io/en/blog/2013/i-got-approved-as-a-packager-now-what"&gt;I got approved as a packager, now what?&lt;/a&gt;
+&lt;p&gt;The first split is named &lt;a href="http://axilleas.me/en/blog/2013/i-got-approved-as-a-packager-now-what"&gt;I got approved as a packager, now what?&lt;/a&gt;
 and it refers to all new Fedora packagers :)&lt;/p&gt;
 &lt;p&gt;The second one is going to talk about maintaining an unofficial repo and I will
 describe my workflow and the potential scripts that facilitate the whole process.&lt;/p&gt;
@@ -389,7 +389,7 @@ newbies, so this is going to be very comprehensive. Progress is being made :)&lt
 &lt;li&gt;Submit more packages&lt;/li&gt;
 &lt;li&gt;Set up GitLab on a Fedora machine and check if packaged bundler works&lt;/li&gt;
 &lt;li&gt;Take on reviews of packages concerning the gsoc project&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Mon, 22 Jul 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.github.io,2013-07-22:en/blog/2013/gsoc-weekly-update-5</guid><category>gsoc</category><category>fedora</category><category>gitlab</category><category>packaging</category></item><item><title>GSoC - Weekly update 3 and 4</title><link>http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-3-and-4</link><description>&lt;p&gt;Here is what I have been doing the last two weeks.&lt;/p&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Mon, 22 Jul 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2013-07-22:en/blog/2013/gsoc-weekly-update-5</guid><category>gsoc</category><category>fedora</category><category>gitlab</category><category>packaging</category></item><item><title>GSoC - Weekly update 3 and 4</title><link>http://axilleas.me/en/blog/2013/gsoc-weekly-update-3-and-4</link><description>&lt;p&gt;Here is what I have been doing the last two weeks.&lt;/p&gt;
 &lt;div class="toc"&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="#work-on-packages"&gt;Work on packages&lt;/a&gt;&lt;ul&gt;
@@ -500,7 +500,7 @@ and I read what I write many times, so yeah, this is going to take longer to fin
 &lt;li&gt;Submit 5-10 more gems.&lt;/li&gt;
 &lt;li&gt;Deploy GitLab on a Fedora server and test with some packaged gems. This is going to hit me hard I feel it :p&lt;/li&gt;
 &lt;li&gt;Maybe write an unofficial guide of how to install GitLab in Fedora, haven't checked if there is a guide out in the internets.&lt;/li&gt;
-&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 09 Jul 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.github.io,2013-07-09:en/blog/2013/gsoc-weekly-update-3-and-4</guid><category>gsoc</category><category>fedora</category><category>gitlab</category></item><item><title>GSoC - Weekly update 2</title><link>http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-2</link><description>&lt;p&gt;Unfortunately this week hasn't been very productive due to lack of time. I managed
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 09 Jul 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2013-07-09:en/blog/2013/gsoc-weekly-update-3-and-4</guid><category>gsoc</category><category>fedora</category><category>gitlab</category></item><item><title>GSoC - Weekly update 2</title><link>http://axilleas.me/en/blog/2013/gsoc-weekly-update-2</link><description>&lt;p&gt;Unfortunately this week hasn't been very productive due to lack of time. I managed
 to package 5-6 more gems, but I haven't submit them in Bugzilla yet. As always, the
 most difficult and time consuming task is to make all the test suites provided
 with each gem pass. And believe me this isn't always easy. So, here is what I did
@@ -535,7 +535,7 @@ one unpackaged gem, &lt;a href="https://rubygems.org/gems/sanitize"&gt;sanitize&
 You see, &lt;code&gt;pkgwat&lt;/code&gt; has a fixed dependency on &lt;code&gt;nokogiri 1.5.5&lt;/code&gt; whereas the latest
 &lt;code&gt;sanitize 2.0.4&lt;/code&gt; requires &lt;code&gt;nokogiri&amp;gt;=1.6.0&lt;/code&gt;. On Fedora we have &lt;code&gt;nokogiri 1.5.9&lt;/code&gt;.
 Let me draw that for you.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Dependency hell" src="http://axilleas.github.io/static/images/pkgwat.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Dependency hell" src="http://axilleas.me/images/pkgwat.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Welcome to Gem dependency hell. The only way to install it is through
 &lt;code&gt;gem install pkwat&lt;/code&gt;...&lt;/p&gt;
 &lt;h2 id="package-review"&gt;Package review&lt;/h2&gt;
@@ -570,7 +570,7 @@ Most of them are not submited for review yet.&lt;/p&gt;
 &lt;p&gt;I actually did seek for some help in &lt;a href="https://lists.fedoraproject.org/pipermail/ruby-sig/2013-July/001373.html"&gt;Ruby-SIG&lt;/a&gt; ML :p&amp;#160;&lt;a class="footnote-backref" href="#fnref:cheat" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 02 Jul 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.github.io,2013-07-02:en/blog/2013/gsoc-weekly-update-2</guid><category>gsoc</category><category>fedora</category><category>gitlab</category></item><item><title>GSoC - Weekly update 1</title><link>http://axilleas.github.io/en/blog/2013/gsoc-weekly-update-1</link><description>&lt;p&gt;It's been over a week that GSoC started and here is a weekly report of what achieved
+&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 02 Jul 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2013-07-02:en/blog/2013/gsoc-weekly-update-2</guid><category>gsoc</category><category>fedora</category><category>gitlab</category></item><item><title>GSoC - Weekly update 1</title><link>http://axilleas.me/en/blog/2013/gsoc-weekly-update-1</link><description>&lt;p&gt;It's been over a week that GSoC started and here is a weekly report of what achieved
 so far.&lt;/p&gt;
 &lt;h2 id="weekly-process"&gt;Weekly process&lt;/h2&gt;
 &lt;h3 id="workflow"&gt;Workflow&lt;/h3&gt;
@@ -689,9 +689,9 @@ of each week.&lt;/p&gt;
 seen anything in the man page about json support.&amp;#160;&lt;a class="footnote-backref" href="#fnref:json" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 25 Jun 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.github.io,2013-06-25:en/blog/2013/gsoc-weekly-update-1</guid><category>gsoc</category><category>fedora</category><category>gitlab</category></item><item><title>Accepted for GSoC 2013</title><link>http://axilleas.github.io/en/blog/2013/accepted-for-gsoc-2013</link><description>&lt;p&gt;&lt;img alt="gsoc-logo" src="https://1-ps.googleusercontent.com/sx/s.google-melange.appspot.com/www.google-melange.com/soc/content/2-1-20130521/images/gsoc/logo/924x156xbanner-gsoc2013.png.pagespeed.ic.Z9V_lgyiqp.jpg" /&gt;&lt;/p&gt;
+&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 25 Jun 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2013-06-25:en/blog/2013/gsoc-weekly-update-1</guid><category>gsoc</category><category>fedora</category><category>gitlab</category></item><item><title>Accepted for GSoC 2013</title><link>http://axilleas.me/en/blog/2013/accepted-for-gsoc-2013</link><description>&lt;p&gt;&lt;img alt="gsoc-logo" src="https://1-ps.googleusercontent.com/sx/s.google-melange.appspot.com/www.google-melange.com/soc/content/2-1-20130521/images/gsoc/logo/924x156xbanner-gsoc2013.png.pagespeed.ic.Z9V_lgyiqp.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;Sooo, I am happy to announce that I got accepted to this year's Google Summer of Code!
 Couldn't be more happy right now :)&lt;/p&gt;
 &lt;p&gt;For those that have no idea, here is my &lt;a href="https://fedoraproject.org/wiki/GSOC_2013/Student_Application_Axilleas/Gitlab%28463%29"&gt;proposal&lt;/a&gt; on Fedora's wiki (&lt;a href="https://fedoraproject.org/wiki/User:Axilleas"&gt;my user&lt;/a&gt;). 
 I have in mind to make a follow post on how I dealt with all this the past three months.&lt;/p&gt;
-&lt;p&gt;Special thanks to &lt;a href="https://github.com/johngian"&gt;John Giannelos&lt;/a&gt; for pressuring me to apply :p&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Mon, 27 May 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.github.io,2013-05-27:en/blog/2013/accepted-for-gsoc-2013</guid><category>gsoc</category><category>fedora</category><category>gitlab</category><category>superexcited</category></item></channel></rss>
+&lt;p&gt;Special thanks to &lt;a href="https://github.com/johngian"&gt;John Giannelos&lt;/a&gt; for pressuring me to apply :p&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Mon, 27 May 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2013-05-27:en/blog/2013/accepted-for-gsoc-2013</guid><category>gsoc</category><category>fedora</category><category>gitlab</category><category>superexcited</category></item></channel></rss>

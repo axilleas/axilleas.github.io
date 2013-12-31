@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Over the line</title><link>http://axilleas.github.io/</link><description></description><atom:link href="http://axilleas.github.io/feeds/transmission.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 11 Jun 2013 00:00:00 +0300</lastBuildDate><item><title>Connect to Transmission through an ssh encrypted session</title><link>http://axilleas.github.io/en/blog/2013/connect-to-transmission-through-an-ssh-encrypted-session</link><description>&lt;p&gt;Use case: You have a remote machine with high bandwidth and you want to turn it 
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Over the line</title><link>http://axilleas.me/</link><description></description><atom:link href="http://axilleas.me/feeds/transmission.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 11 Jun 2013 00:00:00 +0300</lastBuildDate><item><title>Connect to Transmission through an ssh encrypted session</title><link>http://axilleas.me/en/blog/2013/connect-to-transmission-through-an-ssh-encrypted-session</link><description>&lt;p&gt;Use case: You have a remote machine with high bandwidth and you want to turn it 
 in a torrent server.&lt;/p&gt;
 &lt;div class="toc"&gt;
 &lt;ul&gt;
@@ -61,15 +61,15 @@ dictates, use it only on slow connections (client side).&lt;/li&gt;
 &lt;p&gt;After you run the above script and see the &lt;em&gt;Connection established&lt;/em&gt; message, it's
 time to open transgui and connect to the remote server. Make a new connection as
 it appears in the image below. &lt;/p&gt;
-&lt;p&gt;&lt;img alt="Connect to transgui" src="http://axilleas.github.io/static/images/transgui_connection.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Connect to transgui" src="http://axilleas.me/images/transgui_connection.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Default username:password is &lt;code&gt;transmission&lt;/code&gt;. If you want to change it, either 
 pass it as a parameter when running &lt;code&gt;transmission-daemon&lt;/code&gt; (see man page) or edit 
 &lt;code&gt;$HOME/.config/transmission-daemon/settings.json&lt;/code&gt; with the daemon stopped.&lt;/p&gt;
 &lt;p&gt;Some more screens:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Download dialog" src="http://axilleas.github.io/static/images/down_dialog.png" /&gt;
+&lt;p&gt;&lt;img alt="Download dialog" src="http://axilleas.me/images/down_dialog.png" /&gt;
 &lt;em&gt;The dialog that appears when you open a torrent file&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Downloading Fedora" src="http://axilleas.github.io/static/images/fedora_torrent.png" /&gt;
+&lt;p&gt;&lt;img alt="Downloading Fedora" src="http://axilleas.me/images/fedora_torrent.png" /&gt;
 &lt;em&gt;Main download page&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Now all that remains is to retrieve the downloaded data. There are numerous ways 
 to do so, like using &lt;code&gt;scp&lt;/code&gt;, &lt;code&gt;rync&lt;/code&gt;, &lt;code&gt;ftp&lt;/code&gt;, &lt;code&gt;sftp&lt;/code&gt;, &lt;code&gt;sshfs&lt;/code&gt; etc, each serving its 
-own purpose.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 11 Jun 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.github.io,2013-06-11:en/blog/2013/connect-to-transmission-through-an-ssh-encrypted-session</guid><category>transmission</category><category>ssh</category><category>torrent</category></item></channel></rss>
+own purpose.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 11 Jun 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2013-06-11:en/blog/2013/connect-to-transmission-through-an-ssh-encrypted-session</guid><category>transmission</category><category>ssh</category><category>torrent</category></item></channel></rss>

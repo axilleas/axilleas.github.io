@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Over the line</title><link>http://axilleas.github.io/</link><description></description><atom:link href="http://axilleas.github.io/feeds/fedpkg.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 21 Jul 2013 00:00:00 +0300</lastBuildDate><item><title>I got approved as a packager, now what?</title><link>http://axilleas.github.io/en/blog/2013/i-got-approved-as-a-packager-now-what</link><description>&lt;p&gt;This must have been the most intense week in terms of learning how the build 
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Over the line</title><link>http://axilleas.me/</link><description></description><atom:link href="http://axilleas.me/feeds/fedpkg.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 21 Jul 2013 00:00:00 +0300</lastBuildDate><item><title>I got approved as a packager, now what?</title><link>http://axilleas.me/en/blog/2013/i-got-approved-as-a-packager-now-what</link><description>&lt;p&gt;This must have been the most intense week in terms of learning how the build 
 system/process work in Fedora. I finally got approved as a packager and that means
 more responsibility from my side. Unfortunately, the instrusctions in the wiki
 are sometimes sparsed into different places and one has to read a lot and ask
@@ -74,7 +74,7 @@ changed the flag, resulting to send a mail update twice.&lt;/p&gt;
 &lt;p&gt;Must read: &lt;a href="https://fedoraproject.org/wiki/Join_the_package_collection_maintainers#Add_Package_to_Source_Code_Management_.28SCM.29_system_and_Set_Owner"&gt;Add Package to Source Code Management (SCM) system and Set Owner&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;After the scm request, you will receive some e-mails from Bugzilla and PackageDB
 stating that you are good to go. If you visit &lt;a href="http://pkgs.fedoraproject.org/cgit/"&gt;cgit&lt;/a&gt; you will see your bare repository.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Bare repo" src="http://axilleas.github.io/static/images/rubygem-bootstrap-sass.git-bare-2013-07-20-14-28-50.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Bare repo" src="http://axilleas.me/images/rubygem-bootstrap-sass.git-bare-2013-07-20-14-28-50.png" /&gt;&lt;/p&gt;
 &lt;p&gt;The whole building process works using &lt;code&gt;fedpkg&lt;/code&gt; and git commands, so if you are
 not familiar with git, I suggest the &lt;a href="https://fedoraproject.org/wiki/Using_git_FAQ_for_package_maintainers"&gt;Fedora wiki page&lt;/a&gt;. For a more
 comprehensive approach I highly recommend the &lt;a href="http://git-scm.com/book"&gt;Pro Git book&lt;/a&gt;.&lt;/p&gt;
@@ -158,7 +158,7 @@ Use the bugzilla id from your review request. No scripts are parsing this, it is
 
 
 &lt;p&gt;Now, if you visit again the cgit web page, you will see that the changes are submitted.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Bare repo" src="http://axilleas.github.io/static/images/rubygem-bootstrap-sass.git-init-2013-07-20-15-58-58.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Bare repo" src="http://axilleas.me/images/rubygem-bootstrap-sass.git-init-2013-07-20-15-58-58.png" /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id="build-on-koji"&gt;Build on koji&lt;/h3&gt;
@@ -207,7 +207,7 @@ origin/master
 &lt;p&gt;&lt;strong&gt;Tip:&lt;/strong&gt; I suggest you use a shell where it shows you the branch you are in.
 I recommend zsh and if you look at &lt;a href="https://github.com/robbyrussell/oh-my-zsh"&gt;oh-my-zsh&lt;/a&gt;, almost all themes included
 support this. Mine for example is: &lt;/p&gt;
-&lt;p&gt;&lt;img alt="My zsh theme" src="http://axilleas.github.io/static/images/zsh-git-branch.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="My zsh theme" src="http://axilleas.me/images/zsh-git-branch.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Get the changes from master branch, push and build like before:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;git merge master
 git push
@@ -361,4 +361,4 @@ of the iceberg and there's a lot more to come. This post took me literally one
 day to compose as I was virtually recording the process as I performed it, hope
 it was worth it. If you find any mistake or you want to add something please do
 leave a comment. Next big article the Rubygem packaging How to ;)&lt;/p&gt;
-&lt;p&gt;Cheers!&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Sun, 21 Jul 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.github.io,2013-07-21:en/blog/2013/i-got-approved-as-a-packager-now-what</guid><category>fedora</category><category>packaging</category><category>fedpkg</category><category>bodhi</category><category>git</category></item></channel></rss>
+&lt;p&gt;Cheers!&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Sun, 21 Jul 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2013-07-21:en/blog/2013/i-got-approved-as-a-packager-now-what</guid><category>fedora</category><category>packaging</category><category>fedpkg</category><category>bodhi</category><category>git</category></item></channel></rss>
