@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*- #
-from hashlib import md5
+from __future__ import unicode_literals
 
 AUTHOR = u"axil"
 SITENAME = u"Over the line"
-SITEURL = 'http://axilleas.github.io'
+SITEURL = 'http://axilleas.me'
 SITE_TAGLINE = u'that rug really tied the room together...'
 TIMEZONE = 'Europe/Athens'
 
@@ -15,13 +15,11 @@ TWITTER_USERNAME = '_axil'
 #PDF_PROCESSOR = True
 PRINT = True
 REVERSE_CAREGORY_ORDER = True
-LOCALE = ('usa', 'en_US')
+LOCALE = ('en_US.utf8')
 DEFAULT_LANG = 'en'
 DEFAULT_PAGINATION = 3
 SITE_SOURCE = 'https://github.com/axilleas/axilleas.github.io/tree/source'
 
-AUTHOR_EMAIL = u'axilleas@archlinux.gr'
-AUTHOR_EMAIL_HASH = md5(AUTHOR_EMAIL).hexdigest()
 
 FEED_DOMAIN = SITEURL
 FEED_RSS = 'feeds/all.rss.xml'
@@ -29,7 +27,7 @@ CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
 TAG_FEED_RSS = 'feeds/%s.rss.xml'
 
 MD_EXTENSIONS = ['toc', 'codehilite', 'extra']
-THEME = "src/theme"
+THEME = "theme"
 
 OUTPUT_PATH = 'output'
 PATH = 'src'
