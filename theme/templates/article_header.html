@@ -6,18 +6,18 @@
 </time>
 {% if article.author %}
 <address class="vcard author">
-    by <a class="url fn" href="{{ SITEURL }}/{{ article.author.url }}">
+    by <a class="url fn" href="/{{ article.author.url }}">
     {{ article.author }}</a>
 </address>
 {% endif %}
 {% if categories|length > 1 %}
-<span class="category">in <a href="{{ SITEURL }}/{{ article.category.url }}">
+<span class="category">in <a href="/{{ article.category.url }}">
     {{ article.category }}</a>.
         </span>
 {% endif %}
 {% if article.translations %}
 Translations:
     {% for translation in article.translations %}
-        <a href="{{ SITEURL }}/{{ translation.url }}">{{ translation.lang }}</a>
+        <a href="/{{ translation.url }}">{{ translation.lang }}</a>
     {% endfor %}
 {% endif %}
