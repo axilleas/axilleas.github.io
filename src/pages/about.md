@@ -2,10 +2,6 @@ Title: whoami
 Slug: about
 Lang: en
 
-My name is Axilleas Pipinellis and I live in a lovely town near Athens Greece.
-I am an undergraduate of [Applied Mathematical and Physical Sciences][semfe] at
-[Ntua][ntua], currently studying math(statistics) and CS.
-
 [TOC]
 
 ## Open source matters
@@ -24,20 +20,20 @@ I maintain several packages at the [AUR][] and I try to contribute to the
 team in Greece, where we serve a [repository][archlinuxgr] with popular packages that
 aren't in the official repos. I have also contributed to the localization
 of pacman and the AUR interface. Check my transifex profile at Contact Details.
-Recently I helped to package the [snf-image-creator][snf-arch] tool of 
+Recently I helped to package the [snf-image-creator][snf-arch] tool of
 the [synnefo][] IaaS.
 
 ### Fedora
 Recently I started getting involved with [Fedora][], mainly because
 of the [GSoC 2013](|filename|/posts/en/2013-04-07-bringing-gitlab-to-fedora.md) program. It has a vast community with many developers
 and users who are always willing to help and that's the beauty with it :)
-I'll probably fill in more info once I get more involved (which is something 
+I'll probably fill in more info once I get more involved (which is something
 I intend to do).
 
 ### GitLab
 [GitLab][gl-site] is an open source git repository application, built on Ruby on Rails.
 I have been using it since version 2.0 and started contributing as of version 4.0.
-In [this](|filename|/pages/gitlab-accepted-patches.md) page you will find all my 
+In [this](|filename|/pages/gitlab-accepted-patches.md) page you will find all my
 patches that were accepted by upstream. A relative article can be found [
 here](|filename|/posts/en/2013-04-07-bringing-gitlab-to-fedora.md).
 
@@ -45,17 +41,17 @@ here](|filename|/posts/en/2013-04-07-bringing-gitlab-to-fedora.md).
 ## Hobbies/Interests
 
 ### Aikido
-My greatest love is [Aikido][], a japanese martial art. I first started in 
-January 2010 and have attended a bunch of seminars since. I maintain the 
-site of our [dojo][tokaidogr] and our social pages ([facebook][fb-tok], [twitter][twit-tok], 
+My greatest love is [Aikido][], a japanese martial art. I first started in
+January 2010 and have attended a bunch of seminars since. I maintain the
+site of our [dojo][tokaidogr] and our social pages ([facebook][fb-tok], [twitter][twit-tok],
 [youtube][yt-tok], [gplus][g+tok]). You can check some photos [here][tokaido-photos-db].
 My limited skills on graphical design led me to do the artwork of our dojo
 as well. Source files can be found on [github][tokaido-artwork].
 
 ### Photography
 I have an old Olympus DSLR and whenever I have the chance I get pictures.
-My main interest is my pets, but I also take landscapes as well. Some day 
-I hope to buy a more advanced camera which supports custom firmware in 
+My main interest is my pets, but I also take landscapes as well. Some day
+I hope to buy a more advanced camera which supports custom firmware in
 order to hack it :p
 
 **I'll post a link with my photos once I get them sorted**
@@ -72,7 +68,7 @@ Probably not much of a hobby but I do these on my free time, so:
 
 ### Food
 I looooove food. I also love to cook :) My favorite chef is Jamie Oliver
-and I have almost all of his shows and have atempted to cook a bunch of his 
+and I have almost all of his shows and have atempted to cook a bunch of his
 foods. I once tried to make a 30 minute meal. It took me 3 hours... but
 it was sure worth the effort.
 
@@ -82,7 +78,7 @@ I'll post some of my favorite recipes in due time.
 
   - The big Lebowski: This is where my blog's name is taken :)
   - Sin City
-  
+
 **I will be adding more, frequently.**
 
 ### Music
@@ -93,8 +89,8 @@ I have seen them live (some more than once):
 
 ####Progressive rock/metal
 
-Pink Floyd, Tool**\***, Dream Theater**\***, Queensryche**\***, Pain of Salvation**\***, 
-Fates Warning**\***, 
+Pink Floyd, Tool**\***, Dream Theater**\***, Queensryche**\***, Pain of Salvation**\***,
+Fates Warning**\***,
 
 
 ####Jazz
@@ -140,7 +136,7 @@ Fates Warning**\***,
 [fb-tok]: https://facebook.com/tokaidogr
 [twit-tok]: https://twitter.com/tokaidogr
 [yt-tok]: https://youtube.com/tokaidogr
-[g+tok]: 
+[g+tok]:
 [tokaido-photos-db]: https://www.facebook.com/tokaidogr/photos_stream
 [tokaido-artwork]: https://github.com/tokaidogr/artwork
 [synnefo]: http://www.synnefo.org/
