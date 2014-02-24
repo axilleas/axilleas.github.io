@@ -6,7 +6,7 @@ from fabric.utils import puts
 
 #If no local_settings.py then settings.py
 from settings import OUTPUT_PATH
-SETTINGS_FILE = "local_settings.py"
+SETTINGS_FILE = "settings.py"
 
 
 # Get directories
