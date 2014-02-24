@@ -7,10 +7,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="Pragma" content="no-cache" />
         <meta http-equiv="Expires" content="-1" />
-        <link rel="stylesheet" href="{{ SITEURL }}/theme/style/reset.css" type="text/css" />
-        <link rel="stylesheet" href="{{ SITEURL }}/theme/style/screen.css" type="text/css" />
-        <link rel="stylesheet" href="{{ SITEURL }}/theme/style/friendly.css" type="text/css" />
-        <link rel="stylesheet" href="{{ SITEURL }}/theme/style/print.css" type="text/css" media="print" />
+        <link rel="stylesheet" href="/theme/style/reset.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/screen.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/friendly.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/print.css" type="text/css" media="print" />
         {% if SITE_ICON %}
         <link rel="shortcut icon" href="{{ SITE_ICON }}">
         {% endif %}
@@ -39,7 +39,7 @@
                     <li><a href="/{{ page.url }}">{{ page.title }}</a></li>
                 {% endfor %}
             {% endif %}
-                <li><a href="{{ SITEURL }}/archives.html" title="Archive">Archive</a></li>
+                <li><a href="/archives.html" title="Archive">Archive</a></li>
             </ul>
         </div>
     </div>
@@ -50,7 +50,7 @@
 
     <div class="container footnote">
         {% if PDF_PROCESSOR %}
-        <a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">PDF</a>
+        <a href="/pdf/{{ article.slug }}.pdf">PDF</a>
         {% endif %}
         {% if PRINT %}
         <a href="javascript:window.print();" title="Print">Print</a>
