@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title>GSoC - Weekly update 2</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="-1" />
+        <link rel="stylesheet" href="/theme/style/reset.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/screen.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/friendly.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/print.css" type="text/css" media="print" />
+        <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+</head>
+<body>
+    <header id="main">
+        <div class="container">
+            <div class="logo">
+                <p><a href="/" title="Home">Over the line</a> <span class="welcome">that rug really tied the room together...</span></p>
+            </div>
+        </div>
+    </header>
+
+    <div class="splash">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a></li>
+                    <li><a href="/about">whoami</a></li>
+                    <li><a href="/rss">Rss Feed</a></li>
+                <li><a href="/archives.html" title="Archive">Archive</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container content">
+<article>
+    <header>
+<h1><a href="/en/blog/2013/gsoc-weekly-update-2" rel="bookmark">
+    GSoC - Weekly update 2
+</a></h1>
+<time datetime="2013-07-02 00:00:00" pubdate>Posted on
+    Tue 02 July 2013
+</time>
+<address class="vcard author">
+    by <a class="url fn" href="/author/axil.html">
+    axil</a>
+</address>
+<span class="category">in <a href="/category/geek.html">
+    geek</a>.
+        </span>
+    </header>
+
+    <div class="body">
+        <p>Unfortunately this week hasn't been very productive due to lack of time. I managed
+to package 5-6 more gems, but I haven't submit them in Bugzilla yet. As always, the
+most difficult and time consuming task is to make all the test suites provided
+with each gem pass. And believe me this isn't always easy. So, here is what I did
+this week.</p>
+<h2 id="meeting-gitlab-devs">Meeting GitLab devs</h2>
+<p>We arranged a google hangout and we talked about the progress I make.
+They were kind enough to ask whether I need help with something. 
+Then I got to meet in person <a href="https://github.com/dosire">Sytse Sijbrandij</a> and <a href="https://github.com/maxlazio">Marin Jankovski</a> 
+during <a href="http://euruko2013.org/">Euruko 2013</a>. Really cool guys.</p>
+<p>Our main concern was about the gems that are GitLab's forks and how we should
+deal with them since it is very unlikely they get accepted into the official Fedora
+repos. See next week TODOs about that matter.</p>
+<h2 id="wikification-and-versioning-process">Wikification and versioning process</h2>
+<p>I started a wiki page on <a href="https://fedoraproject.org/wiki/User:Axilleas/GitLab">GitLab</a>, listing all the <a href="https://github.com/axilleas/gsoc/blob/master/rubygems_missing">dependencies</a> and their versions.
+I said version<strong>s</strong> because we have to deal with version mismatch, <a href="https://fedoraproject.org/wiki/GSOC_2013/Student_Application_Axilleas/Gitlab%28463%29#Version_mismatch">remember</a>?
+I am working on a script to get them automatically on a table. So far, I can extract
+GitLab's and upstream versions whereas I still need Fedora's. Here's how I do it.</p>
+<h3 id="gitlab">GitLab</h3>
+<p>gem versions are retrieved from <a href="https://github.com/axilleas/gsoc/blob/master/gemfile.py#L30">this</a> dictionary. Pretty simple.</p>
+<h3 id="upstream">Upstream</h3>
+<p>Using <a href="https://github.com/axilleas/gsoc/blob/master/gemfile.py#L83">this</a> method by qeuerying the API of rubygems.org and iterrating
+through the missing gems, I can get in a list of the latest gem versions.</p>
+<h3 id="fedora">Fedora</h3>
+<p>There is this nice tool in ruby called <a href="https://rubygems.org/gems/pkgwat">pkgwat</a> which queries Fedora's repo
+database. This is also used by <a href="https://github.com/zuhao/isitfedoraruby/blob/master/app/models/rpm_importer.rb#L46">isitfedoraruby</a>, which unfortunately doesn't have
+an API. This would make my work a lot easier.</p>
+<p>So, I decided to give this a shot by first <a href="https://github.com/axilleas/fedora/blob/master/packages/rubygem-pkgwat/rubygem-pkgwat.spec">packaging</a> it. This is what I am learning
+here, isn't it? I thought this would be a matter of time since it only depends on
+one unpackaged gem, <a href="https://rubygems.org/gems/sanitize">sanitize</a> (which ironically is needed by GitLab too).</p>
+<p><em>(And I just whipped out a mosquito. Where the hell are they going 14.30 in the afternoon?...)</em></p>
+<p>The process that I thought would take me 30 minutes top, still goes on.
+You see, <code>pkgwat</code> has a fixed dependency on <code>nokogiri 1.5.5</code> whereas the latest
+<code>sanitize 2.0.4</code> requires <code>nokogiri&gt;=1.6.0</code>. On Fedora we have <code>nokogiri 1.5.9</code>.
+Let me draw that for you.</p>
+<p><img alt="Dependency hell" src="http://axilleas.me/images/pkgwat.png" /></p>
+<p>Welcome to Gem dependency hell. The only way to install it is through
+<code>gem install pkwat</code>...</p>
+<h2 id="package-review">Package review</h2>
+<p>My first informal review in order to be sponsored as a packager was 
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=927374">rubygem-rugged</a>. I did all my homework and I tested the given
+SPEC and SRPM with fedora-review, I built the rpm using both mock and rpmbuild 
+and then ran rpmlint against the produced packages. I made a few notes of 
+what I thought needed fixing and with some help from Vit<sup id="fnref:cheat"><a class="footnote-ref" href="#fn:cheat" rel="footnote">1</a></sup> I submited
+my review.</p>
+<h2 id="package-submission">Package submission</h2>
+<p>Last week I submited for review <a href="https://bugzilla.redhat.com/show_bug.cgi?id=969877">rubygem-timers</a>, this week it
+is <a href="https://bugzilla.redhat.com/show_bug.cgi?id=978284">rubygem-redis</a>. One package a week you say? Dude are you
+ever going to package all these gems? Well, submiting a package for review
+in bugzilla takes some time, as I carefully check to follow the guidelines
+as much as I can. The toughest part of it all are the testing suites.
+A test may rely on other gems that are not in Fedora yet, so I try to package 
+them as well. <a href="https://github.com/axilleas/fedora/tree/master/packages">Here</a> you will find some packages I am working on. 
+Most of them are not submited for review yet.</p>
+<h2 id="todos-for-next-week">TODOs for next week</h2>
+<ul>
+<li>Get more packages finished</li>
+<li>Complete the version table in wiki</li>
+<li>Start porting gemfile.py into ruby (eventually)</li>
+<li>Continue writing the article about Rubygem packaging</li>
+<li>Talk to infra team to see how that forked-gem-packaging will go</li>
+<li>I am just a placeholder, nothing useful here, I just wanted to continue the stairs</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:cheat">
+<p>I actually did seek for some help in <a href="https://lists.fedoraproject.org/pipermail/ruby-sig/2013-July/001373.html">Ruby-SIG</a> ML :p&#160;<a class="footnote-backref" href="#fnref:cheat" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+    </div>
+
+    <footer>
+        <ul class="tags">
+        Tags:
+            <li><a href="/tag/gsoc.html">gsoc</a></li>
+            <li><a href="/tag/fedora.html">fedora</a></li>
+            <li><a href="/tag/gitlab.html">gitlab</a></li>
+        </ul>
+    </footer>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'kissmyarch'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</article>
+    </div>
+
+    <div class="container footnote">
+        <a href="javascript:window.print();" title="Print">Print</a>
+    </div>
+
+
+
+    <footer>
+        <div class="container footer">
+            <span>Powered by <a href="http://docs.getpelican.com">
+                Pelican</a> using <a href="https://github.com/BYK/pelican-neat">
+                neat theme</a>. 
+            </span>
+            <nav>
+                <ul>
+                    <li><a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a></li>
+                <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img
+                    alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+     <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik-glb.rhcloud.com/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "5"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title>GSoC - Weekly update 9 and 10</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="-1" />
+        <link rel="stylesheet" href="/theme/style/reset.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/screen.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/friendly.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/print.css" type="text/css" media="print" />
+        <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+</head>
+<body>
+    <header id="main">
+        <div class="container">
+            <div class="logo">
+                <p><a href="/" title="Home">Over the line</a> <span class="welcome">that rug really tied the room together...</span></p>
+            </div>
+        </div>
+    </header>
+
+    <div class="splash">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a></li>
+                    <li><a href="/about">whoami</a></li>
+                    <li><a href="/rss">Rss Feed</a></li>
+                <li><a href="/archives.html" title="Archive">Archive</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container content">
+<article>
+    <header>
+<h1><a href="/en/blog/2013/gsoc-weekly-update-9-and-10" rel="bookmark">
+    GSoC - Weekly update 9 and 10
+</a></h1>
+<time datetime="2013-08-29 00:00:00" pubdate>Posted on
+    Thu 29 August 2013
+</time>
+<address class="vcard author">
+    by <a class="url fn" href="/author/axil.html">
+    axil</a>
+</address>
+<span class="category">in <a href="/category/linux.html">
+    linux</a>.
+        </span>
+    </header>
+
+    <div class="body">
+        <p>I've been busy the past two weeks with some personal stuff so I got a little behind.
+Here's what happened in the GitLab front.</p>
+<div class="toc">
+<ul>
+<li><a href="#finish-packaging-remaining-gems">Finish packaging remaining gems</a></li>
+<li><a href="#gitlab-deploy">GitLab deploy</a></li>
+<li><a href="#coordinate-packaging-with-debian">Coordinate packaging with Debian</a></li>
+<li><a href="#todo">TODO</a></li>
+</ul>
+</div>
+<h2 id="finish-packaging-remaining-gems">Finish packaging remaining gems</h2>
+<p>Now, all (hopefully) runtime dependencies are packaged and pushed in my public <a href="http://repos.fedorapeople.org/repos/axilleas/gitlab/fedora-19/">gitlab-repo</a>.
+The majority of them are not ready for official submission in Bugzilla, but I kept track
+of those that pass the standards in order to be submitted. Unfortunately they are only 5...</p>
+<div class="codehilite"><pre><span class="n">escape_utils</span>
+<span class="n">http_parser</span><span class="p">.</span><span class="n">rb</span>
+<span class="n">modernizr</span>
+<span class="n">yajl</span><span class="o">-</span><span class="n">ruby</span> <span class="p">(</span><span class="n">already</span> <span class="n">submitted</span> <span class="n">https</span><span class="o">:</span><span class="c1">//bugzilla.redhat.com/show_bug.cgi?id=823351)</span>
+<span class="n">settingslogic</span>
+<span class="n">stamp</span>
+</pre></div>
+
+
+<p>For now I have also packaged the forks as they need some more work to be accepted in Fedora.
+<a href="https://github.com/axilleas/gsoc/blob/master/packaging.md#gem-packaging-on-gitlab-forks">Here</a> I have pointed out their differences with original gems.</p>
+<h2 id="gitlab-deploy">GitLab deploy</h2>
+<p>I deployed <a href="https://fedora.axilleas.me">GitLab in Fedora 19</a> on a VPS following the standard installation, meaning all gems
+are bundled under <code>vendor/bundle/</code>. You can visit it, but it may not be functional as I am now in the
+process of replacing the bundled gems with the system ones. Expect more info on this in a following post.</p>
+<h2 id="coordinate-packaging-with-debian">Coordinate packaging with Debian</h2>
+<p>In other news, I found out that Debian is also in the process of packaging GitLab, so I contacted them through
+their <a href="http://debian.2.n7.nabble.com/Regarding-gitlab-td2843993.html">Ruby ML</a> regarding this. If you follow the discussion you will understand that the main
+problem for them is also how to package the forked gems. Hopefully we will come to a solution.</p>
+<h2 id="todo">TODO</h2>
+<ul>
+<li>Build dummy <code>gitlab.spec</code> with all runtime <code>Requires</code> for easy test install</li>
+<li>Use <code>bundle install --local</code> and progressively test the required gems</li>
+</ul>
+    </div>
+
+    <footer>
+        <ul class="tags">
+        Tags:
+            <li><a href="/tag/gsoc.html">gsoc</a></li>
+            <li><a href="/tag/fedora.html">fedora</a></li>
+            <li><a href="/tag/gitlab.html">gitlab</a></li>
+            <li><a href="/tag/packaging.html">packaging</a></li>
+        </ul>
+    </footer>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'kissmyarch'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</article>
+    </div>
+
+    <div class="container footnote">
+        <a href="javascript:window.print();" title="Print">Print</a>
+    </div>
+
+
+
+    <footer>
+        <div class="container footer">
+            <span>Powered by <a href="http://docs.getpelican.com">
+                Pelican</a> using <a href="https://github.com/BYK/pelican-neat">
+                neat theme</a>. 
+            </span>
+            <nav>
+                <ul>
+                    <li><a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a></li>
+                <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img
+                    alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+     <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik-glb.rhcloud.com/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "5"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+</body>
+</html>

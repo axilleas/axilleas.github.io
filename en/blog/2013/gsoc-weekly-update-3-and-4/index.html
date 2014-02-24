@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title>GSoC - Weekly update 3 and 4</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="-1" />
+        <link rel="stylesheet" href="/theme/style/reset.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/screen.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/friendly.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/print.css" type="text/css" media="print" />
+        <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+</head>
+<body>
+    <header id="main">
+        <div class="container">
+            <div class="logo">
+                <p><a href="/" title="Home">Over the line</a> <span class="welcome">that rug really tied the room together...</span></p>
+            </div>
+        </div>
+    </header>
+
+    <div class="splash">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a></li>
+                    <li><a href="/about">whoami</a></li>
+                    <li><a href="/rss">Rss Feed</a></li>
+                <li><a href="/archives.html" title="Archive">Archive</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container content">
+<article>
+    <header>
+<h1><a href="/en/blog/2013/gsoc-weekly-update-3-and-4" rel="bookmark">
+    GSoC - Weekly update 3 and 4
+</a></h1>
+<time datetime="2013-07-09 00:00:00" pubdate>Posted on
+    Tue 09 July 2013
+</time>
+<address class="vcard author">
+    by <a class="url fn" href="/author/axil.html">
+    axil</a>
+</address>
+<span class="category">in <a href="/category/geek.html">
+    geek</a>.
+        </span>
+    </header>
+
+    <div class="body">
+        <p>Here is what I have been doing the last two weeks.</p>
+<div class="toc">
+<ul>
+<li><a href="#work-on-packages">Work on packages</a><ul>
+<li><a href="#sanitize">sanitize</a></li>
+<li><a href="#boostrap-sass">boostrap-sass</a></li>
+<li><a href="#orm_adapter">orm_adapter</a></li>
+<li><a href="#devise">devise</a></li>
+</ul>
+</li>
+<li><a href="#gems-and-their-versions-in-json-format">Gems and their versions in json format</a></li>
+<li><a href="#version-table-in-wiki">Version table in wiki</a></li>
+<li><a href="#init-repository">Init repository</a></li>
+<li><a href="#rubygem-packaging-article">Rubygem packaging article</a></li>
+<li><a href="#todo-next-week">TODO next week</a></li>
+</ul>
+</div>
+<h2 id="work-on-packages">Work on packages</h2>
+<p>I ran gem2rpm on all gems and saved their specs in a <a href="https://github.com/axilleas/fedora/tree/master/packages/tmp">tmp</a> folder
+so that I can easily modify them later. I intend to split them in categories
+according to the bundled gems in GitLab's <a href="https://github.com/gitlabhq/gitlabhq/blob/master/Gemfile#L11-L143">Gemfile</a> that are needed for production.
+Below are some gems that are either almost ready for Bugzilla or submitted. There
+are a dozen more that I work with but haven't pushed any changes to github. Will
+do soon.</p>
+<h3 id="sanitize">sanitize</h3>
+<p>Not yet submitted to BZ as it needs nokogiri 1.6.0 whereas in Fedora
+we still have 1.5.9. Will have to talk to the maintainer of nokogiri for an update.</p>
+<h3 id="boostrap-sass">boostrap-sass</h3>
+<p>Submitted in <a href="https://bugzilla.redhat.com/show_bug.cgi?id=982679">Bugzilla</a>. This is a tricky one as per the package guidelines,
+as it ships with some javascript files that are distributed from <a href="https://github.com/twitter/bootstrap">Twitter bootstrap</a>,
+which are considered a bundle. And if you don't already know it, bundling is
+prohibited by the <a href="https://fedoraproject.org/wiki/Packaging:Guidelines#Duplication_of_system_libraries">packaging guidelines</a>. You can follow the discussion
+in the Bugzilla. There is also an interesting discussion going on in packaging ML,
+about web Assets/JavaScript guidelines and are proposed some <a href="https://lists.fedoraproject.org/pipermail/packaging/2013-July/009304.html">drafts</a>.
+This could probably alter the packaging structure of bootstrap-sass, but I don't
+expect it anytime soon.</p>
+<h3 id="orm_adapter">orm_adapter</h3>
+<p>Some tests are skipped because they require some gems not yet packaged for Fedora,
+but that is a <a href="https://lists.fedoraproject.org/pipermail/ruby-sig/2013-July/001384.html">little acceptable</a>. This is a dependency of devise (see
+below). To be submitted soon.</p>
+<h3 id="devise">devise</h3>
+<p><a href="http://github.com/plataformatec/devise">Devise</a> provides ready-made authentication and user management for rails
+applications. It is a very popular rack application among the rails community, so
+it'll be cool to get it into Fedora's repos :)
+Submission is on the way along with orm_adapter.</p>
+<h2 id="gems-and-their-versions-in-json-format">Gems and their versions in json format</h2>
+<p>As I've mentioned before, one of the main problems about packaging GitLab, is
+the version mismatch between GitLab, Fedora and upstream gems. I have added some
+more functions to my <a href="https://github.com/axilleas/gsoc/blob/master/gemfile.py">script</a> and now it saves the gems with their corresponding
+version in a json format. There are three files: <code>gitlab.json</code>, <code>fedora.json</code> and 
+ <code>upstream.json</code>. </p>
+<p>I haven't added a flag to those methods yet, so one has to run it through the python
+interpreter for now. Here's how:</p>
+<ol>
+<li>Install <a href="https://fedorahosted.org/python-bugzilla/‎">python-bugzilla</a> and <a href="http://pkgwat.readthedocs.org/en/latest/">pkgwat.api</a> if not already.</li>
+<li><code>git clone https://github.com/axilleas/gsoc.git &amp;&amp; cd gsoc</code></li>
+<li>Start your python interpreter (I prefer ipython)</li>
+<li><code>import gemfile as g</code></li>
+<li><code>dicts = g.populate_dicts()</code></li>
+<li><code>[gitlab, fedora, upstream] = dicts</code></li>
+</ol>
+<p>It will take a couple of minutes since it uses pkgwat.api to query the Fedora
+database for the gems in Rawhide, and rubygems.org for the upstream versions.
+<code>dicts</code> is a tuple containing all three dictionaries. With the last command we
+unpacked the dictionaries of the tuple. So now calling gitlab, you have the gitlab
+dictionary and so on.</p>
+<p><strong>Note:</strong> All methods are called using the runtime gems of the current version of 
+GitLab, which are 143 for now. According to those gems we then search the Fedora
+package database and quering rubygems.org's API.</p>
+<h2 id="version-table-in-wiki">Version table in wiki</h2>
+<p>There is now a <a href="https://fedoraproject.org/wiki/User:Axilleas/GitLab#Packages">table</a> in the wiki for an easy reference about the versions
+of gems. Where you see <code>None</code> it means it hasn't been packaged for Fedora yet.
+This is now <a href="https://github.com/axilleas/gsoc/blob/master/gemfile.py#L217">automatically</a> accomplished by running the script. </p>
+<p>Further below is a list of the gems to be packaged. Those that are submitted to
+Bugzilla are accompanied with a link to their review. I am working on automating
+this process, it should be something similar to how the wiki table is generated.</p>
+<p>Also, I modified the output a little bit to be more readable. For example:</p>
+<div class="codehilite"><pre><span class="o">------------------------------------------------------</span>
+<span class="n">Gitlab</span> <span class="n">runtime</span> <span class="n">gems</span>  <span class="o">:</span>  <span class="mi">143</span>
+<span class="n">Gems</span> <span class="n">in</span> <span class="n">Fedora</span> <span class="n">repos</span> <span class="o">:</span>  <span class="mi">380</span>
+<span class="n">Common</span> <span class="n">gems</span>          <span class="o">:</span>  <span class="mi">64</span>
+<span class="n">To</span> <span class="n">be</span> <span class="n">packaged</span>       <span class="o">:</span>  <span class="mi">79</span>
+<span class="n">Pending</span> <span class="n">review</span> <span class="n">in</span> <span class="n">BZ</span> <span class="o">:</span>  <span class="mi">11</span>
+<span class="n">When</span> <span class="n">BZ</span> <span class="n">go</span> <span class="n">in</span> <span class="n">repos</span>  <span class="o">:</span>  <span class="mi">68</span>
+
+<span class="n">Fedora</span> <span class="n">will</span> <span class="n">have</span> <span class="mf">20.79</span> <span class="o">%</span> <span class="n">more</span> <span class="n">ruby</span> <span class="n">packages</span><span class="p">,</span> <span class="n">that</span> <span class="n">is</span> <span class="mi">459</span> <span class="n">gems</span> <span class="n">in</span> <span class="n">total</span><span class="p">.</span>
+<span class="o">------------------------------------------------------</span>
+</pre></div>
+
+
+<h2 id="init-repository">Init repository</h2>
+<p>I have created a repository at <a href="http://repos.fedorapeople.org/repos/axilleas/gitlab/">fedorapeople.org</a> to start populating it with packages
+I build, but take a long time to get to Fedora repos. This should be a good chance
+to test the packages they make it to Rawhide.</p>
+<p>Most gems come with a bundled test suite. Running tests during gem packaging
+can sometimes be cumbersome but it is the only way to test that the gem really
+works, at least according to the suite. To my experience, getting the tests run
+requires a big amount of your time during package building, so in this test repo
+expect to find many packages without their tests run. At least this is going to
+be the case at the beginning.</p>
+<h2 id="rubygem-packaging-article">Rubygem packaging article</h2>
+<p>Half done, nothing commited yet, I have everything local. This takes more time
+than I expected, as I want it to be easily understandable by people that don't
+have a clue, but also a good guide for more experienced users. I am rather picky
+and I read what I write many times, so yeah, this is going to take longer to finish.</p>
+<h2 id="todo-next-week">TODO next week</h2>
+<ul>
+<li>Categorize gems according to their dependencies.</li>
+<li>Submit 5-10 more gems.</li>
+<li>Deploy GitLab on a Fedora server and test with some packaged gems. This is going to hit me hard I feel it :p</li>
+<li>Maybe write an unofficial guide of how to install GitLab in Fedora, haven't checked if there is a guide out in the internets.</li>
+</ul>
+    </div>
+
+    <footer>
+        <ul class="tags">
+        Tags:
+            <li><a href="/tag/gsoc.html">gsoc</a></li>
+            <li><a href="/tag/fedora.html">fedora</a></li>
+            <li><a href="/tag/gitlab.html">gitlab</a></li>
+        </ul>
+    </footer>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'kissmyarch'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</article>
+    </div>
+
+    <div class="container footnote">
+        <a href="javascript:window.print();" title="Print">Print</a>
+    </div>
+
+
+
+    <footer>
+        <div class="container footer">
+            <span>Powered by <a href="http://docs.getpelican.com">
+                Pelican</a> using <a href="https://github.com/BYK/pelican-neat">
+                neat theme</a>. 
+            </span>
+            <nav>
+                <ul>
+                    <li><a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a></li>
+                <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img
+                    alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+     <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik-glb.rhcloud.com/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "5"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+</body>
+</html>

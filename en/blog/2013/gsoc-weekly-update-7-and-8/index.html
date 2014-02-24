@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title>GSoC - Weekly update 7 and 8</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="-1" />
+        <link rel="stylesheet" href="/theme/style/reset.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/screen.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/friendly.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/print.css" type="text/css" media="print" />
+        <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+</head>
+<body>
+    <header id="main">
+        <div class="container">
+            <div class="logo">
+                <p><a href="/" title="Home">Over the line</a> <span class="welcome">that rug really tied the room together...</span></p>
+            </div>
+        </div>
+    </header>
+
+    <div class="splash">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a></li>
+                    <li><a href="/about">whoami</a></li>
+                    <li><a href="/rss">Rss Feed</a></li>
+                <li><a href="/archives.html" title="Archive">Archive</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container content">
+<article>
+    <header>
+<h1><a href="/en/blog/2013/gsoc-weekly-update-7-and-8" rel="bookmark">
+    GSoC - Weekly update 7 and 8
+</a></h1>
+<time datetime="2013-08-13 00:00:00" pubdate>Posted on
+    Tue 13 August 2013
+</time>
+<address class="vcard author">
+    by <a class="url fn" href="/author/axil.html">
+    axil</a>
+</address>
+<span class="category">in <a href="/category/linux.html">
+    linux</a>.
+        </span>
+    </header>
+
+    <div class="body">
+        <p>The past week or so, I have been trying to package every gem GitLab needs, in Fedora 19.
+This is something I should have done from the start, but better late than never.
+Now that I have quite learnt the rubygem packaging process, I follow a certain
+workflow that gets the job done pretty quickly (described below).</p>
+<p>The <a href="http://repos.fedorapeople.org/repos/axilleas/gitlab/fedora-19/">repo</a> I had setup, now includes the majority of the gems needed for a working
+GitLab instance.</p>
+<p>Of course many of them do not pass the standards in order to submit to Bugzilla,
+meaning there are some gems missing the license file, the tests are not shipped or
+fail, etc. The only thing that is correct in all of them is the declaration of files
+to be incuded in the final packaged gem, that is the <code>%files</code> and <code>%files doc</code> macros.</p>
+<div class="toc">
+<ul>
+<li><a href="#workflow-of-quick-packaging">Workflow of quick packaging</a><ul>
+<li><a href="#notes">Notes</a></li>
+</ul>
+</li>
+<li><a href="#difficulties-in-gem-versions">Difficulties in gem versions</a></li>
+<li><a href="#todo">TODO</a></li>
+</ul>
+</div>
+<h2 id="workflow-of-quick-packaging">Workflow of quick packaging</h2>
+<p>For the whole time I've been packaging gems, I use a VPS running Fedora 19. Luckily it is
+a pretty strong machine (4GB RAM, 4 cpu) and building a rubygem in mock takes 1-3 minutes<sup id="fnref:cloud"><a class="footnote-ref" href="#fn:cloud" rel="footnote">1</a></sup>.</p>
+<p>In general, I first check in the <a href="https://fedoraproject.org/wiki/User:Axilleas/GitLab#Packages">wiki table</a> what's missing, and then build the next gem in line.
+I have 2 screen windows open (among others): one pointing in <code>~/rpmbuild/SPECS/</code>
+and the other to <code>~/rpmbuild/SRPMS/</code>. Here are the steps onwards.</p>
+<p>On the first screen I run a simple <a href="https://github.com/axilleas/gsoc/blob/master/gemget">script</a> that downloads the gem file 
+in <code>~/rpmbuild/SOURCES/</code> and then runs gem2rpm on it with the resulting spec 
+saved in <code>~/rpmbuild/SPECS/</code>. I then open the spec with vim, open the url and 
+check if the license tag is filled. If not, I check in the url for the license file. </p>
+<p>Inside vim, I save the changes with <code>:w</code> and run <code>:!rpmbuild -ba %</code>. Normally,
+this will fail, which is good. We need the info provided by the <code>error: Installed (but unpackaged) file(s) found:</code>
+I copy all these stuff in a temp file (I have geany open) and then I fix the
+<code>%files</code> and <code>%files doc</code> macro accordingly. Save and run <code>:!rpmbuild -ba %</code>
+again to check everything is in order. If the build exits with no error, I try
+to make the tests work. I give myself 10-15 minutes topfor each gem, as I am
+targeting to test the GitLab installation and not submit them to Bugzilla.
+Of course during the whole process, I keep track what fails and what not, so
+that I can come back later. You can see <a href="https://github.com/axilleas/gsoc/blob/master/packaging.md">here</a> my progress.</p>
+<p>After the build runs fine, I use <code>mock</code> to test that a package is not missing
+from the BuildRequires. Exit the <code>rpmbuild</code> screen, enter <code>mock</code>, which is in
+<code>~/rpmbuild/SRPMS/</code>, so with a simple <code>mock rubygem-foo-1.0-1.src.rpm</code> begins
+the packaging process. If something breaks, back to <code>rpmbuild</code> screen, adjust
+the spec, save it, run <code>:!rpmbuild -bs %</code> to just produce the srpm, exit screen,
+enter <code>mock</code> screen, run <code>mock rubygem-foo-1.0-1.src.rpm</code> again. And the circle
+goes on until I have a working rpm.</p>
+<p>When the package builds fine in mock, I copy the produced rpms in <code>~/repo/gitlab/fedora-19/</code>
+with <code>cp /var/lib/mock/fedora-19-x86_64/result/*rpm ~/repos/gitlab/fedora-19</code>.
+From there, I move each package to its destined folder and using a modified <a href="https://github.com/axilleas/gsoc/blob/master/repo-update">script</a>
+of <a href="https://fedoraproject.org/wiki/Fedorapeople_Repos#Script_for_easy_repo_update">repo_update</a> I sync the packages to my repo hosted on fedorapeople.org.</p>
+<h3 id="notes">Notes</h3>
+<p>Using of mock is of utter importance. Building in a clean chrooted environment,
+you ensure that a package builds and installs cleanly without any dependencies missing,
+on other machines as well.</p>
+<p>The use of the repository is two-fold. Other than the default nature of the repo 
+where you could easily install and test GitLab, it also serves as a building point 
+where you have packages needed by other packages and so on, that are not yet in Fedora. 
+Sure you could use <code>mock --init</code> as described <a href="https://fedoraproject.org/wiki/Using_Mock_to_test_package_builds#Building_packages_that_depend_on_packages_not_in_a_repository">here</a>, but that is quite
+a burden when there is a multiple dependency issue. For that purpose I made my 
+mock default config being a copy of the <code>fedora-19-x86_64.cfg</code> plus the information of the
+<a href="http://repos.fedorapeople.org/repos/axilleas/gitlab/fedora-gitlab.repo">fedora-gitlab.repo</a>. </p>
+<ol>
+<li><code>sudo cp /etc/mock/fedora-19-x86_64 /etc/mock/gitlab-x86_64.cfg</code></li>
+<li><code>sudo vim /etc/mock/gitlab-x86_64.cfg</code></li>
+<li>Append the info of <a href="http://repos.fedorapeople.org/repos/axilleas/gitlab/fedora-gitlab.repo">fedora-gitlab.repo</a> (be carefull of the <code>"""</code>, they must be last)</li>
+<li>Repeat 1-3 for a <code>i686</code> config.</li>
+<li><code>sudo ln -s /etc/mock/gitlab-x86_64 /etc/mock/default.cfg</code> so that I don't have to
+    repeatedly invoking the mock configs with the <code>-r</code> flag.</li>
+</ol>
+<p>Ultimately, <code>gitlab-x86_64.cfg</code> looks like this:</p>
+<div class="codehilite"><pre><span class="n">config_opts</span><span class="p">[</span><span class="err">&#39;</span><span class="n">root</span><span class="err">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">fedora</span><span class="o">-</span><span class="mi">19</span><span class="o">-</span><span class="n">x86_64</span><span class="err">&#39;</span>
+<span class="n">config_opts</span><span class="p">[</span><span class="err">&#39;</span><span class="n">target_arch</span><span class="err">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">x86_64</span><span class="err">&#39;</span>
+<span class="n">config_opts</span><span class="p">[</span><span class="err">&#39;</span><span class="n">legal_host_arches</span><span class="err">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="err">&#39;</span><span class="n">x86_64</span><span class="err">&#39;</span><span class="p">,)</span>
+<span class="n">config_opts</span><span class="p">[</span><span class="err">&#39;</span><span class="n">chroot_setup_cmd</span><span class="err">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">groupinstall</span> <span class="n">buildsys</span><span class="o">-</span><span class="n">build</span><span class="err">&#39;</span>
+<span class="n">config_opts</span><span class="p">[</span><span class="err">&#39;</span><span class="n">dist</span><span class="err">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">fc19</span><span class="err">&#39;</span>  <span class="err">#</span> <span class="n">only</span> <span class="n">useful</span> <span class="k">for</span> <span class="o">--</span><span class="n">resultdir</span> <span class="n">variable</span> <span class="n">subst</span>
+
+<span class="n">config_opts</span><span class="p">[</span><span class="err">&#39;</span><span class="n">yum</span><span class="p">.</span><span class="n">conf</span><span class="err">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="p">[</span><span class="n">main</span><span class="p">]</span>
+<span class="n">cachedir</span><span class="o">=/</span><span class="n">var</span><span class="o">/</span><span class="n">cache</span><span class="o">/</span><span class="n">yum</span>
+<span class="n">debuglevel</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">reposdir</span><span class="o">=/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
+<span class="n">logfile</span><span class="o">=/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">yum</span><span class="p">.</span><span class="n">log</span>
+<span class="n">retries</span><span class="o">=</span><span class="mi">20</span>
+<span class="n">obsoletes</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">gpgcheck</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">assumeyes</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">syslog_ident</span><span class="o">=</span><span class="n">mock</span>
+<span class="n">syslog_device</span><span class="o">=</span>
+
+<span class="cp"># repos</span>
+
+<span class="p">[</span><span class="n">fedora</span><span class="p">]</span>
+<span class="n">name</span><span class="o">=</span><span class="n">fedora</span>
+<span class="n">mirrorlist</span><span class="o">=</span><span class="n">http</span><span class="o">:</span><span class="c1">//mirrors.fedoraproject.org/mirrorlist?repo=fedora-19&amp;arch=x86_64</span>
+<span class="n">failovermethod</span><span class="o">=</span><span class="n">priority</span>
+
+<span class="p">[</span><span class="n">updates</span><span class="p">]</span>
+<span class="n">name</span><span class="o">=</span><span class="n">updates</span>
+<span class="n">mirrorlist</span><span class="o">=</span><span class="n">http</span><span class="o">:</span><span class="c1">//mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f19&amp;arch=x86_64</span>
+<span class="n">failovermethod</span><span class="o">=</span><span class="n">priority</span>
+
+<span class="p">[</span><span class="n">updates</span><span class="o">-</span><span class="n">testing</span><span class="p">]</span>
+<span class="n">name</span><span class="o">=</span><span class="n">updates</span><span class="o">-</span><span class="n">testing</span>
+<span class="n">mirrorlist</span><span class="o">=</span><span class="n">http</span><span class="o">:</span><span class="c1">//mirrors.fedoraproject.org/mirrorlist?repo=updates-testing-f19&amp;arch=x86_64</span>
+<span class="n">failovermethod</span><span class="o">=</span><span class="n">priority</span>
+<span class="n">enabled</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="p">[</span><span class="n">local</span><span class="p">]</span>
+<span class="n">name</span><span class="o">=</span><span class="n">local</span>
+<span class="n">baseurl</span><span class="o">=</span><span class="n">http</span><span class="o">:</span><span class="c1">//kojipkgs.fedoraproject.org/repos/f19-build/latest/x86_64/</span>
+<span class="n">cost</span><span class="o">=</span><span class="mi">2000</span>
+<span class="n">enabled</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="p">[</span><span class="n">fedora</span><span class="o">-</span><span class="n">debuginfo</span><span class="p">]</span>
+<span class="n">name</span><span class="o">=</span><span class="n">fedora</span><span class="o">-</span><span class="n">debuginfo</span>
+<span class="n">mirrorlist</span><span class="o">=</span><span class="n">http</span><span class="o">:</span><span class="c1">//mirrors.fedoraproject.org/mirrorlist?repo=fedora-debug-19&amp;arch=x86_64</span>
+<span class="n">failovermethod</span><span class="o">=</span><span class="n">priority</span>
+<span class="n">enabled</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="p">[</span><span class="n">updates</span><span class="o">-</span><span class="n">debuginfo</span><span class="p">]</span>
+<span class="n">name</span><span class="o">=</span><span class="n">updates</span><span class="o">-</span><span class="n">debuginfo</span>
+<span class="n">mirrorlist</span><span class="o">=</span><span class="n">http</span><span class="o">:</span><span class="c1">//mirrors.fedoraproject.org/mirrorlist?repo=updates-released-debug-f19&amp;arch=x86_64</span>
+<span class="n">failovermethod</span><span class="o">=</span><span class="n">priority</span>
+<span class="n">enabled</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="p">[</span><span class="n">updates</span><span class="o">-</span><span class="n">testing</span><span class="o">-</span><span class="n">debuginfo</span><span class="p">]</span>
+<span class="n">name</span><span class="o">=</span><span class="n">updates</span><span class="o">-</span><span class="n">testing</span><span class="o">-</span><span class="n">debuginfo</span>
+<span class="n">mirrorlist</span><span class="o">=</span><span class="n">http</span><span class="o">:</span><span class="c1">//mirrors.fedoraproject.org/mirrorlist?repo=updates-testing-debug-f19&amp;arch=x86_64</span>
+<span class="n">failovermethod</span><span class="o">=</span><span class="n">priority</span>
+<span class="n">enabled</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="p">[</span><span class="n">fedora</span><span class="o">-</span><span class="n">gitlab</span><span class="p">]</span>
+<span class="n">name</span><span class="o">=</span><span class="n">Unofficial</span> <span class="n">GitLab</span> <span class="n">repository</span> <span class="k">for</span> <span class="n">Fedora</span>
+<span class="n">baseurl</span><span class="o">=</span><span class="n">http</span><span class="o">:</span><span class="c1">//repos.fedorapeople.org/repos/axilleas/gitlab/fedora-$releasever/$basearch/</span>
+<span class="n">enabled</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">skip_if_unavailable</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">gpgcheck</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="p">[</span><span class="n">fedora</span><span class="o">-</span><span class="n">gitlab</span><span class="o">-</span><span class="n">noarch</span><span class="p">]</span>
+<span class="n">name</span><span class="o">=</span><span class="n">Unofficial</span> <span class="n">GitLab</span> <span class="n">repository</span> <span class="k">for</span> <span class="n">Fedora</span>
+<span class="n">baseurl</span><span class="o">=</span><span class="n">http</span><span class="o">:</span><span class="c1">//repos.fedorapeople.org/repos/axilleas/gitlab/fedora-$releasever/noarch/</span>
+<span class="n">enabled</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">skip_if_unavailable</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">gpgcheck</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="p">[</span><span class="n">fedora</span><span class="o">-</span><span class="n">gitlab</span><span class="o">-</span><span class="n">source</span><span class="p">]</span>
+<span class="n">name</span><span class="o">=</span><span class="n">Unofficial</span> <span class="n">GitLab</span> <span class="n">repository</span> <span class="k">for</span> <span class="n">Fedora</span> <span class="o">-</span> <span class="n">Source</span>
+<span class="n">baseurl</span><span class="o">=</span><span class="n">http</span><span class="o">:</span><span class="c1">//repos.fedorapeople.org/repos/axilleas/gitlab/fedora-$releasever/SRPMS</span>
+<span class="n">enabled</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">skip_if_unavailable</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">gpgcheck</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="s">&quot;&quot;&quot;</span>
+</pre></div>
+
+
+<h2 id="difficulties-in-gem-versions">Difficulties in gem versions</h2>
+<p>The most challenging aspect of my whole GSoC project is not how to package the 
+~ 80 gems needed for GitLab at runtime, but how to coordinate GitLab-Fedora-Upstream
+and their different versions of gems.</p>
+<p>In this process, there are two key stoppers that need to be resolved.</p>
+<ol>
+<li>
+<p>For gems with versions: GitLab &lt; Fedora, I will have to test if they properly work.
+    Else, a gem with lower version should be packaged for Fedora.</p>
+</li>
+<li>
+<p>For gems with versions: GitLab &gt; Fedora, if GitLab == Upstream, it is easy to update by asking the maintainer to update, 
+    BUT if Fedora &lt; GitLab &lt; Upstream , it is <em>hard</em>, as it is needed a version lower than the
+    current upstream, and in Fedora we try to have the latest version. Of course
+    that is debatable and if really needed, a gem with lower version than upstream
+    could be submitted.</p>
+</li>
+</ol>
+<h2 id="todo">TODO</h2>
+<ul>
+<li>There are about 15 more gems to package</li>
+<li>Somehow deal with GitLab's forks</li>
+<li>Commit to github the specs i have built so far with propper commit messages</li>
+<li>Test in a gitlab-vagrant VM some new gem versions I built and submit PR with updated Gemfile</li>
+<li>Start packaging the GitLab app itself (get a clue from Gitorious)</li>
+<li>Check which gems are ok so far to submit to Bugzilla</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:cloud">
+<p>All that thanks to <a href="https://okeanos.grnet.gr/home/">okeanos</a>, a <a href="https://www.grnet.gr/en/">GRNET</a>'s public cloud service which provides cloud services to the whole Greek research and academic community. More info <a href="http://www.synnefo.org/">here</a>.&#160;<a class="footnote-backref" href="#fnref:cloud" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+    </div>
+
+    <footer>
+        <ul class="tags">
+        Tags:
+            <li><a href="/tag/gsoc.html">gsoc</a></li>
+            <li><a href="/tag/fedora.html">fedora</a></li>
+            <li><a href="/tag/gitlab.html">gitlab</a></li>
+            <li><a href="/tag/packaging.html">packaging</a></li>
+        </ul>
+    </footer>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'kissmyarch'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</article>
+    </div>
+
+    <div class="container footnote">
+        <a href="javascript:window.print();" title="Print">Print</a>
+    </div>
+
+
+
+    <footer>
+        <div class="container footer">
+            <span>Powered by <a href="http://docs.getpelican.com">
+                Pelican</a> using <a href="https://github.com/BYK/pelican-neat">
+                neat theme</a>. 
+            </span>
+            <nav>
+                <ul>
+                    <li><a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a></li>
+                <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img
+                    alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+     <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik-glb.rhcloud.com/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "5"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+</body>
+</html>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Over the line</title><link>http://axilleas.me/</link><description></description><atom:link href="http://axilleas.me/feeds/transmission.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 11 Jun 2013 00:00:00 +0300</lastBuildDate><item><title>Connect to Transmission through an ssh encrypted session</title><link>http://axilleas.me/en/blog/2013/connect-to-transmission-through-an-ssh-encrypted-session</link><description>&lt;p&gt;Use case: You have a remote machine with high bandwidth and you want to turn it 
+in a torrent server.&lt;/p&gt;
+&lt;div class="toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#prerequisites"&gt;Prerequisites&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#transgui"&gt;Transgui&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h2 id="prerequisites"&gt;Prerequisites&lt;/h2&gt;
+&lt;p&gt;All you have to install in the remote server, is &lt;code&gt;transmission-daemon&lt;/code&gt; which is 
+pretty much included in every well known distribution. After it successfuly installs,
+run &lt;code&gt;transmission-daemon&lt;/code&gt; as your user, no need for extra privileges. See the
+man page for extra commands.&lt;/p&gt;
+&lt;p&gt;In the client side you will need &lt;a href="https://code.google.com/p/transmisson-remote-gui/"&gt;Transmission Remote Gui&lt;/a&gt; (I will call it 
+transgui from now on), a cool cross platform front-end to remotely control a 
+Transmission Bit-Torrent client daemon via its RPC protocol. In Fedora you can 
+install it from the official repos with:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;yum&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;transgui&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;whereas in Archlinux you can find it in &lt;a href="https://aur.archlinux.org/packages/?O=0&amp;amp;K=transmission-remote-gui"&gt;AUR&lt;/a&gt;. I suggest you go with the bin one
+which is a precompiled binary so that you avoid the building time.&lt;/p&gt;
+&lt;p&gt;Now, there is this little bash script which makes an ssh connection to you server,
+in order to link transgui with transmission-daemon:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span class="nv"&gt;RPORT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;9091
+&lt;span class="nv"&gt;LPORT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;9092
+
+ssh -C -c blowfish -f remotevm -L &lt;span class="nv"&gt;$LPORT&lt;/span&gt;:localhost:&lt;span class="nv"&gt;$RPORT&lt;/span&gt; -N
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;x&amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;x&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;;
+  &lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="k"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Connection established&amp;quot;&lt;/span&gt;
+  &lt;span class="k"&gt;else&lt;/span&gt;
+&lt;span class="k"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Connection failed&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Let's cut it down to pieces. &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-C&lt;/code&gt; is optional and it will compress all the data of the session. As the man page
+dictates, use it only on slow connections (client side).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-c blowfish&lt;/code&gt; selects the cipher specification for encrypting the session, in 
+  this case &lt;a href="https://en.wikipedia.org/wiki/Blowfish_%28cipher%29"&gt;blowfish&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-f&lt;/code&gt; requests ssh to go to the background.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;remotevm&lt;/code&gt; is just an alias of the remote server I have at my &lt;code&gt;~/.ssh/config&lt;/code&gt; 
+  in which I use an ssh key to connect to, without using a password.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-L $LPORT:localhost:$RPORT&lt;/code&gt; specifies that the given port on the local (client) 
+  host  is  to be  forwarded  to  the  given  host on the remote side.
+  Here I use &lt;code&gt;RPORT&lt;/code&gt; for the remote side and &lt;code&gt;LPORT&lt;/code&gt; for the local one. Note that
+  9091 is used by default from transmission as its bind port. All this is traversed 
+  through localhost, no external IPs.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-N&lt;/code&gt; makes sure there isn't executed a remote command. This is useful for just 
+  forwarding ports.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="transgui"&gt;Transgui&lt;/h2&gt;
+&lt;p&gt;After you run the above script and see the &lt;em&gt;Connection established&lt;/em&gt; message, it's
+time to open transgui and connect to the remote server. Make a new connection as
+it appears in the image below. &lt;/p&gt;
+&lt;p&gt;&lt;img alt="Connect to transgui" src="http://axilleas.me/images/transgui_connection.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Default username:password is &lt;code&gt;transmission&lt;/code&gt;. If you want to change it, either 
+pass it as a parameter when running &lt;code&gt;transmission-daemon&lt;/code&gt; (see man page) or edit 
+&lt;code&gt;$HOME/.config/transmission-daemon/settings.json&lt;/code&gt; with the daemon stopped.&lt;/p&gt;
+&lt;p&gt;Some more screens:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Download dialog" src="http://axilleas.me/images/down_dialog.png" /&gt;
+&lt;em&gt;The dialog that appears when you open a torrent file&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Downloading Fedora" src="http://axilleas.me/images/fedora_torrent.png" /&gt;
+&lt;em&gt;Main download page&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Now all that remains is to retrieve the downloaded data. There are numerous ways 
+to do so, like using &lt;code&gt;scp&lt;/code&gt;, &lt;code&gt;rync&lt;/code&gt;, &lt;code&gt;ftp&lt;/code&gt;, &lt;code&gt;sftp&lt;/code&gt;, &lt;code&gt;sshfs&lt;/code&gt; etc, each serving its 
+own purpose.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 11 Jun 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2013-06-11:en/blog/2013/connect-to-transmission-through-an-ssh-encrypted-session</guid><category>transmission</category><category>ssh</category><category>torrent</category></item></channel></rss>
