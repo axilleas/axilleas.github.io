@@ -7,10 +7,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="Pragma" content="no-cache" />
         <meta http-equiv="Expires" content="-1" />
-        <link rel="stylesheet" href="http://axilleas.me/theme/style/reset.css" type="text/css" />
-        <link rel="stylesheet" href="http://axilleas.me/theme/style/screen.css" type="text/css" />
-        <link rel="stylesheet" href="http://axilleas.me/theme/style/friendly.css" type="text/css" />
-        <link rel="stylesheet" href="http://axilleas.me/theme/style/print.css" type="text/css" media="print" />
+        <link rel="stylesheet" href="/theme/style/reset.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/screen.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/friendly.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/print.css" type="text/css" media="print" />
         <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
 </head>
 <body>
@@ -28,12 +28,53 @@
                 <li><a href="/">Home</a></li>
                     <li><a href="/about">whoami</a></li>
                     <li><a href="/rss">Rss Feed</a></li>
-                <li><a href="http://axilleas.me/archives.html" title="Archive">Archive</a></li>
+                <li><a href="/archives.html" title="Archive">Archive</a></li>
             </ul>
         </div>
     </div>
 
     <div class="container content">
+        
+    <article>
+        <header>
+<h1><a href="/en/blog/2013/gsoc-weekly-update-6" rel="bookmark">
+    GSoC - Weekly update 6
+</a></h1>
+<time datetime="2013-07-30 00:00:00" pubdate>Posted on
+    Tue 30 July 2013
+</time>
+<address class="vcard author">
+    by <a class="url fn" href="/author/axil.html">
+    axil</a>
+</address>
+<span class="category">in <a href="/category/linux.html">
+    linux</a>.
+        </span>
+        </header>
+
+        <div class="body">
+            <p>Here is what I have been doing the past week.</p>
+<div class="toc">
+<ul>
+<li><a href="#packages">Packages</a><ul>
+<li><a href="#charlock_holmes">charlock_holmes</a></li>
+<li><a href="#omniauth">omniauth</a></li>
+<li><a href="#sanitize">sanitize</a></li>
+<li><a href="#orm_adapter">orm_adapter</a></li>
+</ul>
+</li>
+<li><a href="#update-to-gitlab-54">Update to GitLab 5.4</a></li>
+</ul>
+</div>
+<h2 id="packages">Packages</h2>
+<h3 id="charlock_holmes">charlock_holmes</h3>
+<p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=989143">Pending review</a></p>
+<p>This one gave me some headaches as it is a gem with c extensions and as it turned
+out I didn't ship the soname in ...</p>
+            <p><a class='readmore' href='/en/blog/2013/gsoc-weekly-update-6'>Read more</a></p>
+        </div>
+
+    </article>
         
     <article>
         <header>
@@ -44,10 +85,10 @@
     Mon 22 July 2013
 </time>
 <address class="vcard author">
-    by <a class="url fn" href="http://axilleas.me/author/axil.html">
+    by <a class="url fn" href="/author/axil.html">
     axil</a>
 </address>
-<span class="category">in <a href="http://axilleas.me/category/linux.html">
+<span class="category">in <a href="/category/linux.html">
     linux</a>.
         </span>
         </header>
@@ -71,10 +112,10 @@ leading to learning new things ...</p>
     Tue 09 July 2013
 </time>
 <address class="vcard author">
-    by <a class="url fn" href="http://axilleas.me/author/axil.html">
+    by <a class="url fn" href="/author/axil.html">
     axil</a>
 </address>
-<span class="category">in <a href="http://axilleas.me/category/geek.html">
+<span class="category">in <a href="/category/geek.html">
     geek</a>.
         </span>
         </header>
@@ -103,41 +144,14 @@ leading to learning new things ...</p>
         </div>
 
     </article>
-        
-    <article>
-        <header>
-<h1><a href="/en/blog/2013/gsoc-weekly-update-2" rel="bookmark">
-    GSoC - Weekly update 2
-</a></h1>
-<time datetime="2013-07-02 00:00:00" pubdate>Posted on
-    Tue 02 July 2013
-</time>
-<address class="vcard author">
-    by <a class="url fn" href="http://axilleas.me/author/axil.html">
-    axil</a>
-</address>
-<span class="category">in <a href="http://axilleas.me/category/geek.html">
-    geek</a>.
-        </span>
-        </header>
-
-        <div class="body">
-            <p>Unfortunately this week hasn't been very productive due to lack of time. I managed
-to package 5-6 more gems, but I haven't submit them in Bugzilla yet. As always, the
-most difficult and time consuming task is to make all the test suites provided
-with each gem pass ...</p>
-            <p><a class='readmore' href='/en/blog/2013/gsoc-weekly-update-2'>Read more</a></p>
-        </div>
-
-    </article>
     </div>
 
     <div class="container footnote">
         <a href="javascript:window.print();" title="Print">Print</a>
 <span class="paginator">
-    <a href="http://axilleas.me/tag/gitlab2.html">&laquo;</a>
-    Page 3 / 4
-    <a href="http://axilleas.me/tag/gitlab4.html">&raquo;</a>
+    <a href="/tag/gitlab2.html">&laquo;</a>
+    Page 3 / 5
+    <a href="/tag/gitlab4.html">&raquo;</a>
 </span>
     </div>
 
@@ -165,7 +179,7 @@ with each gem pass ...</p>
       _paq.push(["enableLinkTracking"]);
 
       (function() {
-        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://http://animal.foss.ntua.gr/~axil/stats//";
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik-glb.rhcloud.com/";
         _paq.push(["setTrackerUrl", u+"piwik.php"]);
         _paq.push(["setSiteId", "5"]);
         var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";

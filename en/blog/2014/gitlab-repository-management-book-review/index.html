@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title>GitLab repository management book review</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="-1" />
+        <link rel="stylesheet" href="/theme/style/reset.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/screen.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/friendly.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/print.css" type="text/css" media="print" />
+        <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+</head>
+<body>
+    <header id="main">
+        <div class="container">
+            <div class="logo">
+                <p><a href="/" title="Home">Over the line</a> <span class="welcome">that rug really tied the room together...</span></p>
+            </div>
+        </div>
+    </header>
+
+    <div class="splash">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a></li>
+                    <li><a href="/about">whoami</a></li>
+                    <li><a href="/rss">Rss Feed</a></li>
+                <li><a href="/archives.html" title="Archive">Archive</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container content">
+<article>
+    <header>
+<h1><a href="/en/blog/2014/gitlab-repository-management-book-review" rel="bookmark">
+    GitLab repository management book review
+</a></h1>
+<time datetime="2014-01-09 00:00:00" pubdate>Posted on
+    Thu 09 January 2014
+</time>
+<address class="vcard author">
+    by <a class="url fn" href="/author/axil.html">
+    axil</a>
+</address>
+<span class="category">in <a href="/category/reviews.html">
+    reviews</a>.
+        </span>
+    </header>
+
+    <div class="body">
+        <p>I remember when I was trying to install GitLab 2.0 with no prior knowledge 
+of the rails framework and ruby in general, just copy pasting commands. It seemed fun
+and when the login screen showed for the first time, it felt really great!
+And then I remember searching for the default username/password. It wasn't documented,
+rather than shown somewhere between the commands I was blindly copying. Since then 
+a lot has changed, the documentation got a lot better, the community has grown big and 
+GitLab took the way it deserved. In my last post I wrote that I would review the new book that <a href="https://twitter.com/JonathanMH_com">Jonathan M. Hethey</a> wrote about GitLab. Without further ado, let's have a look what this book offers, what not and what I would like to see included in its next version.</p>
+<p><img alt="GitLab Repository Management" src="http://www.packtpub.com/sites/default/files/1794OS.jpg" /></p>
+<div class="toc">
+<ul>
+<li><a href="#chapters">Chapters</a><ul>
+<li><a href="#kickstarting-with-gitlab">Kickstarting with GitLab</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#configuring-gitlab">Configuring GitLab</a></li>
+<li><a href="#roles-and-permissions">Roles and permissions</a></li>
+<li><a href="#issues-and-wiki">Issues and wiki</a></li>
+<li><a href="#workflows">Workflows</a></li>
+<li><a href="#updating-gitlab">Updating GitLab</a></li>
+<li><a href="#help-and-community">Help and Community</a></li>
+</ul>
+</li>
+<li><a href="#to-sum-up">To sum up</a></li>
+</ul>
+</div>
+<h2 id="chapters">Chapters</h2>
+<h3 id="kickstarting-with-gitlab">Kickstarting with GitLab</h3>
+<p>The first chapter describes the features of GitLab, points to the cloud-based solution offered by GitLab.com and refers to its competitors (open source or closed source).
+If you have never heard about GitLab before, this will get you started.</p>
+<h3 id="installation">Installation</h3>
+<p>As you'd have guessed, the installation guide is there to follow, sticking as possible  to the original one written by the GitLab devs. Unfortunately for the readers, since GitLab is evolving rapidly, it is only common for this chapter not to be completely up to date with the one upstream provides. My advice is, if you decide to install GitLab, you should follow the official guide and consult this book to better understand what ecah command does.</p>
+<h3 id="configuring-gitlab">Configuring GitLab</h3>
+<p>Again, the configuration steps come mainly from the installation guide but are more coprehensive and better explained so you'll get a good understanding why you do what you do. You will be also introduced to the ssh protocol and learn how you can add more protection to your the server by changing the default port sshd listens to, as well as how to configure this to play well with GitLab. If you are new to the UNIX world and were blindly typing commands before, this chapter will help you grasp the reasoning behind each command. </p>
+<h3 id="roles-and-permissions">Roles and permissions</h3>
+<p>As stated in the book, where GitLab excels is its intuitive web UI tied with Git and the different management user roles it provides. In this book you will learn in depth about this feature. Every role is explained extensively, with examples where possible. Also you will learn how to log in for the first time, how to create your personal ssh key, how to add new users manually through the administrative interface and how to enable sign up.</p>
+<h3 id="issues-and-wiki">Issues and wiki</h3>
+<p>One other aspect of GitLab that makes it ideal for collaborating is its embedded issue  tracker and the wiki it provides. Being part of a team, you will want to make code reviews, exchange ideas and document your software. The "Issues and wiki" chapter will help you grasp those ideas and also learn some "hidden" functionalities like the ability to refer to other elements inside GitLab through shortcodes (issues, Merge Requests, snippets, milestones, commit messages, etc.). Beware that there is some extensive reference to teams, a feature deprecated in newer versions and superseded by groups.</p>
+<h3 id="workflows">Workflows</h3>
+<p>In the sixth chapter you are introduced to the GitLab workflow, which if you have ever used Github, you have a pretty solid ground of understanding how it works. As I mentioned earlier, GitLab is primarily used for code review among developers and the workflow of feature branches works very well with the web UI GitLab provides, where you can create merge requests and fork projects to your own namespace. If you are not familiar with the merge request term, you will learn all about it through this chapter. The idea of Git hooks is also introduced and an example is provided for better understanding. Unfortunately there is no reference to web hooks, a feature that lacks documentation and used by many users. I would really like to see a section about web hooks in a future edition of this book.</p>
+<h3 id="updating-gitlab">Updating GitLab</h3>
+<p>Since GitLab is a rapid developed project and a new version comes out each month, you will need to know how to update it. The 3-step golden rule, backup, backup and backup applies here as well, particularly if you are an administrator dealing with a corporate environment with many projects and users. In the "Updating GitLab" chapter you are presented with some common backup options like <code>tar</code> and <code>mysqldump</code>, and you will learn how to first ensure a proper backup is taken and then update you GitLab Installation. As the author states, when updating you should always watch out for the current update guides available at the official repository. A nice chapter overall that learns you the importance of, what else, backup.</p>
+<h3 id="help-and-community">Help and Community</h3>
+<p>In the last chapter you will learn the various channels where you can get help. Basically it's a somewhat more detailed version of the <a href="https://github.com/gitlabhq/gitlabhq/blob/master/README.md#getting-help">Getting Help</a> section of the README file.</p>
+<h2 id="to-sum-up">To sum up</h2>
+<p>Overall, this book is a great starting point for newcomers to the GitLab world that have little or no prior knowledge of the git workflow. For administrators that want to install and use GitLab in their organization, it's also a good starting point and a detailed reference for the main functionalities GitLab provides.</p>
+<p>Given its daily development, sections as "Installation" and "Update" should not be taken literally, as the upstream guides are more accurate and up to date.</p>
+<p>Personally, I expected it to have more information for administrators that already know their way in using the interface. Things like</p>
+<ul>
+<li>ldap configuration</li>
+<li>setup of other omniauth providers</li>
+<li>usage of webhooks</li>
+<li>communicating with the api</li>
+</ul>
+<p>are some of the advanced functionalities I would like to have seen. Hopefully in a newer version these will be provided. </p>
+<p>If I were to grade this book I would give it a 7/10. Not at all bad, but not exceeding my expectations. I hope Jonathan will take these considerations into account and update the book sometime soon :) In the meantime go grab yourself a <a href="http://bit.ly/1fTUYMy">copy</a>!</p>
+    </div>
+
+    <footer>
+        <ul class="tags">
+        Tags:
+            <li><a href="/tag/gitlab.html">gitlab</a></li>
+            <li><a href="/tag/book.html">book</a></li>
+            <li><a href="/tag/review.html">review</a></li>
+        </ul>
+    </footer>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'kissmyarch'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</article>
+    </div>
+
+    <div class="container footnote">
+        <a href="javascript:window.print();" title="Print">Print</a>
+    </div>
+
+
+
+    <footer>
+        <div class="container footer">
+            <span>Powered by <a href="http://docs.getpelican.com">
+                Pelican</a> using <a href="https://github.com/BYK/pelican-neat">
+                neat theme</a>. 
+            </span>
+            <nav>
+                <ul>
+                    <li><a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a></li>
+                <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img
+                    alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+     <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik-glb.rhcloud.com/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "5"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+</body>
+</html>

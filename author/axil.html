@@ -7,10 +7,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="Pragma" content="no-cache" />
         <meta http-equiv="Expires" content="-1" />
-        <link rel="stylesheet" href="http://axilleas.me/theme/style/reset.css" type="text/css" />
-        <link rel="stylesheet" href="http://axilleas.me/theme/style/screen.css" type="text/css" />
-        <link rel="stylesheet" href="http://axilleas.me/theme/style/friendly.css" type="text/css" />
-        <link rel="stylesheet" href="http://axilleas.me/theme/style/print.css" type="text/css" media="print" />
+        <link rel="stylesheet" href="/theme/style/reset.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/screen.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/friendly.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/print.css" type="text/css" media="print" />
         <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
 </head>
 <body>
@@ -28,12 +28,39 @@
                 <li><a href="/">Home</a></li>
                     <li><a href="/about">whoami</a></li>
                     <li><a href="/rss">Rss Feed</a></li>
-                <li><a href="http://axilleas.me/archives.html" title="Archive">Archive</a></li>
+                <li><a href="/archives.html" title="Archive">Archive</a></li>
             </ul>
         </div>
     </div>
 
     <div class="container content">
+        
+    <article>
+        <header>
+<h1><a href="/en/blog/2014/gitlab-repository-management-book-review" rel="bookmark">
+    GitLab repository management book review
+</a></h1>
+<time datetime="2014-01-09 00:00:00" pubdate>Posted on
+    Thu 09 January 2014
+</time>
+<address class="vcard author">
+    by <a class="url fn" href="/author/axil.html">
+    axil</a>
+</address>
+<span class="category">in <a href="/category/reviews.html">
+    reviews</a>.
+        </span>
+        </header>
+
+        <div class="body">
+            <p>I remember when I was trying to install GitLab 2.0 with no prior knowledge 
+of the rails framework and ruby in general, just copy pasting commands. It seemed fun
+and when the login screen showed for the first time, it felt really great!
+And then I remember searching for ...</p>
+            <p><a class='readmore' href='/en/blog/2014/gitlab-repository-management-book-review'>Read more</a></p>
+        </div>
+
+    </article>
         
     <article>
         <header>
@@ -44,10 +71,10 @@
     Tue 31 December 2013
 </time>
 <address class="vcard author">
-    by <a class="url fn" href="http://axilleas.me/author/axil.html">
+    by <a class="url fn" href="/author/axil.html">
     axil</a>
 </address>
-<span class="category">in <a href="http://axilleas.me/category/reviews.html">
+<span class="category">in <a href="/category/reviews.html">
     reviews</a>.
         </span>
         </header>
@@ -71,10 +98,10 @@ about GitLab on packtpub. I am in the process of reviewing it, so wait for a new
     Thu 12 September 2013
 </time>
 <address class="vcard author">
-    by <a class="url fn" href="http://axilleas.me/author/axil.html">
+    by <a class="url fn" href="/author/axil.html">
     axil</a>
 </address>
-<span class="category">in <a href="http://axilleas.me/category/linux.html">
+<span class="category">in <a href="/category/linux.html">
     linux</a>.
         </span>
         </header>
@@ -88,40 +115,13 @@ You can use/test it and ...</p>
         </div>
 
     </article>
-        
-    <article>
-        <header>
-<h1><a href="/en/blog/2013/gitlab-gem-install-benchmarking-with-bundler-14" rel="bookmark">
-    GitLab gem install benchmarking with bundler 1.4
-</a></h1>
-<time datetime="2013-08-31 00:00:00" pubdate>Posted on
-    Sat 31 August 2013
-</time>
-<address class="vcard author">
-    by <a class="url fn" href="http://axilleas.me/author/axil.html">
-    axil</a>
-</address>
-<span class="category">in <a href="http://axilleas.me/category/linux.html">
-    linux</a>.
-        </span>
-        </header>
-
-        <div class="body">
-            <p>It appears that the new <code>bundler 1.4.0</code> will <a href="https://github.com/bundler/bundler/pull/2481">support</a> parallel gem installation. Thanks to <a href="http://robots.thoughtbot.com/post/59584648154/parallel-gem-installing-using-bundler">thoughtbot's post</a>
-that brought that to my attention :)</p>
-<p>Now, since I've been dealing daily with GitLab for the past four months, I thought it would be a good candidate for testing.</p>
-<p>I ...</p>
-            <p><a class='readmore' href='/en/blog/2013/gitlab-gem-install-benchmarking-with-bundler-14'>Read more</a></p>
-        </div>
-
-    </article>
     </div>
 
     <div class="container footnote">
         <a href="javascript:window.print();" title="Print">Print</a>
 <span class="paginator">
-    Page 1 / 6
-    <a href="http://axilleas.me/author/axil2.html">&raquo;</a>
+    Page 1 / 7
+    <a href="/author/axil2.html">&raquo;</a>
 </span>
     </div>
 
@@ -149,7 +149,7 @@ that brought that to my attention :)</p>
       _paq.push(["enableLinkTracking"]);
 
       (function() {
-        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://http://animal.foss.ntua.gr/~axil/stats//";
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik-glb.rhcloud.com/";
         _paq.push(["setTrackerUrl", u+"piwik.php"]);
         _paq.push(["setSiteId", "5"]);
         var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
