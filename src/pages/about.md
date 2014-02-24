@@ -1,11 +1,6 @@
 Title: whoami
 Slug: about
 
-
-My name is Axilleas Pipinellis and I live in a lovely town near Athens Greece.
-I am an undergraduate of [Applied Mathematical and Physical Sciences][semfe] at
-[Ntua][ntua], currently studying math(statistics) and CS.
-
 [TOC]
 
 ## Open source matters
