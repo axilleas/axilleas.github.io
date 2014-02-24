@@ -46,5 +46,5 @@ PAGE_SAVE_AS = "{slug}/index.html"
 PAGE_LANG_URL = "{lang}/{slug}"
 PAGE_LANG_SAVE_AS = "{lang}/{slug}/index.html"
 
-PIWIK_URL = ''
+PIWIK_URL = 'piwik-glb.rhcloud.com'
 PIWIK_SITE_ID = 5
