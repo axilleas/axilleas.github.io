@@ -10,9 +10,9 @@ the way :)
 
 It's been almost three months that I have been dealing with packaging in Fedora
 and especially with Ruby gems. In this article I'll talk about the things I learned
-these past months, the difficulties I encountered and how I got past them. 
+these past months, the difficulties I encountered and how I got past them.
 Hopefully, this is going to be a good starting point for all those wanting to
-contribute in Fedora Ruby gem packaging and have a hard time understanding 
+contribute in Fedora Ruby gem packaging and have a hard time understanding
 the process (like I used to).
 
 To be honest, there is a ton of information one has to process and this might be
@@ -22,7 +22,7 @@ links.
 
 There are bits and pieces that I took from discussion on irc or questions in [Ruby-sig][]
 mailing list.
- 
+
 I am focusing on `ruby >= 1.9.1` and Fedora >= 19. [Different][wiki-old] guidelines
 apply to previous versions. Maybe I will dedicate a section of how to build on older
 versions or EPEL, but that is not my priority for now.
@@ -35,7 +35,7 @@ If you are completely new to packaging then [How to create an RPM package](https
 is a good starting point. The next step is to read [Packaging Ruby](https://fedoraproject.org/wiki/Packaging:Ruby)
 for specific Ruby guidelines.
 
-In short you should do 
+In short you should do
 
 
 
@@ -66,7 +66,7 @@ it also sometimes happens that the test passes although no test was executed at 
 
 generally, we apply https://fedoraproject.org/wiki/Packaging:Guidelines?rd=Packaging/Guidelines#PackageDocumentation on them
 
-Normally tests are only run at package buildtime. They should not be included in the binary rpms that users install on their systems. You may make an exception for this if the package makes public use of the test suite at runtime (for instance, an application package that has a --selftest command line switch that runs its testsuite.) 
+Normally tests are only run at package buildtime. They should not be included in the binary rpms that users install on their systems. You may make an exception for this if the package makes public use of the test suite at runtime (for instance, an application package that has a --selftest command line switch that runs its testsuite.)
 
 i.e. they are not essential, therefore they go to -doc subpackage and there is also this remark: Do not ship tests
 
@@ -195,7 +195,7 @@ examples.
 1. [coveralls][] is not packaged yet for Fedora, nor is a dependency
 
     sed -i '/[Cc]overalls/d' spec/helper.rb (omniauth)
-    
+
     sed -i -e '/^#!\/usr\/bin\/env/d' Rakefile http://pkgs.fedoraproject.org/cgit/rubygem-pg.git/tree/rubygem-pg.spec#n67
 
 **Note:** It is a good practice to include a comment of your own explaining why you
@@ -308,7 +308,7 @@ Before:
 
     %files doc
     %doc %{gem_docdir}
-    
+
 After:
 
     %files
@@ -329,7 +329,7 @@ After:
     %{gem_instdir}/Rakefile
     %{gem_instdir}/%{gem_name}.gemspec
     %{gem_instdir}/spec/
-  
+
 Explanation:
 
 Anatomy of a spec file -> files
@@ -348,7 +348,7 @@ If everything builds fine, the last you should see is:
 7. Next, check produced packages with rpmlint.
 
     rpmlint ../SRPMS/rubygem-hashie-2.0.5-1.fc19.src.rpm ../RPMS/noarch/rubygem-hashie*
-    
+
     Output:
     3 packages and 0 specfiles checked; 0 errors, 0 warnings.
 
@@ -369,13 +369,13 @@ will fail during check with:
 
     /usr/share/rubygems/rubygems/core_ext/kernel_require.rb:45:in 'require': cannot load such file -- rspec (LoadError)
 
-which means you are missing the rspec gem. 
+which means you are missing the rspec gem.
 Install it with `yum install rubygem-rspec` and add a `BuildRequires` line to your spec:
 
     BuildRequires: rubygem(rspec)
 
 Save it and run rpmbuild again, it should now pass. Running rpmlint again shows
-no errors as well. 
+no errors as well.
 
 9. Now that rpmbuild finishes with no errors, we run mock against the generated src.rpm.
 
@@ -390,7 +390,7 @@ or for rawhide:
 10. Finally we run rpmlint again on the mock generated packages.
 
     rpmlint /var/lib/mock/fedora-rawhide-x86_64/result/*rpm
-  
+
   Optionally you can run a koji build for a final test that everything builds fine:
 
     koji build --scratch rawhide ../SRPMS/rubygem-hashie-2.0.5-1.fc19.src.rpm
@@ -420,7 +420,7 @@ In reality, it is hard to setup PG to be able to run the test suite against it.
 So now, the test suite does not run against PG, therefore you dont have to specify BR: rubygem(pg).
 There are cases like tilt, where it can work with plenty of markup gems.
 Not every of them is in Fedora yet, but tilt is useful even with one of them.
-It is always good to document such cases, like "test suite could run against PG, 
+It is always good to document such cases, like "test suite could run against PG,
 but it his hard to setup", "tilt supports markaby, but we don't have it in Fedora yet".
 
 - So what you are saying is that rubygems.org might list several dev dependencies, but not all might be necessary.
@@ -455,18 +455,18 @@ But for the review, only the BZ, or fedora-package-review ML
 Tip: you can package the gem you are going to review yourself and then you can do just diff ;) ... something like competition
 
 
-Errors while running a test suite: 
+Errors while running a test suite:
 
  - "fatal: Not a git repository (or any parent up to mount point /home)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set)."
 
- - Answer Looks like the tests would only work if they were run over the Git repository: 
+ - Answer Looks like the tests would only work if they were run over the Git repository:
  http://pkgs.fedoraproject.org/cgit/rubygem-bundler.git/tree/rubygem-bundler.spec#n96
 
 
 If there's a package A that has a BuildRequires: B, and A and B are both being packaged by me, how do I ask mock to include package B (it is not in the repos) while testing package A?
 
-With the --installdeps flag and also, the dependency chains can get pretty large... so you might want to look into creating 
+With the --installdeps flag and also, the dependency chains can get pretty large... so you might want to look into creating
 your own local repository, either on a web server or on the filesystem with file:///
 It is easier to just dump them in a local repo, run createrepo, and let yum do its job.
 https://fedoraproject.org/wiki/Using_Mock_to_test_package_builds#Building_packages_that_depend_on_packages_not_in_a_repository
@@ -476,7 +476,7 @@ mockchain was suggested as a solution on #fedora-devel.
 "buildroot overrides" is suggested for Koji or just wait for the packages to get into stable
 When you file your review bugs, make sure you set the "depends on" items properly, so reviewers can see what should be reviewed first
 
-- what's the difference between rubygem-foo and rubygem(foo) in BuildRequires? 
+- what's the difference between rubygem-foo and rubygem(foo) in BuildRequires?
 
 rubygem(foo) is virtual provide ... the original idea was, that the content inside of the
 brackets should correspond with file name, which can be required.
