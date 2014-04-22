@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 AUTHOR = u"axil"
 SITENAME = u"Over the line"
 SITEURL = 'http://axilleas.me'
-SITE_TAGLINE = u'that rug really tied the room together...'
+SITE_TAGLINE = u"Yeah, well, you know, that's just, like, my opinion, man."
 TIMEZONE = 'Europe/Athens'
 
 GITHUB_URL = 'http://github.com/axilleas'
