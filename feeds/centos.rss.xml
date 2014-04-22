@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Over the line</title><link>http://axilleas.me/</link><description></description><atom:link href="http://axilleas.me/feeds/selinux.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 22 Apr 2014 00:00:00 +0300</lastBuildDate><item><title>GitLab on CentOS asks for password when using git push via ssh</title><link>http://axilleas.me/en/blog/2014/centos-gitlab-asks-for-password-on-git-push</link><description>&lt;p&gt;Seems there is an issue floating around when a user tries to push on their
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Over the line</title><link>http://axilleas.me/</link><description></description><atom:link href="http://axilleas.me/feeds/centos.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 22 Apr 2014 00:00:00 +0300</lastBuildDate><item><title>GitLab on CentOS asks for password when using git push via ssh</title><link>http://axilleas.me/en/blog/2014/centos-gitlab-asks-for-password-on-git-push</link><description>&lt;p&gt;Seems there is an issue floating around when a user tries to push on their
 GitLab CentOS installation. There are two ways one can push to a git repo.
 Using their username:password through http and using their ssh key without
 the need of a password. For example:&lt;/p&gt;

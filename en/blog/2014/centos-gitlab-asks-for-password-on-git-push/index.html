@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <meta name="tags" contents="centos" />
+    <meta name="tags" contents="gitlab" />
+    <meta name="tags" contents="selinux" />
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://axilleas.me">Over the line <strong></strong></a></h1>
+        </header><!-- /#banner -->
+        <nav id="menu"><ul>
+        </ul></nav><!-- /#menu -->
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="http://axilleas.me/en/blog/2014/centos-gitlab-asks-for-password-on-git-push" rel="bookmark"
+         title="Permalink to GitLab on CentOS asks for password when using git push via ssh">GitLab on CentOS asks for password when using git push via ssh</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <abbr class="published" title="2014-04-22T00:00:00">
+      Tue 22 April 2014
+    </abbr>
+    <address class="vcard author">
+      By <a class="url fn" href="http://axilleas.me/author/axil.html">axil</a>
+    </address>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>Seems there is an issue floating around when a user tries to push on their
+GitLab CentOS installation. There are two ways one can push to a git repo.
+Using their username:password through http and using their ssh key without
+the need of a password. For example:</p>
+<div class="codehilite"><pre>git push http://centos.local/axil/git.git master
+</pre></div>
+
+
+<p>will prompt for the GitLab username:password</p>
+<p>whereas</p>
+<div class="codehilite"><pre>git push git@centos.local:axil/git.git master
+</pre></div>
+
+
+<p>will push to the repo without the need of a password just using the ssh key
+I <a href="https://www.youtube.com/watch?v=54mxyLo3Mqk" title="Create and Add your SSH key to GitLab ">uploaded</a> using the GitLab interface.</p>
+<p><strong>Note:</strong> Pushing via ssh usually requires that you have set up properly
+your <code>.ssh/config</code> for the user you are pushing from. Mine entry for example
+looks like:</p>
+<div class="codehilite"><pre>Host centos.local
+  User axil
+  Hostname centos.local
+  PreferredAuthentications publickey
+  IdentityFile /home/axil/.ssh/id_rsa
+</pre></div>
+
+
+<p>If you have installed GitLab on CentOS/RHEL, you may not be able to push via ssh
+and the reason is the restrictions SELinux has on <code>/home/git/.ssh/</code> directory.
+In order to fix this problem, simply run as root:</p>
+<div class="codehilite"><pre>restorecron -Rv /home/git/.ssh/
+</pre></div>
+
+
+<p>You can read more <a href="http://wiki.centos.org/HowTos/Network/SecuringSSH" title="Securing OpenSSH on CentOS">here</a>.</p>
+<p>The above fix has already taken its way upstream in the CentOS guide at the <a href="https://gitlab.com/axil/gitlab-recipes/commit/ab3dd4b427b4b6e531eda5de0775ea1b56f577bb" title="Ensure the correct SELinux contexts are set on .ssh/">gitlab-recipes</a> repo.
+If you find any other issues you are welcome to submit them in the bug tracker.</p>
+  </div><!-- /.entry-content -->
+</section>
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+</body>
+</html>
