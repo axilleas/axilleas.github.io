@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <meta name="tags" contents="fedora" />
+    <meta name="tags" contents="isitfedoraruby" />
+    <meta name="tags" contents="gscoc" />
+    <meta name="tags" contents="ruby" />
+    <meta name="tags" contents="rails" />
+    <meta name="tags" contents="webdev" />
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://axilleas.me">Over the line <strong></strong></a></h1>
+        </header><!-- /#banner -->
+        <nav id="menu"><ul>
+        </ul></nav><!-- /#menu -->
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="http://axilleas.me/en/blog/2014/gsoc2014-week-one" rel="bookmark"
+         title="Permalink to GSoC-2014 isitfedoraruby - Week 1">GSoC-2014 isitfedoraruby - Week 1</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <abbr class="published" title="2014-05-27T00:00:00">
+      Tue 27 May 2014
+    </abbr>
+    <address class="vcard author">
+      By <a class="url fn" href="http://axilleas.me/author/axil.html">axil</a>
+    </address>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>In case you haven't heard, I have been accepted again this year
+for Google Summer of Code :) This time I will be working on enhancing
+a Rails app that provides information about the state of rubygem
+packaging in Fedora.</p>
+<p><a href="http://isitfedoraruby.com" title="Rubygem packaging state in Fedora">isitfedoraruby</a> is a project that was crafted in GSoC 2012 by
+<a href="https://github.com/zuhao" title="zuhao's github profile">Zuhao Wan</a>. I will pick it where he left off and add some
+new features that will hopefully make us packagers' life easier.</p>
+<p>You can read my proposal <a href="https://fedoraproject.org/wiki/GSOC_2014/Student_Application_Axilleas/Isitfedoraruby" title="GSoC 2014 proposal">here</a>.</p>
+<div class="toc">
+<ul>
+<li><a href="#why-i-got-involved-in-this-project">Why I got involved in this project</a></li>
+<li><a href="#project-details">Project details</a><ul>
+<li><a href="#what-we-have-so-far">What we have so far</a><ul>
+<li><a href="#general-info-pages">General info pages</a></li>
+<li><a href="#single-rubygem-page">Single rubygem page</a></li>
+<li><a href="#singe-fedorarpm-page">Singe fedorarpm page</a></li>
+</ul>
+</li>
+<li><a href="#features-to-be-added-and-bugs-fixed">Features to be added and bugs fixed</a><ul>
+<li><a href="#test-suite">Test suite</a></li>
+<li><a href="#enhance-the-gemfile-tool">Enhance the gemfile tool</a></li>
+<li><a href="#show-the-packaging-progress-of-a-gem">Show the packaging progress of a gem</a></li>
+<li><a href="#enhance-dependency-checker">Enhance dependency checker</a></li>
+<li><a href="#uiux-enhancements">UI/UX enhancements</a></li>
+<li><a href="#add-pages-providing-more-general-info">Add pages providing more general info</a></li>
+<li><a href="#documentation-on-contributing">Documentation on contributing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#progress-of-previous-week">Progress of previous week</a><ul>
+<li><a href="#deploy-on-staging-server">Deploy on staging server</a></li>
+<li><a href="#note-bugs-that-need-fixing">Note bugs that need fixing</a></li>
+</ul>
+</li>
+<li><a href="#whats-on-this-week">What's on this week</a><ul>
+<li><a href="#architecture-analysis">Architecture analysis</a></li>
+<li><a href="#setup-a-proper-devtest-environment">Setup a proper dev/test environment</a></li>
+<li><a href="#fix-bugs-found-in-first-week">Fix bugs found in first week</a></li>
+</ul>
+</li>
+<li><a href="#the-end-for-now">The end (for now)</a></li>
+</ul>
+</div>
+<h1 id="why-i-got-involved-in-this-project">Why I got involved in this project</h1>
+<p>Last year was the first time I took part in GSoC, first time I got involved in
+Fedora, first time I started contributing to GitLab. I am now a packager, still
+trying to <a href="https://fedoraproject.org/wiki/GitLab" title="GitLab on Fedora wiki">package GitLab</a> for Fedora/RHEL (help needed!) and a member
+of GitLab's community <a href="https://www.gitlab.com/core-team/" title="GitLab core team">core-team</a>. I even became an apprentice to Fedora's
+infra team (although I haven't dedicated much time admittedly).</p>
+<p>So, having packaged a bunch of rubygems already, I have stumbled upon many
+cases where my packager's life would be easier if I had some tools to work
+with. And this is where isitfedoraruby comes in. As a rails app, it looked like
+the perfect opportunity to learn about the framework and make something that
+the Fedora Ruby community could use on a daily basis when packaging.</p>
+<h1 id="project-details">Project details</h1>
+<p>As I wrote earlier <a href="http://isitfedoraruby.com" title="Rubygem packaging state in Fedora">isitfedoraruby</a> is a rails app used mostly internally
+in Fedora by ruby packagers. The source code is hosted on <a href="https://github.com/zuhao/isitfedoraruby" title="isitfedoraruby on github">github</a>,
+deployed on <a href="https://www.openshift.com/" title="Openshift PaaS">Openshift</a> and all the info is imported using a <a href="https://github.com/zuhao/isitfedoraruby/blob/master/lib/tasks/database.rake" title="Import gems rake task">rake task</a>
+using a <a href="https://github.com/zuhao/isitfedoraruby/tree/master/.openshift/cron" title="Cron job to import gems">cron job</a> every hour.</p>
+<p>What you see in production is using Rails 3 and ruby 1.9.3. Zuhao has already
+worked in porting it to <a href="https://github.com/zuhao/isitfedoraruby/tree/rails4" title="Rails 4 branch">Rails 4</a> so I'll be working on that branch.</p>
+<p>The same project was also picked by some high school students during Google's Code In
+program in 2012. You can read more in Mo Morsi's <a href="http://mo.morsi.org/blog/node/378" title="Google Code In additions to isitfedoraruby">blog post</a>.</p>
+<h2 id="what-we-have-so-far">What we have so far</h2>
+<p>Here is a brief list of the pages there are so far.</p>
+<h3 id="general-info-pages">General info pages</h3>
+<ul>
+<li>Home page</li>
+<li>All rubygems</li>
+<li>All fedorarpms</li>
+<li>Contribute</li>
+<li>About</li>
+<li>Gemfile Tool</li>
+</ul>
+<h3 id="single-rubygem-page">Single rubygem page</h3>
+<ul>
+<li>Link to fedorarpm</li>
+<li>Homepage url</li>
+<li>Source code url</li>
+<li>Version</li>
+<li>Total downloads</li>
+<li>Description</li>
+<li>Dependencies</li>
+</ul>
+<h3 id="singe-fedorarpm-page">Singe fedorarpm page</h3>
+<ul>
+<li>Header links<ul>
+<li>Dependency Tree (using D3 js library)</li>
+<li>Timeline (chronological visualization of the bugs &amp; version releases)</li>
+</ul>
+</li>
+<li>Link to rubygem</li>
+<li>Link to source code url on <a href="http://pkgs.fedoraproject.org/cgit">http://pkgs.fedoraproject.org/cgit</a></li>
+<li>Number of git commits</li>
+<li>Up to date (yes/no)</li>
+<li>Link to maintainer<ul>
+<li>link_to bubble chart page showing the packages a user owns</li>
+<li>Table of rpms owned by user<ul>
+<li>link_to rpm</li>
+<li>Upstream version</li>
+<li>Rawhide version</li>
+<li>Number of git commits</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Description</li>
+<li>Versions table<ul>
+<li>rawhide</li>
+<li>fedora 20</li>
+<li>fedora 19</li>
+<li>gem version</li>
+</ul>
+</li>
+<li>Dependencies table<ul>
+<li>package name (link_to fedorarpm)</li>
+<li>rawhide version</li>
+<li>f20 version</li>
+<li>f19 version</li>
+<li>upstream version</li>
+</ul>
+</li>
+<li>Dependents table<ul>
+<li>package name (link_to fedorarpm)</li>
+<li>rawhide version</li>
+<li>f20 version</li>
+<li>f19 version</li>
+<li>upstream version</li>
+</ul>
+</li>
+<li>Bugs table<ul>
+<li>ID (link_to bugzilla, striked if resolved)</li>
+<li>Bug title</li>
+<li>Review status</li>
+</ul>
+</li>
+<li>Builds table<ul>
+<li>Build ID (link_to koji url)</li>
+<li>Title (package name)</li>
+</ul>
+</li>
+</ul>
+<h2 id="features-to-be-added-and-bugs-fixed">Features to be added and bugs fixed</h2>
+<h3 id="test-suite">Test suite</h3>
+<p>The current test suite is non-existent. Some of the tools I plan to use are:</p>
+<ul>
+<li><code>rspec</code> for testing models and controllers</li>
+<li><code>factory_girl</code> for feeding tests</li>
+<li><code>capybara</code> to simulate user interaction with the app</li>
+</ul>
+<p>For views I will use feature specs. Existing minitest tests will be replaced
+with rspec ones.</p>
+<h3 id="enhance-the-gemfile-tool">Enhance the gemfile tool</h3>
+<p>The <a href="http://www.isitfedoraruby.com/stats/gemfile_tool" title=" Test your Gemfile or Gemfile.lock against Fedora">Gemfile tool</a> checks against a Gemfile or Gemfile.lock and shows if
+the gems are packaged for Fedora. In its current implementation, it basically
+dumps all the information in the screen, which is not too handy if you need to
+somehow extract this information.</p>
+<p>The functionality I want to add is:</p>
+<ul>
+<li>provide a better view of the output (prettier table view)</li>
+<li>ability to provide a Gemfile url and have the output on a <em>static</em> page like:
+    <code>http://isitfedoraruby/stats/gemfile?url=www.example.com/Gemfile.lock</code></li>
+</ul>
+<p>With this we could calculate how many of the gems are in Fedora repos, which
+brings me to another cool feature.</p>
+<h3 id="show-the-packaging-progress-of-a-gem">Show the packaging progress of a gem</h3>
+<p>There are times where a gem depends on other gems not yet packaged for Fedora.
+A cool feature would be to able to see the packaging progress of a gem.</p>
+<p>The plan is to either implement one of the two options below (or both):</p>
+<ol>
+<li>Query <a href="https://rubygems.org">https://rubygems.org</a> and extract information on the dependencies.</li>
+<li>Provide a yaml file with info on the gem's review request bugzilla issue,
+    then query koji for rawhide builds and bugzilla for any Blocks issues.
+    If we have those two values we can calculate how many dependents gems
+    there are not yet or already packaged.</li>
+</ol>
+<p>I prefer the first option as with that one could see what dependencies
+needed prior to submitting a package for a review request.</p>
+<p>A nice progress bar with the percentage of gem packaging completion will
+be provided as well. For each gem that gets in rawhide, the progress bar
+gets a little further. There can also be a number of other cool info in
+the page, like links to bugzilla requests so that someone could lend a hand, etc.</p>
+<p>At first I will focus on implementing this for a single gem but later it
+can be extended to track the progress of a rails app.</p>
+<p>That functionality will mainly come from the next feature in the list.
+Enter dependency checker.</p>
+<h3 id="enhance-dependency-checker">Enhance dependency checker</h3>
+<p>The <a href="http://www.isitfedoraruby.com/fedorarpms/rubygem-rspec/full_deps" title="Dependencies represantation">current</a> representation of a gem's dependencies is in a tree format,
+not very handy if you want to extract information.</p>
+<p>Influenced by <a href="https://www.gemlou.pe">https://www.gemlou.pe</a>, I plan to implement a similar
+representation and show the dependencies in a more elaborate way.</p>
+<h3 id="uiux-enhancements">UI/UX enhancements</h3>
+<p>The app uses bootstrap as a frontend framework, as you could tell.
+The idea is to make it more user friendly and prettier. If it were me
+I would have used <a href="http://foundation.zurb.com/" title="The most advanced responsive front-end framework in the world.">foundation</a> in the first place. Upstream provides
+even a gem for immediate use in rails apps. In my opinion it's targeting
+more to developers that don't want to get too messy with css. For the time
+being I don't consider changing frameworks, but it's a food for thought.</p>
+<h3 id="add-pages-providing-more-general-info">Add pages providing more general info</h3>
+<p>Pages that would help the user experience are:</p>
+<ul>
+<li>list of gems pending review</li>
+<li>list of gems already assigned but stagnated for too long</li>
+<li>list of gems pending review and marked as NEEDSPONSOR</li>
+</ul>
+<p>All these can be queried from bugzilla through the ruby-bugzilla gem.</p>
+<h3 id="documentation-on-contributing">Documentation on contributing</h3>
+<p>Last but certainly not least, I will document the development contribution
+process should anyone want to provide any fixes/features.</p>
+<p>Apart from developing the app, I will provide a page with comprehensive
+steps on packaging a rubygem. A draft article can be found <a href="https://gitlab.com/fedora-ruby/gitlab-rpm/wikis/rubygem-packaging" title="Fedora Rubygem Packaging">here</a>.</p>
+<h1 id="progress-of-previous-week">Progress of previous week</h1>
+<p>I have been reading the codebase to get familiar with it and then done
+a few minor things.</p>
+<h2 id="deploy-on-staging-server">Deploy on staging server</h2>
+<p>Currently I run it on <a href="http://fedoraruby.herokuapp.com" title="isitfeedoraruby on heroku">heroku</a>, but the database exceeded the free plan they
+provide so I'll have to move it elsewhere. I haven't yet imported the gems
+as the rake tasks pull in all gems from rubygems.org and the database gets huge.
+This is noted to be fixed in the rake task. Also, what you see is the next version
+of the app using Rails 4 :)</p>
+<h2 id="note-bugs-that-need-fixing">Note bugs that need fixing</h2>
+<p>Like last year, I will be documenting any progress in a <a href="https://trello.com/b/4aOmUpEC/fedora-ruby" title="isitfedoraruby trello board progress">trello board</a>.
+In the code clean up list you can see what is marked as to be fixed.
+If you have any comments please do leave them on the cards.</p>
+<h1 id="whats-on-this-week">What's on this week</h1>
+<p>We are already in the middle of the second week, so here's a preview of
+what I'm working on.</p>
+<h2 id="architecture-analysis">Architecture analysis</h2>
+<p>The code needs a clean up and the only way to do this is to do an analysis
+of the app's architecture. That will give me an overview of the changes need
+to be done like merging the rubygem page view into fedorarpm.</p>
+<h2 id="setup-a-proper-devtest-environment">Setup a proper dev/test environment</h2>
+<p>Right now, if anyone wanted to play with the app, apart from db migration
+you would have to run the rake tasks that import all the info needed in
+order to have a functional app. Rather than importing each gem (which can be
+done in batches), I would like to create some fake data to begin with.</p>
+<p>This would help me afterwards with the tests.</p>
+<h2 id="fix-bugs-found-in-first-week">Fix bugs found in first week</h2>
+<p>I'll try to apply fixes to as many bugs as possible I found previous week.</p>
+<h1 id="the-end-for-now">The end (for now)</h1>
+<p>Soo, that's it for now! Hope you made it this far :)
+Cheers to an interesting summer!</p>
+  </div><!-- /.entry-content -->
+</section>
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+</body>
+</html>

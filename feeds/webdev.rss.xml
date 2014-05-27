@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Over the line</title><link href="http://axilleas.me/" rel="alternate"></link><link href="http://axilleas.me/feeds/geek.atom.xml" rel="self"></link><id>http://axilleas.me/</id><updated>2014-05-27T00:00:00+03:00</updated><entry><title>GSoC-2014 isitfedoraruby - Week 1</title><link href="http://axilleas.me/en/blog/2014/gsoc2014-week-one" rel="alternate"></link><updated>2014-05-27T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.me,2014-05-27:en/blog/2014/gsoc2014-week-one</id><summary type="html">&lt;p&gt;In case you haven't heard, I have been accepted again this year
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Over the line</title><link>http://axilleas.me/</link><description></description><atom:link href="http://axilleas.me/feeds/webdev.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 27 May 2014 00:00:00 +0300</lastBuildDate><item><title>GSoC-2014 isitfedoraruby - Week 1</title><link>http://axilleas.me/en/blog/2014/gsoc2014-week-one</link><description>&lt;p&gt;In case you haven't heard, I have been accepted again this year
 for Google Summer of Code :) This time I will be working on enhancing
 a Rails app that provides information about the state of rubygem
 packaging in Fedora.&lt;/p&gt;
@@ -241,40 +241,4 @@ done in batches), I would like to create some fake data to begin with.&lt;/p&gt;
 &lt;p&gt;I'll try to apply fixes to as many bugs as possible I found previous week.&lt;/p&gt;
 &lt;h1 id="the-end-for-now"&gt;The end (for now)&lt;/h1&gt;
 &lt;p&gt;Soo, that's it for now! Hope you made it this far :)
-Cheers to an interesting summer!&lt;/p&gt;</summary><category term="fedora"></category><category term="isitfedoraruby"></category><category term="gscoc"></category><category term="ruby"></category><category term="rails"></category><category term="webdev"></category></entry><entry><title>GitLab on CentOS asks for password when using git push via ssh</title><link href="http://axilleas.me/en/blog/2014/centos-gitlab-asks-for-password-on-git-push" rel="alternate"></link><updated>2014-04-22T00:00:00+03:00</updated><author><name>axil</name></author><id>tag:axilleas.me,2014-04-22:en/blog/2014/centos-gitlab-asks-for-password-on-git-push</id><summary type="html">&lt;p&gt;Seems there is an issue floating around when a user tries to push on their
-GitLab CentOS installation. There are two ways one can push to a git repo.
-Using their username:password through http and using their ssh key without
-the need of a password. For example:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;git push http://centos.local/axil/git.git master
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;will prompt for the GitLab username:password&lt;/p&gt;
-&lt;p&gt;whereas&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;git push git@centos.local:axil/git.git master
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;will push to the repo without the need of a password just using the ssh key
-I &lt;a href="https://www.youtube.com/watch?v=54mxyLo3Mqk" title="Create and Add your SSH key to GitLab "&gt;uploaded&lt;/a&gt; using the GitLab interface.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Pushing via ssh usually requires that you have set up properly
-your &lt;code&gt;.ssh/config&lt;/code&gt; for the user you are pushing from. Mine entry for example
-looks like:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;Host centos.local
-  User axil
-  Hostname centos.local
-  PreferredAuthentications publickey
-  IdentityFile /home/axil/.ssh/id_rsa
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;If you have installed GitLab on CentOS/RHEL, you may not be able to push via ssh
-and the reason is the restrictions SELinux has on &lt;code&gt;/home/git/.ssh/&lt;/code&gt; directory.
-In order to fix this problem, simply run as root:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;restorecron -Rv /home/git/.ssh/
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;You can read more &lt;a href="http://wiki.centos.org/HowTos/Network/SecuringSSH" title="Securing OpenSSH on CentOS"&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The above fix has already taken its way upstream in the CentOS guide at the &lt;a href="https://gitlab.com/axil/gitlab-recipes/commit/ab3dd4b427b4b6e531eda5de0775ea1b56f577bb" title="Ensure the correct SELinux contexts are set on .ssh/"&gt;gitlab-recipes&lt;/a&gt; repo.
-If you find any other issues you are welcome to submit them in the bug tracker.&lt;/p&gt;</summary><category term="centos"></category><category term="gitlab"></category><category term="selinux"></category></entry></feed>
+Cheers to an interesting summer!&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 27 May 2014 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2014-05-27:en/blog/2014/gsoc2014-week-one</guid><category>fedora</category><category>isitfedoraruby</category><category>gscoc</category><category>ruby</category><category>rails</category><category>webdev</category></item></channel></rss>
