@@ -32,21 +32,21 @@
 &lt;/div&gt;
 &lt;h1 id="_1"&gt;Οι συχνότερες λειτουργίες πλήκτρων&lt;/h1&gt;
 &lt;p&gt;Υπάρχουν εκατοντάδες λειτουργίες πλήκτρων και ανάλογα με την κατάσταση που είμαστε το ίδιο πλήκτρο εκτελεί διαφορετική λειτουργία. Τα παρακάτω είναι τα πιο απλά και πιο συχνά χρησιμοποιούμενα.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;h&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μετακίνηση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt; &lt;span class="err"&gt;αριστερά&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-&lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μετακίνηση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt; &lt;span class="err"&gt;κάτω&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-&lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μετακίνηση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt; &lt;span class="err"&gt;πάνω&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-&lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μετακίνηση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;δρομέρα&lt;/span&gt; &lt;span class="err"&gt;δεξιά&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;h&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μετακίνηση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt; &lt;span class="err"&gt;αριστερά&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μετακίνηση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt; &lt;span class="err"&gt;κάτω&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μετακίνηση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt; &lt;span class="err"&gt;πάνω&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μετακίνηση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;δρομέρα&lt;/span&gt; &lt;span class="err"&gt;δεξιά&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
 &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μας&lt;/span&gt; &lt;span class="err"&gt;βάζει&lt;/span&gt; &lt;span class="err"&gt;στην&lt;/span&gt; &lt;span class="err"&gt;κατάσταση&lt;/span&gt; &lt;span class="err"&gt;εισαγωγής&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="err"&gt;τον&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt; &lt;span class="err"&gt;πριν&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="err"&gt;υπάρχουσα&lt;/span&gt; &lt;span class="err"&gt;θέση&lt;/span&gt;
 &lt;span class="n"&gt;I&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Το&lt;/span&gt; &lt;span class="err"&gt;ίδιο&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="err"&gt;αλλά&lt;/span&gt; &lt;span class="err"&gt;στην&lt;/span&gt; &lt;span class="err"&gt;αρχή&lt;/span&gt; &lt;span class="err"&gt;της&lt;/span&gt; &lt;span class="err"&gt;γραμμής&lt;/span&gt;
 &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μας&lt;/span&gt; &lt;span class="err"&gt;βάζει&lt;/span&gt; &lt;span class="err"&gt;στην&lt;/span&gt; &lt;span class="err"&gt;κατάσταση&lt;/span&gt; &lt;span class="err"&gt;εισαγωγής&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="err"&gt;τον&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt; &lt;span class="err"&gt;μετά&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="err"&gt;υπάρχουσα&lt;/span&gt; &lt;span class="err"&gt;θέση&lt;/span&gt;
 &lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Το&lt;/span&gt; &lt;span class="err"&gt;ίδιο&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="err"&gt;αλλά&lt;/span&gt; &lt;span class="err"&gt;στο&lt;/span&gt; &lt;span class="err"&gt;τέλος&lt;/span&gt; &lt;span class="err"&gt;της&lt;/span&gt; &lt;span class="err"&gt;γραμμής&lt;/span&gt;
 &lt;span class="err"&gt;ο&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μας&lt;/span&gt; &lt;span class="err"&gt;βάζει&lt;/span&gt; &lt;span class="err"&gt;στην&lt;/span&gt; &lt;span class="err"&gt;κατάσταση&lt;/span&gt; &lt;span class="err"&gt;εισαγωγής&lt;/span&gt; &lt;span class="err"&gt;αφού&lt;/span&gt; &lt;span class="err"&gt;αλλάξει&lt;/span&gt; &lt;span class="err"&gt;γραμμή&lt;/span&gt;
 &lt;span class="n"&gt;O&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Το&lt;/span&gt; &lt;span class="err"&gt;ίδιο&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="err"&gt;αλλά&lt;/span&gt; &lt;span class="err"&gt;εισάγει&lt;/span&gt; &lt;span class="err"&gt;πριν&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="err"&gt;προηγούμενη&lt;/span&gt; &lt;span class="err"&gt;γραμμή&lt;/span&gt;
-&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Επικόλληση&lt;/span&gt; &lt;span class="err"&gt;των&lt;/span&gt; &lt;span class="err"&gt;περιεχομένων&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="n"&gt;buffer&lt;/span&gt; &lt;span class="err"&gt;μετά&lt;/span&gt; &lt;span class="err"&gt;από&lt;/span&gt; &lt;span class="err"&gt;τον&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-&lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Αντικαθιστά&lt;/span&gt; &lt;span class="err"&gt;ένα&lt;/span&gt; &lt;span class="err"&gt;χαρακτήρα&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Επικόλληση&lt;/span&gt; &lt;span class="err"&gt;των&lt;/span&gt; &lt;span class="err"&gt;περιεχομένων&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="n"&gt;buffer&lt;/span&gt; &lt;span class="err"&gt;μετά&lt;/span&gt; &lt;span class="err"&gt;από&lt;/span&gt; &lt;span class="err"&gt;τον&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Αντικαθιστά&lt;/span&gt; &lt;span class="err"&gt;ένα&lt;/span&gt; &lt;span class="err"&gt;χαρακτήρα&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
 &lt;span class="n"&gt;R&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Αντικαθιστά&lt;/span&gt; &lt;span class="err"&gt;πολλούς&lt;/span&gt; &lt;span class="err"&gt;χαρακτήρες&lt;/span&gt;
 &lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;undo&lt;/span&gt;
-&lt;span class="n"&gt;Ctrl&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;R&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;αναίρεση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="n"&gt;undo&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;redo&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;Ctrl&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;R&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;αναίρεση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="n"&gt;undo&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;redo&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Αντιγραφή&lt;/span&gt; &lt;span class="err"&gt;στο&lt;/span&gt; &lt;span class="n"&gt;buffer&lt;/span&gt;
 &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Διαγραφή&lt;/span&gt;
 &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Διαγραφή&lt;/span&gt; &lt;span class="err"&gt;χαρακτήρα&lt;/span&gt; &lt;span class="err"&gt;μετά&lt;/span&gt; &lt;span class="err"&gt;τον&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt;
@@ -54,7 +54,7 @@
 &lt;span class="n"&gt;D&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Διαγραφή&lt;/span&gt; &lt;span class="err"&gt;από&lt;/span&gt; &lt;span class="err"&gt;τον&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt; &lt;span class="err"&gt;μέχρι&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="err"&gt;τέλος&lt;/span&gt; &lt;span class="err"&gt;της&lt;/span&gt; &lt;span class="err"&gt;γραμμής&lt;/span&gt;
 &lt;span class="n"&gt;G&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μετακίνηση&lt;/span&gt; &lt;span class="err"&gt;σε&lt;/span&gt; &lt;span class="err"&gt;κάποια&lt;/span&gt; &lt;span class="err"&gt;γραμμή&lt;/span&gt; &lt;span class="err"&gt;ή&lt;/span&gt; &lt;span class="err"&gt;στο&lt;/span&gt; &lt;span class="err"&gt;τέλος&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;αρχείου&lt;/span&gt;
 &lt;span class="n"&gt;J&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Ενώνει&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="err"&gt;γραμμή&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="err"&gt;επόμενη&lt;/span&gt;
-&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Εκτελεί&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="err"&gt;προηγούμενη&lt;/span&gt; &lt;span class="err"&gt;εντολή&lt;/span&gt;
+&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Εκτελεί&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="err"&gt;προηγούμενη&lt;/span&gt; &lt;span class="err"&gt;εντολή&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -122,9 +122,9 @@
 
 
 &lt;p&gt;Οι πιο συχνά χρησιμοποιούμενες παράμετροι είναι οι εξής:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nl"&gt;c:&lt;/span&gt; &lt;span class="err"&gt;Ζητά&lt;/span&gt; &lt;span class="err"&gt;επιβεβαίωση&lt;/span&gt; &lt;span class="err"&gt;για&lt;/span&gt; &lt;span class="err"&gt;κάθε&lt;/span&gt; &lt;span class="err"&gt;αλλαγή&lt;/span&gt; 
-&lt;span class="nl"&gt;g:&lt;/span&gt; &lt;span class="err"&gt;Αντικατάσταση&lt;/span&gt; &lt;span class="err"&gt;όλων&lt;/span&gt; &lt;span class="err"&gt;των&lt;/span&gt; &lt;span class="n"&gt;pattern&lt;/span&gt; &lt;span class="err"&gt;σε&lt;/span&gt; &lt;span class="err"&gt;κάθε&lt;/span&gt; &lt;span class="err"&gt;γραμμή&lt;/span&gt; &lt;span class="err"&gt;και&lt;/span&gt; &lt;span class="err"&gt;όχι&lt;/span&gt; &lt;span class="err"&gt;μόνο&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;πρώτου&lt;/span&gt; 
-&lt;span class="nl"&gt;i:&lt;/span&gt; &lt;span class="err"&gt;Δεν&lt;/span&gt; &lt;span class="err"&gt;κοιτάει&lt;/span&gt; &lt;span class="err"&gt;κεφαλαία&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;πεζά&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Ζητά&lt;/span&gt; &lt;span class="err"&gt;επιβεβαίωση&lt;/span&gt; &lt;span class="err"&gt;για&lt;/span&gt; &lt;span class="err"&gt;κάθε&lt;/span&gt; &lt;span class="err"&gt;αλλαγή&lt;/span&gt; 
+&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Αντικατάσταση&lt;/span&gt; &lt;span class="err"&gt;όλων&lt;/span&gt; &lt;span class="err"&gt;των&lt;/span&gt; &lt;span class="n"&gt;pattern&lt;/span&gt; &lt;span class="err"&gt;σε&lt;/span&gt; &lt;span class="err"&gt;κάθε&lt;/span&gt; &lt;span class="err"&gt;γραμμή&lt;/span&gt; &lt;span class="err"&gt;και&lt;/span&gt; &lt;span class="err"&gt;όχι&lt;/span&gt; &lt;span class="err"&gt;μόνο&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;πρώτου&lt;/span&gt; 
+&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Δεν&lt;/span&gt; &lt;span class="err"&gt;κοιτάει&lt;/span&gt; &lt;span class="err"&gt;κεφαλαία&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;πεζά&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -438,8 +438,8 @@
 
 &lt;p&gt;Έτσι, όταν θέλoυμε να αλλάξουμε ή να προσθέσουμε κάτι δεν χρειάζεται να ψάχνουμε μέσα σε 700 γραμμές. Απλά πηγαίνουμε στην κατηγορία που θέλουμε και ανοίγουμε το fold.&lt;/p&gt;
 &lt;p&gt;Καλά και χρυσά τα folds, αλλά δεν μπορούμε κάθε φορά που ανοίγουμε ένα αρχείο να γράφουμε &lt;code&gt;:set foldmethod=τάδε&lt;/code&gt;. Για αυτό το λόγο, το vim υποστηρίζει τα λεγόμενα &lt;code&gt;modelines&lt;/code&gt; που είναι γραμμές οι οποίες λένε στο vim ποιες παραμέτρους να ενεργοποιήσει για το συγκεκριμένο αρχείο.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;κείμενο&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="err"&gt;κενό&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;vim&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;παράμετροι&lt;/span&gt; 
-&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;κείμενο&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="err"&gt;κενό&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;vim&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="err"&gt;παράμετροι&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;κείμενο&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;κείμενο&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="err"&gt;&amp;lt;&lt;/span&gt;κενό&amp;gt;vim:παράμετροι 
+&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;κείμενο&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="err"&gt;&amp;lt;&lt;/span&gt;κενό&amp;gt;vim:set παράμετροι: &lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;κείμενο&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -508,16 +508,16 @@
 &lt;h1 id="vimrc"&gt;Παράδειγμα .vimrc&lt;/h1&gt;
 &lt;p&gt;&lt;em&gt;Τα διπλά αυτάκια &lt;code&gt;"&lt;/code&gt; δηλώνουν σχόλια.&lt;/em&gt;&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="s2"&gt;&amp;quot;Με την autoread αν το αρχείο έχει αλλάξει από το άνοιγμα του αλλά δεν&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;έχει&lt;/span&gt; &lt;span class="err"&gt;γίνει&lt;/span&gt; &lt;span class="err"&gt;κάποια&lt;/span&gt; &lt;span class="err"&gt;αλλαγή&lt;/span&gt; &lt;span class="err"&gt;από&lt;/span&gt; &lt;span class="err"&gt;εμάς&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;τότε&lt;/span&gt; &lt;span class="err"&gt;διαβάζει&lt;/span&gt; &lt;span class="err"&gt;ξανά&lt;/span&gt; &lt;span class="err"&gt;αυτόματα&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="err"&gt;αρχείο&lt;/span&gt;&lt;span class="nx"&gt;.&lt;/span&gt; 
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;έχει&lt;/span&gt; &lt;span class="nx"&gt;γίνει&lt;/span&gt; &lt;span class="nx"&gt;κάποια&lt;/span&gt; &lt;span class="nx"&gt;αλλαγή&lt;/span&gt; &lt;span class="nx"&gt;από&lt;/span&gt; &lt;span class="nx"&gt;εμάς&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;τότε&lt;/span&gt; &lt;span class="nx"&gt;διαβάζει&lt;/span&gt; &lt;span class="nx"&gt;ξανά&lt;/span&gt; &lt;span class="nx"&gt;αυτόματα&lt;/span&gt; &lt;span class="nx"&gt;το&lt;/span&gt; &lt;span class="nx"&gt;αρχείο.&lt;/span&gt; 
 &lt;span class="s2"&gt;&amp;quot;Το lazyredraw δεν σχεδιάζει ξανά την οθόνη κατά την εκτέλεση των macros.&lt;/span&gt;
 
 &lt;span class="s2"&gt;set autoread&lt;/span&gt;
 &lt;span class="s2"&gt;set lazyredraw&lt;/span&gt;
 &lt;span class="s2"&gt;set nomodeline&lt;/span&gt;
-&lt;span class="s2"&gt;set nobackup        &amp;quot;&lt;/span&gt;&lt;span class="err"&gt;δεν&lt;/span&gt; &lt;span class="err"&gt;κάνει&lt;/span&gt; &lt;span class="err"&gt;αυτόματα&lt;/span&gt; &lt;span class="nx"&gt;backups&lt;/span&gt;
+&lt;span class="s2"&gt;set nobackup        &amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;δεν&lt;/span&gt; &lt;span class="nx"&gt;κάνει&lt;/span&gt; &lt;span class="nx"&gt;αυτόματα&lt;/span&gt; &lt;span class="nx"&gt;backups&lt;/span&gt;
 &lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="n"&gt;viminfo&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;NONE&amp;quot;&lt;/span&gt;  &lt;span class="s2"&gt;&amp;quot;απενεργοποιεί το .viminfo&lt;/span&gt;
 
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;Απενεργοποίηση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="nx"&gt;mouse&lt;/span&gt; 
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;Απενεργοποίηση&lt;/span&gt; &lt;span class="nx"&gt;του&lt;/span&gt; &lt;span class="nx"&gt;mouse&lt;/span&gt; 
  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nx"&gt;has&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;mouse&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
      &lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="n"&gt;mouse&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;
  &lt;span class="nx"&gt;endif&lt;/span&gt;
@@ -528,16 +528,16 @@
 &lt;span class="s2"&gt;highlight SpecialKey ctermfg=red&lt;/span&gt;
 &lt;span class="s2"&gt;let c_space_errors = 1&lt;/span&gt;
 
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;Διάφορες&lt;/span&gt; &lt;span class="nb"&gt;custom&lt;/span&gt; &lt;span class="err"&gt;λέξεις&lt;/span&gt; &lt;span class="err"&gt;και&lt;/span&gt; &lt;span class="nx"&gt;patterns&lt;/span&gt; &lt;span class="err"&gt;που&lt;/span&gt; &lt;span class="err"&gt;θέλω&lt;/span&gt; &lt;span class="err"&gt;να&lt;/span&gt; &lt;span class="err"&gt;είναι&lt;/span&gt; &lt;span class="err"&gt;τονισμένες&lt;/span&gt;&lt;span class="nx"&gt;.&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;Διάφορες&lt;/span&gt; &lt;span class="nb"&gt;custom&lt;/span&gt; &lt;span class="nx"&gt;λέξεις&lt;/span&gt; &lt;span class="nx"&gt;και&lt;/span&gt; &lt;span class="nx"&gt;patterns&lt;/span&gt; &lt;span class="nx"&gt;που&lt;/span&gt; &lt;span class="nx"&gt;θέλω&lt;/span&gt; &lt;span class="nx"&gt;να&lt;/span&gt; &lt;span class="nx"&gt;είναι&lt;/span&gt; &lt;span class="nx"&gt;τονισμένες.&lt;/span&gt;
 &lt;span class="nx"&gt;syntax&lt;/span&gt; &lt;span class="k"&gt;match&lt;/span&gt; &lt;span class="nx"&gt;TadeName&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Pattern&amp;quot;&lt;/span&gt;
 &lt;span class="nx"&gt;highlight&lt;/span&gt; &lt;span class="k"&gt;match&lt;/span&gt; &lt;span class="nx"&gt;TadeName&lt;/span&gt; &lt;span class="n"&gt;ctermfg&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;tadexroma&lt;/span&gt;
 
 &lt;span class="s2"&gt;&amp;quot;Όταν διαβάζω αρχεία που βρίσκονται μέσα στο /var/log δηλαδή logs να πηγαίνει&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;αυτόματα&lt;/span&gt; &lt;span class="err"&gt;στο&lt;/span&gt; &lt;span class="err"&gt;τέλος&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;αρχείου&lt;/span&gt;&lt;span class="nx"&gt;.&lt;/span&gt; &lt;span class="err"&gt;Μέσα&lt;/span&gt; &lt;span class="err"&gt;στον&lt;/span&gt; &lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;var&lt;/span&gt;&lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="k"&gt;log&lt;/span&gt; &lt;span class="err"&gt;όμως&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="nx"&gt;Slackware&lt;/span&gt; &lt;span class="err"&gt;έχει&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;αυτόματα&lt;/span&gt; &lt;span class="nx"&gt;στο&lt;/span&gt; &lt;span class="nx"&gt;τέλος&lt;/span&gt; &lt;span class="nx"&gt;του&lt;/span&gt; &lt;span class="nx"&gt;αρχείου.&lt;/span&gt; &lt;span class="nx"&gt;Μέσα&lt;/span&gt; &lt;span class="nx"&gt;στον&lt;/span&gt; &lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;var&lt;/span&gt;&lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="k"&gt;log&lt;/span&gt; &lt;span class="nx"&gt;όμως&lt;/span&gt; &lt;span class="nx"&gt;το&lt;/span&gt; &lt;span class="nx"&gt;Slackware&lt;/span&gt; &lt;span class="nx"&gt;έχει&lt;/span&gt;
 &lt;span class="s2"&gt;&amp;quot;και άλλους καταλόγους όπως π.χ τον κατάλογο με τις πληροφορίες των πακέτων.&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;Εκεί&lt;/span&gt; &lt;span class="err"&gt;δεν&lt;/span&gt; &lt;span class="err"&gt;θέλω&lt;/span&gt; &lt;span class="err"&gt;να&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="err"&gt;πηγαίνει&lt;/span&gt; &lt;span class="err"&gt;στο&lt;/span&gt; &lt;span class="err"&gt;τέλος&lt;/span&gt;&lt;span class="nx"&gt;.&lt;/span&gt; &lt;span class="err"&gt;Παλαιότερα&lt;/span&gt; &lt;span class="err"&gt;είχα&lt;/span&gt; &lt;span class="nb"&gt;regexp&lt;/span&gt; &lt;span class="err"&gt;αλλά&lt;/span&gt; &lt;span class="err"&gt;από&lt;/span&gt; &lt;span class="err"&gt;μια&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;Εκεί&lt;/span&gt; &lt;span class="nx"&gt;δεν&lt;/span&gt; &lt;span class="nx"&gt;θέλω&lt;/span&gt; &lt;span class="nx"&gt;να&lt;/span&gt; &lt;span class="nx"&gt;με&lt;/span&gt; &lt;span class="nx"&gt;πηγαίνει&lt;/span&gt; &lt;span class="nx"&gt;στο&lt;/span&gt; &lt;span class="nx"&gt;τέλος.&lt;/span&gt; &lt;span class="nx"&gt;Παλαιότερα&lt;/span&gt; &lt;span class="nx"&gt;είχα&lt;/span&gt; &lt;span class="nb"&gt;regexp&lt;/span&gt; &lt;span class="nx"&gt;αλλά&lt;/span&gt; &lt;span class="nx"&gt;από&lt;/span&gt; &lt;span class="nx"&gt;μια&lt;/span&gt;
 &lt;span class="s2"&gt;&amp;quot;έκδοση και μετά δεν έπαιζε οπότε μετράω τις / που υπάρχουν στο όνομα.&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;Αν&lt;/span&gt; &lt;span class="err"&gt;χαλάσει&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="k"&gt;match&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;να&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="err"&gt;κάνω&lt;/span&gt; &lt;span class="nx"&gt;stridx&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;s&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nb"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;Αν&lt;/span&gt; &lt;span class="nx"&gt;χαλάσει&lt;/span&gt; &lt;span class="nx"&gt;το&lt;/span&gt; &lt;span class="k"&gt;match&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;να&lt;/span&gt; &lt;span class="nx"&gt;το&lt;/span&gt; &lt;span class="nx"&gt;κάνω&lt;/span&gt; &lt;span class="nx"&gt;stridx&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;s&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nb"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="nx"&gt;autocmd&lt;/span&gt; &lt;span class="nx"&gt;BufReadPost&lt;/span&gt; &lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;var&lt;/span&gt;&lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="k"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/*&lt;/span&gt;
 &lt;span class="o"&gt;\&lt;/span&gt; &lt;span class="k"&gt;let&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;expand&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;lt;afile&amp;gt;:p&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;
 &lt;span class="o"&gt;\&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="k"&gt;match&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;s&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nb"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;
@@ -546,9 +546,9 @@
 &lt;span class="o"&gt;\&lt;/span&gt; &lt;span class="nx"&gt;unlet&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt; &lt;span class="nb"&gt;s&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nb"&gt;name&lt;/span&gt;
 
 &lt;span class="s2"&gt;&amp;quot;Μερικές φορές θέλω να κάνω επικόλληση κάτι χωρίς όμως να χαλάσει η δομή του.&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;Το&lt;/span&gt; &lt;span class="nx"&gt;vim&lt;/span&gt; &lt;span class="err"&gt;παρέχει&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="err"&gt;επιλογή&lt;/span&gt; &lt;span class="nx"&gt;paste&lt;/span&gt; &lt;span class="err"&gt;για&lt;/span&gt; &lt;span class="err"&gt;αυτό&lt;/span&gt;&lt;span class="nx"&gt;.&lt;/span&gt; &lt;span class="err"&gt;Έτσι&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="nx"&gt;F10&lt;/span&gt; &lt;span class="err"&gt;αλλάζω&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="err"&gt;επιλογή&lt;/span&gt;&lt;span class="nx"&gt;.&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;Το&lt;/span&gt; &lt;span class="nx"&gt;vim&lt;/span&gt; &lt;span class="nx"&gt;παρέχει&lt;/span&gt; &lt;span class="nx"&gt;την&lt;/span&gt; &lt;span class="nx"&gt;επιλογή&lt;/span&gt; &lt;span class="nx"&gt;paste&lt;/span&gt; &lt;span class="nx"&gt;για&lt;/span&gt; &lt;span class="nx"&gt;αυτό.&lt;/span&gt; &lt;span class="nx"&gt;Έτσι&lt;/span&gt; &lt;span class="nx"&gt;με&lt;/span&gt; &lt;span class="nx"&gt;το&lt;/span&gt; &lt;span class="nx"&gt;F10&lt;/span&gt; &lt;span class="nx"&gt;αλλάζω&lt;/span&gt; &lt;span class="nx"&gt;την&lt;/span&gt; &lt;span class="nx"&gt;επιλογή.&lt;/span&gt;
 &lt;span class="s2"&gt;&amp;quot;Επίσης το F2 ενεργοποιεί/απενεργοποιεί την list ώστε να βλέπω σε κώδικα αν&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;έχω&lt;/span&gt; &lt;span class="err"&gt;ξεχάσει&lt;/span&gt; &lt;span class="err"&gt;κενά&lt;/span&gt; &lt;span class="err"&gt;ή&lt;/span&gt; &lt;span class="nb"&gt;tabs&lt;/span&gt; &lt;span class="err"&gt;και&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="nx"&gt;F8&lt;/span&gt; &lt;span class="err"&gt;απενεργοποιεί&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="nx"&gt;hlsearch&lt;/span&gt; &lt;span class="err"&gt;όταν&lt;/span&gt; &lt;span class="err"&gt;έχω&lt;/span&gt; &lt;span class="err"&gt;βρει&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;έχω&lt;/span&gt; &lt;span class="nx"&gt;ξεχάσει&lt;/span&gt; &lt;span class="nx"&gt;κενά&lt;/span&gt; &lt;span class="nx"&gt;ή&lt;/span&gt; &lt;span class="nb"&gt;tabs&lt;/span&gt; &lt;span class="nx"&gt;και&lt;/span&gt; &lt;span class="nx"&gt;το&lt;/span&gt; &lt;span class="nx"&gt;F8&lt;/span&gt; &lt;span class="nx"&gt;απενεργοποιεί&lt;/span&gt; &lt;span class="nx"&gt;την&lt;/span&gt; &lt;span class="nx"&gt;hlsearch&lt;/span&gt; &lt;span class="nx"&gt;όταν&lt;/span&gt; &lt;span class="nx"&gt;έχω&lt;/span&gt; &lt;span class="nx"&gt;βρει&lt;/span&gt;
 &lt;span class="s2"&gt;&amp;quot;αυτό που θέλω και δεν θέλω να βλέπω πλέον τα highlights.&lt;/span&gt;
 &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nb"&gt;Key&lt;/span&gt; &lt;span class="nx"&gt;Mappings&lt;/span&gt;
 &lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="n"&gt;pastetoggle&lt;/span&gt;&lt;span class="o"&gt;=&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;F10&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
@@ -557,33 +557,33 @@
 &lt;span class="nx"&gt;nmap&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;silent&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;F8&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="nx"&gt;hls&lt;/span&gt;&lt;span class="o"&gt;!&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 
 &lt;span class="s2"&gt;&amp;quot;Τα leader και localleader είναι κάποια εικονικά πλήκτρα για την εύκολη χρήση&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;συνδυασμών&lt;/span&gt;&lt;span class="nx"&gt;.&lt;/span&gt; &lt;span class="err"&gt;Κανονικά&lt;/span&gt; &lt;span class="err"&gt;είναι&lt;/span&gt; &lt;span class="err"&gt;ρυθμισμένα&lt;/span&gt; &lt;span class="err"&gt;να&lt;/span&gt; &lt;span class="err"&gt;χρησιμοποιούν&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="nx"&gt;backslash&lt;/span&gt; &lt;span class="err"&gt;αλλά&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;συνδυασμών.&lt;/span&gt; &lt;span class="nx"&gt;Κανονικά&lt;/span&gt; &lt;span class="nx"&gt;είναι&lt;/span&gt; &lt;span class="nx"&gt;ρυθμισμένα&lt;/span&gt; &lt;span class="nx"&gt;να&lt;/span&gt; &lt;span class="nx"&gt;χρησιμοποιούν&lt;/span&gt; &lt;span class="nx"&gt;το&lt;/span&gt; &lt;span class="nx"&gt;backslash&lt;/span&gt; &lt;span class="nx"&gt;αλλά&lt;/span&gt;
 &lt;span class="s2"&gt;&amp;quot;μπορούμε να αλλάξουμε την τιμή τους. Οι καρτέλες δεν έχουν και πολύ νόημα&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;σε&lt;/span&gt; &lt;span class="nx"&gt;X&lt;/span&gt; &lt;span class="err"&gt;τερματικά&lt;/span&gt; &lt;span class="err"&gt;μια&lt;/span&gt; &lt;span class="err"&gt;και&lt;/span&gt; &lt;span class="err"&gt;υποστηρίζουν&lt;/span&gt; &lt;span class="err"&gt;και&lt;/span&gt; &lt;span class="err"&gt;αυτά&lt;/span&gt; &lt;span class="err"&gt;καρτέλες&lt;/span&gt; &lt;span class="err"&gt;αλλά&lt;/span&gt; &lt;span class="err"&gt;είναι&lt;/span&gt; &lt;span class="err"&gt;χρήσιμες&lt;/span&gt; &lt;span class="err"&gt;στην&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;σε&lt;/span&gt; &lt;span class="nx"&gt;X&lt;/span&gt; &lt;span class="nx"&gt;τερματικά&lt;/span&gt; &lt;span class="nx"&gt;μια&lt;/span&gt; &lt;span class="nx"&gt;και&lt;/span&gt; &lt;span class="nx"&gt;υποστηρίζουν&lt;/span&gt; &lt;span class="nx"&gt;και&lt;/span&gt; &lt;span class="nx"&gt;αυτά&lt;/span&gt; &lt;span class="nx"&gt;καρτέλες&lt;/span&gt; &lt;span class="nx"&gt;αλλά&lt;/span&gt; &lt;span class="nx"&gt;είναι&lt;/span&gt; &lt;span class="nx"&gt;χρήσιμες&lt;/span&gt; &lt;span class="nx"&gt;στην&lt;/span&gt;
 &lt;span class="s2"&gt;&amp;quot;κονσόλα.&lt;/span&gt;
 
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;Αλλαγή&lt;/span&gt; &lt;span class="err"&gt;των&lt;/span&gt; &lt;span class="err"&gt;πλήκτρων&lt;/span&gt; &lt;span class="nx"&gt;leader&lt;/span&gt; &lt;span class="err"&gt;από&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="nb"&gt;default&lt;/span&gt; &lt;span class="o"&gt;\&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;Αλλαγή&lt;/span&gt; &lt;span class="nx"&gt;των&lt;/span&gt; &lt;span class="nx"&gt;πλήκτρων&lt;/span&gt; &lt;span class="nx"&gt;leader&lt;/span&gt; &lt;span class="nx"&gt;από&lt;/span&gt; &lt;span class="nx"&gt;το&lt;/span&gt; &lt;span class="nb"&gt;default&lt;/span&gt; &lt;span class="o"&gt;\&lt;/span&gt;
 &lt;span class="s2"&gt;&amp;quot;let mapleader = &amp;#39;,&amp;#39;&lt;/span&gt;
 &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;let&lt;/span&gt; &lt;span class="n"&gt;maplocalleader&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;,&amp;#39;&lt;/span&gt;
 
 &lt;span class="s2"&gt;&amp;quot;Αποθήκευση αρχείου&lt;/span&gt;
 &lt;span class="s2"&gt;nmap &amp;lt;leader&amp;gt;w :w&amp;lt;cr&amp;gt;&lt;/span&gt;
 
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;Μεταφορά&lt;/span&gt; &lt;span class="err"&gt;στο&lt;/span&gt; &lt;span class="err"&gt;προηγούμενο&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;επόμενο&lt;/span&gt; &lt;span class="nx"&gt;buffer&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;Μεταφορά&lt;/span&gt; &lt;span class="nx"&gt;στο&lt;/span&gt; &lt;span class="nx"&gt;προηγούμενο&lt;/span&gt;&lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;επόμενο&lt;/span&gt; &lt;span class="nx"&gt;buffer&lt;/span&gt;
 &lt;span class="nx"&gt;nmap&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;leader&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nb"&gt;n&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;bn&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;span class="nx"&gt;nmap&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;leader&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nx"&gt;p&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;bp&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 
 &lt;span class="s2"&gt;&amp;quot;Άνοιγμα νέας καρτέλας&lt;/span&gt;
 &lt;span class="s2"&gt;nmap &amp;lt;leader&amp;gt;to :tabnew&amp;lt;cr&amp;gt;&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;Κλείσιμο&lt;/span&gt; &lt;span class="err"&gt;τρέχουσας&lt;/span&gt; &lt;span class="err"&gt;καρτέλας&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;Κλείσιμο&lt;/span&gt; &lt;span class="nx"&gt;τρέχουσας&lt;/span&gt; &lt;span class="nx"&gt;καρτέλας&lt;/span&gt;
 &lt;span class="nx"&gt;nmap&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;leader&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nx"&gt;tc&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;tabclose&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;span class="s2"&gt;&amp;quot;Μεταφορά στην προηγούμενη/επόμενη καρτέλα&lt;/span&gt;
 &lt;span class="s2"&gt;nmap &amp;lt;leader&amp;gt;tn :tabnext&amp;lt;cr&amp;gt;&lt;/span&gt;
 &lt;span class="s2"&gt;nmap &amp;lt;leader&amp;gt;tp :tabprev&amp;lt;cr&amp;gt;&lt;/span&gt;
 
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;Κατάργηση&lt;/span&gt; &lt;span class="err"&gt;των&lt;/span&gt; &lt;span class="err"&gt;βελακίων&lt;/span&gt; &lt;span class="err"&gt;ώστε&lt;/span&gt; &lt;span class="err"&gt;να&lt;/span&gt; &lt;span class="err"&gt;γίνουν&lt;/span&gt; &lt;span class="err"&gt;συνήθεια&lt;/span&gt; &lt;span class="err"&gt;τα&lt;/span&gt; &lt;span class="nx"&gt;hjkl.&lt;/span&gt; 
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;Κατάργηση&lt;/span&gt; &lt;span class="nx"&gt;των&lt;/span&gt; &lt;span class="nx"&gt;βελακίων&lt;/span&gt; &lt;span class="nx"&gt;ώστε&lt;/span&gt; &lt;span class="nx"&gt;να&lt;/span&gt; &lt;span class="nx"&gt;γίνουν&lt;/span&gt; &lt;span class="nx"&gt;συνήθεια&lt;/span&gt; &lt;span class="nx"&gt;τα&lt;/span&gt; &lt;span class="nx"&gt;hjkl.&lt;/span&gt; 
 &lt;span class="s2"&gt;&amp;quot;Τα απενεργοποιούμε μόνο στην normal κατάσταση&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;γιατί&lt;/span&gt; &lt;span class="err"&gt;στην&lt;/span&gt; &lt;span class="nb"&gt;insert&lt;/span&gt; &lt;span class="err"&gt;και&lt;/span&gt; &lt;span class="err"&gt;στην&lt;/span&gt; &lt;span class="nb"&gt;command&lt;/span&gt; &lt;span class="err"&gt;δεν&lt;/span&gt; &lt;span class="err"&gt;υπάρχουν&lt;/span&gt; &lt;span class="err"&gt;εναλλακτικές&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;εκτός&lt;/span&gt; &lt;span class="err"&gt;από&lt;/span&gt; &lt;span class="nx"&gt;macros&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nx"&gt;.&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;γιατί&lt;/span&gt; &lt;span class="nx"&gt;στην&lt;/span&gt; &lt;span class="nb"&gt;insert&lt;/span&gt; &lt;span class="nx"&gt;και&lt;/span&gt; &lt;span class="nx"&gt;στην&lt;/span&gt; &lt;span class="nb"&gt;command&lt;/span&gt; &lt;span class="nx"&gt;δεν&lt;/span&gt; &lt;span class="nx"&gt;υπάρχουν&lt;/span&gt; &lt;span class="nx"&gt;εναλλακτικές&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;εκτός&lt;/span&gt; &lt;span class="nx"&gt;από&lt;/span&gt; &lt;span class="nx"&gt;macros&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nx"&gt;.&lt;/span&gt;
 
 &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="nb"&gt;encoding&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;
   &lt;span class="nx"&gt;nnoremap&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Left&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;     &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;echoerr&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Το h αγκάθια έχει?&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
@@ -596,58 +596,58 @@
 
 &lt;span class="s2"&gt;&amp;quot;Για συγγραφή latex&lt;/span&gt;
 &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;assign&lt;/span&gt; &lt;span class="nx"&gt;keyboard&lt;/span&gt; &lt;span class="nx"&gt;commands&lt;/span&gt; &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nx"&gt;using&lt;/span&gt; &lt;span class="nx"&gt;the&lt;/span&gt; &lt;span class="nx"&gt;greek&lt;/span&gt; &lt;span class="nx"&gt;keyboard&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Α&lt;/span&gt; &lt;span class="nx"&gt;A&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Β&lt;/span&gt; &lt;span class="nx"&gt;B&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Ψ&lt;/span&gt; &lt;span class="nx"&gt;C&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Δ&lt;/span&gt; &lt;span class="nb"&gt;D&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Ε&lt;/span&gt; &lt;span class="nx"&gt;E&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Φ&lt;/span&gt; &lt;span class="nb"&gt;F&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Γ&lt;/span&gt; &lt;span class="nx"&gt;G&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Η&lt;/span&gt; &lt;span class="nx"&gt;H&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Ι&lt;/span&gt; &lt;span class="nx"&gt;I&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Ξ&lt;/span&gt; &lt;span class="nx"&gt;J&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Κ&lt;/span&gt; &lt;span class="nx"&gt;K&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Λ&lt;/span&gt; &lt;span class="nx"&gt;L&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Μ&lt;/span&gt; &lt;span class="nx"&gt;M&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Ν&lt;/span&gt; &lt;span class="nb"&gt;N&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Ο&lt;/span&gt; &lt;span class="nx"&gt;O&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Π&lt;/span&gt; &lt;span class="nx"&gt;P&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Α&lt;/span&gt; &lt;span class="nx"&gt;A&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Β&lt;/span&gt; &lt;span class="nx"&gt;B&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Ψ&lt;/span&gt; &lt;span class="nx"&gt;C&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Δ&lt;/span&gt; &lt;span class="nb"&gt;D&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Ε&lt;/span&gt; &lt;span class="nx"&gt;E&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Φ&lt;/span&gt; &lt;span class="nb"&gt;F&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Γ&lt;/span&gt; &lt;span class="nx"&gt;G&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Η&lt;/span&gt; &lt;span class="nx"&gt;H&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Ι&lt;/span&gt; &lt;span class="nx"&gt;I&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Ξ&lt;/span&gt; &lt;span class="nx"&gt;J&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Κ&lt;/span&gt; &lt;span class="nx"&gt;K&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Λ&lt;/span&gt; &lt;span class="nx"&gt;L&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Μ&lt;/span&gt; &lt;span class="nx"&gt;M&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Ν&lt;/span&gt; &lt;span class="nb"&gt;N&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Ο&lt;/span&gt; &lt;span class="nx"&gt;O&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Π&lt;/span&gt; &lt;span class="nx"&gt;P&lt;/span&gt;
 &lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Q&lt;/span&gt; &lt;span class="nx"&gt;Q&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Ρ&lt;/span&gt; &lt;span class="nb"&gt;R&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Σ&lt;/span&gt; &lt;span class="nb"&gt;S&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Τ&lt;/span&gt; &lt;span class="nb"&gt;T&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Θ&lt;/span&gt; &lt;span class="nx"&gt;U&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Ω&lt;/span&gt; &lt;span class="nx"&gt;V&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Ρ&lt;/span&gt; &lt;span class="nb"&gt;R&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Σ&lt;/span&gt; &lt;span class="nb"&gt;S&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Τ&lt;/span&gt; &lt;span class="nb"&gt;T&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Θ&lt;/span&gt; &lt;span class="nx"&gt;U&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Ω&lt;/span&gt; &lt;span class="nx"&gt;V&lt;/span&gt;
 &lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;W&lt;/span&gt; &lt;span class="nx"&gt;W&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Χ&lt;/span&gt; &lt;span class="nx"&gt;X&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Υ&lt;/span&gt; &lt;span class="nx"&gt;Y&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Ζ&lt;/span&gt; &lt;span class="nb"&gt;Z&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;α&lt;/span&gt; &lt;span class="nx"&gt;a&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;β&lt;/span&gt; &lt;span class="nx"&gt;b&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ψ&lt;/span&gt; &lt;span class="nx"&gt;c&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;δ&lt;/span&gt; &lt;span class="nb"&gt;d&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ε&lt;/span&gt; &lt;span class="nx"&gt;e&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;φ&lt;/span&gt; &lt;span class="nb"&gt;f&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;γ&lt;/span&gt; &lt;span class="nx"&gt;g&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;η&lt;/span&gt; &lt;span class="nx"&gt;h&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ι&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ξ&lt;/span&gt; &lt;span class="nx"&gt;j&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;κ&lt;/span&gt; &lt;span class="nx"&gt;k&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;λ&lt;/span&gt; &lt;span class="nx"&gt;l&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;μ&lt;/span&gt; &lt;span class="nx"&gt;m&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ν&lt;/span&gt; &lt;span class="nb"&gt;n&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ο&lt;/span&gt; &lt;span class="nx"&gt;o&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;π&lt;/span&gt; &lt;span class="nx"&gt;p&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Χ&lt;/span&gt; &lt;span class="nx"&gt;X&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Υ&lt;/span&gt; &lt;span class="nx"&gt;Y&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Ζ&lt;/span&gt; &lt;span class="nb"&gt;Z&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;α&lt;/span&gt; &lt;span class="nx"&gt;a&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;β&lt;/span&gt; &lt;span class="nx"&gt;b&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;ψ&lt;/span&gt; &lt;span class="nx"&gt;c&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;δ&lt;/span&gt; &lt;span class="nb"&gt;d&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;ε&lt;/span&gt; &lt;span class="nx"&gt;e&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;φ&lt;/span&gt; &lt;span class="nb"&gt;f&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;γ&lt;/span&gt; &lt;span class="nx"&gt;g&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;η&lt;/span&gt; &lt;span class="nx"&gt;h&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;ι&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;ξ&lt;/span&gt; &lt;span class="nx"&gt;j&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;κ&lt;/span&gt; &lt;span class="nx"&gt;k&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;λ&lt;/span&gt; &lt;span class="nx"&gt;l&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;μ&lt;/span&gt; &lt;span class="nx"&gt;m&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;ν&lt;/span&gt; &lt;span class="nb"&gt;n&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;ο&lt;/span&gt; &lt;span class="nx"&gt;o&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;π&lt;/span&gt; &lt;span class="nx"&gt;p&lt;/span&gt;
 &lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;q&lt;/span&gt; &lt;span class="nx"&gt;q&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ρ&lt;/span&gt; &lt;span class="nb"&gt;r&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;σ&lt;/span&gt; &lt;span class="nb"&gt;s&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;τ&lt;/span&gt; &lt;span class="nb"&gt;t&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;θ&lt;/span&gt; &lt;span class="nx"&gt;u&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ω&lt;/span&gt; &lt;span class="nx"&gt;v&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ς&lt;/span&gt; &lt;span class="nx"&gt;w&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;χ&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;υ&lt;/span&gt; &lt;span class="nx"&gt;y&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ζ&lt;/span&gt; &lt;span class="nb"&gt;z&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;ρ&lt;/span&gt; &lt;span class="nb"&gt;r&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;σ&lt;/span&gt; &lt;span class="nb"&gt;s&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;τ&lt;/span&gt; &lt;span class="nb"&gt;t&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;θ&lt;/span&gt; &lt;span class="nx"&gt;u&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;ω&lt;/span&gt; &lt;span class="nx"&gt;v&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;ς&lt;/span&gt; &lt;span class="nx"&gt;w&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;χ&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;υ&lt;/span&gt; &lt;span class="nx"&gt;y&lt;/span&gt;
+&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;ζ&lt;/span&gt; &lt;span class="nb"&gt;z&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
