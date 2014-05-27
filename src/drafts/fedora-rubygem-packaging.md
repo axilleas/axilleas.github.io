@@ -3,29 +3,20 @@ Category: geek
 Tags: fedora, rubygem, ruby, packaging
 Status: draft
 
-TODO: dude cookies -> dude lines :p
+There are different guidelines for Fedora 21, Fedora19/20 and EPEL 6/7.
+Given that Fedora 21 will soon be released and f19 will be EOLed, there are
+three different guidelines:
 
-Ok, this is going to be a really long post so bare with me, there are cookies along
-the way :)
+* Fedora 21
+* Fedora 20
+* EPEL 6/7
 
-It's been almost three months that I have been dealing with packaging in Fedora
-and especially with Ruby gems. In this article I'll talk about the things I learned
-these past months, the difficulties I encountered and how I got past them.
-Hopefully, this is going to be a good starting point for all those wanting to
-contribute in Fedora Ruby gem packaging and have a hard time understanding
-the process (like I used to).
+The main reason is that Fedora 21 will ship with the newest Ruby (2.1.1), hence
+the guidelines will differ (especially for gems with native extensions). I will
+try and pinpoint those differences below.
 
-To be honest, there is a ton of information one has to process and this might be
-a little overwhelming in the beginning. I'll try to guide you through what to read
-first and not get lost. At the end of this article I have compiled a list of helpful
-links.
+[Different][wiki-old] guidelines apply to previous versions.
 
-There are bits and pieces that I took from discussion on irc or questions in [Ruby-sig][]
-mailing list.
-
-I am focusing on `ruby >= 1.9.1` and Fedora >= 19. [Different][wiki-old] guidelines
-apply to previous versions. Maybe I will dedicate a section of how to build on older
-versions or EPEL, but that is not my priority for now.
 
 [TOC]
 
@@ -35,8 +26,24 @@ If you are completely new to packaging then [How to create an RPM package](https
 is a good starting point. The next step is to read [Packaging Ruby](https://fedoraproject.org/wiki/Packaging:Ruby)
 for specific Ruby guidelines.
 
-In short you should do
+You can also seek help in `#fedora-ruby` @ freenode or send an e-mail to [ruby-sig][] mailing list. 
+Seeing how other rubygems are packaged can be of help as well.
 
+# Fedora or/and EPEL
+
+In RHEL 6.5 was released [rubygems errata][errata], which adds rubygems-devel subpackage with all rubygems macros you are used to already for several releases of Fedora. Namely, you should be able to use:
+
+```
+%gem_dir
+%gem_instdir
+%gem_libdir
+%gem_cache
+%gem_spec
+%gem_docdir
+%gem_install 
+```
+
+Speaking of EPEL6, you still need some fancy macros to cover the ruby(abi) vs ruby(release) difference, but that is all the difference. 
 
 
 # Anatomy of a spec file
@@ -152,19 +159,21 @@ Prefer to put %check after %install
 2) it depends on implementation, but the %check section might be executable only on installed package. If that is the case, then it is natural to see it after the %install section
 3) during the build, the %check is executed after %install section, so it is just convenient to follow the order in .spec file as well.
 
-## rpmlint is your friend
+## rpmlint
 
 - rpmlint gives this: rubygem-{gem-name}.noarch: E: script-without-shebang /usr/share/gems/gems/{gem-name}-1.1.0/lib/
 Choose one: add shebang or remove executable permission. (I was told on #fedora-devel, that this happens if files are set executable without shebang)
 eg specfile : https://bugzilla.redhat.com/show_bug.cgi?id=839650 | http://v3.sk/~hexo/rpm/rubygem-awesome_print.spec
 
+## polisher
+
 ## mock
 
 ## koji
 
-## Difficulties
+# Caveats
 
-### Test suites
+## Test suites
 
 koji / mock builds will not have a live running instance of mysql just to perform that check.
 If a test requires a running instance of mysql, it will not work regardless.
@@ -185,7 +194,7 @@ Above, the word "checks" is not reserved, just seemed fitting.  use whatever you
 
 - If I have a gem that provides a configuration.yml.example for rspec, and expects me to rename the file to configuration.yml with my details in it, how do I go about it? Or can I just skip it? (eg. mysql2-0.3.12b6)
 
-#### sed is your friend
+### sed is your friend
 
 You will encounter many times failing tests due to some gems not yet packaged
 in Fedora or bugs inside the test suite. Fear not. These tests can probably pass
@@ -202,7 +211,7 @@ examples.
 did such change. It's even better practice to include a link to a discussion with
 upstream mentioning the bug you encountered or a fix to be released soon.
 
-### Shebangs and executables
+## Shebangs and executables
 
 ```
 # Fix anything executable that does not have a shebang
@@ -216,7 +225,7 @@ for file in `find ./%{gem_instdir} -type f ! -perm /a+x -name "*.rb"`; do
 done
 ```
 
-### Relax dependencies
+## Relax dependencies
 
 example: http://pkgs.fedoraproject.org/cgit/rubygem-actionpack.git/tree/?h=f19
 
@@ -255,7 +264,7 @@ path => dir/specifications/foo.gemspec => use `-p1`:
     a/specifications/foo.gemspec
     b/specifications/foo.gemspec
 
-## My workflow
+# My workflow
 
 Let's take hashie gem for example.
 
@@ -395,7 +404,7 @@ or for rawhide:
 
     koji build --scratch rawhide ../SRPMS/rubygem-hashie-2.0.5-1.fc19.src.rpm
 
-### Additional to consider
+## Additional to consider
 
 This was an easy package. Other gems are more difficult to package, for example:
 
@@ -409,7 +418,7 @@ if in lib ..
 - gem that is missing packages needed for building and are not in Fedora's repos
 - gem that includes non executable scripts
 
-## FAQ
+# FAQ
 
 - Another question is about runtime dependencies and development dependencies. Wouldn't the development dependencies be important for the test suite to run successfully?
 
@@ -483,20 +492,20 @@ brackets should correspond with file name, which can be required.
 
 
 
-## Link references
+# Link references
 
-### Package maintainers
+## Package maintainers
 
 - [Category:Package Maintainers](https://fedoraproject.org/wiki/Category:Package_Maintainers)
 
-### Guidelines
+## Guidelines
 - [Packaging](https://fedoraproject.org/wiki/Packaging:Guidelines)
 - [Licensing](https://fedoraproject.org/wiki/Packaging:LicensingGuidelines)
 - [Naming](https://fedoraproject.org/wiki/Packaging:NamingGuidelines)
 - [Dist Tag](https://fedoraproject.org/wiki/Packaging:DistTag)
 - [Review](https://fedoraproject.org/wiki/Packaging:ReviewGuidelines)
 
-### Packaging Guides
+## Packaging Guides
 
 - [Packaging Ruby](https://fedoraproject.org/wiki/Packaging:Ruby)
 - [How to create an RPM package](https://fedoraproject.org/wiki/How_to_create_an_RPM_package)
@@ -506,28 +515,28 @@ brackets should correspond with file name, which can be required.
 - [Package update HOWTO](https://fedoraproject.org/wiki/Package_update_HOWTO)
 - [Packagers Guide](http://docs.fedoraproject.org/en-US/Fedora_Draft_Documentation/0.1/html/Packagers_Guide/)
 
-### Git
+## Git
 - [Using Fedora GIT](https://fedoraproject.org/wiki/Using_Fedora_GIT)
 - [Using git FAQ for package maintainers](https://fedoraproject.org/wiki/Using_git_FAQ_for_package_maintainers)
 
 
-### Testing spec/srpm/rpm
+## Testing spec/srpm/rpm
 - [Common Rpmlint issues](https://fedoraproject.org/wiki/Common_Rpmlint_issues)
 - [Using Mock to test package builds](https://fedoraproject.org/wiki/Using_Mock_to_test_package_builds)
 - [Using the Koji build system](https://fedoraproject.org/wiki/Using_the_Koji_build_system)
 - [Test Machine Resources For Package_Maintainers](https://fedoraproject.org/wiki/Test_Machine_Resources_For_Package_Maintainers)
 
 
-### Policy
+## Policy
 - [Package maintainer policy](https://fedoraproject.org/wiki/Package_maintainer_policy)
 - [Package maintainer responsibilities](https://fedoraproject.org/wiki/Package_maintainer_responsibilities)
 
 
-### Review
+## Review
 - [Package Review Process](https://fedoraproject.org/wiki/Package_Review_Process)
 - [Policy for stalled package reviews](https://fedoraproject.org/wiki/Policy_for_stalled_package_reviews)
 
-### Misc
+## Misc
 - [Fedorapeople Repos](https://fedoraproject.org/wiki/Fedorapeople_Repos)
 
 
