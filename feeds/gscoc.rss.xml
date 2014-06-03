@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Over the line</title><link>http://axilleas.me/</link><description></description><atom:link href="http://axilleas.me/feeds/gscoc.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 27 May 2014 00:00:00 +0300</lastBuildDate><item><title>GSoC-2014 isitfedoraruby - Week 1</title><link>http://axilleas.me/en/blog/2014/gsoc2014-week-one</link><description>&lt;p&gt;In case you haven't heard, I have been accepted again this year
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Over the line</title><link>http://axilleas.me/</link><description></description><atom:link href="http://axilleas.me/feeds/gscoc.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 03 Jun 2014 00:00:00 +0300</lastBuildDate><item><title>GSoC-2014 isitfedoraruby - Week 2</title><link>http://axilleas.me/en/blog/2014/gsoc2014-week-two</link><description>&lt;p&gt;Here's what I've been doing last week.&lt;/p&gt;
+&lt;h1 id="previous-week"&gt;Previous week&lt;/h1&gt;
+&lt;h2 id="architecture-analysis"&gt;Architecture analysis&lt;/h2&gt;
+&lt;p&gt;Getting to know an app from the ground up takes some time, especially if that's
+a framework you are not too familiar with. Luckilly, I found the &lt;a href="http://railroady.prestonlee.com/" title="railroady home page"&gt;railroady&lt;/a&gt; gem
+that helped me visualize how the app is structured, you can find the results 
+&lt;a href="https://gitlab.com/fedora-ruby/isitfedoraruby/tree/deploy/doc" title="Models/Controllers visualization"&gt;here&lt;/a&gt; (click on one of them and see them as raw).&lt;/p&gt;
+&lt;h2 id="deploy-to-a-testing-server"&gt;Deploy to a testing server&lt;/h2&gt;
+&lt;p&gt;Heroku might be a nice option, but their plans were limiting the database rows.
+Instead, I spawned a Fedora 20 droplet in digitalocean and &lt;a href="http://fedoraruby.axilleas.me" title="Testing instance of isitfedoraruby app"&gt;deployed&lt;/a&gt; it there.
+I used postgres as a database backend, unicorn serving the app and nginx as
+a reverse proxy.&lt;/p&gt;
+&lt;p&gt;First of all, I had to &lt;a href="https://docs.fedoraproject.org/en-US/Fedora/13/html/Security-Enhanced_Linux/sect-Security-Enhanced_Linux-Working_with_SELinux-Enabling_and_Disabling_SELinux.html" title="Enabling and Disabling SELinux"&gt;enable SELinux&lt;/a&gt;, I &lt;a href="http://stopdisablingselinux.com/" title="Seriously, stop disabling SELinux"&gt;had&lt;/a&gt; to,
+it was off by default. Then I changed a boolean to make nginx work:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;setsebool&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;P&lt;/span&gt; &lt;span class="n"&gt;httpd_can_network_connect&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2 id="started-fixing-bugs"&gt;Started fixing bugs&lt;/h2&gt;
+&lt;p&gt;I keep finding small bugs that I currently keep track in my &lt;a href="https://trello.com/b/4aOmUpEC/fedora-ruby" title="trello board for my progress"&gt;trello&lt;/a&gt; board.
+There is currently a &lt;a href="https://github.com/zuhao/isitfedoraruby/issues/50" title="GitHub discussion: Move repo to general namespace"&gt;discussion&lt;/a&gt; to move isitfedoraruby to a more general
+namespace, so until then I'm working on my fork and the trello board.&lt;/p&gt;
+&lt;h1 id="this-week"&gt;This week&lt;/h1&gt;
+&lt;h2 id="setting-up-rspec"&gt;Setting up rspec&lt;/h2&gt;
+&lt;p&gt;As this is the primary testing tool, I have started writing the first scenarios
+and along the way I'll be adding the actual tests.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 03 Jun 2014 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2014-06-03:en/blog/2014/gsoc2014-week-two</guid><category>fedora</category><category>isitfedoraruby</category><category>gscoc</category><category>ruby</category><category>rails</category><category>webdev</category></item><item><title>GSoC-2014 isitfedoraruby - Week 1</title><link>http://axilleas.me/en/blog/2014/gsoc2014-week-one</link><description>&lt;p&gt;In case you haven't heard, I have been accepted again this year
 for Google Summer of Code :) This time I will be working on enhancing
 a Rails app that provides information about the state of rubygem
 packaging in Fedora.&lt;/p&gt;
