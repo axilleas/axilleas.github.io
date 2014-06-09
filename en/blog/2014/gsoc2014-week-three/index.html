@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title>GSoC-2014 isitfedoraruby - Week 3</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="-1" />
+        <link rel="stylesheet" href="/theme/style/reset.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/screen.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/friendly.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/print.css" type="text/css" media="print" />
+        <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+</head>
+<body>
+    <header id="main">
+        <div class="container">
+            <div class="logo">
+                <p><a href="/" title="Home">Over the line</a> <span class="welcome">Yeah, well, you know, that's just, like, my opinion, man.</span></p>
+            </div>
+        </div>
+    </header>
+
+    <div class="splash">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a></li>
+                    <li><a href="/about">whoami</a></li>
+                    <li><a href="/rss">Rss Feed</a></li>
+                <li><a href="/archives.html" title="Archive">Archive</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container content">
+<article>
+    <header>
+<h1><a href="/en/blog/2014/gsoc2014-week-three" rel="bookmark">
+    GSoC-2014 isitfedoraruby - Week 3
+</a></h1>
+<time datetime="2014-06-09 00:00:00" pubdate>Posted on
+    Mon 09 June 2014
+</time>
+<address class="vcard author">
+    by <a class="url fn" href="/author/axil.html">
+    axil</a>
+</address>
+<span class="category">in <a href="/category/geek.html">
+    geek</a>.
+        </span>
+    </header>
+
+    <div class="body">
+        <p>Testing, testing, testing.
+Diving into BDD for the first time can be a little tedious but you sure learn
+a lot. In the ruby/rails world there is a ton of excellent tools to help you
+test your app. Some more popular than the others. I'm no exception so I
+picked what the majority of the community dictated.</p>
+<h1 id="testing-tools">Testing tools</h1>
+<h2 id="rspec">Rspec</h2>
+<p>The Rspec test suite is well established among ruby developers and has a big
+community to support it. You can also find many good books about it. One that
+I highly recommend is <a href="https://leanpub.com/everydayrailsrspec" title="Everyday Rails Testing with RSpec">Everyday Rails Testing with RSpec</a>. It
+basically includes all the tools I'll be using, I'm a little biased I admit it
+but it is really worth it.</p>
+<p>Here are the specs that will be populated with tests over time.</p>
+<div class="codehilite"><pre><span class="n">models</span>
+<span class="err">├──</span> <span class="n">bug_spec</span><span class="p">.</span><span class="n">rb</span>
+<span class="err">├──</span> <span class="n">build_spec</span><span class="p">.</span><span class="n">rb</span>
+<span class="err">├──</span> <span class="n">dependency_spec</span><span class="p">.</span><span class="n">rb</span>
+<span class="err">├──</span> <span class="n">fedora_rpm_spec</span><span class="p">.</span><span class="n">rb</span>
+<span class="err">├──</span> <span class="n">rpm_version_spec</span><span class="p">.</span><span class="n">rb</span>
+<span class="err">└──</span> <span class="n">ruby_gem_spec</span><span class="p">.</span><span class="n">rb</span>
+</pre></div>
+
+
+<p>Currently, I have worked only on <code>bug_spec.rb</code> which is finished for the time
+being.</p>
+<div class="codehilite"><pre><span class="c1"># app/spec/models/bug_spec.rb</span>
+<span class="c1">#</span>
+<span class="c1"># == Schema Information</span>
+<span class="c1">#</span>
+<span class="c1"># Table name: bugs</span>
+<span class="c1">#</span>
+<span class="c1">#  id            :integer          not null, primary key</span>
+<span class="c1">#  name          :string(255)</span>
+<span class="c1">#  bz_id         :string(255)</span>
+<span class="c1">#  fedora_rpm_id :integer</span>
+<span class="c1">#  is_review     :boolean</span>
+<span class="c1">#  created_at    :datetime</span>
+<span class="c1">#  updated_at    :datetime</span>
+<span class="c1">#  last_updated  :string(255)</span>
+<span class="c1">#  is_open       :boolean</span>
+<span class="c1">#</span>
+<span class="nb">require</span> <span class="s1">&#39;rails_helper&#39;</span>
+
+<span class="n">describe</span> <span class="no">Bug</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s1">&#39;has valid factory&#39;</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">create</span><span class="p">(</span><span class="ss">:bug</span><span class="p">))</span><span class="o">.</span><span class="n">to</span> <span class="n">be_valid</span>
+  <span class="k">end</span>
+
+  <span class="n">before</span><span class="p">(</span><span class="ss">:all</span><span class="p">)</span> <span class="k">do</span>
+    <span class="vi">@bug</span> <span class="o">=</span> <span class="n">create</span><span class="p">(</span><span class="ss">:bug</span><span class="p">)</span>
+    <span class="vi">@bugzilla_url</span> <span class="o">=</span> <span class="s1">&#39;https://bugzilla.redhat.com/show_bug.cgi?id=&#39;</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s1">&#39;has valid bugzilla url&#39;</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">(</span><span class="vi">@bug</span><span class="o">.</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">match</span><span class="p">(</span><span class="sr">/</span><span class="si">#{</span><span class="no">Regexp</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="vi">@bugzilla_url</span><span class="p">)</span><span class="si">}</span><span class="sr">\d+/</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s1">&#39;is a Review Request&#39;</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">(</span><span class="vi">@bug</span><span class="o">.</span><span class="n">is_review</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span> <span class="kp">true</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s1">&#39;is open&#39;</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">(</span><span class="vi">@bug</span><span class="o">.</span><span class="n">is_open</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span> <span class="kp">true</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s1">&#39;is closed&#39;</span> <span class="k">do</span>
+    <span class="vi">@bug</span><span class="o">.</span><span class="n">is_open</span> <span class="o">=</span> <span class="kp">false</span>
+    <span class="n">expect</span><span class="p">(</span><span class="vi">@bug</span><span class="o">.</span><span class="n">is_open</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span> <span class="kp">false</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+</pre></div>
+
+
+<p>Here I'm using the new rspec method <code>expect(object).to</code> instead of the old one
+<code>object.should</code>. </p>
+<p>In the validation of the bugzilla url I wanted to test against a regular
+expression that would return the bug url and bug number. At first I used
+<code>/#{@bugzilla_url}\d+/</code> but that was interpreted into
+<code>/https:\/\/bugzilla.redhat.com\/show_bug.cgi?id=\d+/</code>. So, the slashes where
+treated as regexp wildcards. The trick I <a href="http://stackoverflow.com/a/150598/2137281" title="Interpolating a string into a regex">learned</a> is to enclose
+the string into <code>Regexp.quote(str)</code>. This method escapes any characters that
+would otherwise have special meaning<sup id="fnref:ruby-doc"><a class="footnote-ref" href="#fn:ruby-doc" rel="footnote">1</a></sup>.</p>
+<h2 id="factorygirl">FactoryGirl</h2>
+<p>FactoryGirl is a replacement for fixtures, Rails' default way of creating test
+data. In my first attempt I used it to create a Bug object.</p>
+<div class="codehilite"><pre><span class="c1"># app/spec/factories/bugs.rb</span>
+
+<span class="no">FactoryGirl</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+  <span class="n">factory</span> <span class="ss">:bug</span> <span class="k">do</span> <span class="o">|</span><span class="n">b</span><span class="o">|</span>
+    <span class="n">b</span><span class="o">.</span><span class="n">bz_id</span> <span class="s1">&#39;12345&#39;</span>
+    <span class="n">b</span><span class="o">.</span><span class="n">is_review</span> <span class="kp">true</span>
+    <span class="n">b</span><span class="o">.</span><span class="n">is_open</span> <span class="kp">true</span>
+  <span class="k">end</span> 
+<span class="k">end</span>
+</pre></div>
+
+
+<p>So, when I call <code>create(:bug)</code> in my <code>bug_spec.rb</code> it automatically creates
+a new Bug object in the database with the predefined attributes I gave it
+in the factory file. I could probably use <code>build(:bug)</code> instead of <code>create</code>
+and that would simply create the object but not save it in the database.
+This could get a lot better since it takes 2.2 seconds to just run 5 tests.
+Refactoring will come later, I'll primarily focus on making enough tests to
+cover as many edge cases as I can find.</p>
+<h2 id="cucumbercapybara">Cucumber/capybara</h2>
+<p>So far I talked about unit testing. When it comes to integration testing,
+that is how the application as a whole behaves, there is <code>cucumber</code> and <code>capybara</code>.
+I haven't actually used any of these two yet. Cucumber is known for its
+descriptive language and better used when one works with a non-programmer
+product owner that doesn't want to look at a lot of code<sup id="fnref:quote"><a class="footnote-ref" href="#fn:quote" rel="footnote">2</a></sup>. I'll probably
+just go with capybara.</p>
+<h1 id="setting-a-rails-development-environment">Setting a Rails development environment</h1>
+<p>I spent quite a lot of time to find the proper gems and configuration to
+have a nice setup. This will do for an article of its own so I won't go into
+details.</p>
+<h1 id="todos">TODOs</h1>
+<p>Except for preparing the test suite, I'm also into cleaning the code where
+possible and necessary. There are some functions that need removing, but I
+have to do it carefully, don't want to break anything and without tests I
+cannot be 100% sure. So far I have used the <a href="https://github.com/bbatsov/rubocop" title="A Ruby static code analyzer, based on the community Ruby style guide">rubocop</a> gem with some
+interesting findings (exactly 666 warnings/errors). I will talk about it next week.
+Now go and watch the <a href="https://www.youtube.com/watch?v=CamAhPeYoC8" title="Six six six">Number of the beast</a>.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:ruby-doc">
+<p><a href="http://ruby-doc.org/core-2.1.2/Regexp.html#method-c-quote">http://ruby-doc.org/core-2.1.2/Regexp.html#method-c-quote</a>&#160;<a class="footnote-backref" href="#fnref:ruby-doc" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:quote">
+<p>Quote taken from Everyday Rails Testing with RSpec&#160;<a class="footnote-backref" href="#fnref:quote" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+    </div>
+
+    <footer>
+        <ul class="tags">
+        Tags:
+            <li><a href="/tag/fedora.html">fedora</a></li>
+            <li><a href="/tag/isitfedoraruby.html">isitfedoraruby</a></li>
+            <li><a href="/tag/gsoc.html">gsoc</a></li>
+            <li><a href="/tag/ruby.html">ruby</a></li>
+            <li><a href="/tag/rails.html">rails</a></li>
+            <li><a href="/tag/webdev.html">webdev</a></li>
+        </ul>
+    </footer>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'kissmyarch'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</article>
+    </div>
+
+    <div class="container footnote">
+        <a href="javascript:window.print();" title="Print">Print</a>
+    </div>
+
+
+
+    <footer>
+        <div class="container footer">
+            <span>Powered by <a href="http://docs.getpelican.com">
+                Pelican</a> using <a href="https://github.com/BYK/pelican-neat">
+                neat theme</a>. 
+            </span>
+            <nav>
+                <ul>
+                    <li><a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a></li>
+                <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img
+                    alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+     <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik-glb.rhcloud.com/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "5"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+</body>
+</html>

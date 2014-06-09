@@ -1,5 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Over the line</title><link>http://axilleas.me/</link><description></description><atom:link href="http://axilleas.me/feeds/fedora.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 03 Jun 2014 00:00:00 +0300</lastBuildDate><item><title>GSoC-2014 isitfedoraruby - Week 2</title><link>http://axilleas.me/en/blog/2014/gsoc2014-week-two</link><description>&lt;p&gt;Here's what I've been doing last week.&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Over the line</title><link>http://axilleas.me/</link><description></description><atom:link href="http://axilleas.me/feeds/fedora.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 09 Jun 2014 00:00:00 +0300</lastBuildDate><item><title>GSoC-2014 isitfedoraruby - Week 3</title><link>http://axilleas.me/en/blog/2014/gsoc2014-week-three</link><description>&lt;p&gt;Testing, testing, testing.
+Diving into BDD for the first time can be a little tedious but you sure learn
+a lot. In the ruby/rails world there is a ton of excellent tools to help you
+test your app. Some more popular than the others. I'm no exception so I
+picked what the majority of the community dictated.&lt;/p&gt;
+&lt;h1 id="testing-tools"&gt;Testing tools&lt;/h1&gt;
+&lt;h2 id="rspec"&gt;Rspec&lt;/h2&gt;
+&lt;p&gt;The Rspec test suite is well established among ruby developers and has a big
+community to support it. You can also find many good books about it. One that
+I highly recommend is &lt;a href="https://leanpub.com/everydayrailsrspec" title="Everyday Rails Testing with RSpec"&gt;Everyday Rails Testing with RSpec&lt;/a&gt;. It
+basically includes all the tools I'll be using, I'm a little biased I admit it
+but it is really worth it.&lt;/p&gt;
+&lt;p&gt;Here are the specs that will be populated with tests over time.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;models&lt;/span&gt;
+&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;bug_spec&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rb&lt;/span&gt;
+&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;build_spec&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rb&lt;/span&gt;
+&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;dependency_spec&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rb&lt;/span&gt;
+&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;fedora_rpm_spec&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rb&lt;/span&gt;
+&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;rpm_version_spec&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rb&lt;/span&gt;
+&lt;span class="err"&gt;└──&lt;/span&gt; &lt;span class="n"&gt;ruby_gem_spec&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rb&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Currently, I have worked only on &lt;code&gt;bug_spec.rb&lt;/code&gt; which is finished for the time
+being.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# app/spec/models/bug_spec.rb&lt;/span&gt;
+&lt;span class="c1"&gt;#&lt;/span&gt;
+&lt;span class="c1"&gt;# == Schema Information&lt;/span&gt;
+&lt;span class="c1"&gt;#&lt;/span&gt;
+&lt;span class="c1"&gt;# Table name: bugs&lt;/span&gt;
+&lt;span class="c1"&gt;#&lt;/span&gt;
+&lt;span class="c1"&gt;#  id            :integer          not null, primary key&lt;/span&gt;
+&lt;span class="c1"&gt;#  name          :string(255)&lt;/span&gt;
+&lt;span class="c1"&gt;#  bz_id         :string(255)&lt;/span&gt;
+&lt;span class="c1"&gt;#  fedora_rpm_id :integer&lt;/span&gt;
+&lt;span class="c1"&gt;#  is_review     :boolean&lt;/span&gt;
+&lt;span class="c1"&gt;#  created_at    :datetime&lt;/span&gt;
+&lt;span class="c1"&gt;#  updated_at    :datetime&lt;/span&gt;
+&lt;span class="c1"&gt;#  last_updated  :string(255)&lt;/span&gt;
+&lt;span class="c1"&gt;#  is_open       :boolean&lt;/span&gt;
+&lt;span class="c1"&gt;#&lt;/span&gt;
+&lt;span class="nb"&gt;require&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;rails_helper&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;describe&lt;/span&gt; &lt;span class="no"&gt;Bug&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+  &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;has valid factory&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="n"&gt;expect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:bug&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;be_valid&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+
+  &lt;span class="n"&gt;before&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:all&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="vi"&gt;@bug&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:bug&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="vi"&gt;@bugzilla_url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;https://bugzilla.redhat.com/show_bug.cgi?id=&amp;#39;&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+
+  &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;has valid bugzilla url&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="n"&gt;expect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="vi"&gt;@bug&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sr"&gt;/&lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="no"&gt;Regexp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;quote&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="vi"&gt;@bugzilla_url&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sr"&gt;\d+/&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+
+  &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;is a Review Request&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="n"&gt;expect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="vi"&gt;@bug&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;is_review&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;eq&lt;/span&gt; &lt;span class="kp"&gt;true&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+
+  &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;is open&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="n"&gt;expect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="vi"&gt;@bug&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;is_open&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;eq&lt;/span&gt; &lt;span class="kp"&gt;true&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+
+  &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;is closed&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="vi"&gt;@bug&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;is_open&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;false&lt;/span&gt;
+    &lt;span class="n"&gt;expect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="vi"&gt;@bug&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;is_open&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;eq&lt;/span&gt; &lt;span class="kp"&gt;false&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here I'm using the new rspec method &lt;code&gt;expect(object).to&lt;/code&gt; instead of the old one
+&lt;code&gt;object.should&lt;/code&gt;. &lt;/p&gt;
+&lt;p&gt;In the validation of the bugzilla url I wanted to test against a regular
+expression that would return the bug url and bug number. At first I used
+&lt;code&gt;/#{@bugzilla_url}\d+/&lt;/code&gt; but that was interpreted into
+&lt;code&gt;/https:\/\/bugzilla.redhat.com\/show_bug.cgi?id=\d+/&lt;/code&gt;. So, the slashes where
+treated as regexp wildcards. The trick I &lt;a href="http://stackoverflow.com/a/150598/2137281" title="Interpolating a string into a regex"&gt;learned&lt;/a&gt; is to enclose
+the string into &lt;code&gt;Regexp.quote(str)&lt;/code&gt;. This method escapes any characters that
+would otherwise have special meaning&lt;sup id="fnref:ruby-doc"&gt;&lt;a class="footnote-ref" href="#fn:ruby-doc" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;h2 id="factorygirl"&gt;FactoryGirl&lt;/h2&gt;
+&lt;p&gt;FactoryGirl is a replacement for fixtures, Rails' default way of creating test
+data. In my first attempt I used it to create a Bug object.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# app/spec/factories/bugs.rb&lt;/span&gt;
+
+&lt;span class="no"&gt;FactoryGirl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;define&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+  &lt;span class="n"&gt;factory&lt;/span&gt; &lt;span class="ss"&gt;:bug&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;
+    &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bz_id&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;12345&amp;#39;&lt;/span&gt;
+    &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;is_review&lt;/span&gt; &lt;span class="kp"&gt;true&lt;/span&gt;
+    &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;is_open&lt;/span&gt; &lt;span class="kp"&gt;true&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt; 
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So, when I call &lt;code&gt;create(:bug)&lt;/code&gt; in my &lt;code&gt;bug_spec.rb&lt;/code&gt; it automatically creates
+a new Bug object in the database with the predefined attributes I gave it
+in the factory file. I could probably use &lt;code&gt;build(:bug)&lt;/code&gt; instead of &lt;code&gt;create&lt;/code&gt;
+and that would simply create the object but not save it in the database.
+This could get a lot better since it takes 2.2 seconds to just run 5 tests.
+Refactoring will come later, I'll primarily focus on making enough tests to
+cover as many edge cases as I can find.&lt;/p&gt;
+&lt;h2 id="cucumbercapybara"&gt;Cucumber/capybara&lt;/h2&gt;
+&lt;p&gt;So far I talked about unit testing. When it comes to integration testing,
+that is how the application as a whole behaves, there is &lt;code&gt;cucumber&lt;/code&gt; and &lt;code&gt;capybara&lt;/code&gt;.
+I haven't actually used any of these two yet. Cucumber is known for its
+descriptive language and better used when one works with a non-programmer
+product owner that doesn't want to look at a lot of code&lt;sup id="fnref:quote"&gt;&lt;a class="footnote-ref" href="#fn:quote" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt;. I'll probably
+just go with capybara.&lt;/p&gt;
+&lt;h1 id="setting-a-rails-development-environment"&gt;Setting a Rails development environment&lt;/h1&gt;
+&lt;p&gt;I spent quite a lot of time to find the proper gems and configuration to
+have a nice setup. This will do for an article of its own so I won't go into
+details.&lt;/p&gt;
+&lt;h1 id="todos"&gt;TODOs&lt;/h1&gt;
+&lt;p&gt;Except for preparing the test suite, I'm also into cleaning the code where
+possible and necessary. There are some functions that need removing, but I
+have to do it carefully, don't want to break anything and without tests I
+cannot be 100% sure. So far I have used the &lt;a href="https://github.com/bbatsov/rubocop" title="A Ruby static code analyzer, based on the community Ruby style guide"&gt;rubocop&lt;/a&gt; gem with some
+interesting findings (exactly 666 warnings/errors). I will talk about it next week.
+Now go and watch the &lt;a href="https://www.youtube.com/watch?v=CamAhPeYoC8" title="Six six six"&gt;Number of the beast&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:ruby-doc"&gt;
+&lt;p&gt;&lt;a href="http://ruby-doc.org/core-2.1.2/Regexp.html#method-c-quote"&gt;http://ruby-doc.org/core-2.1.2/Regexp.html#method-c-quote&lt;/a&gt;&amp;#160;&lt;a class="footnote-backref" href="#fnref:ruby-doc" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:quote"&gt;
+&lt;p&gt;Quote taken from Everyday Rails Testing with RSpec&amp;#160;&lt;a class="footnote-backref" href="#fnref:quote" rev="footnote" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Mon, 09 Jun 2014 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2014-06-09:en/blog/2014/gsoc2014-week-three</guid><category>fedora</category><category>isitfedoraruby</category><category>gsoc</category><category>ruby</category><category>rails</category><category>webdev</category></item><item><title>GSoC-2014 isitfedoraruby - Week 2</title><link>http://axilleas.me/en/blog/2014/gsoc2014-week-two</link><description>&lt;p&gt;Here's what I've been doing last week.&lt;/p&gt;
 &lt;h1 id="previous-week"&gt;Previous week&lt;/h1&gt;
 &lt;h2 id="architecture-analysis"&gt;Architecture analysis&lt;/h2&gt;
 &lt;p&gt;Getting to know an app from the ground up takes some time, especially if that's
