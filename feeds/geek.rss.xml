@@ -4,7 +4,7 @@
 &lt;h2 id="architecture-analysis"&gt;Architecture analysis&lt;/h2&gt;
 &lt;p&gt;Getting to know an app from the ground up takes some time, especially if that's
 a framework you are not too familiar with. Luckilly, I found the &lt;a href="http://railroady.prestonlee.com/" title="railroady home page"&gt;railroady&lt;/a&gt; gem
-that helped me visualize how the app is structured, you can find the results 
+that helped me visualize how the app is structured, you can find the results
 &lt;a href="https://gitlab.com/fedora-ruby/isitfedoraruby/tree/deploy/doc" title="Models/Controllers visualization"&gt;here&lt;/a&gt; (click on one of them and see them as raw).&lt;/p&gt;
 &lt;h2 id="deploy-to-a-testing-server"&gt;Deploy to a testing server&lt;/h2&gt;
 &lt;p&gt;Heroku might be a nice option, but their plans were limiting the database rows.
@@ -24,7 +24,7 @@ namespace, so until then I'm working on my fork and the trello board.&lt;/p&gt;
 &lt;h1 id="this-week"&gt;This week&lt;/h1&gt;
 &lt;h2 id="setting-up-rspec"&gt;Setting up rspec&lt;/h2&gt;
 &lt;p&gt;As this is the primary testing tool, I have started writing the first scenarios
-and along the way I'll be adding the actual tests.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 03 Jun 2014 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2014-06-03:en/blog/2014/gsoc2014-week-two</guid><category>fedora</category><category>isitfedoraruby</category><category>gscoc</category><category>ruby</category><category>rails</category><category>webdev</category></item><item><title>GSoC-2014 isitfedoraruby - Week 1</title><link>http://axilleas.me/en/blog/2014/gsoc2014-week-one</link><description>&lt;p&gt;In case you haven't heard, I have been accepted again this year
+and along the way I'll be adding the actual tests.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 03 Jun 2014 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2014-06-03:en/blog/2014/gsoc2014-week-two</guid><category>fedora</category><category>isitfedoraruby</category><category>gsoc</category><category>ruby</category><category>rails</category><category>webdev</category></item><item><title>GSoC-2014 isitfedoraruby - Week 1</title><link>http://axilleas.me/en/blog/2014/gsoc2014-week-one</link><description>&lt;p&gt;In case you haven't heard, I have been accepted again this year
 for Google Summer of Code :) This time I will be working on enhancing
 a Rails app that provides information about the state of rubygem
 packaging in Fedora.&lt;/p&gt;
@@ -266,7 +266,7 @@ done in batches), I would like to create some fake data to begin with.&lt;/p&gt;
 &lt;p&gt;I'll try to apply fixes to as many bugs as possible I found previous week.&lt;/p&gt;
 &lt;h1 id="the-end-for-now"&gt;The end (for now)&lt;/h1&gt;
 &lt;p&gt;Soo, that's it for now! Hope you made it this far :)
-Cheers to an interesting summer!&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 27 May 2014 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2014-05-27:en/blog/2014/gsoc2014-week-one</guid><category>fedora</category><category>isitfedoraruby</category><category>gscoc</category><category>ruby</category><category>rails</category><category>webdev</category></item><item><title>GitLab on CentOS asks for password when using git push via ssh</title><link>http://axilleas.me/en/blog/2014/centos-gitlab-asks-for-password-on-git-push</link><description>&lt;p&gt;Seems there is an issue floating around when a user tries to push on their
+Cheers to an interesting summer!&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 27 May 2014 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2014-05-27:en/blog/2014/gsoc2014-week-one</guid><category>fedora</category><category>isitfedoraruby</category><category>gsoc</category><category>ruby</category><category>rails</category><category>webdev</category></item><item><title>GitLab on CentOS asks for password when using git push via ssh</title><link>http://axilleas.me/en/blog/2014/centos-gitlab-asks-for-password-on-git-push</link><description>&lt;p&gt;Seems there is an issue floating around when a user tries to push on their
 GitLab CentOS installation. There are two ways one can push to a git repo.
 Using their username:password through http and using their ssh key without
 the need of a password. For example:&lt;/p&gt;
@@ -783,8 +783,8 @@ and test new features. And since a picture is worth a thousand words, here is
 a &lt;a href="http://demo.gitlab.com/users/sign_in" title="GitLab demo site"&gt;demo site&lt;/a&gt; where you can test all the latest features.&lt;/p&gt;
 &lt;h1 id="fedoras-involvement-so-far"&gt;Fedora's involvement so far&lt;/h1&gt;
 &lt;p&gt;The thought of GitLab being packaged and deployed for &lt;a href="http://fedorahosted.org"&gt;Fedora Hosted&lt;/a&gt; isn't new.
-It all started last March when &lt;a href="https://fedoraproject.org/wiki/User:Mojavelinux"&gt;Dan Allen&lt;/a&gt; &lt;a href="https://lists.fedoraproject.org/pipermail/infrastructure/2012-March/011463.html"&gt;proposed&lt;/a&gt; GitLab 
-to be used as a service for Fedora Hosted. If you follow the conversation 
+It all started last March when &lt;a href="https://fedoraproject.org/wiki/User:Mojavelinux"&gt;Dan Allen&lt;/a&gt; &lt;a href="https://lists.fedoraproject.org/pipermail/infrastructure/2012-March/011463.html"&gt;proposed&lt;/a&gt; GitLab
+to be used as a service for Fedora Hosted. If you follow the conversation
 it summarizes to some key points:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Projects pages should be ideally hosted as &lt;code&gt;$projectname.fedorahosted.org&lt;/code&gt;.&lt;/li&gt;
@@ -794,14 +794,14 @@ it summarizes to some key points:&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;There was even a &lt;a href="https://groups.google.com/forum/?fromgroups=#!topic/gitlabhq/SQMDi-yyXmU"&gt;post&lt;/a&gt; in GitLab's list, also by Dan Allen,
 bringing the project to the attention of the GitLab community.
-The most interesting thing was that the &lt;a href="https://github.com/randx"&gt;lead developer&lt;/a&gt; of GitLab 
-was more than willing to help. In the end, there was an &lt;a href="https://fedoraproject.org/wiki/GSOC_2012/Student_Application_babakb/GitlabSetup" title="Student application for GitLab at GSoC 2012"&gt;application&lt;/a&gt; but 
+The most interesting thing was that the &lt;a href="https://github.com/randx"&gt;lead developer&lt;/a&gt; of GitLab
+was more than willing to help. In the end, there was an &lt;a href="https://fedoraproject.org/wiki/GSOC_2012/Student_Application_babakb/GitlabSetup" title="Student application for GitLab at GSoC 2012"&gt;application&lt;/a&gt; but
 unfortunately that was the last anyone heard about the project.&lt;/p&gt;
 &lt;p&gt;So, here we are a year after with me applying for the project. To be exact
 there is &lt;a href="https://lists.fedoraproject.org/pipermail/summer-coding/2013-March/000286.html"&gt;another&lt;/a&gt; sudent interested in this as well, so that makes it two of us.
 I have already expressed my interest in &lt;a href="https://lists.fedoraproject.org/pipermail/ruby-sig/2013-March/001270.html"&gt;RubySIG&lt;/a&gt; and in the &lt;a href="https://lists.fedoraproject.org/pipermail/infrastructure/2013-March/012631.html"&gt;infrastructure&lt;/a&gt; mailing list.
 I was glad to see that there was a positive response from Dan Allen,
-as well as some valuable advice from user &lt;a href="https://fedoraproject.org/wiki/User:Ktdreyer"&gt;Ken Dreyer&lt;/a&gt; who currently 
+as well as some valuable advice from user &lt;a href="https://fedoraproject.org/wiki/User:Ktdreyer"&gt;Ken Dreyer&lt;/a&gt; who currently
 tries to deal with &lt;a href="https://fedoraproject.org/wiki/User:Ktdreyer/Gitorious"&gt;Gitorious&lt;/a&gt;.&lt;/p&gt;
 &lt;h1 id="what-are-the-benefits"&gt;What are the benefits&lt;/h1&gt;
 &lt;p&gt;There are two major benefits for Fedora.&lt;/p&gt;
@@ -813,7 +813,7 @@ That is&lt;/p&gt;
 &lt;li&gt;identify which gems are missing in Fedora and package them,&lt;/li&gt;
 &lt;li&gt;compile a list of gems GitLab is using, including all their dependencies (and possibly bundled dependencies).&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;For the first task, I used a hackish bash script which first accumulates 
+&lt;p&gt;For the first task, I used a hackish bash script which first accumulates
 all rubygems in a file and then removes the duplicate packages and the ones
 that are documentation.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/bash&lt;/span&gt;
@@ -828,8 +828,8 @@ sed -e &lt;span class="s1"&gt;&amp;#39;s/rubygem-//g&amp;#39;&lt;/span&gt; -e &l
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;In order to find what gems GitLab depends on, I used the &lt;a href="https://github.com/gitlabhq/gitlabhq/blob/master/Gemfile.lock"&gt;Gemfile.lock&lt;/a&gt; 
-and wrote a simple python &lt;a href="https://github.com/axilleas/gsoc/blob/master/gemfile.py"&gt;script&lt;/a&gt;&lt;sup id="fnref:python-script"&gt;&lt;a class="footnote-ref" href="#fn:python-script" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; that computes how many and which gems 
+&lt;p&gt;In order to find what gems GitLab depends on, I used the &lt;a href="https://github.com/gitlabhq/gitlabhq/blob/master/Gemfile.lock"&gt;Gemfile.lock&lt;/a&gt;
+and wrote a simple python &lt;a href="https://github.com/axilleas/gsoc/blob/master/gemfile.py"&gt;script&lt;/a&gt;&lt;sup id="fnref:python-script"&gt;&lt;a class="footnote-ref" href="#fn:python-script" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; that computes how many and which gems
 Fedora and GitLab have in common. Below are some draft&lt;sup id="fnref:draft_numbers"&gt;&lt;a class="footnote-ref" href="#fn:draft_numbers" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt; numbers and a bar chart.&lt;/p&gt;
 &lt;div id="rubygems_chart"&gt;&lt;/div&gt;
 
@@ -840,13 +840,13 @@ Fedora and GitLab have in common. Below are some draft&lt;sup id="fnref:draft_nu
 &lt;p&gt;There should be packaged: &lt;strong&gt;106&lt;/strong&gt; gems.&lt;/p&gt;
 &lt;p&gt;Fedora will have &lt;strong&gt;27.53 %&lt;/strong&gt; more ruby packages, that is &lt;strong&gt;482&lt;/strong&gt; gems in total.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Not bad, &lt;strong&gt;106&lt;/strong&gt; more ruby packages! That is a plus now that Fedora is considered 
-one of &lt;a href="https://bugs.ruby-lang.org/projects/ruby-trunk/wiki/20SupportedPlatforms"&gt;Ruby's supported platforms&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;Not bad, &lt;strong&gt;106&lt;/strong&gt; more ruby packages! That is a plus now that Fedora is considered
+one of &lt;a href="https://bugs.ruby-lang.org/projects/ruby-trunk/wiki/20SupportedPlatforms"&gt;Ruby's supported platforms&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; I just found out about the &lt;a href="http://isitfedoraruby.com/stats/gemfile_tool"&gt;gemfile tool&lt;/a&gt; that isitfedoraruby.com&lt;sup id="fnref:isitfedruby"&gt;&lt;a class="footnote-ref" href="#fn:isitfedruby" rel="footnote"&gt;3&lt;/a&gt;&lt;/sup&gt;
-is using. This will come in handy. &lt;/p&gt;
+is using. This will come in handy.&lt;/p&gt;
 &lt;h2 id="a-new-service-for-fedorahostedorg"&gt;A new service for fedorahosted.org&lt;/h2&gt;
-&lt;p&gt;After the packaging is done, the next big thing is the deployment process on 
-&lt;a href="http://fedorahosted.org"&gt;Fedora Hosted&lt;/a&gt; as a new service. Quoting Dan Allen's &lt;a href="https://lists.fedoraproject.org/pipermail/infrastructure/2013-March/012680.html"&gt;thought&lt;/a&gt;: &lt;/p&gt;
+&lt;p&gt;After the packaging is done, the next big thing is the deployment process on
+&lt;a href="http://fedorahosted.org"&gt;Fedora Hosted&lt;/a&gt; as a new service. Quoting Dan Allen's &lt;a href="https://lists.fedoraproject.org/pipermail/infrastructure/2013-March/012680.html"&gt;thought&lt;/a&gt;:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;One of the key reasons I've been pushing for GitLab is because I see the
 potential it has for drastically improving the discoverability of the
@@ -865,12 +865,12 @@ we'd see that collaboration kindle within the Fedora instance.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;So yeah, this is a big deal from this point of view :)&lt;/p&gt;
 &lt;h1 id="next-steps-and-things-to-overcome"&gt;Next steps and things to overcome&lt;/h1&gt;
-&lt;p&gt;There is certainly a lot more to do. For starters, as a Fedora newbie, 
-I have to run through the &lt;a href="https://fedoraproject.org/wiki/Packaging:Ruby"&gt;Ruby guidelines&lt;/a&gt; and learn 
-about the philosophy of rpm. Luckily, I am not a linux newbie (I've been 
+&lt;p&gt;There is certainly a lot more to do. For starters, as a Fedora newbie,
+I have to run through the &lt;a href="https://fedoraproject.org/wiki/Packaging:Ruby"&gt;Ruby guidelines&lt;/a&gt; and learn
+about the philosophy of rpm. Luckily, I am not a linux newbie (I've been
 using Archlinux for 5 years) and I am adopting rapidly.
 Then, I need to learn some Ruby. I have already printed &lt;em&gt;&lt;a href="http://mislav.uniqpath.com/poignant-guide"&gt;why's (poignant) Guide to Ruby&lt;/a&gt;&lt;/em&gt;
-which is considered a must read, and believe me it is! (download the pdf from &lt;a href="https://github.com/downloads/mislav/poignant-guide/whys-poignant-guide-to-ruby.pdf"&gt;here&lt;/a&gt;). 
+which is considered a must read, and believe me it is! (download the pdf from &lt;a href="https://github.com/downloads/mislav/poignant-guide/whys-poignant-guide-to-ruby.pdf"&gt;here&lt;/a&gt;).
 &lt;a href="http://ruby.learncodethehardway.org/book/"&gt;Learn Ruby the hard way&lt;/a&gt; is also a good starting point. Ι think I'm on the right track.&lt;/p&gt;
 &lt;p&gt;Now, as far as the packaging process is concerned, here is what more needs to be done:&lt;/p&gt;
 &lt;ul&gt;
@@ -893,7 +893,7 @@ of this project's goal. More posts to come!&lt;/p&gt;
   // Set a callback to run when the Google Visualization API is loaded.
   google.setOnLoadCallback(drawChart);
 
-  // Callback that creates and populates a data table,  
+  // Callback that creates and populates a data table,
   // instantiates the pie chart, passes in the data and
   // draws it.
   function drawChart() {
@@ -926,10 +926,10 @@ of this project's goal. More posts to come!&lt;/p&gt;
 &lt;p&gt;I should write it in ruby, I know :p&amp;#160;&lt;a class="footnote-backref" href="#fnref:python-script" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id="fn:draft_numbers"&gt;
-&lt;p&gt;I say draft, mainly because that is a raw calculation of GitLab's dependencies. One has to take into account the different/old versions that may exist between Fedora and GtiLab. There are also some packages GitLab pulls from git and not rubygems.org. &amp;#160;&lt;a class="footnote-backref" href="#fnref:draft_numbers" rev="footnote" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I say draft, mainly because that is a raw calculation of GitLab's dependencies. One has to take into account the different/old versions that may exist between Fedora and GtiLab. There are also some packages GitLab pulls from git and not rubygems.org.&amp;#160;&lt;a class="footnote-backref" href="#fnref:draft_numbers" rev="footnote" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id="fn:isitfedruby"&gt;
 &lt;p&gt;&lt;a href="http://isitfedoraruby.com"&gt;isitfedoraruby.com&lt;/a&gt; is a cool web app that was the result of &lt;a href="https://fedoraproject.org/wiki/GSOC_2012/Student_Application_Zuhao/IsItFedoraRuby"&gt;last year's GSoC&lt;/a&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:isitfedruby" rev="footnote" title="Jump back to footnote 3 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Sun, 07 Apr 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2013-04-07:en/blog/2013/bringing-gitlab-in-fedora</guid><category>fedora</category><category>gitlab</category><category>gscoc</category><category>ruby</category><category>rails</category></item></channel></rss>
+&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Sun, 07 Apr 2013 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2013-04-07:en/blog/2013/bringing-gitlab-in-fedora</guid><category>fedora</category><category>gitlab</category><category>gsoc</category><category>ruby</category><category>rails</category></item></channel></rss>

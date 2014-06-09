@@ -1,63 +1,47 @@
 <!DOCTYPE html>
-<html>
-    <head>
-    <meta charset="utf-8">
-        <title>GSoC-2014 isitfedoraruby - Week 2</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="Pragma" content="no-cache" />
-        <meta http-equiv="Expires" content="-1" />
-        <link rel="stylesheet" href="/theme/style/reset.css" type="text/css" />
-        <link rel="stylesheet" href="/theme/style/screen.css" type="text/css" />
-        <link rel="stylesheet" href="/theme/style/friendly.css" type="text/css" />
-        <link rel="stylesheet" href="/theme/style/print.css" type="text/css" media="print" />
-        <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+<html lang="en">
+<head>
+
+
+    <meta name="tags" contents="fedora" />
+    <meta name="tags" contents="isitfedoraruby" />
+    <meta name="tags" contents="gsoc" />
+    <meta name="tags" contents="ruby" />
+    <meta name="tags" contents="rails" />
+    <meta name="tags" contents="webdev" />
+
 </head>
-<body>
-    <header id="main">
-        <div class="container">
-            <div class="logo">
-                <p><a href="/" title="Home">Over the line</a> <span class="welcome">Yeah, well, you know, that's just, like, my opinion, man.</span></p>
-            </div>
-        </div>
-    </header>
 
-    <div class="splash">
-        <div class="container">
-            <ul>
-                <li><a href="/">Home</a></li>
-                    <li><a href="/about">whoami</a></li>
-                    <li><a href="/rss">Rss Feed</a></li>
-                <li><a href="/archives.html" title="Archive">Archive</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="container content">
-<article>
-    <header>
-<h1><a href="/en/blog/2014/gsoc2014-week-two" rel="bookmark">
-    GSoC-2014 isitfedoraruby - Week 2
-</a></h1>
-<time datetime="2014-06-03 00:00:00" pubdate>Posted on
-    Tue 03 June 2014
-</time>
-<address class="vcard author">
-    by <a class="url fn" href="/author/axil.html">
-    axil</a>
-</address>
-<span class="category">in <a href="/category/geek.html">
-    geek</a>.
-        </span>
-    </header>
-
-    <div class="body">
-        <p>Here's what I've been doing last week.</p>
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://axilleas.me">Over the line <strong></strong></a></h1>
+        </header><!-- /#banner -->
+        <nav id="menu"><ul>
+            <li><a href="http://axilleas.me/about">whoami</a></li>
+            <li><a href="http://axilleas.me/rss">Rss Feed</a></li>
+        </ul></nav><!-- /#menu -->
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="http://axilleas.me/en/blog/2014/gsoc2014-week-two" rel="bookmark"
+         title="Permalink to GSoC-2014 isitfedoraruby - Week 2">GSoC-2014 isitfedoraruby - Week 2</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <abbr class="published" title="2014-06-03T00:00:00">
+      Tue 03 June 2014
+    </abbr>
+    <address class="vcard author">
+      By <a class="url fn" href="http://axilleas.me/author/axil.html">axil</a>
+    </address>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>Here's what I've been doing last week.</p>
 <h1 id="previous-week">Previous week</h1>
 <h2 id="architecture-analysis">Architecture analysis</h2>
 <p>Getting to know an app from the ground up takes some time, especially if that's
 a framework you are not too familiar with. Luckilly, I found the <a href="http://railroady.prestonlee.com/" title="railroady home page">railroady</a> gem
-that helped me visualize how the app is structured, you can find the results 
+that helped me visualize how the app is structured, you can find the results
 <a href="https://gitlab.com/fedora-ruby/isitfedoraruby/tree/deploy/doc" title="Models/Controllers visualization">here</a> (click on one of them and see them as raw).</p>
 <h2 id="deploy-to-a-testing-server">Deploy to a testing server</h2>
 <p>Heroku might be a nice option, but their plans were limiting the database rows.
@@ -78,72 +62,13 @@ namespace, so until then I'm working on my fork and the trello board.</p>
 <h2 id="setting-up-rspec">Setting up rspec</h2>
 <p>As this is the primary testing tool, I have started writing the first scenarios
 and along the way I'll be adding the actual tests.</p>
-    </div>
-
-    <footer>
-        <ul class="tags">
-        Tags:
-            <li><a href="/tag/fedora.html">fedora</a></li>
-            <li><a href="/tag/isitfedoraruby.html">isitfedoraruby</a></li>
-            <li><a href="/tag/gscoc.html">gscoc</a></li>
-            <li><a href="/tag/ruby.html">ruby</a></li>
-            <li><a href="/tag/rails.html">rails</a></li>
-            <li><a href="/tag/webdev.html">webdev</a></li>
-        </ul>
-    </footer>
-
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'kissmyarch'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</article>
-    </div>
-
-    <div class="container footnote">
-        <a href="javascript:window.print();" title="Print">Print</a>
-    </div>
-
-
-
-    <footer>
-        <div class="container footer">
-            <span>Powered by <a href="http://docs.getpelican.com">
-                Pelican</a> using <a href="https://github.com/BYK/pelican-neat">
-                neat theme</a>. 
-            </span>
-            <nav>
-                <ul>
-                    <li><a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a></li>
-                <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img
-                    alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"></a></li>
-                </ul>
-            </nav>
-        </div>
-    </footer>
-     <!-- Piwik -->
-    <script type="text/javascript">
-      var _paq = _paq || [];
-      _paq.push(["trackPageView"]);
-      _paq.push(["enableLinkTracking"]);
-
-      (function() {
-        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik-glb.rhcloud.com/";
-        _paq.push(["setTrackerUrl", u+"piwik.php"]);
-        _paq.push(["setSiteId", "5"]);
-        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
-        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
-      })();
-    </script>
-    <!-- End Piwik Code -->
+  </div><!-- /.entry-content -->
+</section>
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
 </body>
 </html>
