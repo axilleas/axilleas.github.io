@@ -1,6 +1,6 @@
 Title: Bringing GitLab to Fedora
 Slug: bringing-gitlab-in-fedora
-Tags: fedora, gitlab, gscoc, ruby, rails
+Tags: fedora, gitlab, gsoc, ruby, rails
 Category: geek
 Lang: en
 
@@ -38,8 +38,8 @@ a [demo site][gl-demosite] where you can test all the latest features.
 # Fedora's involvement so far
 
 The thought of GitLab being packaged and deployed for [Fedora Hosted] isn't new.
-It all started last March when [Dan Allen][] [proposed][gl-proposal2012] GitLab 
-to be used as a service for Fedora Hosted. If you follow the conversation 
+It all started last March when [Dan Allen][] [proposed][gl-proposal2012] GitLab
+to be used as a service for Fedora Hosted. If you follow the conversation
 it summarizes to some key points:
 
   - Projects pages should be ideally hosted as `$projectname.fedorahosted.org`.
@@ -49,15 +49,15 @@ it summarizes to some key points:
 
 There was even a [post][fedora-glgroup] in GitLab's list, also by Dan Allen,
 bringing the project to the attention of the GitLab community.
-The most interesting thing was that the [lead developer][randx] of GitLab 
-was more than willing to help. In the end, there was an [application][gl-gsoc12] but 
+The most interesting thing was that the [lead developer][randx] of GitLab
+was more than willing to help. In the end, there was an [application][gl-gsoc12] but
 unfortunately that was the last anyone heard about the project.
 
 So, here we are a year after with me applying for the project. To be exact
 there is [another][harish-fellow] sudent interested in this as well, so that makes it two of us.
 I have already expressed my interest in [RubySIG][] and in the [infrastructure][] mailing list.
 I was glad to see that there was a positive response from Dan Allen,
-as well as some valuable advice from user [Ken Dreyer][] who currently 
+as well as some valuable advice from user [Ken Dreyer][] who currently
 tries to deal with [Gitorious][].
 
 # What are the benefits
@@ -72,8 +72,8 @@ That is
 
   1. identify which gems are missing in Fedora and package them,
   2. compile a list of gems GitLab is using, including all their dependencies (and possibly bundled dependencies).
- 
-For the first task, I used a hackish bash script which first accumulates 
+
+For the first task, I used a hackish bash script which first accumulates
 all rubygems in a file and then removes the duplicate packages and the ones
 that are documentation.
 
@@ -89,8 +89,8 @@ that are documentation.
     -e '/i686/d' -e '/==/d' -e '/:/d' -e '/-doc/d' < $file_raw > $file_new
 
 
-In order to find what gems GitLab depends on, I used the [Gemfile.lock][] 
-and wrote a simple python [script][gemfile.py][^python-script] that computes how many and which gems 
+In order to find what gems GitLab depends on, I used the [Gemfile.lock][]
+and wrote a simple python [script][gemfile.py][^python-script] that computes how many and which gems
 Fedora and GitLab have in common. Below are some draft[^draft_numbers] numbers and a bar chart.
 
 <div id="rubygems_chart"></div>
@@ -108,16 +108,16 @@ Fedora and GitLab have in common. Below are some draft[^draft_numbers] numbers a
 
 
 
-Not bad, **106** more ruby packages! That is a plus now that Fedora is considered 
-one of [Ruby's supported platforms][ruby-supported]. 
+Not bad, **106** more ruby packages! That is a plus now that Fedora is considered
+one of [Ruby's supported platforms][ruby-supported].
 
 **Update:** I just found out about the [gemfile tool][] that isitfedoraruby.com[^isitfedruby]
-is using. This will come in handy. 
+is using. This will come in handy.
 
 ## A new service for fedorahosted.org
 
-After the packaging is done, the next big thing is the deployment process on 
-[Fedora Hosted][] as a new service. Quoting Dan Allen's [thought][deploy-quote]: 
+After the packaging is done, the next big thing is the deployment process on
+[Fedora Hosted][] as a new service. Quoting Dan Allen's [thought][deploy-quote]:
 
   >One of the key reasons I've been pushing for GitLab is because I see the
   >potential it has for drastically improving the discoverability of the
@@ -140,27 +140,27 @@ So yeah, this is a big deal from this point of view :)
 
 # Next steps and things to overcome
 
-There is certainly a lot more to do. For starters, as a Fedora newbie, 
-I have to run through the [Ruby guidelines][ruby-guidelines] and learn 
-about the philosophy of rpm. Luckily, I am not a linux newbie (I've been 
+There is certainly a lot more to do. For starters, as a Fedora newbie,
+I have to run through the [Ruby guidelines][ruby-guidelines] and learn
+about the philosophy of rpm. Luckily, I am not a linux newbie (I've been
 using Archlinux for 5 years) and I am adopting rapidly.
 Then, I need to learn some Ruby. I have already printed *[why's (poignant) Guide to Ruby][poignant]*
-which is considered a must read, and believe me it is! (download the pdf from [here][poignant-pdf]). 
+which is considered a must read, and believe me it is! (download the pdf from [here][poignant-pdf]).
 [Learn Ruby the hard way][hardway] is also a good starting point. Ι think I'm on the right track.
 
 Now, as far as the packaging process is concerned, here is what more needs to be done:
- 
+
   - MariaDB support. Since MariaDB will be the [default][mariadb-list] [implementation][mariadb-wiki] of MySQL in Fedora 19, GitLab will need to support it.
   - Write systemd service files. I had made an [attempt][gh-systemd] two months ago when I was trying to set up GitLab on Archlinux, but it is far from perfect.
   - Packages to be EPEL compatible. A great advantage if GitLab gets packaged for Fedora, is that it would make it as easy as pie to install on a server running Red Hat, Centos, or some other rpm based distro.
   - Ruby 2.0 compatibility. I don't think that'll be much of a stopper since GitLab is in the [process][gl-ruby2] of supporting it, but I put it here just in case.
- 
+
 That's all for now. If you read through here you should have a good understanding
 of this project's goal. More posts to come!
- 
- 
+
+
 [^python-script]: I should write it in ruby, I know :p
-[^draft_numbers]: I say draft, mainly because that is a raw calculation of GitLab's dependencies. One has to take into account the different/old versions that may exist between Fedora and GtiLab. There are also some packages GitLab pulls from git and not rubygems.org. 
+[^draft_numbers]: I say draft, mainly because that is a raw calculation of GitLab's dependencies. One has to take into account the different/old versions that may exist between Fedora and GtiLab. There are also some packages GitLab pulls from git and not rubygems.org.
 [^isitfedruby]: [isitfedoraruby.com][] is a cool web app that was the result of [last year's GSoC][gsoc12].
 
 [gl-gsoc12]: https://fedoraproject.org/wiki/GSOC_2012/Student_Application_babakb/GitlabSetup "Student application for GitLab at GSoC 2012"
@@ -215,7 +215,7 @@ of this project's goal. More posts to come!
   // Set a callback to run when the Google Visualization API is loaded.
   google.setOnLoadCallback(drawChart);
 
-  // Callback that creates and populates a data table,  
+  // Callback that creates and populates a data table,
   // instantiates the pie chart, passes in the data and
   // draws it.
   function drawChart() {
