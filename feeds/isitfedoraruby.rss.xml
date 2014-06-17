@@ -1,5 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Over the line</title><link>http://axilleas.me/</link><description></description><atom:link href="http://axilleas.me/feeds/isitfedoraruby.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 09 Jun 2014 00:00:00 +0300</lastBuildDate><item><title>GSoC-2014 isitfedoraruby - Week 3</title><link>http://axilleas.me/en/blog/2014/gsoc2014-week-three</link><description>&lt;p&gt;Testing, testing, testing.
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Over the line</title><link>http://axilleas.me/</link><description></description><atom:link href="http://axilleas.me/feeds/isitfedoraruby.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 16 Jun 2014 00:00:00 +0300</lastBuildDate><item><title>Rubocop to the rescue!</title><link>http://axilleas.me/en/blog/2014/rubocop-to-the-rescue</link><description>&lt;p&gt;&lt;em&gt;I decided to drop the GSoC related titles and focus on the things
+that I work during the week. That means I'll probably blog more often :p&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;This week I mostly focused on cleaning the code of &lt;a href="https://github.com/axilleas/isitfedoraruby" title="isitfedoraruby at github"&gt;fedoraruby&lt;/a&gt; and
+conforming to the &lt;a href="https://github.com/bbatsov/ruby-style-guide" title="Ruby style guide"&gt;ruby&lt;/a&gt;/&lt;a href="https://github.com/bbatsov/rails-style-guide" title="Rails style guide"&gt;rails&lt;/a&gt; community
+guidelines.&lt;/p&gt;
+&lt;p&gt;The gem that helps you do that is &lt;a href="https://github.com/bbatsov/rubocop" title="rubocop at github"&gt;rubocop&lt;/a&gt; and is kind of the standard
+method in the ruby world.&lt;/p&gt;
+&lt;div class="toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#rubocop"&gt;RuboCop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#houndci"&gt;HoundCI&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h1 id="rubocop"&gt;RuboCop&lt;/h1&gt;
+&lt;p&gt;Rubocop refers to each check as a cop. There are a bunch and you can see
+the supported ones by reading these [files][rubo-enabled].&lt;/p&gt;
+&lt;p&gt;After installing rubocop, call it with the &lt;code&gt;rubocop&lt;/code&gt; command and it
+will check all Ruby source files in the current directory.&lt;/p&gt;
+&lt;p&gt;If working on a Rails project, you have to invoke it with the &lt;code&gt;-R&lt;/code&gt; flag.&lt;/p&gt;
+&lt;p&gt;The first time I ran rubocop I was presented with no more or less
+&lt;strong&gt;666&lt;/strong&gt; violations. Which meant if I wanted to clean up the code I'd had to
+manually edit all 666 of them. Luckily, as you may have imagined, rubocop
+provides the &lt;code&gt;-a/--auto-correct&lt;/code&gt; flag which does what it says. In the
+documentation there is a note: &lt;em&gt;Experimental - use with caution&lt;/em&gt;. What the
+heck, I had nothing to lose, I am under version control so I could go back
+any time. It worked like a charm and this brought the violations to about
+&lt;strong&gt;150&lt;/strong&gt;. Not bad at all.&lt;/p&gt;
+&lt;p&gt;So what about the rest? Well, you have to do it manually and so I began.
+If you run rubocop without any flags, it uses the &lt;a href="https://github.com/bbatsov/rubocop/tree/master/config" title="Default configuration files for rubocop"&gt;default config&lt;/a&gt; that
+ships with the gem. If you want to use your config you can do so by defining
+it with the &lt;code&gt;-c&lt;/code&gt; flag.&lt;/p&gt;
+&lt;p&gt;Now, there is another cool feature rubocop provides. It can create a config
+file for you containing all the violations found so far. Run rubocop with
+the &lt;code&gt;--auto-gen-config&lt;/code&gt; flag and that will create &lt;code&gt;.rubocop_todo_yml&lt;/code&gt; in
+the current dir. Then you can check against that file with
+&lt;code&gt;rubocop -R -c .rubocop_todo_yml&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;All cops in this yaml file are set to false, which means they won't be taken
+into account, not unless you explicitly set them to true. That way you can
+work your way up in fixing all violations by enabling one cop at a time.
+Basically what is included in this file, overrides the default values.&lt;/p&gt;
+&lt;p&gt;If you want to omit calling on &lt;code&gt;.rubocop_todo_yml&lt;/code&gt; every single time, place
+this in &lt;code&gt;.rubocop.yml&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nl"&gt;inherit_from:&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rubocop_todo&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;yml&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Form now on you can just call it with &lt;code&gt;rubocop -R&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To sum up, run &lt;code&gt;rubocop -R&lt;/code&gt; see that there is no violation, edit
+&lt;code&gt;.rubocop_todo_yml&lt;/code&gt;, set one of the cops to true, run rubocop again, fix
+the errors and work your way up until there is no violation.&lt;/p&gt;
+&lt;p&gt;Of course all of these are optional steps. Ruby's interpreter doesn't care
+about identation, it won't complain if you run a method 20 lines long and
+it won't throw an error if you have chain 16 methods spanning to 300 chars.
+All these are conventions among the Ruby community and you are not compelled
+to follow them. BUT, it provides much cleaner code and when you find yourself
+contributing to a project, all these will probably matter.&lt;/p&gt;
+&lt;p&gt;In my case, you can see through &lt;a href="https://github.com/axilleas/isitfedoraruby/commit/0a39c2b1a3d3aa47433c52147fe9ecb443e3ea98" title="Commit fixing most of rubocops errors"&gt;this commit&lt;/a&gt; what changed and in
+this &lt;a href="https://gist.github.com/axilleas/b65a909a5d0b73fcb2a8" title="gist with before/after violations"&gt;gist&lt;/a&gt; you can see the difference from before/after running rubocop.
+Dropped to 73 violations from 666.&lt;/p&gt;
+&lt;p&gt;I've skipped some of them as I didn't see fit, like commenting above every
+class what it does. I'm not saying this isn't good to have it's just it
+also includes migrations and I'd like to avoid that. Also some code will
+be deprecated/rewritten any time soon so it doesn't make sense to fix the
+violations if I'm to remove the code afterwards.&lt;/p&gt;
+&lt;h1 id="houndci"&gt;HoundCI&lt;/h1&gt;
+&lt;p&gt;Rubocop is good to test locally, but what about the code you host remotely?
+Enter &lt;a href="https://houndci.com/" title="HoundCI website"&gt;Houndci&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Houndci is a web app written in Rails by &lt;a href="http://robots.thoughtbot.com/" title="Thoughtbot website"&gt;Thoughtbot&lt;/a&gt; that integrates with
+your github account. It checks for violations every time a Pull Request is
+submited against your repository. It relies on the rubocop gem, but it
+may follow &lt;a href="https://github.com/thoughtbot/guides/tree/master/style" title="Thoughtbot style guide"&gt;different&lt;/a&gt; approaches than rubocop.&lt;/p&gt;
+&lt;p&gt;I almost spent a day to find this out. I'll tell you what I mean since there
+was a particular error that made me search for many hours.&lt;/p&gt;
+&lt;p&gt;Let's start by saying that it is common practice to not have lines spanning
+on more that 80 characters. &lt;a href="http://legacy.python.org/dev/peps/pep-0008/#maximum-line-length" title="Python PEP8 maximum line length"&gt;Python&lt;/a&gt; has it pinned to 79.&lt;/p&gt;
+&lt;p&gt;In rubocop, there is a cop that checks for method chaining. When the line
+is too long you should break it down, so this cop checks whether the 
+dot(&lt;strong&gt;.&lt;/strong&gt;) that chains two methods is placed before or after the methods.
+Here's an example to better visualize it:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;method_with_arguments&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;argument_one&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;argument_two&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;a_really_long_line_that_is_broken_up_over_multiple_lines_and&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+  &lt;span class="n"&gt;subsequent_lines_are_indented_and&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+  &lt;span class="n"&gt;each_method_lives_on_its_own_line&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;When I ran rubocop locally it complained with &lt;em&gt;Place the . on the next line, together with the method name.&lt;/em&gt;
+Ok I did that and pushed. Then why was houndci told me &lt;a href="https://github.com/axilleas/isitfedoraruby/pull/1#discussion-diff-13786984" title="HoundCI complaining on dot"&gt;otherwise&lt;/a&gt;?&lt;/p&gt;
+&lt;p&gt;Digging in rubocop's default &lt;a href="https://github.com/bbatsov/rubocop/blob/master/config/default.yml#L187" title="Default configuration about the dot position cop"&gt;config&lt;/a&gt; file I found that this particular
+cop was invoking an additional parameter: &lt;code&gt;EnforcedStyle: leading&lt;/code&gt;.
+Interesting, so why houndci was telling me the opposite? Digging some more,
+this time in rubocop's source code, I found the responsible &lt;a href="https://github.com/bbatsov/rubocop/blob/master/lib/rubocop/cop/style/dot_position.rb#L22" title="cop that checks the . position in multi-line method calls."&gt;method&lt;/a&gt;.
+It seems rubocop gives you the option to decide which style fits you better
+and from what I've seen so far, houndci prefered the trailing dot. Ok let's
+fix that.&lt;/p&gt;
+&lt;p&gt;Reading the &lt;a href="https://houndci.com/configuration" title="Hound configuration"&gt;configuration&lt;/a&gt; guide, and since houndci uses rubocop, I
+copied &lt;code&gt;.rubocop_todo_yml&lt;/code&gt; to &lt;code&gt;.hound.yml&lt;/code&gt;. There, following the &lt;a href="https://github.com/bbatsov/rubocop/blob/master/config/default.yml#L187" title="Default configuration about the dot position cop"&gt;config&lt;/a&gt;
+file I appended&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;Style&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;DotPosition&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+  &lt;span class="nl"&gt;EnforcedStyle:&lt;/span&gt; &lt;span class="n"&gt;leading&lt;/span&gt;
+  &lt;span class="nl"&gt;Enabled:&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;in &lt;code&gt;.hound.yml&lt;/code&gt;, pushed the change to my repo and created a test pull request
+to check if it worked. No... but whyyyy??&lt;/p&gt;
+&lt;p&gt;After some more more digging, this time at the issue tracker of houndci,
+I finally found the &lt;a href="https://github.com/thoughtbot/hound/issues/288" title="Hound not picking up changes in .hound.yml"&gt;culprit&lt;/a&gt;. The latest version of rubocop &lt;a href="https://github.com/bbatsov/rubocop/blob/master/relnotes/v0.23.0.md" title="Rubocop 0.23.0 release notes"&gt;changed&lt;/a&gt;
+the way cops are presented and that broke compatibility with houndci.
+Back to &lt;code&gt;.hound.yml&lt;/code&gt; I removed &lt;code&gt;Style/&lt;/code&gt; and pushed to github. Finally,
+this time it was fixed.&lt;/p&gt;
+&lt;p&gt;Not much of a story, probably you already got bored or didn't make it this
+far, but anyway. Onto more interesting stuff, until next time it is.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Mon, 16 Jun 2014 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2014-06-16:en/blog/2014/rubocop-to-the-rescue</guid><category>fedora</category><category>isitfedoraruby</category><category>gsoc</category><category>ruby</category><category>rails</category><category>webdev</category><category>rubocop</category></item><item><title>GSoC-2014 isitfedoraruby - Week 3</title><link>http://axilleas.me/en/blog/2014/gsoc2014-week-three</link><description>&lt;p&gt;Testing, testing, testing.
 Diving into BDD for the first time can be a little tedious but you sure learn
 a lot. In the ruby/rails world there is a ton of excellent tools to help you
 test your app. Some more popular than the others. I'm no exception so I

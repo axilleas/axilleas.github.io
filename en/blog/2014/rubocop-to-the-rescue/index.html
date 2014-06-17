@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title>Rubocop to the rescue!</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="-1" />
+        <link rel="stylesheet" href="/theme/style/reset.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/screen.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/friendly.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/print.css" type="text/css" media="print" />
+        <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+</head>
+<body>
+    <header id="main">
+        <div class="container">
+            <div class="logo">
+                <p><a href="/" title="Home">Over the line</a> <span class="welcome">Yeah, well, you know, that's just, like, my opinion, man.</span></p>
+            </div>
+        </div>
+    </header>
+
+    <div class="splash">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a></li>
+                    <li><a href="/about">whoami</a></li>
+                    <li><a href="/rss">Rss Feed</a></li>
+                <li><a href="/archives.html" title="Archive">Archive</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container content">
+<article>
+    <header>
+<h1><a href="/en/blog/2014/rubocop-to-the-rescue" rel="bookmark">
+    Rubocop to the rescue!
+</a></h1>
+<time datetime="2014-06-16 00:00:00" pubdate>Posted on
+    Mon 16 June 2014
+</time>
+<address class="vcard author">
+    by <a class="url fn" href="/author/axil.html">
+    axil</a>
+</address>
+<span class="category">in <a href="/category/geek.html">
+    geek</a>.
+        </span>
+    </header>
+
+    <div class="body">
+        <p><em>I decided to drop the GSoC related titles and focus on the things
+that I work during the week. That means I'll probably blog more often :p</em></p>
+<p>This week I mostly focused on cleaning the code of <a href="https://github.com/axilleas/isitfedoraruby" title="isitfedoraruby at github">fedoraruby</a> and
+conforming to the <a href="https://github.com/bbatsov/ruby-style-guide" title="Ruby style guide">ruby</a>/<a href="https://github.com/bbatsov/rails-style-guide" title="Rails style guide">rails</a> community
+guidelines.</p>
+<p>The gem that helps you do that is <a href="https://github.com/bbatsov/rubocop" title="rubocop at github">rubocop</a> and is kind of the standard
+method in the ruby world.</p>
+<div class="toc">
+<ul>
+<li><a href="#rubocop">RuboCop</a></li>
+<li><a href="#houndci">HoundCI</a></li>
+</ul>
+</div>
+<h1 id="rubocop">RuboCop</h1>
+<p>Rubocop refers to each check as a cop. There are a bunch and you can see
+the supported ones by reading these [files][rubo-enabled].</p>
+<p>After installing rubocop, call it with the <code>rubocop</code> command and it
+will check all Ruby source files in the current directory.</p>
+<p>If working on a Rails project, you have to invoke it with the <code>-R</code> flag.</p>
+<p>The first time I ran rubocop I was presented with no more or less
+<strong>666</strong> violations. Which meant if I wanted to clean up the code I'd had to
+manually edit all 666 of them. Luckily, as you may have imagined, rubocop
+provides the <code>-a/--auto-correct</code> flag which does what it says. In the
+documentation there is a note: <em>Experimental - use with caution</em>. What the
+heck, I had nothing to lose, I am under version control so I could go back
+any time. It worked like a charm and this brought the violations to about
+<strong>150</strong>. Not bad at all.</p>
+<p>So what about the rest? Well, you have to do it manually and so I began.
+If you run rubocop without any flags, it uses the <a href="https://github.com/bbatsov/rubocop/tree/master/config" title="Default configuration files for rubocop">default config</a> that
+ships with the gem. If you want to use your config you can do so by defining
+it with the <code>-c</code> flag.</p>
+<p>Now, there is another cool feature rubocop provides. It can create a config
+file for you containing all the violations found so far. Run rubocop with
+the <code>--auto-gen-config</code> flag and that will create <code>.rubocop_todo_yml</code> in
+the current dir. Then you can check against that file with
+<code>rubocop -R -c .rubocop_todo_yml</code>.</p>
+<p>All cops in this yaml file are set to false, which means they won't be taken
+into account, not unless you explicitly set them to true. That way you can
+work your way up in fixing all violations by enabling one cop at a time.
+Basically what is included in this file, overrides the default values.</p>
+<p>If you want to omit calling on <code>.rubocop_todo_yml</code> every single time, place
+this in <code>.rubocop.yml</code>:</p>
+<div class="codehilite"><pre><span class="nl">inherit_from:</span> <span class="p">.</span><span class="n">rubocop_todo</span><span class="p">.</span><span class="n">yml</span>
+</pre></div>
+
+
+<p>Form now on you can just call it with <code>rubocop -R</code>.</p>
+<p>To sum up, run <code>rubocop -R</code> see that there is no violation, edit
+<code>.rubocop_todo_yml</code>, set one of the cops to true, run rubocop again, fix
+the errors and work your way up until there is no violation.</p>
+<p>Of course all of these are optional steps. Ruby's interpreter doesn't care
+about identation, it won't complain if you run a method 20 lines long and
+it won't throw an error if you have chain 16 methods spanning to 300 chars.
+All these are conventions among the Ruby community and you are not compelled
+to follow them. BUT, it provides much cleaner code and when you find yourself
+contributing to a project, all these will probably matter.</p>
+<p>In my case, you can see through <a href="https://github.com/axilleas/isitfedoraruby/commit/0a39c2b1a3d3aa47433c52147fe9ecb443e3ea98" title="Commit fixing most of rubocops errors">this commit</a> what changed and in
+this <a href="https://gist.github.com/axilleas/b65a909a5d0b73fcb2a8" title="gist with before/after violations">gist</a> you can see the difference from before/after running rubocop.
+Dropped to 73 violations from 666.</p>
+<p>I've skipped some of them as I didn't see fit, like commenting above every
+class what it does. I'm not saying this isn't good to have it's just it
+also includes migrations and I'd like to avoid that. Also some code will
+be deprecated/rewritten any time soon so it doesn't make sense to fix the
+violations if I'm to remove the code afterwards.</p>
+<h1 id="houndci">HoundCI</h1>
+<p>Rubocop is good to test locally, but what about the code you host remotely?
+Enter <a href="https://houndci.com/" title="HoundCI website">Houndci</a>.</p>
+<p>Houndci is a web app written in Rails by <a href="http://robots.thoughtbot.com/" title="Thoughtbot website">Thoughtbot</a> that integrates with
+your github account. It checks for violations every time a Pull Request is
+submited against your repository. It relies on the rubocop gem, but it
+may follow <a href="https://github.com/thoughtbot/guides/tree/master/style" title="Thoughtbot style guide">different</a> approaches than rubocop.</p>
+<p>I almost spent a day to find this out. I'll tell you what I mean since there
+was a particular error that made me search for many hours.</p>
+<p>Let's start by saying that it is common practice to not have lines spanning
+on more that 80 characters. <a href="http://legacy.python.org/dev/peps/pep-0008/#maximum-line-length" title="Python PEP8 maximum line length">Python</a> has it pinned to 79.</p>
+<p>In rubocop, there is a cop that checks for method chaining. When the line
+is too long you should break it down, so this cop checks whether the 
+dot(<strong>.</strong>) that chains two methods is placed before or after the methods.
+Here's an example to better visualize it:</p>
+<div class="codehilite"><pre><span class="k">def</span> <span class="nf">method_with_arguments</span><span class="p">(</span><span class="n">argument_one</span><span class="p">,</span> <span class="n">argument_two</span><span class="p">)</span>
+  <span class="n">a_really_long_line_that_is_broken_up_over_multiple_lines_and</span><span class="o">.</span>
+  <span class="n">subsequent_lines_are_indented_and</span><span class="o">.</span>
+  <span class="n">each_method_lives_on_its_own_line</span>
+<span class="k">end</span>
+</pre></div>
+
+
+<p>When I ran rubocop locally it complained with <em>Place the . on the next line, together with the method name.</em>
+Ok I did that and pushed. Then why was houndci told me <a href="https://github.com/axilleas/isitfedoraruby/pull/1#discussion-diff-13786984" title="HoundCI complaining on dot">otherwise</a>?</p>
+<p>Digging in rubocop's default <a href="https://github.com/bbatsov/rubocop/blob/master/config/default.yml#L187" title="Default configuration about the dot position cop">config</a> file I found that this particular
+cop was invoking an additional parameter: <code>EnforcedStyle: leading</code>.
+Interesting, so why houndci was telling me the opposite? Digging some more,
+this time in rubocop's source code, I found the responsible <a href="https://github.com/bbatsov/rubocop/blob/master/lib/rubocop/cop/style/dot_position.rb#L22" title="cop that checks the . position in multi-line method calls.">method</a>.
+It seems rubocop gives you the option to decide which style fits you better
+and from what I've seen so far, houndci prefered the trailing dot. Ok let's
+fix that.</p>
+<p>Reading the <a href="https://houndci.com/configuration" title="Hound configuration">configuration</a> guide, and since houndci uses rubocop, I
+copied <code>.rubocop_todo_yml</code> to <code>.hound.yml</code>. There, following the <a href="https://github.com/bbatsov/rubocop/blob/master/config/default.yml#L187" title="Default configuration about the dot position cop">config</a>
+file I appended</p>
+<div class="codehilite"><pre><span class="n">Style</span><span class="o">/</span><span class="n">DotPosition</span><span class="o">:</span>
+  <span class="nl">EnforcedStyle:</span> <span class="n">leading</span>
+  <span class="nl">Enabled:</span> <span class="nb">true</span>
+</pre></div>
+
+
+<p>in <code>.hound.yml</code>, pushed the change to my repo and created a test pull request
+to check if it worked. No... but whyyyy??</p>
+<p>After some more more digging, this time at the issue tracker of houndci,
+I finally found the <a href="https://github.com/thoughtbot/hound/issues/288" title="Hound not picking up changes in .hound.yml">culprit</a>. The latest version of rubocop <a href="https://github.com/bbatsov/rubocop/blob/master/relnotes/v0.23.0.md" title="Rubocop 0.23.0 release notes">changed</a>
+the way cops are presented and that broke compatibility with houndci.
+Back to <code>.hound.yml</code> I removed <code>Style/</code> and pushed to github. Finally,
+this time it was fixed.</p>
+<p>Not much of a story, probably you already got bored or didn't make it this
+far, but anyway. Onto more interesting stuff, until next time it is.</p>
+    </div>
+
+    <footer>
+        <ul class="tags">
+        Tags:
+            <li><a href="/tag/fedora.html">fedora</a></li>
+            <li><a href="/tag/isitfedoraruby.html">isitfedoraruby</a></li>
+            <li><a href="/tag/gsoc.html">gsoc</a></li>
+            <li><a href="/tag/ruby.html">ruby</a></li>
+            <li><a href="/tag/rails.html">rails</a></li>
+            <li><a href="/tag/webdev.html">webdev</a></li>
+            <li><a href="/tag/rubocop.html">rubocop</a></li>
+        </ul>
+    </footer>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'kissmyarch'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</article>
+    </div>
+
+    <div class="container footnote">
+        <a href="javascript:window.print();" title="Print">Print</a>
+    </div>
+
+
+
+    <footer>
+        <div class="container footer">
+            <span>Powered by <a href="http://docs.getpelican.com">
+                Pelican</a> using <a href="https://github.com/BYK/pelican-neat">
+                neat theme</a>. 
+            </span>
+            <nav>
+                <ul>
+                    <li><a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a></li>
+                <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img
+                    alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+     <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik-glb.rhcloud.com/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "5"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+</body>
+</html>
