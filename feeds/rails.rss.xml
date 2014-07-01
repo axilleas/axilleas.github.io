@@ -1,5 +1,357 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Over the line</title><link>http://axilleas.me/</link><description></description><atom:link href="http://axilleas.me/feeds/rails.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 16 Jun 2014 00:00:00 +0300</lastBuildDate><item><title>Rubocop to the rescue!</title><link>http://axilleas.me/en/blog/2014/rubocop-to-the-rescue</link><description>&lt;p&gt;&lt;em&gt;I decided to drop the GSoC related titles and focus on the things
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Over the line</title><link>http://axilleas.me/</link><description></description><atom:link href="http://axilleas.me/feeds/rails.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 01 Jul 2014 00:00:00 +0300</lastBuildDate><item><title>Rails development tools</title><link>http://axilleas.me/en/blog/2014/ruby-on-rails-development-tools</link><description>&lt;p&gt;During the past two months I have been reading constantly about Rails and
+how I could get more productive when writing code and testing my apps.
+There is a ton of information about those matters on the web and I'll try
+to include as many articles as I could find useful to my knowledge building.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Disclaimer:&lt;/em&gt; This article is heavily inspired by Thoughtbot's
+&lt;a href="https://learn.thoughtbot.com/products/2-vim-for-rails-developers" title="Vim for Rails Developers"&gt;Vim for Rails Developers&lt;/a&gt; which I stumbled upon during browsing the
+screencasts of &lt;a href="https://codeschool.com" title="codeschool homepage"&gt;codeschool&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#editor-of-choice-vim"&gt;Editor of choice (vim)&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#vim-plugins"&gt;vim plugins&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#railsvim"&gt;rails.vim&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#vim-snipmate"&gt;vim-snipmate&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#fugitivevim"&gt;fugitive.vim&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#terminal-multiplexer-tmux"&gt;Terminal multiplexer (tmux)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#development-stack"&gt;Development stack&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#jazz_hands"&gt;jazz_hands&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#rubocop"&gt;rubocop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#railroady"&gt;railroady&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#annotate"&gt;annotate&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#testing-stack"&gt;Testing stack&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#rspec"&gt;rspec&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#capybara"&gt;capybara&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#guard"&gt;guard&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#other-super-useful-tools"&gt;Other super useful tools&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#ctags"&gt;ctags&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#installation"&gt;Installation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#configuration"&gt;Configuration&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#usage"&gt;Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#secret-power"&gt;Secret power&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#ack"&gt;ack&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#alternative-ag"&gt;alternative (ag)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#conclusion"&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h1 id="editor-of-choice-vim"&gt;Editor of choice (vim)&lt;/h1&gt;
+&lt;p&gt;When you work from the command line and you use linux, your editor
+preference comes down to two choices: vim and emacs. I started with vim
+some time ago so I'll stick with it.&lt;/p&gt;
+&lt;p&gt;If you are new to vim read this &lt;a href="http://www.viemu.com/vi-vim-cheat-sheet.gif" title="vim cheatsheet"&gt;cheatsheet&lt;/a&gt; to learn the basical
+commands.&lt;/p&gt;
+&lt;h2 id="vim-plugins"&gt;vim plugins&lt;/h2&gt;
+&lt;p&gt;Start by installing &lt;a href="https://github.com/tpope/vim-pathogen" title="pathogen vim plugin"&gt;pathogen.vim&lt;/a&gt;, a vim plugin manager:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vim&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;autoload&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vim&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bundle&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; \
+&lt;span class="n"&gt;curl&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;LSso&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vim&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;autoload&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;pathogen&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//tpo.pe/pathogen.vim&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then add this to your vimrc:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;execute&lt;/span&gt; &lt;span class="n"&gt;pathogen&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;infect&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;From now on, every plugin that is compatible with pathogen can be simply
+installed by cloning its repo at &lt;code&gt;~/.vim/bundle&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;An alternative for pathogen is &lt;a href="https://github.com/gmarik/Vundle.vim" title="vundle vim plugin"&gt;vundle&lt;/a&gt;. Haven't used it but it
+behaves similarly.&lt;/p&gt;
+&lt;h3 id="railsvim"&gt;rails.vim&lt;/h3&gt;
+&lt;p&gt;Probably the one most useful plugin when dealing with Rails projects.&lt;/p&gt;
+&lt;p&gt;Install it with:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/tpope/vim-rails.git ~/.vim/bundle/vim-rails&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Browsing through the app&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You can use &lt;code&gt;:RController foos&lt;/code&gt; and it will take you straight
+to the &lt;code&gt;app/controllers/foos_controller.rb&lt;/code&gt;. As you might guess, same
+happens with &lt;code&gt;:RModel foo&lt;/code&gt;, etc. There is also tab completion so that
+you can toggle between all models/controllers, etc.&lt;/p&gt;
+&lt;p&gt;Another useful command is &lt;code&gt;:find&lt;/code&gt;. Invoking it with a name foo, it first
+searches for a model named foo. Tab completion is also your friend.&lt;/p&gt;
+&lt;p&gt;One other really cool feature is the go to file. Supposedly we have the
+following model:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Blog&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="ss"&gt;ActiveRecord&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="ss"&gt;:Base&lt;/span&gt;
+
+  &lt;span class="n"&gt;has_many&lt;/span&gt; &lt;span class="ss"&gt;:articles&lt;/span&gt;
+
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Placing the cursor on the articles word and pressing &lt;code&gt;gf&lt;/code&gt; vim opens
+the article model. After saving your changes you can go back to the blog
+model by pressing &lt;code&gt;Ctrl-o&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Run your tests through vim&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Running test is also a matter of a command. Say you are editing a specific
+spec/test file. All you have to do is run &lt;code&gt;:Rake&lt;/code&gt; and the tests for that
+particular file will be ran, without leaving your favorite editor :)&lt;/p&gt;
+&lt;p&gt;The supported commands are a lot and your best bet is to invoke
+&lt;code&gt;:help rails&lt;/code&gt; in vim and learn about them.&lt;/p&gt;
+&lt;p&gt;Be sure to also check &lt;a href="https://github.com/tpope/vim-rails" title="vim-rails on github"&gt;vim-rails&lt;/a&gt; on github.&lt;/p&gt;
+&lt;h3 id="vim-snipmate"&gt;vim-snipmate&lt;/h3&gt;
+&lt;p&gt;SnipMate implements snippet features in Vim. A snippet is like a template,
+reducing repetitive insertion of pieces of text. Snippets can contain
+placeholders for modifying the text if necessary or interpolated code for
+evaluation.&lt;/p&gt;
+&lt;p&gt;Install it:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vim&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bundle&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/tomtom/tlib_vim.git&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/MarcWeber/vim-addon-mw-utils.git&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/garbas/vim-snipmate.git&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/honza/vim-snippets.git&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/honza/vim-snippets/blob/master/snippets/ruby.snippets" title="Ruby supported snippets"&gt;List of supported Ruby snippets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/honza/vim-snippets/blob/master/snippets/ruby.snippets#L598" title="Rails supported snippets"&gt;List of supported Rails snippets&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Writing a method&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Reading the source code of snippets above let's see how we can create a
+method. The snippet reads:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;snippet def
+        def &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;method_name&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
+                &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
+        end
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So, the snippet is named &lt;code&gt;def&lt;/code&gt; and in order to invoke it we must write
+def and hit Tab. It then expands, placing the cursor in the highlited
+&lt;code&gt;method_name&lt;/code&gt;. This is what it looks like:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;def&lt;/span&gt; &lt;span class="n"&gt;method_name&lt;/span&gt;
+
+&lt;span class="n"&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Once you start typing, method_name gets replaced with what you type. When
+you finish, hit Tab again to go to the method body.&lt;/p&gt;
+&lt;p&gt;Now all you have to do is read the &lt;code&gt;ruby.snippet&lt;/code&gt; and find out what
+snippets are supported.&lt;/p&gt;
+&lt;h3 id="fugitivevim"&gt;fugitive.vim&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://github.com/tpope/vim-fugitive" title="vim-fugitive on github"&gt;vim-fugitive&lt;/a&gt; brings the power of git commands inside vim.&lt;/p&gt;
+&lt;p&gt;Install it with:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Check out the github page for a list of commands and some interesting
+screencasts.&lt;/p&gt;
+&lt;h1 id="terminal-multiplexer-tmux"&gt;Terminal multiplexer (tmux)&lt;/h1&gt;
+&lt;p&gt;Again, here you have two options. &lt;code&gt;screen&lt;/code&gt; or &lt;code&gt;tmux&lt;/code&gt;. My first contact was
+with screen but recently I decided to try tmux.&lt;/p&gt;
+&lt;p&gt;I won't go into any details but I highly reccomend watching Chris Hunt's
+presentation &lt;a href="https://www.youtube.com/watch?v=9jzWDr24UHQ" title="Chris Hunt - Impressive Ruby Productivity with Vim and Tmux - Ancient City Ruby 2013 "&gt;Impressive Ruby Productivity with Vim and Tmux&lt;/a&gt;.
+It's an awesome talk.&lt;/p&gt;
+&lt;h1 id="development-stack"&gt;Development stack&lt;/h1&gt;
+&lt;p&gt;There is a great &lt;a href="http://www.codebeerstartups.com/2013/04/must-have-gems-for-development-machine-in-ruby-on-rails"&gt;article&lt;/a&gt; I stumbled upon yesterday about some must have gems
+for development, some of which I haven't tested. Here is what I got so far.&lt;/p&gt;
+&lt;h2 id="jazz_hands"&gt;jazz_hands&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/nixme/jazz_hands" title="jazz_hands on github"&gt;jazz_hands&lt;/a&gt; is basically a collection of gems that you get for free with
+just one gem. It focuses on enhancing the rails console. It provides:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Pry&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;powerful&lt;/span&gt; &lt;span class="n"&gt;shell&lt;/span&gt; &lt;span class="n"&gt;alternative&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;IRB&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Awesome&lt;/span&gt; &lt;span class="n"&gt;Print&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;stylish&lt;/span&gt; &lt;span class="n"&gt;pretty&lt;/span&gt; &lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Hirb&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;tabular&lt;/span&gt; &lt;span class="n"&gt;collection&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Pry&lt;/span&gt; &lt;span class="n"&gt;Rails&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;additional&lt;/span&gt; &lt;span class="n"&gt;commands&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;routes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;middleware&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;Rails&lt;/span&gt; &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Pry&lt;/span&gt; &lt;span class="n"&gt;Doc&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;browse&lt;/span&gt; &lt;span class="n"&gt;Ruby&lt;/span&gt; &lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;including&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;directly&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Pry&lt;/span&gt; &lt;span class="n"&gt;Git&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;teach&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;console&lt;/span&gt; &lt;span class="n"&gt;about&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Diffs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;blames&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;commits&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;methods&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;classes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;not&lt;/span&gt; &lt;span class="n"&gt;just&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Pry&lt;/span&gt; &lt;span class="n"&gt;Remote&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;connect&lt;/span&gt; &lt;span class="n"&gt;remotely&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;Pry&lt;/span&gt; &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Pry&lt;/span&gt; &lt;span class="n"&gt;Debugger&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;turn&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;console&lt;/span&gt; &lt;span class="n"&gt;into&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;simple&lt;/span&gt; &lt;span class="n"&gt;debugger&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Pry&lt;/span&gt; &lt;span class="n"&gt;Stack&lt;/span&gt; &lt;span class="n"&gt;Explorer&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;navigate&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="n"&gt;stack&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;frames&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Coolline&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;Coderay&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;syntax&lt;/span&gt; &lt;span class="n"&gt;highlighting&lt;/span&gt; &lt;span class="n"&gt;as&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Optional&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;MRI&lt;/span&gt; &lt;span class="mf"&gt;1.9.3&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;2.0.0&lt;/span&gt; &lt;span class="n"&gt;only&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Again, visiting the github page, you will get all the info you want.
+There is an open &lt;a href="https://github.com/nixme/jazz_hands/pull/26"&gt;issue&lt;/a&gt; and installation on ruby 2.1.2 is failing for now.
+For the time being you can put the following in your Gemfile:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;gem&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;jazz_hands&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;github&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;nixme&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;jazz_hands&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;branch&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;bring&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;your&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;own&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;debugger&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;gem&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;pry&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;byebug&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2 id="rubocop"&gt;rubocop&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/bbatsov/rubocop"&gt;rubocop&lt;/a&gt; is a tool which checks if your code conforms to the
+&lt;a href="https://github.com/bbatsov/ruby-style-guide" title="Ruby style guide"&gt;ruby&lt;/a&gt;/&lt;a href="https://github.com/bbatsov/rails-style-guide" title="Rails style guide"&gt;rails&lt;/a&gt; community guidelines.&lt;/p&gt;
+&lt;p&gt;You can check the article I &lt;a href="http://axilleas.me/en/blog/2014/rubocop-to-the-rescue"&gt;wrote&lt;/a&gt;
+where I explain how to set it up and running.&lt;/p&gt;
+&lt;h2 id="railroady"&gt;railroady&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/preston/railroady" title="railroady gem"&gt;railroady&lt;/a&gt; is a tool that lets you visualize how the models and the
+controllers of your app are structured. Instructions on how to install it are
+on the github page. You can &lt;a href="https://gitlab.com/fedora-ruby/isitfedoraruby/raw/master/doc/models_complete.svg"&gt;check&lt;/a&gt; how it looks like on the
+fedoraruby project I'm currently working on.&lt;/p&gt;
+&lt;h2 id="annotate"&gt;annotate&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/ctran/annotate_models" title="annotate on github"&gt;annotate&lt;/a&gt; generates a schema of the model and places it on top of the model.
+It can also place it on top of your rspec files and the factories. It looks
+like this:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# == Schema Information&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;# Table name: bugs&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;#  id            :integer          not null, primary key&lt;/span&gt;
+&lt;span class="c"&gt;#  name          :string(255)&lt;/span&gt;
+&lt;span class="c"&gt;#  bz_id         :string(255)&lt;/span&gt;
+&lt;span class="c"&gt;#  fedora_rpm_id :integer&lt;/span&gt;
+&lt;span class="c"&gt;#  is_review     :boolean&lt;/span&gt;
+&lt;span class="c"&gt;#  created_at    :datetime&lt;/span&gt;
+&lt;span class="c"&gt;#  updated_at    :datetime&lt;/span&gt;
+&lt;span class="c"&gt;#  last_updated  :string(255)&lt;/span&gt;
+&lt;span class="c"&gt;#  is_open       :boolean&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1 id="testing-stack"&gt;Testing stack&lt;/h1&gt;
+&lt;p&gt;There is a ton of useful tools out there and if you are new to rails
+development you can easilly get lost. &lt;a href="http://words.steveklabnik.com/rails-has-two-default-stacks" title="Rails has Two Default Stacks"&gt;Rails has Two Default Stacks&lt;/a&gt; is
+a nice read that sums it up. I will try to update this post as I find more
+useful tools in my way.&lt;/p&gt;
+&lt;h2 id="rspec"&gt;rspec&lt;/h2&gt;
+&lt;p&gt;I am mostly in favor of rspec because of its descriptive language and the great
+support by other complement testing tools.&lt;/p&gt;
+&lt;h2 id="capybara"&gt;capybara&lt;/h2&gt;
+&lt;p&gt;So, why capybara and not cucumber? I'm not an expert on neither of these tools
+but from my understanding capybara is more focused on developers whereas
+cucumber's human language mostly targets aplications where one talks to a
+non-technical customer.&lt;/p&gt;
+&lt;h2 id="guard"&gt;guard&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Guard watches files and runs a command after a file is modified. This allows
+you to automatically run tests in the background, restart your development
+server, reload the browser, and more.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It has nearly 200 plugins which provide different options as guard is not only
+used for testing. The particular plugin for rspec is &lt;a href="https://github.com/guard/guard-rspec" title="guard-rspec on github"&gt;guard-rspec&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;When you make the smallest change to a test and you hit save, &lt;a href="https://github.com/guard/guard" title="guard on github"&gt;guard&lt;/a&gt; will
+run that particular test group again to see if it still passes.&lt;/p&gt;
+&lt;p&gt;I tend to invoke guard with &lt;code&gt;guard -c&lt;/code&gt; which runs the tests in a clear console
+every time.&lt;/p&gt;
+&lt;p&gt;Read the &lt;a href="https://github.com/guard/guard/wiki" title="guard wiki page"&gt;guard wiki page&lt;/a&gt; which is comprehensive and also watch the
+[guard railscast][] to better understand it.&lt;/p&gt;
+&lt;h1 id="other-super-useful-tools"&gt;Other super useful tools&lt;/h1&gt;
+&lt;h2 id="ctags"&gt;ctags&lt;/h2&gt;
+&lt;p&gt;Quoting from &lt;a href="http://ctags.sourceforge.net/whatis.html" title="What is ctags?"&gt;What is ctags?&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Ctags generates an index (or tag) file of language objects found in
+source files that allows these items to be quickly and easily located
+by a text editor or other utility.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;There are a bunch of different tools to create a tags file, but the most
+common implementation is &lt;a href="http://ctags.sourceforge.net/" title="Exuberant ctags homepage"&gt;exuberant ctags&lt;/a&gt; which we will use.&lt;/p&gt;
+&lt;p&gt;It supports 41 programming languages and a handful of editors.
+directories&lt;/p&gt;
+&lt;h3 id="installation"&gt;Installation&lt;/h3&gt;
+&lt;p&gt;Install ctags via your package manager. It should be supported in all
+major ditributions.&lt;/p&gt;
+&lt;h3 id="configuration"&gt;Configuration&lt;/h3&gt;
+&lt;p&gt;For a rails project, in your application root directory you can run:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;ctags&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;R&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;exclude&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;exclude&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This searches recursively all files in the current directory, excludes
+the &lt;code&gt;.git&lt;/code&gt; and &lt;code&gt;log&lt;/code&gt; directories and creates a &lt;code&gt;tags&lt;/code&gt; file under current
+dir. You may want to add it to &lt;code&gt;.gitignore&lt;/code&gt; by the way.&lt;/p&gt;
+&lt;p&gt;Next, adding the following line to &lt;code&gt;~/.vimrc&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;tags&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tags&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;sets the location of the tags file, which is relative to the current
+directory.&lt;/p&gt;
+&lt;p&gt;You can move the above options in &lt;code&gt;~/.ctags&lt;/code&gt;, so in our case this will
+be:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;recurse&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;yes&lt;/span&gt;
+&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;tag&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;relative&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;yes&lt;/span&gt;
+&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;exclude&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt;
+&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;exclude&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So in future runs of ctags all you need to do is &lt;code&gt;ctags *&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;ctags doesn't autogenerate, so each time you write code that is tagable,
+you have to run the command again. If you are working in a git repository
+be sure to checkout Tim Pope's &lt;a href="http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html" title="Effortless Ctags with Git"&gt;Effortless Ctags with Git&lt;/a&gt;.
+What this does is:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Any new repositories you create or clone will be immediately indexed
+with Ctags and set up to re-index every time you check out, commit,
+merge, or rebase. Basically, you’ll never have to manually run Ctags
+on a Git repository again.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="usage"&gt;Usage&lt;/h3&gt;
+&lt;p&gt;Say we have a file containing hundrends of lines. Inside a method you
+see the below definition:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;contain_multiple_methods&lt;/span&gt;
+  &lt;span class="n"&gt;method_one&lt;/span&gt;
+  &lt;span class="n"&gt;method_two&lt;/span&gt;
+  &lt;span class="n"&gt;method_three&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;While you could search for these methods, you can save a few keystrokes
+by simply getting the cursor on the line of the method to search and in
+vim normal mode press &lt;code&gt;Ctrl + ]&lt;/code&gt; (control and right square bracket).
+This should get you where the method is. Go back to where you were by
+pressing &lt;code&gt;Ctrl + t&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; The usage of ctags isn't restricted only in the current file.
+If a method in your file is inherited by another class, then searching
+for it will jump in this particular file.&lt;/p&gt;
+&lt;h3 id="secret-power"&gt;Secret power&lt;/h3&gt;
+&lt;p&gt;Wouldn't it be cool if we could search for methods in the Rails source
+code? Here is where the power of ctags really excels. All you have to do
+is tell ctags to also tag the rails source code.&lt;/p&gt;
+&lt;p&gt;First I cloned the rails repository into &lt;code&gt;vendor/rails&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/rails/rails.git vendor/rails&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It should take less than a minute to download. You wouldn't want
+the rails source code to be included in your git tree, so you simply
+exclude &lt;code&gt;vendor/rails&lt;/code&gt; by adding it to &lt;code&gt;.gitignore&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Lastly, create again the tags with &lt;code&gt;ctags *&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Now navigate with vim to one of your models that has for example the
+association &lt;code&gt;has_many&lt;/code&gt;, place the cursor on it (or just on the same line)
+and hit &lt;code&gt;Ctrl + ]&lt;/code&gt;. Pretty cool huh? In case you forgot, go back to where
+you were with &lt;code&gt;Ctrl + t&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="ack"&gt;ack&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://beyondgrep.com/" title="ack homepage"&gt;ack&lt;/a&gt; is like grep but on steroids.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Designed for programmers with large heterogeneous trees of source code,
+ack is written purely in portable Perl 5 and takes advantage of the
+power of Perl's regular expressions.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It supports multiple types which you can see by typong &lt;code&gt;ack --help-types&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Of course there is a &lt;a href="https://github.com/mileszs/ack.vim" title="ack vim plugin"&gt;vim plugin&lt;/a&gt;!&lt;/p&gt;
+&lt;h3 id="alternative-ag"&gt;alternative (ag)&lt;/h3&gt;
+&lt;p&gt;While reading the &lt;a href="http://beyondgrep.com/more-tools/" title="ack: more tools"&gt;more-tools&lt;/a&gt; page of ack I found out about &lt;a href="https://github.com/ggreer/the_silver_searcher" title="ag at github"&gt;ag&lt;/a&gt;,
+also called the_silver_searcher. It is said to search code about 3–5×
+faster than ack, is written in C and have some more enhancements than ack.
+You may want to give this a try to. And as you have guessed there is also
+an &lt;a href="https://github.com/rking/ag.vim" title="ag vim plugin"&gt;ag vim plugin&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id="conclusion"&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;The editor of choice and the tools you use in web development play a great role
+in one's productivity, so you have to choose wisely and spend some time to get
+to know it. Personally, I learned a lot more these past days I was crafting
+this post and I hope you got something out of it too :)&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Tue, 01 Jul 2014 00:00:00 +0300</pubDate><guid>tag:axilleas.me,2014-07-01:en/blog/2014/ruby-on-rails-development-tools</guid><category>fedora</category><category>gsoc</category><category>ruby</category><category>rails</category><category>webdev</category></item><item><title>Rubocop to the rescue!</title><link>http://axilleas.me/en/blog/2014/rubocop-to-the-rescue</link><description>&lt;p&gt;&lt;em&gt;I decided to drop the GSoC related titles and focus on the things
 that I work during the week. That means I'll probably blog more often :p&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;This week I mostly focused on cleaning the code of &lt;a href="https://github.com/axilleas/isitfedoraruby" title="isitfedoraruby at github"&gt;fedoraruby&lt;/a&gt; and
 conforming to the &lt;a href="https://github.com/bbatsov/ruby-style-guide" title="Ruby style guide"&gt;ruby&lt;/a&gt;/&lt;a href="https://github.com/bbatsov/rails-style-guide" title="Rails style guide"&gt;rails&lt;/a&gt; community
