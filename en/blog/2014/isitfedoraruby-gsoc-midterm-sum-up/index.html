@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <meta name="tags" contents="fedora" />
+    <meta name="tags" contents="gsoc" />
+    <meta name="tags" contents="ruby" />
+    <meta name="tags" contents="rails" />
+    <meta name="tags" contents="webdev" />
+    <meta name="tags" contents="isitfedoraruby" />
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://axilleas.me">Over the line <strong></strong></a></h1>
+        </header><!-- /#banner -->
+        <nav id="menu"><ul>
+            <li><a href="http://axilleas.me/about">whoami</a></li>
+            <li><a href="http://axilleas.me/rss">Rss Feed</a></li>
+        </ul></nav><!-- /#menu -->
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="http://axilleas.me/en/blog/2014/isitfedoraruby-gsoc-midterm-sum-up" rel="bookmark"
+         title="Permalink to isitfedoraruby gsoc midterm sum up">isitfedoraruby gsoc midterm sum up</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <abbr class="published" title="2014-07-13T00:00:00">
+      Sun 13 July 2014
+    </abbr>
+    <address class="vcard author">
+      By <a class="url fn" href="http://axilleas.me/author/axil.html">axil</a>
+    </address>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>This sums up my past month involvement with the project. A lot of reading in
+between...</p>
+<div class="toc">
+<ul>
+<li><a href="#changelog">Changelog</a></li>
+<li><a href="#railsruby-style-guide">Rails/Ruby style guide</a></li>
+<li><a href="#tests">Tests</a></li>
+<li><a href="#bugs-fixed">Bugs fixed</a><ul>
+<li><a href="#wrong-owners">wrong owners</a></li>
+<li><a href="#dependencies-shown-twice">dependencies shown twice</a></li>
+<li><a href="#duplicate-homepage-and-source-uri">duplicate homepage and source uri</a></li>
+</ul>
+</li>
+<li><a href="#enhancements">Enhancements</a><ul>
+<li><a href="#show-more-info-in-fedorarpm-show-page">Show more info in fedorarpm show page</a></li>
+<li><a href="#rake-tasks">Rake tasks</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="changelog">Changelog</h2>
+<p>I added a changelog so that the changes are easily seen, so here it is (this week is v 0.9.1):</p>
+<div class="codehilite"><pre><span class="n">v</span> <span class="mf">0.9.1</span>
+
+<span class="o">-</span> <span class="n">Refactor</span> <span class="n">rake</span> <span class="n">tasks</span>
+<span class="o">-</span> <span class="n">Source</span> <span class="n">Code</span> <span class="n">uri</span> <span class="n">in</span> <span class="n">fedorarpms</span><span class="p">,</span> <span class="n">points</span> <span class="n">to</span> <span class="n">pkgs</span><span class="p">.</span><span class="n">fp</span><span class="p">.</span><span class="n">o</span> <span class="n">gitweb</span>
+<span class="o">-</span> <span class="n">Add</span> <span class="n">first</span> <span class="n">integration</span> <span class="n">tests</span>
+<span class="o">-</span> <span class="n">Retrieve</span> <span class="n">commit</span> <span class="n">data</span> <span class="n">via</span> <span class="n">Pkgwat</span>
+<span class="o">-</span> <span class="n">Show</span> <span class="n">name</span> <span class="n">of</span> <span class="n">last</span> <span class="n">packager</span> <span class="n">in</span> <span class="n">fedorarpms</span><span class="err">#</span><span class="n">show</span>
+<span class="o">-</span> <span class="n">Show</span> <span class="n">last</span> <span class="n">commit</span> <span class="n">message</span> <span class="n">in</span> <span class="n">fedorarpms</span><span class="err">#</span><span class="n">show</span>
+<span class="o">-</span> <span class="n">Show</span> <span class="n">last</span> <span class="n">commit</span> <span class="n">date</span> <span class="n">in</span> <span class="n">fedorarpms</span><span class="err">#</span><span class="n">show</span>
+<span class="o">-</span> <span class="n">Use</span> <span class="n">api</span> <span class="n">to</span> <span class="n">fetch</span> <span class="n">rawhide</span> <span class="n">version</span> <span class="n">instead</span> <span class="n">of</span> <span class="n">scrapping</span> <span class="n">page</span>
+<span class="o">-</span> <span class="n">Retrieve</span> <span class="n">homepage</span> <span class="n">via</span> <span class="n">Pkgwat</span>
+<span class="o">-</span> <span class="n">Fix</span> <span class="n">duplication</span> <span class="n">of</span> <span class="n">dependencies</span> <span class="n">in</span> <span class="n">fedorarpms</span><span class="err">#</span><span class="n">show</span>
+<span class="o">-</span> <span class="n">Do</span> <span class="n">not</span> <span class="n">show</span> <span class="n">source</span> <span class="n">url</span> <span class="n">in</span> <span class="n">rubygems</span><span class="err">#</span><span class="n">show</span> <span class="k">if</span> <span class="n">it</span> <span class="n">is</span> <span class="n">the</span> <span class="n">same</span> <span class="n">as</span> <span class="n">the</span> <span class="n">homepage</span>
+<span class="o">-</span> <span class="n">Do</span> <span class="n">not</span> <span class="n">show</span> <span class="n">source</span> <span class="n">url</span> <span class="n">in</span> <span class="n">fedorarpms</span><span class="err">#</span><span class="n">show</span> <span class="k">if</span> <span class="n">it</span> <span class="n">is</span> <span class="n">the</span> <span class="n">same</span> <span class="n">as</span> <span class="n">the</span> <span class="n">homepage</span>
+<span class="o">-</span> <span class="n">Split</span> <span class="n">methods</span><span class="o">:</span> <span class="n">versions</span><span class="p">,</span> <span class="n">dependencies</span> <span class="n">in</span> <span class="n">fedorarpm</span> <span class="n">model</span>
+<span class="o">-</span> <span class="n">New</span> <span class="n">rake</span> <span class="n">tasks</span> <span class="n">to</span> <span class="n">import</span> <span class="n">versions</span><span class="p">,</span> <span class="n">dependencies</span> <span class="n">and</span> <span class="n">commits</span>
+<span class="o">-</span> <span class="n">Show</span> <span class="n">last</span> <span class="n">packager</span> <span class="n">in</span> <span class="n">fedorarpms</span><span class="err">#</span><span class="n">show</span>
+<span class="o">-</span> <span class="n">Show</span> <span class="n">last</span> <span class="n">commit</span> <span class="n">message</span> <span class="n">in</span> <span class="n">fedorarpms</span><span class="err">#</span><span class="n">show</span>
+<span class="o">-</span> <span class="n">Show</span> <span class="n">last</span> <span class="n">commit</span> <span class="n">date</span> <span class="n">in</span> <span class="n">fedorarpms</span><span class="err">#</span><span class="n">show</span>
+
+<span class="n">v</span> <span class="mf">0.9.0</span>
+
+<span class="o">-</span> <span class="n">Remove</span> <span class="n">unused</span> <span class="n">code</span>
+  <span class="o">-</span> <span class="n">Remove</span> <span class="n">HistoricalGems</span> <span class="n">model</span>
+  <span class="o">-</span> <span class="n">Remove</span> <span class="n">Build</span> <span class="n">controller</span><span class="o">/</span><span class="n">view</span>
+  <span class="o">-</span> <span class="n">Remove</span> <span class="n">methods</span> <span class="n">related</span> <span class="n">to</span> <span class="n">local</span> <span class="n">spec</span><span class="o">/</span><span class="n">gem</span> <span class="n">downloading</span>
+  <span class="o">-</span> <span class="n">Remove</span> <span class="n">empty</span> <span class="n">helpers</span>
+  <span class="o">-</span> <span class="n">Cleaned</span> <span class="n">routes</span><span class="p">,</span> <span class="n">removed</span> <span class="n">unused</span> <span class="n">ones</span>
+<span class="o">-</span> <span class="n">Conform</span> <span class="n">to</span> <span class="n">ruby</span><span class="o">/</span><span class="n">rails</span> <span class="n">style</span> <span class="n">guide</span>
+<span class="o">-</span> <span class="n">Maintainer</span> <span class="n">field</span> <span class="k">for</span> <span class="n">packages</span> <span class="n">are</span> <span class="n">now</span> <span class="n">using</span> <span class="n">the</span> <span class="n">fas_name</span>
+<span class="o">-</span> <span class="n">Automatically</span> <span class="n">fetch</span> <span class="n">versions</span> <span class="n">of</span> <span class="n">Fedora</span> <span class="n">by</span> <span class="n">querying</span> <span class="n">the</span> <span class="n">pkgdb</span> <span class="n">api</span>
+<span class="o">-</span> <span class="n">Addded</span> <span class="n">rake</span> <span class="n">task</span> <span class="n">to</span> <span class="n">fetch</span> <span class="n">rawhide</span> <span class="n">version</span> <span class="n">and</span> <span class="n">store</span> <span class="n">it</span> <span class="n">in</span> <span class="n">a</span> <span class="n">file</span> <span class="n">locally</span>
+<span class="o">-</span> <span class="n">Show</span> <span class="n">koji</span> <span class="n">builds</span> <span class="n">from</span> <span class="n">supported</span> <span class="n">Fedora</span> <span class="n">versions</span> <span class="n">only</span>
+<span class="o">-</span> <span class="n">Bugs</span>
+  <span class="o">-</span> <span class="n">Query</span> <span class="n">bugs</span> <span class="n">via</span> <span class="n">api</span> <span class="n">using</span> <span class="n">pkgwat</span>
+  <span class="o">-</span> <span class="n">Drop</span> <span class="n">is_open</span> <span class="n">from</span> <span class="n">bugs</span> <span class="n">table</span>
+  <span class="o">-</span> <span class="n">Show</span> <span class="n">only</span> <span class="n">open</span> <span class="n">Fedora</span> <span class="n">bugs</span><span class="p">,</span> <span class="n">exclude</span> <span class="n">EPEL</span>
+<span class="o">-</span> <span class="n">Hover</span> <span class="n">over</span> <span class="n">links</span> <span class="n">to</span> <span class="n">see</span> <span class="n">full</span> <span class="n">titles</span> <span class="n">when</span> <span class="n">truncated</span>
+<span class="o">-</span> <span class="n">Rename</span> <span class="n">builds</span> <span class="n">table</span> <span class="n">to</span> <span class="n">koji_builds</span>
+<span class="o">-</span> <span class="n">Added</span> <span class="n">tests</span>
+  <span class="o">-</span> <span class="n">Unit</span> <span class="n">tests</span> <span class="k">for</span> <span class="n">models</span>
+<span class="o">-</span> <span class="n">Added</span> <span class="n">Github</span> <span class="n">services</span>
+  <span class="o">-</span> <span class="n">travis</span><span class="o">-</span><span class="n">ci</span>
+  <span class="o">-</span> <span class="n">hound</span><span class="o">-</span><span class="n">ci</span>
+  <span class="o">-</span> <span class="n">coveralls</span>
+  <span class="o">-</span> <span class="n">gemnasium</span>
+<span class="o">-</span> <span class="n">Development</span> <span class="n">tools</span>
+  <span class="o">-</span> <span class="n">shoulda</span><span class="o">-</span><span class="n">matchers</span>
+  <span class="o">-</span> <span class="n">rspec</span>
+  <span class="o">-</span> <span class="n">capybara</span>
+  <span class="o">-</span> <span class="n">rack</span><span class="o">-</span><span class="n">mini</span><span class="o">-</span><span class="n">profiler</span>
+  <span class="o">-</span> <span class="n">rubocop</span>
+  <span class="o">-</span> <span class="n">factory_girl</span>
+  <span class="o">-</span> <span class="n">annotate</span>
+  <span class="o">-</span> <span class="n">railsroady</span>
+</pre></div>
+
+
+<p>You should notice some version numbers. That's also a new addition and every
+week I will deploy a new version, so eventually at some point in the end of the
+summer, version 1.0.0 will be released.</p>
+<p>Here are some nice stats from git log.</p>
+<p><a href="https://github.com/axilleas/isitfedoraruby/graphs/contributors">Git stats</a>: 91 commits / 4,662 ++ / 2,874 --</p>
+<h2 id="railsruby-style-guide">Rails/Ruby style guide</h2>
+<p>Fixed arround 500 warnings that rubocop yielded.</p>
+<h2 id="tests">Tests</h2>
+<p>Added: unit tests for models.</p>
+<p>Missing:
+A bunch of code still needs testing, rspec is not enough to properly test api
+calls. I will use <a href="https://github.com/vcr/vcr">vcr</a> and <a href="https://github.com/bblimke/webmock">webmock</a> in the future to cover these tests.
+Integration tests are also not complete yet.</p>
+<h2 id="bugs-fixed">Bugs fixed</h2>
+<h3 id="wrong-owners">wrong owners</h3>
+<p>Previously it parsed the spec file and checked the first email in the
+changelog. Co-maintainers have also the ability to build a package and in
+that case it shows wrong info. Another case is where a user changes their
+email they are taken into account twice, so when hitting <code>/by_owner</code> not all
+packages are shown. I was hit by this bug.</p>
+<p>It now fetches the owner's fas name using <a href="https://github.com/daviddavis/pkgwat">pkgwat</a> which I use to sort
+by owner.</p>
+<h3 id="dependencies-shown-twice">dependencies shown twice</h3>
+<p>The current implementation scraps the SPEC file of a rubygem via the <a href="http://pkgs.fedoraproject.org/cgit">gitweb</a>
+and then stores the dependencies. The problem is that when one uses gem2rpm,
+<code>~&gt;</code> is expanded to <code>&gt;=</code> and <code>&lt;=</code>, which leads to list some dependencies twice.</p>
+<p><img alt="Double dependencies" src="http://axilleas.me/images/fedoraruby_duplicate_entries.png" /></p>
+<p>The fix was quite easy. Here is the controller that is in charge for the show
+action:</p>
+<div class="codehilite"><pre>  <span class="k">def</span> <span class="nf">show</span>
+    <span class="vi">@name</span> <span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span>
+    <span class="vi">@rpm</span> <span class="o">=</span> <span class="no">FedoraRpm</span><span class="o">.</span><span class="n">find_by_name!</span> <span class="vi">@name</span>
+    <span class="vi">@page_title</span> <span class="o">=</span> <span class="vi">@rpm</span><span class="o">.</span><span class="n">name</span>
+    <span class="vi">@dependencies</span> <span class="o">=</span> <span class="vi">@rpm</span><span class="o">.</span><span class="n">dependency_packages</span><span class="o">.</span><span class="n">uniq</span>
+    <span class="vi">@dependents</span> <span class="o">=</span> <span class="vi">@rpm</span><span class="o">.</span><span class="n">dependent_packages</span><span class="o">.</span><span class="n">uniq</span>
+    <span class="k">rescue</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:RecordNotFound</span>
+      <span class="n">redirect_to</span> <span class="ss">action</span><span class="p">:</span> <span class="s1">&#39;not_found&#39;</span>
+  <span class="k">end</span>
+</pre></div>
+
+
+<p>All I did was to add <code>uniq</code>.</p>
+<h3 id="duplicate-homepage-and-source-uri">duplicate homepage and source uri</h3>
+<p>In a gem page you could see this:</p>
+<p><img alt="Double homepage" src="http://axilleas.me/images/fedoraruby_duplicate_homepage_gem.png" /></p>
+<p>The information is taken from the <a href="https://rubygems.org">https://rubygems.org</a> api. Some have the
+same page for both gem's homepage and source uri. The secret was lying in the
+[view][].</p>
+<div class="codehilite"><pre><span class="o">%</span><span class="n">div</span><span class="o">.</span><span class="n">info</span>
+  <span class="o">%</span><span class="n">h3</span> <span class="no">Gem</span> <span class="no">Information</span>
+  <span class="o">%</span><span class="nb">p</span>
+    <span class="ss">Homepage</span><span class="p">:</span>
+    <span class="o">=</span><span class="n">link_to</span> <span class="vi">@gem</span><span class="o">.</span><span class="n">homepage</span><span class="p">,</span> <span class="vi">@gem</span><span class="o">.</span><span class="n">homepage</span>
+  <span class="o">-</span> <span class="k">unless</span> <span class="vi">@gem</span><span class="o">.</span><span class="n">source_uri</span><span class="o">.</span><span class="n">blank?</span>
+    <span class="o">%</span><span class="nb">p</span>
+      <span class="no">Source</span> <span class="ss">Code</span><span class="p">:</span>
+      <span class="o">=</span><span class="n">link_to</span> <span class="vi">@gem</span><span class="o">.</span><span class="n">source_uri</span><span class="p">,</span> <span class="vi">@gem</span><span class="o">.</span><span class="n">source_uri</span>
+</pre></div>
+
+
+<p>All I did was to change this from this:</p>
+<div class="codehilite"><pre><span class="o">-</span> <span class="k">unless</span> <span class="vi">@gem</span><span class="o">.</span><span class="n">source_uri</span><span class="o">.</span><span class="n">blank?</span>
+</pre></div>
+
+
+<p>to this:</p>
+<div class="codehilite"><pre><span class="o">-</span> <span class="k">unless</span> <span class="vi">@gem</span><span class="o">.</span><span class="n">source_uri</span><span class="o">.</span><span class="n">blank?</span> <span class="o">||</span> <span class="vi">@gem</span><span class="o">.</span><span class="n">source_uri</span> <span class="o">==</span> <span class="vi">@gem</span><span class="o">.</span><span class="n">homepage</span>
+</pre></div>
+
+
+<p>So now it skips showing the homepage if it is the same as the source uri.</p>
+<h2 id="enhancements">Enhancements</h2>
+<h3 id="show-more-info-in-fedorarpm-show-page">Show more info in fedorarpm show page</h3>
+<p>I added some more information at the fedorarpm page. Now it shows, last packager,
+last commit message and last commit date. Useful if something is broken with
+the latest release and you want to blame someone :p</p>
+<p>And since many times a package has many co-maintainers you get to see the real
+last packager.</p>
+<p>Here's a shot of the page as it is now:</p>
+<p><img alt="More info" src="http://axilleas.me/images/fedoraruby_moreinfo.png" /></p>
+<h3 id="rake-tasks">Rake tasks</h3>
+<p>As I have made some <a href="https://github.com/axilleas/isitfedoraruby/pull/54">major refactoring</a> in the fedorarpms model, I split
+many methods to their own namespace. For example, previously there was a single
+method for importing the versions and dependencies, now they are two separate.</p>
+<p>As a consequense, I added rake tasks that could be invoked for a single package.
+Also the namespace is now more descriptive.</p>
+<p>The tasks are for now the following:</p>
+<div class="codehilite"><pre><span class="nx">rake</span> <span class="nx">fedora</span><span class="p">:</span><span class="nx">gem</span><span class="p">:</span><span class="k">import</span><span class="p">:</span><span class="nx">all_names</span>               <span class="err">#</span> <span class="nx">FEDORA</span> <span class="o">|</span> <span class="k">Import</span> <span class="nx">a</span> <span class="nb">list</span> <span class="nx">of</span> <span class="nx">names</span> <span class="nx">of</span> <span class="kc">ALL</span> <span class="nx">gems</span> <span class="nb">from</span> <span class="nx">rubygems.org</span>
+<span class="nx">rake</span> <span class="nx">fedora</span><span class="p">:</span><span class="nx">gem</span><span class="p">:</span><span class="k">import</span><span class="p">:</span><span class="nx">metadata</span><span class="err">[</span><span class="nx">number</span><span class="p">,</span><span class="nx">delay</span><span class="cp">]</span>  # FEDORA | Import gems metadata from rubygems.org
+rake fedora:gem:update:gems<span class="cp">[</span><span class="nx">age</span><span class="cp">]</span>               # FEDORA | Update gems metadata from rubygems.org
+rake fedora:rawhide:create                     # FEDORA | Create file containing Fedora rawhide(development) version
+rake fedora:rawhide:version                    # FEDORA | Get Fedora rawhide(development) version
+rake fedora:rpm:import:all<span class="cp">[</span><span class="nx">number</span><span class="p">,</span><span class="nx">delay</span><span class="cp">]</span>       # FEDORA | Import ALL rpm metadata (time consuming)
+rake fedora:rpm:import:bugs<span class="cp">[</span><span class="nx">rpm_name</span><span class="cp">]</span>          # FEDORA | Import bugs of a given rubygem package
+rake fedora:rpm:import:commits<span class="cp">[</span><span class="nx">rpm_name</span><span class="cp">]</span>       # FEDORA | Import commits of a given rubygem package
+rake fedora:rpm:import:deps<span class="cp">[</span><span class="nx">rpm_name</span><span class="cp">]</span>          # FEDORA | Import dependencies of a given rubygem package
+rake fedora:rpm:import:gem<span class="cp">[</span><span class="nx">rpm_name</span><span class="cp">]</span>           # FEDORA | Import respective gem of a given rubygem package
+rake fedora:rpm:import:koji_builds<span class="cp">[</span><span class="nx">rpm_name</span><span class="cp">]</span>   # FEDORA | Import koji builds of a given rubygem package
+rake fedora:rpm:import:names                   # FEDORA | Import a list of names of all rubygems from apps.fedoraproject.org
+rake fedora:rpm:import:versions<span class="cp">[</span><span class="nx">rpm_name</span><span class="cp">]</span>      # FEDORA | Import versions of a given rubygem package
+rake fedora:rpm:update:oldest_rpms<span class="cp">[</span><span class="nx">number</span><span class="cp">]</span>     # FEDORA | Update oldest <span class="nt">&lt;n&gt;</span> rpms
+rake fedora:rpm:update:rpms<span class="cp">[</span><span class="nx">age</span><span class="cp">]</span>               # FEDORA | Update rpms metadata
+</pre></div>
+
+
+<p>That was it for now. For any changes be sure to check out the changelog regularly!</p>
+  </div><!-- /.entry-content -->
+</section>
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+</body>
+</html>
