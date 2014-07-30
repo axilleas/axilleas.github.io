@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title>IsItFedoraRuby new design</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="-1" />
+        <link rel="stylesheet" href="/theme/style/reset.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/screen.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/friendly.css" type="text/css" />
+        <link rel="stylesheet" href="/theme/style/print.css" type="text/css" media="print" />
+        <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+</head>
+<body>
+    <header id="main">
+        <div class="container">
+            <div class="logo">
+                <p><a href="/" title="Home">Over the line</a> <span class="welcome">Yeah, well, you know, that's just, like, my opinion, man.</span></p>
+            </div>
+        </div>
+    </header>
+
+    <div class="splash">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a></li>
+                    <li><a href="/about">whoami</a></li>
+                    <li><a href="/rss">Rss Feed</a></li>
+                <li><a href="/archives.html" title="Archive">Archive</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container content">
+<article>
+    <header>
+<h1><a href="/en/blog/2014/isitfedoraruby-new-design" rel="bookmark">
+    IsItFedoraRuby new design
+</a></h1>
+<time datetime="2014-07-30 00:00:00" pubdate>Posted on
+    Wed 30 July 2014
+</time>
+<address class="vcard author">
+    by <a class="url fn" href="/author/axil.html">
+    axil</a>
+</address>
+<span class="category">in <a href="/category/geek.html">
+    geek</a>.
+        </span>
+    </header>
+
+    <div class="body">
+        <p>The past week I tried to do something about the looks of isitfedoraruby.
+It was fun using bootstrap (my first time) and I think the outcome is cool.
+I tried to use Fedora like colors and the font is <em>Liberation Sans</em>,
+same as <a href="https://admin.fedoraproject.org/pkgdb," title="Fedora Package Database">Fedora pkgdb</a>.</p>
+<p>You can check the overall changes:</p>
+<ul>
+<li>Before: <a href="http://www.isitfedoraruby.com/">http://www.isitfedoraruby.com/</a></li>
+<li>After:  <a href="http://fedoraruby.axilleas.me/">http://fedoraruby.axilleas.me/</a></li>
+</ul>
+<div class="toc">
+<ul>
+<li><a href="#tables">Tables</a></li>
+<li><a href="#fedorarpms">fedorarpms</a><ul>
+<li><a href="#index-page">index page</a></li>
+<li><a href="#show-page">show page</a></li>
+</ul>
+</li>
+<li><a href="#rubygems-show-page">rubygems show page</a></li>
+<li><a href="#owner-page">owner page</a></li>
+<li><a href="#navigation-bar">Navigation bar</a><ul>
+<li><a href="#active-links">Active links</a></li>
+<li><a href="#navbar-header">Navbar header</a></li>
+<li><a href="#dropdown-menu">Dropdown menu</a></li>
+<li><a href="#search-field">Search field</a></li>
+</ul>
+</li>
+<li><a href="#responsive-design">Responsive design</a></li>
+</ul>
+</div>
+<h2 id="tables">Tables</h2>
+<p>They are now borderless, with highlighted headings. They are also responsive
+which means if the table is bigger than the page it gets its own sidebar
+without breaking the rest of the site.</p>
+<h2 id="fedorarpms">fedorarpms</h2>
+<h3 id="index-page">index page</h3>
+<p>The index page show all packaged rubygems along with some interesting info.
+You can see if a package is out of date if is highlighted with a red color.
+On the other hand green means is up to date with latest upstream.</p>
+<p>The code that does that is pretty simple. Bootstrap provides some css classes
+for coloring. So I wanted to use <code>warning</code> for outdated and <code>success</code> for up to
+date packages. I highlighted the whole table row so I used:</p>
+<div class="codehilite"><pre><span class="c">%tr{class: rpm.up_to_date? ? &#39;success&#39; : &#39;danger&#39;}</span>
+</pre></div>
+
+
+<p>In particular check <a href="https://github.com/axilleas/isitfedoraruby/blob/master/app/views/fedorarpms/index.html.haml#L19">line 19</a>.</p>
+<h3 id="show-page">show page</h3>
+<p>Previously there was a ton of information all in one page. Now, the info is
+still there but I have devided it into tab sections.</p>
+<p>Currently there are 5 tabs.</p>
+<p>The main tab has a gem's basic info:</p>
+<ul>
+<li>Up to date badge (green yes or red no)</li>
+<li>Gitweb repository url</li>
+<li>SPEC file url</li>
+<li>Upstream url</li>
+<li>Maintainer FAS name</li>
+<li>Number of git commits</li>
+<li>Last packager (in case a package is co-maintained)</li>
+<li>Last commit message</li>
+<li>Last commit date</li>
+<li>Description</li>
+</ul>
+<p><img alt="Basic Info" src="http://axilleas.me/images/isitfedoraruby-fedorarpm-basic-info.png" /></p>
+<p>Then there is a tab about version information:</p>
+<ul>
+<li>Table with gem versions across supported Fedora versions (rawhide, 21, 20)</li>
+</ul>
+<p><img alt="Versions" src="http://axilleas.me/images/isitfedoraruby-fedorarpm-versions.png" /></p>
+<p>Another important tab is a list with a packages's dependencies:</p>
+<ul>
+<li>One table with dependencies with column whether they are runtime/development deps</li>
+<li>One table with dependents packages</li>
+</ul>
+<p><img alt="Dependencies" src="http://axilleas.me/images/isitfedoraruby-fedorarpm-deps.png" /></p>
+<p>The bugs tab depicts all of package's open bugs for Fedora in a table.</p>
+<p><img alt="Bugs" src="http://axilleas.me/images/isitfedoraruby-fedorarpm-bugs.png" /></p>
+<p>And lastly koji builds for only the supported Fedora versions.</p>
+<p><img alt="Builds" src="http://axilleas.me/images/isitfedoraruby-fedorarpm-builds.png" /></p>
+<h2 id="rubygems-show-page">rubygems show page</h2>
+<p>The description is now on top of the page. Instead of one column, the new look
+has two columns, one for basic info and one for the depdendencies table.</p>
+<p>Compare rake:</p>
+<ul>
+<li>Before  : <a href="http://www.isitfedoraruby.com/rubygems/rake">http://www.isitfedoraruby.com/rubygems/rake</a></li>
+<li>After   : <a href="http://fedoraruby.axilleas.me/rubygems/rake">http://fedoraruby.axilleas.me/rubygems/rake</a></li>
+</ul>
+<h2 id="owner-page">owner page</h2>
+<p>I added some info on top of the page about the number of the packages a user owns:</p>
+<ul>
+<li>Total</li>
+<li>Up to date</li>
+<li>Outdated</li>
+</ul>
+<p>The table that has an owner's packages is also highlighted to depict outdated
+and up to date packages.</p>
+<p>Here's an embarassing screenshot which reminds me I have to update my packages...</p>
+<p><img alt="Owner page" src="http://axilleas.me/images/isitfedoraruby-owner-page.png" /></p>
+<h2 id="navigation-bar">Navigation bar</h2>
+<p>The navigation bar was a PITA to configure and make as responsive as possible.
+There were a lot of bits and pieces needed to fit together, here are some of
+them.</p>
+<h3 id="active-links">Active links</h3>
+<p>I used a helper method which I found in this <a href="http://stackoverflow.com/a/17482101/2137281" title="Dynamically add active class to bootstrap li in Rails">so answer</a>.</p>
+<ul>
+<li><a href="https://github.com/axilleas/isitfedoraruby/blob/master/app/helpers/application_helper.rb#L8">Helper method</a></li>
+<li><a href="https://github.com/axilleas/isitfedoraruby/blob/master/app/views/layouts/_header.html.haml#L14">View implementation</a></li>
+</ul>
+<h3 id="navbar-header">Navbar header</h3>
+<p>I used the same colors of <a href="https://admin.fedoraproject.org/pkgdb," title="Fedora Package Database">Fedora pkgdb</a>. With the help of a firefox
+extension named <a href="https://addons.mozilla.org/en-US/firefox/addon/colorpicker/" title="Colorpicker firefox extension">colorpicker</a> and <a href="http://twbscolor.smarchal.com/">http://twbscolor.smarchal.com/</a> I gave
+the navbar the color it has now. twbscolor is a cool site that extracts your
+chosen color even in scss, <a href="https://github.com/axilleas/isitfedoraruby/blob/master/app/assets/stylesheets/custom.css.scss#L33">which I used</a> along with some minor
+tweaks.</p>
+<h3 id="dropdown-menu">Dropdown menu</h3>
+<p>In responsive mode there is a dropdown menu. That requires some javascript and
+the steps are:</p>
+<p>1.Add <code>*= require bootstrap</code> in <code>app/assets/stylesheets/application.css</code></p>
+<p>2.Add <code>//= require bootstrap</code> in <code>app/assets/javascripts/application.js</code></p>
+<p>3.Add in <code>app/assets/javascripts/application.js</code>:</p>
+<div class="codehilite"><pre><span class="err">$</span><span class="p">(</span><span class="err">&#39;#</span><span class="n">header</span><span class="o">-</span><span class="n">collapse</span><span class="err">&#39;</span><span class="p">).</span><span class="n">collapse</span><span class="p">({</span>
+  <span class="nl">toggle:</span> <span class="nb">false</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<p>4.Add bootstrap classes to header view:</p>
+<div class="codehilite"><pre><span class="c">%header.navbar.navbar-default.navbar-fixed-top</span>
+  <span class="p">.</span><span class="n">container</span>
+    <span class="p">.</span><span class="n">navbar</span><span class="o">-</span><span class="n">header</span>
+      <span class="c">%button.navbar-toggle{ type: &#39;button&#39;, data: {toggle: &#39;collapse&#39;, target: &#39;#header-collapse&#39;}}</span>
+        <span class="c">%span.sr-only &#39;Toggle navigation&#39;</span>
+        <span class="c">%span.icon-bar</span>
+        <span class="c">%span.icon-bar</span>
+        <span class="c">%span.icon-bar</span>
+        <span class="c">%span.icon-bar</span>
+      <span class="p">=</span> <span class="n">link_to</span> <span class="s">&#39;FedoraRuby&#39;</span><span class="p">,</span> <span class="n">root_path</span><span class="p">,</span> <span class="n">class</span><span class="p">:</span> <span class="s">&#39;navbar-brand&#39;</span>
+
+    <span class="c">%nav.collapse.navbar-collapse#header-collapse{role: &#39;navigation&#39;}</span>
+      <span class="c">%ul.nav.navbar-nav</span>
+        <span class="c">%li{class: is_active?(root_path)}</span>
+          <span class="p">=</span> <span class="n">link_to</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;Home&#39;</span><span class="p">),</span> <span class="n">root_path</span>
+        <span class="c">%li{class: is_active?(rubygems_path)}</span>
+          <span class="p">=</span> <span class="n">link_to</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;Ruby Gems&#39;</span><span class="p">),</span> <span class="n">rubygems_path</span>
+        <span class="c">%li{class: is_active?(fedorarpms_path)}</span>
+          <span class="p">=</span> <span class="n">link_to</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;Fedora Rpms&#39;</span><span class="p">),</span> <span class="n">fedorarpms_path</span>
+        <span class="c">%li{class: is_active?(about_path)}</span>
+          <span class="p">=</span> <span class="n">link_to</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;About&#39;</span><span class="p">),</span> <span class="n">about_path</span>
+</pre></div>
+
+
+<h3 id="search-field">Search field</h3>
+<p>I wanted the search field to be together with the search button. In bootstrap
+this is accomplished with <a href="http://getbootstrap.com/components/#input-groups-buttons">input-group-buttons</a>. The final code was:</p>
+<div class="codehilite"><pre><span class="c">%ul.nav.navbar-nav.navbar-right</span>
+  <span class="c">%li</span>
+    <span class="p">=</span> <span class="n">form_tag</span><span class="p">(</span> <span class="p">{</span> <span class="p">:</span><span class="n">controller</span> <span class="p">=</span><span class="o">&gt;</span> <span class="s">&#39;searches&#39;</span><span class="p">,</span> <span class="p">:</span><span class="n">action</span> <span class="p">=</span><span class="o">&gt;</span> <span class="s">&#39;redirect&#39;</span> <span class="p">},</span>
+    <span class="p">:</span><span class="n">class</span> <span class="p">=</span><span class="o">&gt;</span> <span class="s">&#39;navbar-form&#39;</span><span class="p">,</span> <span class="p">:</span><span class="n">method</span> <span class="p">=</span><span class="o">&gt;</span> <span class="s">&#39;post&#39;</span><span class="p">)</span> <span class="n">do</span>
+      <span class="p">.</span><span class="n">input</span><span class="o">-</span><span class="n">group</span>
+        <span class="p">=</span> <span class="n">text_field_tag</span> <span class="p">:</span><span class="n">search</span><span class="p">,</span> <span class="n">params</span><span class="p">[:</span><span class="n">search</span><span class="p">]</span> <span class="o">||</span><span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+            <span class="n">class</span><span class="p">:</span> <span class="s">&#39;search-query form-control&#39;</span><span class="p">,</span>
+            <span class="n">placeholder</span><span class="p">:</span> <span class="s">&#39;Search&#39;</span>
+        <span class="c">%span.input-group-btn</span>
+          <span class="p">=</span> <span class="n">button_tag</span> <span class="n">raw</span><span class="p">(</span><span class="s">&#39;&lt;span class=&quot;glyphicon glyphicon-search&quot;&gt;&lt;/span&gt;&#39;</span><span class="p">),</span> <span class="n">name</span><span class="p">:</span> <span class="n">nil</span><span class="p">,</span> <span class="n">class</span><span class="p">:</span> <span class="s">&#39;btn btn-default&#39;</span>
+</pre></div>
+
+
+<p>Instead for a search button with text, I used an icon.</p>
+<p>There was also another problem regarding responsiveness. In different page sizes
+the header looked ugly and the search bar was getting under the menu.</p>
+<p>I fixed it by adding a media query in <code>custom.css.scss</code> that disappears the
+logo in certain widths.</p>
+<div class="codehilite"><pre><span class="err">@</span><span class="n">media</span> <span class="p">(</span><span class="n">min</span><span class="o">-</span><span class="n">width</span><span class="o">:</span> <span class="mi">768</span><span class="n">px</span><span class="p">)</span> <span class="n">and</span> <span class="p">(</span><span class="n">max</span><span class="o">-</span><span class="n">width</span><span class="o">:</span> <span class="mi">993</span><span class="n">px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">.</span><span class="n">navbar</span><span class="o">-</span><span class="n">brand</span> <span class="p">{</span>
+    <span class="nl">display:</span> <span class="n">none</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Here are before/after screenshots to better understand it.</p>
+<p><img alt="Before" src="http://axilleas.me/images/isitfedoraruby-search-before.png" /></p>
+<p><img alt="After" src="http://axilleas.me/images/isitfedoraruby-search-after.png" /></p>
+<h2 id="responsive-design">Responsive design</h2>
+<p>Bootstrap comes with responsiveness by default. In order to activate it you have
+to add a viewport meta tag in the head of your html, so in
+<code>app/views/layouts/application.html.haml</code> add:</p>
+<div class="codehilite"><pre><span class="c">%meta{ :content =&gt; &quot;width=device-width, initial-scale=1, maximum-scale=1&quot;, :name =&gt; &quot;viewport&quot; }</span>
+</pre></div>
+
+
+<p>See full <a href="https://github.com/axilleas/isitfedoraruby/blob/master/app/views/layouts/application.html.haml">application.html.haml</a></p>
+<hr />
+<p>It sure was fun and I learned a lot during the process of searching and fixing
+stuff :)</p>
+    </div>
+
+    <footer>
+        <ul class="tags">
+        Tags:
+            <li><a href="/tag/fedora.html">fedora</a></li>
+            <li><a href="/tag/gsoc.html">gsoc</a></li>
+            <li><a href="/tag/ruby.html">ruby</a></li>
+            <li><a href="/tag/rails.html">rails</a></li>
+            <li><a href="/tag/webdev.html">webdev</a></li>
+            <li><a href="/tag/isitfedoraruby.html">isitfedoraruby</a></li>
+        </ul>
+    </footer>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'kissmyarch'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</article>
+    </div>
+
+    <div class="container footnote">
+        <a href="javascript:window.print();" title="Print">Print</a>
+    </div>
+
+
+
+    <footer>
+        <div class="container footer">
+            <span>Powered by <a href="http://docs.getpelican.com">
+                Pelican</a> using <a href="https://github.com/BYK/pelican-neat">
+                neat theme</a>. 
+            </span>
+            <nav>
+                <ul>
+                    <li><a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a></li>
+                <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img
+                    alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+     <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik-glb.rhcloud.com/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "5"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+</body>
+</html>
