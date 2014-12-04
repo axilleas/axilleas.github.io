@@ -1,3 +1,5 @@
 *.pyc
 output/
 local_settings.py
+*.swp
+cache/

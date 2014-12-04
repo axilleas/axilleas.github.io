@@ -1,6 +1,0 @@
-{% if article.translations %}
-Translations:
-    {% for translation in article.translations %}
-        <a href="/{{ translation.url }}">{{ translation.lang }}</a>
-    {% endfor %}
-{% endif %}
