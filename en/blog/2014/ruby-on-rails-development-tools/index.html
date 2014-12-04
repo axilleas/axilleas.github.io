@@ -1,54 +1,53 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    <meta charset="utf-8">
-        <title>Rails development tools</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="Pragma" content="no-cache" />
-        <meta http-equiv="Expires" content="-1" />
-        <link rel="stylesheet" href="/theme/style/reset.css" type="text/css" />
-        <link rel="stylesheet" href="/theme/style/screen.css" type="text/css" />
-        <link rel="stylesheet" href="/theme/style/friendly.css" type="text/css" />
-        <link rel="stylesheet" href="/theme/style/print.css" type="text/css" media="print" />
-        <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+   <head>
+   <meta charset="utf-8">
+       <title>Rails development tools</title>
+       <meta charset="utf-8" />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <meta http-equiv="Pragma" content="no-cache" />
+       <meta http-equiv="Expires" content="-1" />
+       <link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+       <link rel="stylesheet" href="/theme/css/friendly.css" type="text/css" />
+       <link rel="stylesheet" href="/theme/css/print.css" type="text/css" media="print" />
+       <link rel="stylesheet" type="text/css" href="http://axilleas.me/theme/tipuesearch/tipuesearch.css" media="screen">
+       <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
 </head>
 <body>
-    <header id="main">
-        <div class="container">
-            <div class="logo">
-                <p><a href="/" title="Home">Over the line</a> <span class="welcome">Yeah, well, you know, that's just, like, my opinion, man.</span></p>
-            </div>
-        </div>
-    </header>
+   <header>
+       <h1><a href="/" title="Mark it zero">Over the line</a></h1>
+       <nav>
+         <a href="/about" title="about me">whoami</a> &bull;
+         <a href="/archives.html" title="Archives">Archives</a> &bull;
+         <a id="subscribe-link" href="/rss" title="RSS feed" rel="nofollow">subscribe</a>
+         <form id="searchform" action="/search.html" onsubmit="return (this.elements['q'].value.length > 0)">
+               <input id="searchbox" type="text" name="q" size="12" placeholder="Search">
+         </form>
+       </nav>
+   </header>
 
-    <div class="splash">
-        <div class="container">
-            <ul>
-                <li><a href="/">Home</a></li>
-                    <li><a href="/about">whoami</a></li>
-                    <li><a href="/rss">Rss Feed</a></li>
-                <li><a href="/archives.html" title="Archive">Archive</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="container content">
+   <div id="main">
 <article>
     <header>
 <h1><a href="/en/blog/2014/ruby-on-rails-development-tools" rel="bookmark">
     Rails development tools
 </a></h1>
-<time datetime="2014-07-01 00:00:00" pubdate>Posted on
+<span title="~1971 words" id='stats'>~8 min read</span>
+&bull;
+<time datetime="2014-07-01 00:00:00+03:00" pubdate>Posted on
     Tue 01 July 2014
 </time>
-<address class="vcard author">
-    by <a class="url fn" href="/author/axil.html">
-    axil</a>
-</address>
 <span class="category">in <a href="/category/geek.html">
-    geek</a>.
-        </span>
+    geek</a>
+</span>
+    <ul class="tags">
+    Tags:
+        <li><a href="/tag/fedora.html">fedora</a></li>
+        <li><a href="/tag/gsoc.html">gsoc</a></li>
+        <li><a href="/tag/ruby.html">ruby</a></li>
+        <li><a href="/tag/rails.html">rails</a></li>
+        <li><a href="/tag/webdev.html">webdev</a></li>
+    </ul>
     </header>
 
     <div class="body">
@@ -109,13 +108,13 @@ some time ago so I'll stick with it.</p>
 commands.</p>
 <h2 id="vim-plugins">vim plugins</h2>
 <p>Start by installing <a href="https://github.com/tpope/vim-pathogen" title="pathogen vim plugin">pathogen.vim</a>, a vim plugin manager:</p>
-<div class="codehilite"><pre><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/</span><span class="p">.</span><span class="n">vim</span><span class="o">/</span><span class="n">autoload</span> <span class="o">~/</span><span class="p">.</span><span class="n">vim</span><span class="o">/</span><span class="n">bundle</span> <span class="o">&amp;&amp;</span> \
-<span class="n">curl</span> <span class="o">-</span><span class="n">LSso</span> <span class="o">~/</span><span class="p">.</span><span class="n">vim</span><span class="o">/</span><span class="n">autoload</span><span class="o">/</span><span class="n">pathogen</span><span class="p">.</span><span class="n">vim</span> <span class="n">https</span><span class="o">:</span><span class="c1">//tpo.pe/pathogen.vim</span>
+<div class="codehilite"><pre>mkdir -p ~/.vim/autoload ~/.vim/bundle &amp;&amp; \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 </pre></div>
 
 
 <p>Then add this to your vimrc:</p>
-<div class="codehilite"><pre><span class="n">execute</span> <span class="n">pathogen</span><span class="err">#</span><span class="n">infect</span><span class="p">()</span>
+<div class="codehilite"><pre>execute pathogen#infect()
 </pre></div>
 
 
@@ -126,7 +125,7 @@ behaves similarly.</p>
 <h3 id="railsvim">rails.vim</h3>
 <p>Probably the one most useful plugin when dealing with Rails projects.</p>
 <p>Install it with:</p>
-<div class="codehilite"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="o">:</span><span class="c1">//github.com/tpope/vim-rails.git ~/.vim/bundle/vim-rails</span>
+<div class="codehilite"><pre>git clone git://github.com/tpope/vim-rails.git ~/.vim/bundle/vim-rails
 </pre></div>
 
 
@@ -139,7 +138,7 @@ you can toggle between all models/controllers, etc.</p>
 searches for a model named foo. Tab completion is also your friend.</p>
 <p>One other really cool feature is the go to file. Supposedly we have the
 following model:</p>
-<div class="codehilite"><pre><span class="k">class</span> <span class="nc">Blog</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+<div class="codehilite"><pre><span class="k">class</span> <span class="nc">Blog</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
 
   <span class="n">has_many</span> <span class="ss">:articles</span>
 
@@ -163,11 +162,11 @@ reducing repetitive insertion of pieces of text. Snippets can contain
 placeholders for modifying the text if necessary or interpolated code for
 evaluation.</p>
 <p>Install it:</p>
-<div class="codehilite"><pre><span class="n">cd</span> <span class="o">~/</span><span class="p">.</span><span class="n">vim</span><span class="o">/</span><span class="n">bundle</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/tomtom/tlib_vim.git</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/MarcWeber/vim-addon-mw-utils.git</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/garbas/vim-snipmate.git</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/honza/vim-snippets.git</span>
+<div class="codehilite"><pre>cd ~/.vim/bundle
+git clone https://github.com/tomtom/tlib_vim.git
+git clone https://github.com/MarcWeber/vim-addon-mw-utils.git
+git clone https://github.com/garbas/vim-snipmate.git
+git clone https://github.com/honza/vim-snippets.git
 </pre></div>
 
 
@@ -188,9 +187,9 @@ method. The snippet reads:</p>
 <p>So, the snippet is named <code>def</code> and in order to invoke it we must write
 def and hit Tab. It then expands, placing the cursor in the highlited
 <code>method_name</code>. This is what it looks like:</p>
-<div class="codehilite"><pre><span class="n">def</span> <span class="n">method_name</span>
+<div class="codehilite"><pre>def method_name
 
-<span class="n">end</span>
+end
 </pre></div>
 
 
@@ -201,7 +200,7 @@ snippets are supported.</p>
 <h3 id="fugitivevim">fugitive.vim</h3>
 <p><a href="https://github.com/tpope/vim-fugitive" title="vim-fugitive on github">vim-fugitive</a> brings the power of git commands inside vim.</p>
 <p>Install it with:</p>
-<div class="codehilite"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="o">:</span><span class="c1">//github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive</span>
+<div class="codehilite"><pre>git clone git://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
 </pre></div>
 
 
@@ -219,24 +218,24 @@ for development, some of which I haven't tested. Here is what I got so far.</p>
 <h2 id="jazz_hands">jazz_hands</h2>
 <p><a href="https://github.com/nixme/jazz_hands" title="jazz_hands on github">jazz_hands</a> is basically a collection of gems that you get for free with
 just one gem. It focuses on enhancing the rails console. It provides:</p>
-<div class="codehilite"><pre><span class="o">-</span> <span class="n">Pry</span> <span class="k">for</span> <span class="n">a</span> <span class="n">powerful</span> <span class="n">shell</span> <span class="n">alternative</span> <span class="n">to</span> <span class="n">IRB</span><span class="p">.</span>
-<span class="o">-</span> <span class="n">Awesome</span> <span class="n">Print</span> <span class="k">for</span> <span class="n">stylish</span> <span class="n">pretty</span> <span class="n">print</span><span class="p">.</span>
-<span class="o">-</span> <span class="n">Hirb</span> <span class="k">for</span> <span class="n">tabular</span> <span class="n">collection</span> <span class="n">output</span><span class="p">.</span>
-<span class="o">-</span> <span class="n">Pry</span> <span class="n">Rails</span> <span class="k">for</span> <span class="n">additional</span> <span class="n">commands</span> <span class="p">(</span><span class="n">show</span><span class="o">-</span><span class="n">routes</span><span class="p">,</span> <span class="n">show</span><span class="o">-</span><span class="n">models</span><span class="p">,</span> <span class="n">show</span><span class="o">-</span><span class="n">middleware</span><span class="p">)</span> <span class="n">in</span> <span class="n">the</span> <span class="n">Rails</span> <span class="n">console</span><span class="p">.</span>
-<span class="o">-</span> <span class="n">Pry</span> <span class="n">Doc</span> <span class="n">to</span> <span class="n">browse</span> <span class="n">Ruby</span> <span class="n">source</span><span class="p">,</span> <span class="n">including</span> <span class="n">C</span><span class="p">,</span> <span class="n">directly</span> <span class="n">from</span> <span class="n">the</span> <span class="n">console</span><span class="p">.</span>
-<span class="o">-</span> <span class="n">Pry</span> <span class="n">Git</span> <span class="n">to</span> <span class="n">teach</span> <span class="n">the</span> <span class="n">console</span> <span class="n">about</span> <span class="n">git</span><span class="p">.</span> <span class="n">Diffs</span><span class="p">,</span> <span class="n">blames</span><span class="p">,</span> <span class="n">and</span> <span class="n">commits</span> <span class="n">on</span> <span class="n">methods</span> <span class="n">and</span> <span class="n">classes</span><span class="p">,</span> <span class="n">not</span> <span class="n">just</span> <span class="n">files</span><span class="p">.</span>
-<span class="o">-</span> <span class="n">Pry</span> <span class="n">Remote</span> <span class="n">to</span> <span class="n">connect</span> <span class="n">remotely</span> <span class="n">to</span> <span class="n">a</span> <span class="n">Pry</span> <span class="n">console</span><span class="p">.</span>
-<span class="o">-</span> <span class="n">Pry</span> <span class="n">Debugger</span> <span class="n">to</span> <span class="n">turn</span> <span class="n">the</span> <span class="n">console</span> <span class="n">into</span> <span class="n">a</span> <span class="n">simple</span> <span class="n">debugger</span><span class="p">.</span>
-<span class="o">-</span> <span class="n">Pry</span> <span class="n">Stack</span> <span class="n">Explorer</span> <span class="n">to</span> <span class="n">navigate</span> <span class="n">the</span> <span class="n">call</span> <span class="n">stack</span> <span class="n">and</span> <span class="n">frames</span><span class="p">.</span>
-<span class="o">-</span> <span class="n">Coolline</span> <span class="n">and</span> <span class="n">Coderay</span> <span class="k">for</span> <span class="n">syntax</span> <span class="n">highlighting</span> <span class="n">as</span> <span class="n">you</span> <span class="n">type</span><span class="p">.</span> <span class="n">Optional</span><span class="p">.</span> <span class="n">MRI</span> <span class="mf">1.9.3</span><span class="o">/</span><span class="mf">2.0.0</span> <span class="n">only</span>
+<div class="codehilite"><pre>- Pry for a powerful shell alternative to IRB.
+- Awesome Print for stylish pretty print.
+- Hirb for tabular collection output.
+- Pry Rails for additional commands (show-routes, show-models, show-middleware) in the Rails console.
+- Pry Doc to browse Ruby source, including C, directly from the console.
+- Pry Git to teach the console about git. Diffs, blames, and commits on methods and classes, not just files.
+- Pry Remote to connect remotely to a Pry console.
+- Pry Debugger to turn the console into a simple debugger.
+- Pry Stack Explorer to navigate the call stack and frames.
+- Coolline and Coderay for syntax highlighting as you type. Optional. MRI 1.9.3/2.0.0 only
 </pre></div>
 
 
 <p>Again, visiting the github page, you will get all the info you want.
 There is an open <a href="https://github.com/nixme/jazz_hands/pull/26">issue</a> and installation on ruby 2.1.2 is failing for now.
 For the time being you can put the following in your Gemfile:</p>
-<div class="codehilite"><pre><span class="n">gem</span> <span class="err">&#39;</span><span class="n">jazz_hands</span><span class="err">&#39;</span><span class="p">,</span> <span class="n">github</span><span class="o">:</span> <span class="err">&#39;</span><span class="n">nixme</span><span class="o">/</span><span class="n">jazz_hands</span><span class="err">&#39;</span><span class="p">,</span> <span class="n">branch</span><span class="o">:</span> <span class="err">&#39;</span><span class="n">bring</span><span class="o">-</span><span class="n">your</span><span class="o">-</span><span class="n">own</span><span class="o">-</span><span class="n">debugger</span><span class="err">&#39;</span>
-<span class="n">gem</span> <span class="err">&#39;</span><span class="n">pry</span><span class="o">-</span><span class="n">byebug</span><span class="err">&#39;</span>
+<div class="codehilite"><pre>gem &#39;jazz_hands&#39;, github: &#39;nixme/jazz_hands&#39;, branch: &#39;bring-your-own-debugger&#39;
+gem &#39;pry-byebug&#39;
 </pre></div>
 
 
@@ -254,20 +253,20 @@ fedoraruby project I'm currently working on.</p>
 <p><a href="https://github.com/ctran/annotate_models" title="annotate on github">annotate</a> generates a schema of the model and places it on top of the model.
 It can also place it on top of your rspec files and the factories. It looks
 like this:</p>
-<div class="codehilite"><pre><span class="c"># == Schema Information</span>
-<span class="c">#</span>
-<span class="c"># Table name: bugs</span>
-<span class="c">#</span>
-<span class="c">#  id            :integer          not null, primary key</span>
-<span class="c">#  name          :string(255)</span>
-<span class="c">#  bz_id         :string(255)</span>
-<span class="c">#  fedora_rpm_id :integer</span>
-<span class="c">#  is_review     :boolean</span>
-<span class="c">#  created_at    :datetime</span>
-<span class="c">#  updated_at    :datetime</span>
-<span class="c">#  last_updated  :string(255)</span>
-<span class="c">#  is_open       :boolean</span>
-<span class="c">#</span>
+<div class="codehilite"><pre># == Schema Information
+#
+# Table name: bugs
+#
+#  id            :integer          not null, primary key
+#  name          :string(255)
+#  bz_id         :string(255)
+#  fedora_rpm_id :integer
+#  is_review     :boolean
+#  created_at    :datetime
+#  updated_at    :datetime
+#  last_updated  :string(255)
+#  is_open       :boolean
+#
 </pre></div>
 
 
@@ -315,7 +314,7 @@ directories</p>
 major ditributions.</p>
 <h3 id="configuration">Configuration</h3>
 <p>For a rails project, in your application root directory you can run:</p>
-<div class="codehilite"><pre><span class="n">ctags</span> <span class="o">-</span><span class="n">R</span> <span class="o">--</span><span class="n">exclude</span><span class="o">=</span><span class="p">.</span><span class="n">git</span> <span class="o">--</span><span class="n">exclude</span><span class="o">=</span><span class="n">log</span> <span class="o">*</span>
+<div class="codehilite"><pre>ctags -R --exclude=.git --exclude=log *
 </pre></div>
 
 
@@ -323,7 +322,7 @@ major ditributions.</p>
 the <code>.git</code> and <code>log</code> directories and creates a <code>tags</code> file under current
 dir. You may want to add it to <code>.gitignore</code> by the way.</p>
 <p>Next, adding the following line to <code>~/.vimrc</code>:</p>
-<div class="codehilite"><pre><span class="n">set</span> <span class="n">tags</span><span class="o">=</span><span class="p">.</span><span class="o">/</span><span class="n">tags</span><span class="p">;</span>
+<div class="codehilite"><pre>set tags=./tags;
 </pre></div>
 
 
@@ -331,10 +330,10 @@ dir. You may want to add it to <code>.gitignore</code> by the way.</p>
 directory.</p>
 <p>You can move the above options in <code>~/.ctags</code>, so in our case this will
 be:</p>
-<div class="codehilite"><pre><span class="o">--</span><span class="n">recurse</span><span class="o">=</span><span class="n">yes</span>
-<span class="o">--</span><span class="n">tag</span><span class="o">-</span><span class="n">relative</span><span class="o">=</span><span class="n">yes</span>
-<span class="o">--</span><span class="n">exclude</span><span class="o">=</span><span class="p">.</span><span class="n">git</span>
-<span class="o">--</span><span class="n">exclude</span><span class="o">=</span><span class="n">log</span>
+<div class="codehilite"><pre>--recurse=yes
+--tag-relative=yes
+--exclude=.git
+--exclude=log
 </pre></div>
 
 
@@ -373,7 +372,7 @@ for it will jump in this particular file.</p>
 code? Here is where the power of ctags really excels. All you have to do
 is tell ctags to also tag the rails source code.</p>
 <p>First I cloned the rails repository into <code>vendor/rails</code>:</p>
-<div class="codehilite"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/rails/rails.git vendor/rails</span>
+<div class="codehilite"><pre>git clone https://github.com/rails/rails.git vendor/rails
 </pre></div>
 
 
@@ -407,55 +406,51 @@ to know it. Personally, I learned a lot more these past days I was crafting
 this post and I hope you got something out of it too :)</p>
     </div>
 
-    <footer>
-        <ul class="tags">
-        Tags:
-            <li><a href="/tag/fedora.html">fedora</a></li>
-            <li><a href="/tag/gsoc.html">gsoc</a></li>
-            <li><a href="/tag/ruby.html">ruby</a></li>
-            <li><a href="/tag/rails.html">rails</a></li>
-            <li><a href="/tag/webdev.html">webdev</a></li>
-        </ul>
-    </footer>
+    <div class="neighbors"></div>
 
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'kissmyarch'; // required: replace example with your forum shortname
+      <nav class="older">
+          <a href="http://axilleas.me/en/blog/2014/rubocop-to-the-rescue">
+              <span class="lpin"></span>
+              Rubocop to the rescue!
+          </a>
+      </nav>
 
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</article>
-    </div>
+      <nav class="newer">
+          <a href="http://axilleas.me/en/blog/2014/isitfedoraruby-gsoc-midterm-sum-up">
+              isitfedoraruby gsoc midterm sum up
+              <span class="rpin"></span>
+          </a>
+      </nav>
 
-    <div class="container footnote">
-        <a href="javascript:window.print();" title="Print">Print</a>
-    </div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'kissmyarch';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></article>
+   </div>
+
+   <footer>
+       <p>Powered by <a href="http://docs.getpelican.com">
+           Pelican</a> using <a href="https://github.com/axilleas/pelican-uberspot">uberspot theme</a> &bull;
+         Background image from <a href="http://subtlepatterns.com/">Subtle patterns</a> &bull;
+               <a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a>
+</p>
 
 
+ <p><a id="cc-logo" title="Creative Commons License"
+ rel="license" href="http://creativecommons.org/licenses/by/4.0/"></a>
+ Except where otherwise noted, content on this site is licensed under a<br />
+ <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
 
-    <footer>
-        <div class="container footer">
-            <span>Powered by <a href="http://docs.getpelican.com">
-                Pelican</a> using <a href="https://github.com/BYK/pelican-neat">
-                neat theme</a>. 
-            </span>
-            <nav>
-                <ul>
-                    <li><a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a></li>
-                <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img
-                    alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"></a></li>
-                </ul>
-            </nav>
-        </div>
-    </footer>
+   </footer>
      <!-- Piwik -->
     <script type="text/javascript">
       var _paq = _paq || [];

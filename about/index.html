@@ -1,39 +1,32 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    <meta charset="utf-8">
-        <title>whoami</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="Pragma" content="no-cache" />
-        <meta http-equiv="Expires" content="-1" />
-        <link rel="stylesheet" href="/theme/style/reset.css" type="text/css" />
-        <link rel="stylesheet" href="/theme/style/screen.css" type="text/css" />
-        <link rel="stylesheet" href="/theme/style/friendly.css" type="text/css" />
-        <link rel="stylesheet" href="/theme/style/print.css" type="text/css" media="print" />
-        <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+   <head>
+   <meta charset="utf-8">
+       <title>whoami</title>
+       <meta charset="utf-8" />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <meta http-equiv="Pragma" content="no-cache" />
+       <meta http-equiv="Expires" content="-1" />
+       <link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+       <link rel="stylesheet" href="/theme/css/friendly.css" type="text/css" />
+       <link rel="stylesheet" href="/theme/css/print.css" type="text/css" media="print" />
+       <link rel="stylesheet" type="text/css" href="http://axilleas.me/theme/tipuesearch/tipuesearch.css" media="screen">
+       <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
 </head>
 <body>
-    <header id="main">
-        <div class="container">
-            <div class="logo">
-                <p><a href="/" title="Home">Over the line</a> <span class="welcome">Yeah, well, you know, that's just, like, my opinion, man.</span></p>
-            </div>
-        </div>
-    </header>
+   <header>
+       <h1><a href="/" title="Mark it zero">Over the line</a></h1>
+       <nav>
+         <a href="/about" title="about me">whoami</a> &bull;
+         <a href="/archives.html" title="Archives">Archives</a> &bull;
+         <a id="subscribe-link" href="/rss" title="RSS feed" rel="nofollow">subscribe</a>
+         <form id="searchform" action="/search.html" onsubmit="return (this.elements['q'].value.length > 0)">
+               <input id="searchbox" type="text" name="q" size="12" placeholder="Search">
+         </form>
+       </nav>
+   </header>
 
-    <div class="splash">
-        <div class="container">
-            <ul>
-                <li><a href="/">Home</a></li>
-                    <li><a href="/about">whoami</a></li>
-                    <li><a href="/rss">Rss Feed</a></li>
-                <li><a href="/archives.html" title="Archive">Archive</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="container content">
+   <div id="main">
 <article>
     <header>
         <h1><a href="/about" rel="bookmark">whoami</a></h1>
@@ -87,24 +80,24 @@ Recently I helped to package the <a href="http://www.synnefo.org/docs/snf-image-
 the <a href="http://www.synnefo.org/">synnefo</a> IaaS.</p>
 <h2 id="workstation">Workstation</h2>
 <p>I am a proud owner of a Thinkpad x220 running Archlinux.</p>
-<div class="codehilite"><pre>                  <span class="c">##                    OS: Arch Linux x86_64</span>
-                 <span class="c">####                   Hostname: thedude</span>
-                <span class="c">######                  Uptime: 5 days, 8:57</span>
-               <span class="c">########                 Kernel: 3.17.2-1-ARCH</span>
-              <span class="c">##########                Shell: /bin/zsh</span>
-             <span class="c">############               Packages: 1702</span>
-            <span class="c">##############              DE: KDE</span>
-           <span class="c">################             GTK2 theme: QtCurve</span>
-          <span class="c">##################            GTK2 icon theme: Numix</span>
-         <span class="c">####################           GTK2 font name: Sans Serif  9</span>
-        <span class="c">######################          RAM: 4394M / 7871M (55%)</span>
-       <span class="c">#########      #########         CPU: Intel(R) i7-2640M CPU @ 2.80GHz</span>
-      <span class="c">##########      ##########        Boot: 80M / 1022M (8%) (vfat)</span>
-     <span class="c">###########      ###########       Root: 192G / 234G (87%) (ext4)</span>
-    <span class="c">##########          ##########      SSD : 256GB Samsung Pro</span>
-   <span class="c">#######                  #######</span>
-  <span class="c">####                          ####</span>
- <span class="c">###                              ###</span>
+<div class="codehilite"><pre>                  ##                    OS: Arch Linux x86_64
+                 ####                   Hostname: thedude
+                ######                  Uptime: 5 days, 8:57
+               ########                 Kernel: 3.17.2-1-ARCH
+              ##########                Shell: /bin/zsh
+             ############               Packages: 1702
+            ##############              DE: KDE
+           ################             GTK2 theme: QtCurve
+          ##################            GTK2 icon theme: Numix
+         ####################           GTK2 font name: Sans Serif  9
+        ######################          RAM: 4394M / 7871M (55%)
+       #########      #########         CPU: Intel(R) i7-2640M CPU @ 2.80GHz
+      ##########      ##########        Boot: 80M / 1022M (8%) (vfat)
+     ###########      ###########       Root: 192G / 234G (87%) (ext4)
+    ##########          ##########      SSD : 256GB Samsung Pro
+   #######                  #######
+  ####                          ####
+ ###                              ###
 </pre></div>
 
 
@@ -180,29 +173,22 @@ Often you'll also find me listening to 8bit, dubstep, and electronic :)</p>
 </div>
     </div>
 </article>
-    </div>
+   </div>
 
-    <div class="container footnote">
-        <a href="javascript:window.print();" title="Print">Print</a>
-    </div>
+   <footer>
+       <p>Powered by <a href="http://docs.getpelican.com">
+           Pelican</a> using <a href="https://github.com/axilleas/pelican-uberspot">uberspot theme</a> &bull;
+         Background image from <a href="http://subtlepatterns.com/">Subtle patterns</a> &bull;
+               <a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a>
+</p>
 
 
+ <p><a id="cc-logo" title="Creative Commons License"
+ rel="license" href="http://creativecommons.org/licenses/by/4.0/"></a>
+ Except where otherwise noted, content on this site is licensed under a<br />
+ <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
 
-    <footer>
-        <div class="container footer">
-            <span>Powered by <a href="http://docs.getpelican.com">
-                Pelican</a> using <a href="https://github.com/BYK/pelican-neat">
-                neat theme</a>. 
-            </span>
-            <nav>
-                <ul>
-                    <li><a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a></li>
-                <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img
-                    alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"></a></li>
-                </ul>
-            </nav>
-        </div>
-    </footer>
+   </footer>
      <!-- Piwik -->
     <script type="text/javascript">
       var _paq = _paq || [];

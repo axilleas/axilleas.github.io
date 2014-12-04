@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+   <head>
+   <meta charset="utf-8">
+       <title>librenet.gr - a new Diaspora pod</title>
+       <meta charset="utf-8" />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <meta http-equiv="Pragma" content="no-cache" />
+       <meta http-equiv="Expires" content="-1" />
+       <link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+       <link rel="stylesheet" href="/theme/css/friendly.css" type="text/css" />
+       <link rel="stylesheet" href="/theme/css/print.css" type="text/css" media="print" />
+       <link rel="stylesheet" type="text/css" href="http://axilleas.me/theme/tipuesearch/tipuesearch.css" media="screen">
+       <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+</head>
+<body>
+   <header>
+       <h1><a href="/" title="Mark it zero">Over the line</a></h1>
+       <nav>
+         <a href="/about" title="about me">whoami</a> &bull;
+         <a href="/archives.html" title="Archives">Archives</a> &bull;
+         <a id="subscribe-link" href="/rss" title="RSS feed" rel="nofollow">subscribe</a>
+         <form id="searchform" action="/search.html" onsubmit="return (this.elements['q'].value.length > 0)">
+               <input id="searchbox" type="text" name="q" size="12" placeholder="Search">
+         </form>
+       </nav>
+   </header>
+
+   <div id="main">
+<article>
+    <header>
+<h1><a href="/drafts/librenet-a-new-diaspora-pod.html" rel="bookmark">
+    librenet.gr - a new Diaspora pod
+</a></h1>
+<span title="~188 words" id='stats'>~1 min read</span>
+&bull;
+<time datetime="2014-12-02 00:00:00+02:00" pubdate>Posted on
+    Tue 02 December 2014
+</time>
+<span class="category">in <a href="/category/blog.html">
+    blog</a>
+</span>
+  <time datetime="2014-12-03 12:00" pubdate>Last updated:
+      2014-12-03 12:00
+  </time>
+    <ul class="tags">
+    Tags:
+        <li><a href="/tag/ruby.html">ruby</a></li>
+        <li><a href="/tag/rails.html">rails</a></li>
+        <li><a href="/tag/diaspora.html">diaspora</a></li>
+        <li><a href="/tag/centos.html">centos</a></li>
+        <li><a href="/tag/systemd.html">systemd</a></li>
+        <li><a href="/tag/devops.html">devops</a></li>
+        <li><a href="/tag/ansible.html">ansible</a></li>
+    </ul>
+    </header>
+
+    <div class="body">
+        <div class="toc">
+<ul>
+<li><a href="#diaspora">Diaspora</a><ul>
+<li><a href="#stable-vs-develop">Stable vs Develop</a></li>
+<li><a href="#how-to-contribute">How to contribute</a></li>
+</ul>
+</li>
+<li><a href="#librenet">librenet</a><ul>
+<li><a href="#the-team">The team</a></li>
+<li><a href="#privacy-and-security-are-important-to-us">Privacy and security are important to us</a></li>
+<li><a href="#what-we-had-to-overcome">What we had to overcome</a></li>
+<li><a href="#custom-changes">Custom changes</a></li>
+<li><a href="#how-we-deploy-to-production">How we deploy to production</a></li>
+<li><a href="#using-vagrant-to-set-up-a-staging-environment">Using Vagrant to set up a staging environment</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Hello world! A new Diaspora* pod has come to life. It was initially deployed
+for the Greek users, but the registrations are open so anyone can sign up for
+a new account and connect to the Diaspora network <i class="fa fa-cc"></i> .</p>
+<p>Visit <a href="https://librenet.gr">https://librenet.gr</a> now!</p>
+<p>At this time of writing we host something less than 300 users. And that has
+happened in less in a month!</p>
+<h1 id="diaspora">Diaspora</h1>
+<h2 id="stable-vs-develop">Stable vs Develop</h2>
+<h2 id="how-to-contribute">How to contribute</h2>
+<p>The whole idea is based on open source standards, so any little help has a
+great impact since this is a community project.</p>
+<p>If you are looking for ways to contribute, check <a href="https://diaspora-fr.org/posts/793785" title="There are tons of way to #contribute to the diaspora* project">this awesome post</a>
+by Fla, a core contributor of Diaspora.</p>
+<h1 id="librenet">librenet</h1>
+<h2 id="the-team">The team</h2>
+<h2 id="privacy-and-security-are-important-to-us">Privacy and security are important to us</h2>
+<h2 id="what-we-had-to-overcome">What we had to overcome</h2>
+<h2 id="custom-changes">Custom changes</h2>
+<p>https://librenet.gr/posts/2480</p>
+<h2 id="how-we-deploy-to-production">How we deploy to production</h2>
+<p>For all the repetitive administrative tasks we use Ansible.</p>
+<h2 id="using-vagrant-to-set-up-a-staging-environment">Using Vagrant to set up a staging environment</h2>
+    </div>
+
+    <div class="neighbors"></div>
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'kissmyarch';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></article>
+   </div>
+
+   <footer>
+       <p>Powered by <a href="http://docs.getpelican.com">
+           Pelican</a> using <a href="https://github.com/axilleas/pelican-uberspot">uberspot theme</a> &bull;
+         Background image from <a href="http://subtlepatterns.com/">Subtle patterns</a> &bull;
+               <a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a>
+</p>
+
+
+ <p><a id="cc-logo" title="Creative Commons License"
+ rel="license" href="http://creativecommons.org/licenses/by/4.0/"></a>
+ Except where otherwise noted, content on this site is licensed under a<br />
+ <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+
+   </footer>
+     <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik-glb.rhcloud.com/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "5"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+</body>
+</html>

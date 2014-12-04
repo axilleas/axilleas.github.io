@@ -125,28 +125,28 @@ Uploaded and added to .gitignore: bootstrap-sass-2.3.2.1.gem
 diff status of all files to be commited
 ...
 New content staged and new sources uploaded.
-Commit &lt;span class="k"&gt;if &lt;/span&gt;happy or revert with: git reset --hard HEAD
+Commit &lt;span class="k"&gt;if&lt;/span&gt; happy or revert with: git reset --hard HEAD
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now we have 3 files in our directory:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;axil&lt;/span&gt; &lt;span class="n"&gt;axil&lt;/span&gt; &lt;span class="mi"&gt;86528&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;2.3.2.1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gem&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rw&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;axil&lt;/span&gt; &lt;span class="n"&gt;axil&lt;/span&gt;  &lt;span class="mi"&gt;2314&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;spec&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rw&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;axil&lt;/span&gt; &lt;span class="n"&gt;axil&lt;/span&gt;    &lt;span class="mi"&gt;61&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="n"&gt;sources&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;-r--r--r--. 1 axil axil 86528 Jul 20 15:30 bootstrap-sass-2.3.2.1.gem
+-rw-r--r--. 1 axil axil  2314 Jul 20 15:30 rubygem-bootstrap-sass.spec
+-rw-r--r--. 1 axil axil    61 Jul 20 15:30 sources
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;sources is a text file with the source package (gem) and its md5 hash.
 Notice that the gem name was automatically placed to the &lt;code&gt;.gitignore&lt;/code&gt;.
 Running &lt;code&gt;git status&lt;/code&gt; we see that there are 3 files in the &lt;a href="http://git-scm.com/about/staging-area"&gt;staging area&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# On branch master&lt;/span&gt;
-&lt;span class="c"&gt;# Changes to be committed:&lt;/span&gt;
-&lt;span class="c"&gt;#   (use &amp;quot;git reset HEAD &amp;lt;file&amp;gt;...&amp;quot; to unstage)&lt;/span&gt;
-&lt;span class="c"&gt;#&lt;/span&gt;
-&lt;span class="c"&gt;#       modified:   .gitignore&lt;/span&gt;
-&lt;span class="c"&gt;#       new file:   rubygem-bootstrap-sass.spec&lt;/span&gt;
-&lt;span class="c"&gt;#       modified:   sources&lt;/span&gt;
-&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;# On branch master
+# Changes to be committed:
+#   (use &amp;quot;git reset HEAD &amp;lt;file&amp;gt;...&amp;quot; to unstage)
+#
+#       modified:   .gitignore
+#       new file:   rubygem-bootstrap-sass.spec
+#       modified:   sources
+#
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -168,22 +168,22 @@ Use the bugzilla id from your review request. No scripts are parsing this, it is
 
 
 &lt;p&gt;Output:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;Building&lt;/span&gt; &lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;2.3.2.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.f&lt;/span&gt;&lt;span class="n"&gt;c20&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;rawhide&lt;/span&gt;
-&lt;span class="n"&gt;Created&lt;/span&gt; &lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5631690&lt;/span&gt;
-&lt;span class="n"&gt;Task&lt;/span&gt; &lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//koji.fedoraproject.org/koji/taskinfo?taskID=5631690&lt;/span&gt;
-&lt;span class="n"&gt;Watching&lt;/span&gt; &lt;span class="n"&gt;tasks&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;may&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;safely&lt;/span&gt; &lt;span class="n"&gt;interrupted&lt;/span&gt;&lt;span class="p"&gt;)...&lt;/span&gt;
-&lt;span class="mi"&gt;5631690&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rawhide&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;md5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arm02&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;builder11&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fedoraproject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="mi"&gt;5631691&lt;/span&gt; &lt;span class="n"&gt;buildSRPMFromSCM&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;md5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buildvm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;25.&lt;/span&gt;&lt;span class="n"&gt;phx2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fedoraproject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="mi"&gt;5631716&lt;/span&gt; &lt;span class="n"&gt;buildArch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;2.3.2.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.f&lt;/span&gt;&lt;span class="n"&gt;c20&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rpm&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;noarch&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buildvm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;01.&lt;/span&gt;&lt;span class="n"&gt;phx2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fedoraproject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="mi"&gt;5631691&lt;/span&gt; &lt;span class="n"&gt;buildSRPMFromSCM&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;md5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buildvm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;25.&lt;/span&gt;&lt;span class="n"&gt;phx2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fedoraproject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;closed&lt;/span&gt;
-&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;free&lt;/span&gt;  &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt;  &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;done&lt;/span&gt;  &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;failed&lt;/span&gt;
-&lt;span class="mi"&gt;5631716&lt;/span&gt; &lt;span class="n"&gt;buildArch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;2.3.2.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.f&lt;/span&gt;&lt;span class="n"&gt;c20&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rpm&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;noarch&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buildvm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;01.&lt;/span&gt;&lt;span class="n"&gt;phx2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fedoraproject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;closed&lt;/span&gt;
-&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;free&lt;/span&gt;  &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt;  &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;done&lt;/span&gt;  &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;failed&lt;/span&gt;
-&lt;span class="mi"&gt;5631737&lt;/span&gt; &lt;span class="n"&gt;tagBuild&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;noarch&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;closed&lt;/span&gt;
-&lt;span class="mi"&gt;5631690&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rawhide&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;md5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arm02&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;builder11&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fedoraproject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;closed&lt;/span&gt;
-&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;free&lt;/span&gt;  &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt;  &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="n"&gt;done&lt;/span&gt;  &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;failed&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;Building rubygem-bootstrap-sass-2.3.2.1-1.fc20 for rawhide
+Created task: 5631690
+Task info: http://koji.fedoraproject.org/koji/taskinfo?taskID=5631690
+Watching tasks (this may be safely interrupted)...
+5631690 build (rawhide, /rubygem-bootstrap-sass:md5): open (arm02-builder11.arm.fedoraproject.org)
+5631691 buildSRPMFromSCM (/rubygem-bootstrap-sass:md5): open (buildvm-25.phx2.fedoraproject.org)
+5631716 buildArch (rubygem-bootstrap-sass-2.3.2.1-1.fc20.src.rpm, noarch): open (buildvm-01.phx2.fedoraproject.org)
+5631691 buildSRPMFromSCM (/rubygem-bootstrap-sass:md5): open (buildvm-25.phx2.fedoraproject.org) -&amp;gt; closed
+0 free  2 open  1 done  0 failed
+5631716 buildArch (rubygem-bootstrap-sass-2.3.2.1-1.fc20.src.rpm, noarch): open (buildvm-01.phx2.fedoraproject.org) -&amp;gt; closed
+0 free  1 open  2 done  0 failed
+5631737 tagBuild (noarch): closed
+5631690 build (rawhide, /rubygem-bootstrap-sass:md5): open (arm02-builder11.arm.fedoraproject.org) -&amp;gt; closed
+0 free  0 open  4 done  0 failed
 
-&lt;span class="mi"&gt;5631690&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rawhide&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;054f742970e4&lt;/span&gt;&lt;span class="n"&gt;b930bc55a5d3802fb31d26c57d0d&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;completed&lt;/span&gt; &lt;span class="n"&gt;successfully&lt;/span&gt;
+5631690 build (rawhide, /rubygem-bootstrap-sass:054f742970e4b930bc55a5d3802fb31d26c57d0d) completed successfully
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -327,21 +327,21 @@ fedpkg update
 
 &lt;p&gt;Once you make all the appropriate changes, save it and close it. You will be
 asked your FAS password to complete the process and you will get a similar output:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;================================================================================&lt;/span&gt;
-     &lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;2.3.2.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.f&lt;/span&gt;&lt;span class="n"&gt;c19&lt;/span&gt;
-&lt;span class="o"&gt;================================================================================&lt;/span&gt;
-    &lt;span class="nl"&gt;Release:&lt;/span&gt; &lt;span class="n"&gt;Fedora&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;
-     &lt;span class="nl"&gt;Status:&lt;/span&gt; &lt;span class="n"&gt;pending&lt;/span&gt;
-       &lt;span class="nl"&gt;Type:&lt;/span&gt; &lt;span class="n"&gt;newpackage&lt;/span&gt;
-      &lt;span class="nl"&gt;Karma:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-       &lt;span class="nl"&gt;Bugs:&lt;/span&gt; &lt;span class="mi"&gt;982679&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Review&lt;/span&gt; &lt;span class="n"&gt;Request&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Twitter&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
-           &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Bootstrap&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;converted&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;Sass&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;ready&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;drop&lt;/span&gt; &lt;span class="n"&gt;into&lt;/span&gt;
-           &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Rails&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;Compass&lt;/span&gt;
-      &lt;span class="nl"&gt;Notes:&lt;/span&gt; &lt;span class="n"&gt;Initial&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt;
-  &lt;span class="nl"&gt;Submitter:&lt;/span&gt; &lt;span class="n"&gt;axilleas&lt;/span&gt;
-  &lt;span class="nl"&gt;Submitted:&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;07&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;================================================================================
+     rubygem-bootstrap-sass-2.3.2.1-1.fc19
+================================================================================
+    Release: Fedora 19
+     Status: pending
+       Type: newpackage
+      Karma: 0
+       Bugs: 982679 - Review Request: rubygem-bootstrap-sass - Twitter&amp;#39;s
+           : Bootstrap, converted to Sass and ready to drop into
+           : Rails or Compass
+      Notes: Initial commit
+  Submitter: axilleas
+  Submitted: 2013-07-20 15:20:18
 
-  &lt;span class="nl"&gt;https:&lt;/span&gt;&lt;span class="c1"&gt;//admin.fedoraproject.org/updates/rubygem-bootstrap-sass-2.3.2.1-1.fc19&lt;/span&gt;
+  https://admin.fedoraproject.org/updates/rubygem-bootstrap-sass-2.3.2.1-1.fc19
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -394,135 +394,135 @@ leave a comment. Next big article the Rubygem packaging How to ;)&lt;/p&gt;
 &lt;/div&gt;
 &lt;h1 id="_1"&gt;Οι συχνότερες λειτουργίες πλήκτρων&lt;/h1&gt;
 &lt;p&gt;Υπάρχουν εκατοντάδες λειτουργίες πλήκτρων και ανάλογα με την κατάσταση που είμαστε το ίδιο πλήκτρο εκτελεί διαφορετική λειτουργία. Τα παρακάτω είναι τα πιο απλά και πιο συχνά χρησιμοποιούμενα.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;h&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μετακίνηση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt; &lt;span class="err"&gt;αριστερά&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-&lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μετακίνηση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt; &lt;span class="err"&gt;κάτω&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-&lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μετακίνηση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt; &lt;span class="err"&gt;πάνω&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-&lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μετακίνηση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;δρομέρα&lt;/span&gt; &lt;span class="err"&gt;δεξιά&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μας&lt;/span&gt; &lt;span class="err"&gt;βάζει&lt;/span&gt; &lt;span class="err"&gt;στην&lt;/span&gt; &lt;span class="err"&gt;κατάσταση&lt;/span&gt; &lt;span class="err"&gt;εισαγωγής&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="err"&gt;τον&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt; &lt;span class="err"&gt;πριν&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="err"&gt;υπάρχουσα&lt;/span&gt; &lt;span class="err"&gt;θέση&lt;/span&gt;
-&lt;span class="n"&gt;I&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Το&lt;/span&gt; &lt;span class="err"&gt;ίδιο&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="err"&gt;αλλά&lt;/span&gt; &lt;span class="err"&gt;στην&lt;/span&gt; &lt;span class="err"&gt;αρχή&lt;/span&gt; &lt;span class="err"&gt;της&lt;/span&gt; &lt;span class="err"&gt;γραμμής&lt;/span&gt;
-&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μας&lt;/span&gt; &lt;span class="err"&gt;βάζει&lt;/span&gt; &lt;span class="err"&gt;στην&lt;/span&gt; &lt;span class="err"&gt;κατάσταση&lt;/span&gt; &lt;span class="err"&gt;εισαγωγής&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="err"&gt;τον&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt; &lt;span class="err"&gt;μετά&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="err"&gt;υπάρχουσα&lt;/span&gt; &lt;span class="err"&gt;θέση&lt;/span&gt;
-&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Το&lt;/span&gt; &lt;span class="err"&gt;ίδιο&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="err"&gt;αλλά&lt;/span&gt; &lt;span class="err"&gt;στο&lt;/span&gt; &lt;span class="err"&gt;τέλος&lt;/span&gt; &lt;span class="err"&gt;της&lt;/span&gt; &lt;span class="err"&gt;γραμμής&lt;/span&gt;
-&lt;span class="err"&gt;ο&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μας&lt;/span&gt; &lt;span class="err"&gt;βάζει&lt;/span&gt; &lt;span class="err"&gt;στην&lt;/span&gt; &lt;span class="err"&gt;κατάσταση&lt;/span&gt; &lt;span class="err"&gt;εισαγωγής&lt;/span&gt; &lt;span class="err"&gt;αφού&lt;/span&gt; &lt;span class="err"&gt;αλλάξει&lt;/span&gt; &lt;span class="err"&gt;γραμμή&lt;/span&gt;
-&lt;span class="n"&gt;O&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Το&lt;/span&gt; &lt;span class="err"&gt;ίδιο&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="err"&gt;αλλά&lt;/span&gt; &lt;span class="err"&gt;εισάγει&lt;/span&gt; &lt;span class="err"&gt;πριν&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="err"&gt;προηγούμενη&lt;/span&gt; &lt;span class="err"&gt;γραμμή&lt;/span&gt;
-&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Επικόλληση&lt;/span&gt; &lt;span class="err"&gt;των&lt;/span&gt; &lt;span class="err"&gt;περιεχομένων&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="n"&gt;buffer&lt;/span&gt; &lt;span class="err"&gt;μετά&lt;/span&gt; &lt;span class="err"&gt;από&lt;/span&gt; &lt;span class="err"&gt;τον&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-&lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Αντικαθιστά&lt;/span&gt; &lt;span class="err"&gt;ένα&lt;/span&gt; &lt;span class="err"&gt;χαρακτήρα&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-&lt;span class="n"&gt;R&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Αντικαθιστά&lt;/span&gt; &lt;span class="err"&gt;πολλούς&lt;/span&gt; &lt;span class="err"&gt;χαρακτήρες&lt;/span&gt;
-&lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;undo&lt;/span&gt;
-&lt;span class="n"&gt;Ctrl&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;R&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;αναίρεση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="n"&gt;undo&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;redo&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Αντιγραφή&lt;/span&gt; &lt;span class="err"&gt;στο&lt;/span&gt; &lt;span class="n"&gt;buffer&lt;/span&gt;
-&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Διαγραφή&lt;/span&gt;
-&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Διαγραφή&lt;/span&gt; &lt;span class="err"&gt;χαρακτήρα&lt;/span&gt; &lt;span class="err"&gt;μετά&lt;/span&gt; &lt;span class="err"&gt;τον&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt;
-&lt;span class="n"&gt;X&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Το&lt;/span&gt; &lt;span class="err"&gt;ίδιο&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="err"&gt;αλλά&lt;/span&gt; &lt;span class="err"&gt;πριν&lt;/span&gt; &lt;span class="err"&gt;τον&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt;
-&lt;span class="n"&gt;D&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Διαγραφή&lt;/span&gt; &lt;span class="err"&gt;από&lt;/span&gt; &lt;span class="err"&gt;τον&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt; &lt;span class="err"&gt;μέχρι&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="err"&gt;τέλος&lt;/span&gt; &lt;span class="err"&gt;της&lt;/span&gt; &lt;span class="err"&gt;γραμμής&lt;/span&gt;
-&lt;span class="n"&gt;G&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μετακίνηση&lt;/span&gt; &lt;span class="err"&gt;σε&lt;/span&gt; &lt;span class="err"&gt;κάποια&lt;/span&gt; &lt;span class="err"&gt;γραμμή&lt;/span&gt; &lt;span class="err"&gt;ή&lt;/span&gt; &lt;span class="err"&gt;στο&lt;/span&gt; &lt;span class="err"&gt;τέλος&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;αρχείου&lt;/span&gt;
-&lt;span class="n"&gt;J&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Ενώνει&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="err"&gt;γραμμή&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="err"&gt;επόμενη&lt;/span&gt;
-&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Εκτελεί&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="err"&gt;προηγούμενη&lt;/span&gt; &lt;span class="err"&gt;εντολή&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;h : Μετακίνηση του δρομέα αριστερά.
+j : Μετακίνηση του δρομέα κάτω.
+k : Μετακίνηση του δρομέα πάνω.
+l : Μετακίνηση του δρομέρα δεξιά.
+i : Μας βάζει στην κατάσταση εισαγωγής με τον δρομέα πριν την υπάρχουσα θέση
+I : Το ίδιο με i αλλά στην αρχή της γραμμής
+a : Μας βάζει στην κατάσταση εισαγωγής με τον δρομέα μετά την υπάρχουσα θέση
+A : Το ίδιο με a αλλά στο τέλος της γραμμής
+ο : Μας βάζει στην κατάσταση εισαγωγής αφού αλλάξει γραμμή
+O : Το ίδιο με o αλλά εισάγει πριν την προηγούμενη γραμμή
+p : Επικόλληση των περιεχομένων του buffer μετά από τον δρομέα.
+r : Αντικαθιστά ένα χαρακτήρα.
+R : Αντικαθιστά πολλούς χαρακτήρες
+u : undo
+Ctrl+R : αναίρεση του undo (redo)
+y : Αντιγραφή στο buffer
+d : Διαγραφή
+x : Διαγραφή χαρακτήρα μετά τον δρομέα
+X : Το ίδιο με x αλλά πριν τον δρομέα
+D : Διαγραφή από τον δρομέα μέχρι το τέλος της γραμμής
+G : Μετακίνηση σε κάποια γραμμή ή στο τέλος του αρχείου
+J : Ενώνει την γραμμή με την επόμενη
+. : Εκτελεί την προηγούμενη εντολή
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h1 id="_2"&gt;Εύρος εντολών&lt;/h1&gt;
 &lt;p&gt;Πολλές εντολές δέχονται εύρος. Για παράδειγμα, αν πληκτρολογήσουμε &lt;code&gt;6x&lt;/code&gt; θα σβήσει 6 χαρακτήρες. Η εντολή &lt;code&gt;5G&lt;/code&gt; θα μας πάει στην 5η γραμμή. Οι εντολές &lt;code&gt;y&lt;/code&gt; και &lt;code&gt;d&lt;/code&gt; δέχονται και ένα όρισμα που δηλώνει την λειτουργία της εντολής. Τα πιο συχνά χρησιμοποιούμενα είναι &lt;code&gt;w&lt;/code&gt; (μια λέξη), &lt;code&gt;$&lt;/code&gt; (μέχρι το τέλος της γραμμής) και &lt;code&gt;d&lt;/code&gt; (μία γραμμή). Στην περίπτωση του &lt;code&gt;y&lt;/code&gt;, αντί για το &lt;code&gt;d&lt;/code&gt; έχουμε το &lt;code&gt;y&lt;/code&gt; (μία γραμμή).
 Έτσι, έχουμε:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Διαγραφή&lt;/span&gt; &lt;span class="err"&gt;μέχρι&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="err"&gt;τέλος&lt;/span&gt; &lt;span class="err"&gt;της&lt;/span&gt; &lt;span class="err"&gt;γραμμής&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;ίδιο&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="n"&gt;D&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
-&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="n"&gt;dw&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Διαγραφή&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="err"&gt;λέξεων&lt;/span&gt; 
-&lt;span class="n"&gt;yy&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Αντιγραφή&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="err"&gt;γραμμής&lt;/span&gt; 
-&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="n"&gt;dd&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Διαγραφή&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="err"&gt;γραμμών&lt;/span&gt; 
-&lt;span class="n"&gt;d3d&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Διαγραφή&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="err"&gt;γραμμών&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;d$ : Διαγραφή μέχρι το τέλος της γραμμής (ίδιο με D) 
+5dw : Διαγραφή 5 λέξεων 
+yy : Αντιγραφή 1 γραμμής 
+3dd : Διαγραφή 3 γραμμών 
+d3d : Διαγραφή 3 γραμμών
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Τα δύο τελευταία παραδείγματα βλέπουμε ότι κάνουν το ίδιο πράγμα ενώ έχουν διαφορετική σύνταξη. Το &lt;code&gt;3dd&lt;/code&gt; θα εκτελέσει τρεις φορές την εντολή &lt;code&gt;dd&lt;/code&gt; σβήνοντας δηλαδή από μία γραμμή ενώ το &lt;code&gt;d3d&lt;/code&gt; θα σβήσει 3 γραμμές.&lt;/p&gt;
 &lt;h1 id="_3"&gt;Εντολές με βάση το παρελθόν&lt;/h1&gt;
 &lt;p&gt;Άλλες εντολές μετακίνησης που χρησιμοποιούνται συχνά και έχουν βάση στο παρελθόν είναι:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;Ctrl&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;B&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μια&lt;/span&gt; &lt;span class="err"&gt;σελίδα&lt;/span&gt; &lt;span class="err"&gt;πίσω&lt;/span&gt; 
-&lt;span class="n"&gt;Ctrl&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;F&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μια&lt;/span&gt; &lt;span class="err"&gt;σελίδα&lt;/span&gt; &lt;span class="err"&gt;μπροστά&lt;/span&gt; 
-&lt;span class="o"&gt;^&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μετακίνηση&lt;/span&gt; &lt;span class="err"&gt;στην&lt;/span&gt; &lt;span class="err"&gt;αρχή&lt;/span&gt; &lt;span class="err"&gt;της&lt;/span&gt; &lt;span class="err"&gt;γραμμής&lt;/span&gt; 
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μετακίνηση&lt;/span&gt; &lt;span class="err"&gt;στο&lt;/span&gt; &lt;span class="err"&gt;τέλος&lt;/span&gt; &lt;span class="err"&gt;της&lt;/span&gt; &lt;span class="err"&gt;γραμμής&lt;/span&gt; 
-&lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μετακίνηση&lt;/span&gt; &lt;span class="err"&gt;μια&lt;/span&gt; &lt;span class="err"&gt;λέξη&lt;/span&gt; &lt;span class="err"&gt;μπροστά&lt;/span&gt; 
-&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Μετακίνηση&lt;/span&gt; &lt;span class="err"&gt;μια&lt;/span&gt; &lt;span class="err"&gt;λέξη&lt;/span&gt; &lt;span class="err"&gt;πίσω&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;Ctrl + B : Μια σελίδα πίσω 
+Ctrl + F : Μια σελίδα μπροστά 
+^ : Μετακίνηση στην αρχή της γραμμής 
+$ : Μετακίνηση στο τέλος της γραμμής 
+w : Μετακίνηση μια λέξη μπροστά 
+b : Μετακίνηση μια λέξη πίσω
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Και αυτές παίρνουν ορίσματα εύρους π.χ &lt;code&gt;5$&lt;/code&gt;&lt;/p&gt;
 &lt;h1 id="_4"&gt;Εντολές εύρεσης&lt;/h1&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Εύρεση&lt;/span&gt; &lt;span class="err"&gt;προς&lt;/span&gt; &lt;span class="err"&gt;τα&lt;/span&gt; &lt;span class="err"&gt;κάτω&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;ορίσματος&lt;/span&gt; &lt;span class="err"&gt;που&lt;/span&gt; &lt;span class="err"&gt;θέλουμε&lt;/span&gt; 
-&lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Εύρεση&lt;/span&gt; &lt;span class="err"&gt;προς&lt;/span&gt; &lt;span class="err"&gt;τα&lt;/span&gt; &lt;span class="err"&gt;πάνω&lt;/span&gt; 
-&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Εύρεση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;επόμενου&lt;/span&gt; &lt;span class="err"&gt;αποτελέσματος&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; 
-&lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="err"&gt;ή&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="n"&gt;N&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Εύρεση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;επόμενου&lt;/span&gt; &lt;span class="err"&gt;αποτελέσματος&lt;/span&gt; &lt;span class="err"&gt;στην&lt;/span&gt; &lt;span class="err"&gt;αντίθετη&lt;/span&gt; &lt;span class="err"&gt;κατεύθυνση&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;/ : Εύρεση προς τα κάτω του ορίσματος που θέλουμε 
+? : Εύρεση προς τα πάνω 
+n : Εύρεση του επόμενου αποτελέσματος του 
+/ ή ? N : Εύρεση του επόμενου αποτελέσματος στην αντίθετη κατεύθυνση
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Αυτές οι εντολές χρησιμοποιούνται στην κατάσταση εντολών (command mode).&lt;/p&gt;
 &lt;h1 id="ex"&gt;Οι πιο συχνά χρησιμοποιούμενες εντολές στην κατάσταση ex&lt;/h1&gt;
 &lt;p&gt;Αν στην κατάσταση εντολών πληκτρολογήσουμε &lt;code&gt;:&lt;/code&gt; τότε μπαίνουμε στην κατάσταση ex. Το vim υποστηρίζει τις εντολές του παλαιότερου κειμενογράφου ex. Οι πιο συχνά χρησιμοποιούμενες είναι οι:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;:!&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Εκτέλεση&lt;/span&gt; &lt;span class="err"&gt;ενός&lt;/span&gt; &lt;span class="err"&gt;εξωτερικού&lt;/span&gt; &lt;span class="err"&gt;προγράμματος&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; 
-&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Φόρτωση&lt;/span&gt; &lt;span class="err"&gt;ενός&lt;/span&gt; &lt;span class="err"&gt;αρχείου&lt;/span&gt; 
-&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Εκτέλεση&lt;/span&gt; &lt;span class="err"&gt;εντολών&lt;/span&gt; &lt;span class="err"&gt;για&lt;/span&gt; &lt;span class="err"&gt;επιλεγμένα&lt;/span&gt; &lt;span class="n"&gt;patterns&lt;/span&gt; 
-&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Όταν&lt;/span&gt; &lt;span class="err"&gt;έχουμε&lt;/span&gt; &lt;span class="err"&gt;να&lt;/span&gt; &lt;span class="err"&gt;επεξεργαστούμε&lt;/span&gt; &lt;span class="err"&gt;πολλά&lt;/span&gt; &lt;span class="err"&gt;αρχεία&lt;/span&gt; &lt;span class="err"&gt;μας&lt;/span&gt; &lt;span class="err"&gt;φορτώνει&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="err"&gt;επόμενο&lt;/span&gt; 
-&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Ομοίως&lt;/span&gt; &lt;span class="err"&gt;για&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="err"&gt;προηγούμενο&lt;/span&gt; 
-&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Έξοδος&lt;/span&gt; &lt;span class="err"&gt;από&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="n"&gt;vim&lt;/span&gt; 
-&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Αν&lt;/span&gt; &lt;span class="err"&gt;δεν&lt;/span&gt; &lt;span class="err"&gt;έχουμε&lt;/span&gt; &lt;span class="err"&gt;σώσει&lt;/span&gt; &lt;span class="err"&gt;τις&lt;/span&gt; &lt;span class="err"&gt;αλλαγές&lt;/span&gt; &lt;span class="err"&gt;μας&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="err"&gt;γκαρίζει&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="err"&gt;απλό&lt;/span&gt; &lt;span class="n"&gt;q&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="err"&gt;Με&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="n"&gt;q&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt; &lt;span class="err"&gt;δηλώνουμε&lt;/span&gt; &lt;span class="err"&gt;ότι&lt;/span&gt; &lt;span class="err"&gt;ναι&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="err"&gt;ξέρω&lt;/span&gt; &lt;span class="err"&gt;ότι&lt;/span&gt; &lt;span class="err"&gt;δεν&lt;/span&gt; &lt;span class="err"&gt;έχω&lt;/span&gt; &lt;span class="err"&gt;σώσει&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="err"&gt;Άσε&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="err"&gt;να&lt;/span&gt; &lt;span class="err"&gt;βγω&lt;/span&gt; 
-&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Μας&lt;/span&gt; &lt;span class="err"&gt;εισάγει&lt;/span&gt; &lt;span class="err"&gt;ένα&lt;/span&gt; &lt;span class="err"&gt;αρχείο&lt;/span&gt; &lt;span class="err"&gt;στο&lt;/span&gt; &lt;span class="err"&gt;υπάρχον&lt;/span&gt; 
-&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Εύρεση&lt;/span&gt; &lt;span class="err"&gt;και&lt;/span&gt; &lt;span class="err"&gt;αντικατάσταση&lt;/span&gt; 
-&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Το&lt;/span&gt; &lt;span class="err"&gt;ίδιο&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="err"&gt;αλλά&lt;/span&gt; &lt;span class="err"&gt;για&lt;/span&gt; &lt;span class="err"&gt;τις&lt;/span&gt; &lt;span class="err"&gt;υπόλοιπες&lt;/span&gt; &lt;span class="err"&gt;γραμμές&lt;/span&gt; 
-&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Εγγραφή&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;αρχείου&lt;/span&gt; 
-&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Το&lt;/span&gt; &lt;span class="err"&gt;ίδιο&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;wq&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;Σώσιμο&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="err"&gt;Έξοδος&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;:! = Εκτέλεση ενός εξωτερικού προγράμματος. 
+:e = Φόρτωση ενός αρχείου 
+:g = Εκτέλεση εντολών για επιλεγμένα patterns 
+:n = Όταν έχουμε να επεξεργαστούμε πολλά αρχεία μας φορτώνει το επόμενο 
+:N = Ομοίως για το προηγούμενο 
+:q = Έξοδος από το vim 
+:q! = Αν δεν έχουμε σώσει τις αλλαγές μας, το vim γκαρίζει με το απλό q. Με το q! δηλώνουμε ότι ναι το ξέρω ότι δεν έχω σώσει. Άσε με να βγω 
+:r = Μας εισάγει ένα αρχείο στο υπάρχον 
+:s = Εύρεση και αντικατάσταση 
+:v = Το ίδιο με g αλλά για τις υπόλοιπες γραμμές 
+:w = Εγγραφή του αρχείου 
+:x = Το ίδιο με :wq (Σώσιμο + Έξοδος)
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h1 id="s"&gt;Η εντολή s&lt;/h1&gt;
 &lt;p&gt;Μία αρκετά χρήσιμη εντολή είναι η &lt;code&gt;:s&lt;/code&gt;&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;εύρος&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;pattern&lt;/span&gt; &lt;span class="err"&gt;για&lt;/span&gt; &lt;span class="err"&gt;εύρεση&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;pattern&lt;/span&gt; &lt;span class="err"&gt;για&lt;/span&gt; &lt;span class="err"&gt;αντικατάσταση&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;παράμετροι&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;[εύρος]s/pattern για εύρεση/pattern για αντικατάσταση/[παράμετροι]
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Το εύρος δηλώνει σε ποιες γραμμές θέλουμε να ενεργήσει η &lt;code&gt;s&lt;/code&gt;. Αν δεν δηλώσουμε τίποτα θα ενεργήσει μόνο στην τρέχουσα γραμμή. Ο χαρακτήρας &lt;code&gt;.&lt;/code&gt; σημαίνει την τρέχουσα γραμμή και ο χαρακτήρας &lt;code&gt;%&lt;/code&gt; όλο το αρχείο. Παραδείγματα:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Από&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="err"&gt;η&lt;/span&gt; &lt;span class="err"&gt;γραμμή&lt;/span&gt; &lt;span class="err"&gt;μέχρι&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="err"&gt;η&lt;/span&gt; 
-&lt;span class="p"&gt;.,&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Από&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="err"&gt;τρέχουσα&lt;/span&gt; &lt;span class="err"&gt;μέχρι&lt;/span&gt; &lt;span class="err"&gt;τις&lt;/span&gt; &lt;span class="err"&gt;επόμενες&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="err"&gt;γραμμές&lt;/span&gt; 
-&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Όλο&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="err"&gt;αρχείο&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="nl"&gt;s&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Από&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="err"&gt;η&lt;/span&gt; &lt;span class="err"&gt;γραμμή&lt;/span&gt; &lt;span class="err"&gt;μέχρι&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="err"&gt;η&lt;/span&gt; 
+&lt;span class="p"&gt;.,&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="nl"&gt;s&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Από&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="err"&gt;τρέχουσα&lt;/span&gt; &lt;span class="err"&gt;μέχρι&lt;/span&gt; &lt;span class="err"&gt;τις&lt;/span&gt; &lt;span class="err"&gt;επόμενες&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="err"&gt;γραμμές&lt;/span&gt; 
+&lt;span class="nf"&gt;%s&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Όλο&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="err"&gt;αρχείο&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Οι πιο συχνά χρησιμοποιούμενες παράμετροι είναι οι εξής:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nl"&gt;c:&lt;/span&gt; &lt;span class="err"&gt;Ζητά&lt;/span&gt; &lt;span class="err"&gt;επιβεβαίωση&lt;/span&gt; &lt;span class="err"&gt;για&lt;/span&gt; &lt;span class="err"&gt;κάθε&lt;/span&gt; &lt;span class="err"&gt;αλλαγή&lt;/span&gt; 
-&lt;span class="nl"&gt;g:&lt;/span&gt; &lt;span class="err"&gt;Αντικατάσταση&lt;/span&gt; &lt;span class="err"&gt;όλων&lt;/span&gt; &lt;span class="err"&gt;των&lt;/span&gt; &lt;span class="n"&gt;pattern&lt;/span&gt; &lt;span class="err"&gt;σε&lt;/span&gt; &lt;span class="err"&gt;κάθε&lt;/span&gt; &lt;span class="err"&gt;γραμμή&lt;/span&gt; &lt;span class="err"&gt;και&lt;/span&gt; &lt;span class="err"&gt;όχι&lt;/span&gt; &lt;span class="err"&gt;μόνο&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;πρώτου&lt;/span&gt; 
-&lt;span class="nl"&gt;i:&lt;/span&gt; &lt;span class="err"&gt;Δεν&lt;/span&gt; &lt;span class="err"&gt;κοιτάει&lt;/span&gt; &lt;span class="err"&gt;κεφαλαία&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;πεζά&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;c: Ζητά επιβεβαίωση για κάθε αλλαγή 
+g: Αντικατάσταση όλων των pattern σε κάθε γραμμή και όχι μόνο του πρώτου 
+i: Δεν κοιτάει κεφαλαία/πεζά
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;O χαρακτήρας διαχωρισμού των πεδίων μπορεί να είναι οτιδήποτε και δεν είναι απαραίτητο να είναι &lt;code&gt;/&lt;/code&gt;. Ας πούμε ότι θέλουμε να αλλάξουμε σε ένα αρχείο το &lt;code&gt;/usr&lt;/code&gt; σε &lt;code&gt;/usr/local&lt;/code&gt;.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;:%&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt; 
-&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;:%&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;1) :%s/\/usr/\/usr\/local/g 
+2) :%s#/usr#/usr/local#g
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Το πρώτο παράδειγμα χρησιμοποιεί κανονικά το &lt;code&gt;/&lt;/code&gt; για διαχωριστικό. Έτσι πρέπει οπουδήποτε έχουμε &lt;code&gt;/&lt;/code&gt; μέσα στο pattern μας να το κάνουμε quote χρησιμοποιώντας την backslash, ενώ στο δεύτερο παράδειγμα επειδή χρησιμοποιούμε το &lt;code&gt;#&lt;/code&gt; για διαχωριστικό δεν χρειάζεται να κάνουμε τίποτα.&lt;/p&gt;
 &lt;h1 id="global"&gt;Η εντολή global&lt;/h1&gt;
 &lt;p&gt;Ας πoύμε τώρα και για το global. Το global (&lt;code&gt;:g&lt;/code&gt;) μας επιτρέπει να εκτελέσουμε μια συγκεκριμένη εντολή σε όσες γραμμές πληρούν κάποια προϋπόθεση. πχ&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;emacs&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; 
-&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sbin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt; 
-&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;vim&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;1) :g/emacs/d 
+2) :g/usr/s/sbin/bin/g 
+3) :v/vim/d
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Η πρώτη εντολή θα ψάξει για γραμμές που έχουν την λέξη emacs και θα εκτελέσει την εντολή &lt;code&gt;d&lt;/code&gt;. Δηλαδή θα διαγράψει όσες γραμμές έχουν την λέξη emacs. Η δεύτερη εντολή θα ψάξει για γραμμές που έχουν τη λέξη usr και θα εκτελέσει την εντολή &lt;code&gt;s&lt;/code&gt; η οποία θα αλλάξει το sbin με το bin. Το συγκεκριμένο παράδειγμα είναι απλό και θα μπορούσε να γίνει και μόνο με την &lt;code&gt;s.&lt;/code&gt; Η τρίτη εντολή θα βρει όσες γραμμές έχουν την λέξη vim και διαγράψει τις υπόλοιπες. Δηλαδή είναι το αντίστροφο της &lt;code&gt;g&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;H εντολή που μπορούμε να εκτελέσουμε πρέπει να είναι εντολή του ex. Για παράδειγμα αν θέλουμε να σβήσουμε 10 χαρακτήρες με την εντολή &lt;code&gt;10x&lt;/code&gt; αυτό δεν γίνεται. Αν θέλουμε να εκτελέσουμε μια εντολή του vim μπορούμε να χρησιμοποιήσουμε το πρόθεμα &lt;code&gt;normal&lt;/code&gt; όπως φαίνεται παρακάτω:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;vim&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;normal&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;:g/vim/normal 10x
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Η παραπάνω εντολή λέει στο vim να σβήσει τους πρώτους 10 χαρακτήρες από κάθε γραμμή που περιέχει την λέξη vim.&lt;/p&gt;
 &lt;h1 id="vim"&gt;Εκτελώντας εντολές μέσα από τον vim&lt;/h1&gt;
 &lt;p&gt;Η εντολή &lt;code&gt;:!&lt;/code&gt; μας επιτρέπει να δούμε την έξοδο κάποιας εντολής. Δηλαδή αν γράψουμε &lt;code&gt;:!ls&lt;/code&gt; θα μας εμφανίσει τα αρχεία που υπάρχουν στον τρέχοντα κατάλογο. Εκτός από αυτό πολλές φορές θέλουμε και να επεξεργαστούμε την έξοδο της εντολής ή απλά να την εισάγουμε στο αρχείο μας. Αυτό μπορεί να γίνει αν συνδυάσουμε τις εντολές &lt;code&gt;:r&lt;/code&gt; και &lt;code&gt;:!&lt;/code&gt; π.χ&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="n"&gt;ls&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;:r !ls
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;και έχουμε το αποτέλεσμα της &lt;code&gt;ls&lt;/code&gt; κατευθείαν μέσα στο buffer μας.&lt;/p&gt;
 &lt;p&gt;Μπορούμε επίσης να κάνουμε και το αντίθετο. Αντί να εισάγουμε την έξοδο μιας εντολής στο buffer μας, να στείλουμε το buffer ως είσοδο μιας εντολής. Αυτό γίνεται με το πρόθεμα &lt;code&gt;%&lt;/code&gt;&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;Hello&lt;/span&gt; &lt;span class="n"&gt;World&lt;/span&gt; 
-&lt;span class="o"&gt;:%!&lt;/span&gt;&lt;span class="n"&gt;rev&lt;/span&gt; 
-&lt;span class="n"&gt;dlroW&lt;/span&gt; &lt;span class="n"&gt;olleH&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;Hello World 
+:%!rev 
+dlroW olleH
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -531,15 +531,15 @@ leave a comment. Next big article the Rubygem packaging How to ;)&lt;/p&gt;
 &lt;p&gt;Υπάρχουν πολλές επιλογές που μπορούν να δηλωθούν στο .vimrc ή κατά την διάρκεια του vim.&lt;/p&gt;
 &lt;h2 id="background-bg"&gt;background (bg)&lt;/h2&gt;
 &lt;p&gt;Όταν χρησιμοποιούμε το vim και όχι το gvim, μερικές φορές δεν λειτουργεί σωστά η αυτόματη ανίχνευση του φόντου του τερματικού με συνέπεια να μην φαίνονται καλά τα χρώματα. Για αυτό το λόγο μπορούμε να δηλώσουμε&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;dark&lt;/span&gt; 
-&lt;span class="err"&gt;ή&lt;/span&gt; 
-&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;light&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;set background=dark 
+ή 
+set background=light
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2 id="hlsearch-hls"&gt;hlsearch (hls)&lt;/h2&gt;
 &lt;p&gt;Όταν ψάξουμε κάτι, το vim το τονίζει ώστε να φαίνεται εύκολα. Αν τελειώσουμε αυτό που θέλαμε να κάνουμε και δεν θέλουμε να βλέπουμε τονισμένο κείμενο στα υπόλοιπα αποτελέσματα απενεργοποιούμε αυτή την επιλογή με&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;nohls&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;:set nohls
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -556,34 +556,34 @@ leave a comment. Next big article the Rubygem packaging How to ;)&lt;/p&gt;
 
 
 &lt;p&gt;Ένα παράδειγμα είναι το παρακάτω &lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;listchars&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;eol&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;tab&lt;/span&gt;&lt;span class="o"&gt;:&amp;gt;-&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;trail&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; 
-&lt;span class="n"&gt;highlight&lt;/span&gt; &lt;span class="n"&gt;SpecialKey&lt;/span&gt; &lt;span class="n"&gt;ctermfg&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;set listchars=eol:$,tab:&amp;gt;-,trail:. 
+highlight SpecialKey ctermfg=red
 
 
-&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;foo&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; 
-&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;------&lt;/span&gt;&lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;foo&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);...&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;
+1) printf(&amp;quot;foo\n&amp;quot;); 
+2)&amp;gt;------printf(&amp;quot;foo\n&amp;quot;);...$
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Το αποτέλεσμα φαίνεται στην μορφή 2) όπου βλέπουμε ότι χρησιμοποιούνται 8άρια tabs και ότι στο τέλος ξέφυγαν 3 spaces που πρέπει να σβήσουμε από τον κώδικα.&lt;/p&gt;
 &lt;h2 id="textwidth-tw"&gt;textwidth (tw)&lt;/h2&gt;
 &lt;p&gt;Αν δηλωθεί ορίζει το μέγεθος κάθε γραμμής. Αν επιχειρήσουμε να περάσουμε το όριο αυτό θα γίνει αυτόματα wrap στην επόμενη γραμμή. Κανονικά είναι απενεργοποιημένη γιατί έχει νόημα σε κώδικα και όχι οπουδήποτε. Για να την ενεργοποιήσουμε σε συγκεκριμένο τύπο αρχείων μπορούμε να χρησιμοποιήσουμε τις autocommands του vim. π.χ&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;autocmd&lt;/span&gt; &lt;span class="n"&gt;FileType&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="n"&gt;setlocal&lt;/span&gt; &lt;span class="n"&gt;textwidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;78&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;autocmd FileType c setlocal textwidth=78
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Η παραπάνω εντολή λέει ότι αν το αρχείο που έχουμε φορτώσει είναι αρχείο C, τότε θέσε μέγιστο όριο γραμμής τους 78 χαρακτήρες. Η &lt;code&gt;setlocal&lt;/code&gt; θέτει την παράμετρο μόνο για το τοπικό buffer. Αν είχαμε ανοίξει πολλά αρχεία και χρησιμοποιούσαμε την &lt;code&gt;set&lt;/code&gt; τότε θα έθεται την &lt;code&gt;tw&lt;/code&gt; και για εκείνα το οποίο δεν θέλουμε.&lt;/p&gt;
 &lt;h2 id="c_space_errors"&gt;c_space_errors&lt;/h2&gt;
 &lt;p&gt;Αυτή δεν είναι παράμετρος του vim αλλά του syntax highlighter της C. Αν δηλωθεί, τότε θα εμφανίζει τα spaces που βρίσκονται στο τέλος με κόκκινο. Πρέπει να δηλωθεί πριν φορτωθεί ο syntax highlighter π.χ&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;let&lt;/span&gt; &lt;span class="n"&gt;c_space_errors&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;syntax&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;let c_space_errors = 1 syntax on
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;]
 και λειτουργεί ανεξάρτητα της list και μόνο σε C αρχεία. Η list είναι πιο εύχρηστη.&lt;/p&gt;
 &lt;h1 id="registers"&gt;Registers&lt;/h1&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;quick&lt;/span&gt; &lt;span class="n"&gt;brown&lt;/span&gt; &lt;span class="n"&gt;fox&lt;/span&gt; &lt;span class="n"&gt;jumps&lt;/span&gt; &lt;span class="n"&gt;over&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;lazy&lt;/span&gt; &lt;span class="n"&gt;dog&lt;/span&gt;
-&lt;span class="err"&gt;Τρεία&lt;/span&gt; &lt;span class="err"&gt;πουλάκια&lt;/span&gt; &lt;span class="err"&gt;κάθονταν&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;The quick brown fox jumps over the lazy dog
+Τρεία πουλάκια κάθονταν.
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -598,35 +598,35 @@ leave a comment. Next big article the Rubygem packaging How to ;)&lt;/p&gt;
 &lt;h1 id="backreferences-patterns"&gt;Backreferences και Patterns&lt;/h1&gt;
 &lt;p&gt;Αυτό δεν είναι καθαρά vim αλλά και το sed και πολλά εργαλεία έχουν την ίδια σύνταξη. Είναι τεράστιο κεφάλαιο αλλά επειδή αναφέραμε την εντολή &lt;code&gt;s&lt;/code&gt; πρέπει να αναφέρουμε και τα backreferences.&lt;/p&gt;
 &lt;p&gt;Οι πιο βασικοί μεταχαρακτήρες που ισχύουν σε patterns είναι οι ακόλουθοι.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Οποιοσδήποτε&lt;/span&gt; &lt;span class="err"&gt;χαρακτήρας&lt;/span&gt;
-&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Ο&lt;/span&gt; &lt;span class="err"&gt;προηγούμενος&lt;/span&gt; &lt;span class="err"&gt;χαρακτήρας&lt;/span&gt; &lt;span class="err"&gt;μπορεί&lt;/span&gt; &lt;span class="err"&gt;να&lt;/span&gt; &lt;span class="err"&gt;υπάρχει&lt;/span&gt; &lt;span class="err"&gt;όσες&lt;/span&gt; &lt;span class="err"&gt;φορές&lt;/span&gt; &lt;span class="err"&gt;θέλει&lt;/span&gt;
-&lt;span class="o"&gt;^&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;αρχή&lt;/span&gt; &lt;span class="err"&gt;της&lt;/span&gt; &lt;span class="err"&gt;γραμμής&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;τέλος&lt;/span&gt; &lt;span class="err"&gt;της&lt;/span&gt; &lt;span class="err"&gt;γραμμής&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;. = Οποιοσδήποτε χαρακτήρας
+* = Ο προηγούμενος χαρακτήρας μπορεί να υπάρχει όσες φορές θέλει
+^ = αρχή της γραμμής
+$ = τέλος της γραμμής
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Παραδείγματα:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;H&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;llo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Hallo&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Hbllo&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Hello&lt;/span&gt; &lt;span class="err"&gt;κτλ&lt;/span&gt;
-&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="n"&gt;Hello&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Η&lt;/span&gt; &lt;span class="err"&gt;γραμμή&lt;/span&gt; &lt;span class="err"&gt;αρχίζει&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="n"&gt;Hello&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-&lt;span class="n"&gt;World&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Η&lt;/span&gt; &lt;span class="err"&gt;γραμμή&lt;/span&gt; &lt;span class="err"&gt;τελειώνει&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="n"&gt;World&lt;/span&gt;
-&lt;span class="n"&gt;H&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Οποιαδήποτε&lt;/span&gt; &lt;span class="err"&gt;λέξη&lt;/span&gt; &lt;span class="err"&gt;αρχίζει&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="n"&gt;H&lt;/span&gt; &lt;span class="err"&gt;και&lt;/span&gt; &lt;span class="err"&gt;περιέχει&lt;/span&gt; &lt;span class="n"&gt;o&lt;/span&gt;
-      &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;Το&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="err"&gt;λέει&lt;/span&gt; &lt;span class="err"&gt;οποιοσδήποτε&lt;/span&gt; &lt;span class="err"&gt;χαρακτήρας&lt;/span&gt; &lt;span class="err"&gt;και&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="err"&gt;όσες&lt;/span&gt; &lt;span class="err"&gt;φορές&lt;/span&gt;
-      &lt;span class="err"&gt;θέλει&lt;/span&gt; &lt;span class="err"&gt;ο&lt;/span&gt; &lt;span class="err"&gt;προηγούμενος&lt;/span&gt; &lt;span class="err"&gt;οπότε&lt;/span&gt; &lt;span class="err"&gt;πιάνει&lt;/span&gt; &lt;span class="err"&gt;τα&lt;/span&gt; &lt;span class="err"&gt;πάντα&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;H.llo = Hallo, Hbllo, Hello κτλ
+^Hello = Η γραμμή αρχίζει με Hello.
+World$ = Η γραμμή τελειώνει με World
+H.*o = Οποιαδήποτε λέξη αρχίζει με H και περιέχει o
+      (Το . λέει οποιοσδήποτε χαρακτήρας και το * όσες φορές
+      θέλει ο προηγούμενος οπότε πιάνει τα πάντα)
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Τα &lt;em&gt;backreferences&lt;/em&gt; χρησιμοποιούνται όταν θέλουμε να κρατήσουμε ένα μέρος του pattern. Δηλώνονται με τα &lt;code&gt;\(&lt;/code&gt; και &lt;code&gt;\)&lt;/code&gt;&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="err"&gt;Ο&lt;/span&gt; &lt;span class="err"&gt;Κώστας&lt;/span&gt; &lt;span class="err"&gt;είναι&lt;/span&gt; &lt;span class="err"&gt;ψηλός&lt;/span&gt; &lt;span class="err"&gt;και&lt;/span&gt; &lt;span class="err"&gt;ο&lt;/span&gt; &lt;span class="err"&gt;Γιώργος&lt;/span&gt; &lt;span class="err"&gt;είναι&lt;/span&gt; &lt;span class="err"&gt;ψηλός&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;Ο Κώστας είναι ψηλός και ο Γιώργος είναι ψηλός
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Θέλουμε να αλλάξουμε την παραπάνω πρόταση ώστε να λέει ο Γιώργος είναι πολύ ψηλός. Η κλασική εντολή θα ήταν&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;ψηλός&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;πολύ&lt;/span&gt; &lt;span class="err"&gt;ψηλός&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;s/ψηλός/πολύ ψηλός/
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Σε αυτή την περίπτωση όμως θα αλλάξει τον Κώστα ή με &lt;a href="#global"&gt;g&lt;/a&gt; και τον Κώστα. Άρα τι εντολή να βάλουμε; Εδώ θα χρησιμοποιήσουμε τα backreferences δηλαδή τις αναφορές.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;Γιώργος&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;ψηλός&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="err"&gt;πολύ&lt;/span&gt; &lt;span class="err"&gt;ψηλός&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;s/\(Γιώργος.*\) ψηλός/\1 πολύ ψηλός/
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -675,12 +675,12 @@ leave a comment. Next big article the Rubygem packaging How to ;)&lt;/p&gt;
 
 &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="o"&gt;+--&lt;/span&gt;  &lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;-------------------&lt;/span&gt;
+&lt;span class="o"&gt;+--&lt;/span&gt;  &lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="nl"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;-------------------&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 
 &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;fact&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="p"&gt;{&lt;/span&gt;               
-&lt;span class="o"&gt;+--&lt;/span&gt;  &lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;----------&lt;/span&gt;
+&lt;span class="o"&gt;+--&lt;/span&gt;  &lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="nl"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;----------&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -693,10 +693,10 @@ leave a comment. Next big article the Rubygem packaging How to ;)&lt;/p&gt;
 &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;fact&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 
 &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="o"&gt;+--&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;-----------------------&lt;/span&gt;
+&lt;span class="o"&gt;+--&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="nl"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;-----------------------&lt;/span&gt;
 
 &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;fact&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="o"&gt;+--&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;-----------------------&lt;/span&gt;
+&lt;span class="o"&gt;+--&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="nl"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;-----------------------&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -714,7 +714,7 @@ leave a comment. Next big article the Rubygem packaging How to ;)&lt;/p&gt;
         &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
         &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="o"&gt;+---&lt;/span&gt;  &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;fact&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="o"&gt;---------&lt;/span&gt;
+&lt;span class="o"&gt;+---&lt;/span&gt;  &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="nl"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;fact&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="o"&gt;---------&lt;/span&gt;
         &lt;span class="p"&gt;}&lt;/span&gt;
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
@@ -723,7 +723,7 @@ leave a comment. Next big article the Rubygem packaging How to ;)&lt;/p&gt;
 &lt;span class="p"&gt;{&lt;/span&gt;
         &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
         &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="o"&gt;+---&lt;/span&gt;  &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;-----------&lt;/span&gt;
+&lt;span class="o"&gt;+---&lt;/span&gt;  &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="nl"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;-----------&lt;/span&gt;
         &lt;span class="p"&gt;}&lt;/span&gt;
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;res&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
@@ -742,14 +742,14 @@ leave a comment. Next big article the Rubygem packaging How to ;)&lt;/p&gt;
         &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
         &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
-&lt;span class="o"&gt;+---&lt;/span&gt;  &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;------&lt;/span&gt;
+&lt;span class="o"&gt;+---&lt;/span&gt;  &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="nl"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;------&lt;/span&gt;
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 
 &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;fact&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="p"&gt;{&lt;/span&gt;
         &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="o"&gt;+---&lt;/span&gt;  &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;-------------------&lt;/span&gt;
+&lt;span class="o"&gt;+---&lt;/span&gt;  &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="nl"&gt;lines&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="o"&gt;-------------------&lt;/span&gt;
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;res&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -758,56 +758,56 @@ leave a comment. Next big article the Rubygem packaging How to ;)&lt;/p&gt;
 &lt;p&gt;Όπως και πριν το αποτέλεσμα της syntax είναι καλύτερο οπτικά γιατί γνωρίζει τις ιδιαιτερότητες της C.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Συνδυασμοί πλήκτρων&lt;/em&gt;
 Όλες οι εντολές αναδίπλωσης ξεκινούν με &lt;code&gt;z&lt;/code&gt;.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;zo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Άνοιγμα&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="n"&gt;fold&lt;/span&gt; &lt;span class="err"&gt;στη&lt;/span&gt; &lt;span class="err"&gt;θέση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt;
-&lt;span class="n"&gt;zO&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Άνοιγμα&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="n"&gt;fold&lt;/span&gt; &lt;span class="err"&gt;καθώς&lt;/span&gt; &lt;span class="err"&gt;και&lt;/span&gt; &lt;span class="err"&gt;αυτών&lt;/span&gt; &lt;span class="err"&gt;που&lt;/span&gt; &lt;span class="err"&gt;βρίσκονται&lt;/span&gt; &lt;span class="err"&gt;μέσα&lt;/span&gt; &lt;span class="err"&gt;σε&lt;/span&gt; &lt;span class="err"&gt;αυτό&lt;/span&gt;
-&lt;span class="n"&gt;zc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Κλείσιμο&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="n"&gt;fold&lt;/span&gt; &lt;span class="err"&gt;στη&lt;/span&gt; &lt;span class="err"&gt;θέση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt;
-&lt;span class="n"&gt;zC&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Κλείσιμο&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="n"&gt;fold&lt;/span&gt; &lt;span class="err"&gt;καθώς&lt;/span&gt; &lt;span class="err"&gt;και&lt;/span&gt; &lt;span class="err"&gt;αυτών&lt;/span&gt; &lt;span class="err"&gt;που&lt;/span&gt; &lt;span class="err"&gt;βρίσκονται&lt;/span&gt; &lt;span class="err"&gt;μέσα&lt;/span&gt; &lt;span class="err"&gt;σε&lt;/span&gt; &lt;span class="err"&gt;αυτό&lt;/span&gt;
-&lt;span class="n"&gt;za&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Εναλλαγή&lt;/span&gt; &lt;span class="err"&gt;της&lt;/span&gt; &lt;span class="err"&gt;κατάστασης&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="n"&gt;fold&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;Άνοιγμα&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;Κλείσιμο&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;zA&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Εναλλαγή&lt;/span&gt; &lt;span class="err"&gt;της&lt;/span&gt; &lt;span class="err"&gt;κατάστασης&lt;/span&gt; &lt;span class="err"&gt;και&lt;/span&gt; &lt;span class="err"&gt;αυτών&lt;/span&gt; &lt;span class="err"&gt;που&lt;/span&gt; &lt;span class="err"&gt;βρίσκονται&lt;/span&gt; &lt;span class="err"&gt;μέσα&lt;/span&gt;
-&lt;span class="n"&gt;zj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Μετακίνηση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt; &lt;span class="err"&gt;στο&lt;/span&gt; &lt;span class="err"&gt;επόμενο&lt;/span&gt; &lt;span class="n"&gt;fold&lt;/span&gt;
-&lt;span class="n"&gt;zk&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Μετακίνηση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;δρομέα&lt;/span&gt; &lt;span class="err"&gt;στο&lt;/span&gt; &lt;span class="err"&gt;προηγούμενο&lt;/span&gt; &lt;span class="n"&gt;fold&lt;/span&gt;
-&lt;span class="n"&gt;zi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Εναλλαγή&lt;/span&gt; &lt;span class="err"&gt;της&lt;/span&gt; &lt;span class="err"&gt;κατάστασης&lt;/span&gt; &lt;span class="n"&gt;foldenable&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="err"&gt;συνέπεια&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="err"&gt;άνοιγμα&lt;/span&gt; &lt;span class="err"&gt;ή&lt;/span&gt; &lt;span class="err"&gt;κλείσιμο&lt;/span&gt; &lt;span class="err"&gt;όλων&lt;/span&gt; &lt;span class="err"&gt;των&lt;/span&gt; &lt;span class="n"&gt;folds&lt;/span&gt;
-&lt;span class="n"&gt;zM&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Θέτει&lt;/span&gt; &lt;span class="err"&gt;στην&lt;/span&gt; &lt;span class="n"&gt;foldlevel&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="err"&gt;τιμή&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="err"&gt;κλείνοντας&lt;/span&gt; &lt;span class="err"&gt;ουσιαστικά&lt;/span&gt; &lt;span class="err"&gt;όλα&lt;/span&gt; &lt;span class="err"&gt;τα&lt;/span&gt; &lt;span class="n"&gt;folds&lt;/span&gt;
-&lt;span class="n"&gt;zR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Θέτει&lt;/span&gt; &lt;span class="err"&gt;στην&lt;/span&gt; &lt;span class="n"&gt;foldlevel&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="err"&gt;μέγιστη&lt;/span&gt; &lt;span class="err"&gt;τιμή&lt;/span&gt; &lt;span class="err"&gt;ανοίγοντας&lt;/span&gt; &lt;span class="err"&gt;ουσιαστικά&lt;/span&gt; &lt;span class="err"&gt;όλα&lt;/span&gt; &lt;span class="err"&gt;τα&lt;/span&gt; &lt;span class="n"&gt;folds&lt;/span&gt;
-&lt;span class="n"&gt;zm&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Μειώνει&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="n"&gt;foldlevel&lt;/span&gt; &lt;span class="err"&gt;κατά&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="err"&gt;κλείνοντας&lt;/span&gt; &lt;span class="err"&gt;μια&lt;/span&gt; &lt;span class="err"&gt;βαθμίδα&lt;/span&gt; &lt;span class="err"&gt;από&lt;/span&gt; &lt;span class="n"&gt;folds&lt;/span&gt;
-&lt;span class="n"&gt;zr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;Αυξάνει&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="n"&gt;foldlevel&lt;/span&gt; &lt;span class="err"&gt;κατά&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="err"&gt;ανοίγοντας&lt;/span&gt; &lt;span class="err"&gt;μια&lt;/span&gt; &lt;span class="err"&gt;βαθμίδα&lt;/span&gt; &lt;span class="err"&gt;από&lt;/span&gt; &lt;span class="n"&gt;folds&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;zo = Άνοιγμα του fold στη θέση του δρομέα
+zO = Άνοιγμα του fold καθώς και αυτών που βρίσκονται μέσα σε αυτό
+zc = Κλείσιμο του fold στη θέση του δρομέα
+zC = Κλείσιμο του fold καθώς και αυτών που βρίσκονται μέσα σε αυτό
+za = Εναλλαγή της κατάστασης του fold (Άνοιγμα/Κλείσιμο)
+zA = Εναλλαγή της κατάστασης και αυτών που βρίσκονται μέσα
+zj = Μετακίνηση του δρομέα στο επόμενο fold
+zk = Μετακίνηση του δρομέα στο προηγούμενο fold
+zi = Εναλλαγή της κατάστασης foldenable με συνέπεια το άνοιγμα ή κλείσιμο όλων των folds
+zM = Θέτει στην foldlevel την τιμή 0 κλείνοντας ουσιαστικά όλα τα folds
+zR = Θέτει στην foldlevel την μέγιστη τιμή ανοίγοντας ουσιαστικά όλα τα folds
+zm = Μειώνει την foldlevel κατά 1 κλείνοντας μια βαθμίδα από folds
+zr = Αυξάνει την foldlevel κατά 1 ανοίγοντας μια βαθμίδα από folds
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Ας δούμε τώρα και την τρίτη μέθοδο που είναι η &lt;code&gt;marker&lt;/code&gt;. Εδώ επιλέγουμε πως θέλουμε να γίνει δίπλωμα μόνο όπου υπάρχουν οι markers &lt;code&gt;{{{&lt;/code&gt; και &lt;code&gt;}}}&lt;/code&gt;. Αυτή η μέθοδος έχει το καλό ότι επιλέγουμε εμείς να κάνουμε folding μόνο εκεί που θέλουμε να γίνει. Δεν χρησιμοποιείται πάρα πολύ σε κώδικα αλλά συνήθως σε αρχεία που δεν έχουν κάποια σύνταξη ή indentation.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# {{{ Γεια σου κόσμε&lt;/span&gt;
-&lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="n"&gt;Hello&lt;/span&gt; &lt;span class="n"&gt;World&lt;/span&gt;
-&lt;span class="cp"&gt;# }}}&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;# {{{ Γεια σου κόσμε
+echo Hello World
+# }}}
 
-&lt;span class="cm"&gt;/* {{{ Γεια σου κόσμε */&lt;/span&gt;
-&lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Hello World&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="cm"&gt;/* }}} */&lt;/span&gt;
+/* {{{ Γεια σου κόσμε */
+printf(&amp;quot;Hello World\n&amp;quot;);
+/* }}} */
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Τα παραπάνω είναι δύο παραδείγματα για shell και C. Το κείμενο που βάζουμε μετά τον &lt;code&gt;{{{&lt;/code&gt; marker θα εμφανίζεται ως περιγραφή όταν το fold είναι κλειστό.&lt;/p&gt;
 &lt;p&gt;Υπάρχουν αρκετοί στους οποίους οι μέθοδοι indent και syntax δεν αρέσουν γιατί δυσκολεύουν αντί να ευκολύνουν στη συγγραφή κώδικα. Υπάρχουν όμως περιπτώσεις που βολεύει η χρήση των markers όπως π.χ. στα αρχεία εκκίνησης του zsh. Για παράδειγμα ένα αρχείο zshrc μπορεί να φαίνεται ως εξής:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;+--&lt;/span&gt; &lt;span class="mi"&gt;36&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Δήλωση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="n"&gt;prompt&lt;/span&gt; &lt;span class="o"&gt;---------------------&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;+-- 36 lines: Δήλωση του prompt ---------------------
 
-&lt;span class="o"&gt;+--&lt;/span&gt; &lt;span class="mi"&gt;57&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Λειτουργίες&lt;/span&gt; &lt;span class="err"&gt;πλήκτρων&lt;/span&gt; &lt;span class="o"&gt;-------------------&lt;/span&gt;
++-- 57 lines: Λειτουργίες πλήκτρων -------------------
 
-&lt;span class="o"&gt;+--&lt;/span&gt; &lt;span class="mi"&gt;64&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Δήλωση&lt;/span&gt; &lt;span class="err"&gt;μεταβλητών&lt;/span&gt; &lt;span class="o"&gt;--------------------&lt;/span&gt;
++-- 64 lines: Δήλωση μεταβλητών --------------------
 
-&lt;span class="o"&gt;+--&lt;/span&gt; &lt;span class="mi"&gt;41&lt;/span&gt; &lt;span class="n"&gt;lines&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;Δήλωση&lt;/span&gt; &lt;span class="err"&gt;συντομεύσεων&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;aliases&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;----&lt;/span&gt;
-&lt;span class="err"&gt;κτλ&lt;/span&gt;
++-- 41 lines: Δήλωση συντομεύσεων (aliases) ----
+κτλ
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Έτσι, όταν θέλoυμε να αλλάξουμε ή να προσθέσουμε κάτι δεν χρειάζεται να ψάχνουμε μέσα σε 700 γραμμές. Απλά πηγαίνουμε στην κατηγορία που θέλουμε και ανοίγουμε το fold.&lt;/p&gt;
 &lt;p&gt;Καλά και χρυσά τα folds, αλλά δεν μπορούμε κάθε φορά που ανοίγουμε ένα αρχείο να γράφουμε &lt;code&gt;:set foldmethod=τάδε&lt;/code&gt;. Για αυτό το λόγο, το vim υποστηρίζει τα λεγόμενα &lt;code&gt;modelines&lt;/code&gt; που είναι γραμμές οι οποίες λένε στο vim ποιες παραμέτρους να ενεργοποιήσει για το συγκεκριμένο αρχείο.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;κείμενο&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="err"&gt;κενό&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;vim&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;παράμετροι&lt;/span&gt; 
-&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;κείμενο&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="err"&gt;κενό&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;vim&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="err"&gt;παράμετροι&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;κείμενο&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;[κείμενο]&amp;lt;κενό&amp;gt;vim:παράμετροι 
+[κείμενο]&amp;lt;κενό&amp;gt;vim:set παράμετροι: [κείμενο]
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Αυτές είναι οι δύο μορφές που μπορούμε να χρησιμοποιήσουμε για να δηλώσουμε την modeline. Το vim ψάχνει ένα αριθμό γραμμών στην αρχή και στο τέλος του αρχείου για πιθανά modelines, έτσι μπορούμε να την δηλώσουμε είτε στην αρχή είτε στο τέλος του αρχείου μας.&lt;/p&gt;
 &lt;p&gt;Πιθανά παραδείγματα&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# vim:filetype=zsh:foldmethod=marker&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;# vim:filetype=zsh:foldmethod=marker
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -820,16 +820,16 @@ leave a comment. Next big article the Rubygem packaging How to ;)&lt;/p&gt;
 &lt;p&gt;Οι modelines χρησιμοποιούνται για να δηλώσουμε οτιδήποτε παραμέτρους θέλουμε να ισχύουν για το συγκεκριμένο αρχείο μας και όχι μόνο για το folding. Έτσι, για λόγους ασφαλείας, δεν διαβάζονται όταν ο χρήστης είναι ο root. Αν ανοίξουμε ένα αρχείο ως root, θα πρέπει να εκτελέσουμε &lt;code&gt;:set foldmethod=τάδε&lt;/code&gt; ακόμη και αν υπάρχει modeline.&lt;/p&gt;
 &lt;h1 id="colorcolumn"&gt;Η εντολή colorcolumn&lt;/h1&gt;
 &lt;p&gt;Για προγραμματισμό, παρόμοια και εξίσου χρήσιμη είναι και η colorcolumn. Πολλά IDE έχουν μια (πράσινη συνήθως) κατακόρυφη γραμμή που δηλώνει τα όρια του κώδικα για παράδειγμα 80 στήλες. Η colorcolumn κάνει ακριβώς το ίδιο. Το μόνο κακό είναι ότι λόγω της φύσης του vim έχει πλάτος ένα χαρακτήρα οπότε είναι λίγο χοντροκομμένη και μπορεί να κουράζει κάποιους. Μπορεί εύκολα να χρησιμοποιηθεί μόνο σε αρχεία προγραμματισμού.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;autocmd&lt;/span&gt; &lt;span class="n"&gt;FileType&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="n"&gt;setlocal&lt;/span&gt; &lt;span class="n"&gt;textwidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;78&lt;/span&gt; 
-&lt;span class="n"&gt;autocmd&lt;/span&gt; &lt;span class="n"&gt;FileType&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="n"&gt;setlocal&lt;/span&gt; &lt;span class="n"&gt;colorcolumn&lt;/span&gt;&lt;span class="o"&gt;=+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;autocmd FileType c setlocal textwidth=78 
+autocmd FileType c setlocal colorcolumn=+1
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Πχ. σε αρχεία γλώσσας C να χρησιμοποιούνται το πολύ 78 στήλες (από τη μάνα του το vim δεν πειράζει τον κώδικα αλλά τα σχόλια αναδιπλώνονται αυτόματα αν περάσουν τις 78 στήλες) και να χρωματιστεί η στήλη textwidth+1 δηλαδή η 79.&lt;/p&gt;
 &lt;h1 id="_6"&gt;Τοποθεσία κέρσορα&lt;/h1&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;hi&lt;/span&gt; &lt;span class="nx"&gt;CursorLine&lt;/span&gt;   &lt;span class="n"&gt;cterm&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;NONE&lt;/span&gt; &lt;span class="n"&gt;ctermbg&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;lightgrey&lt;/span&gt;
-&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;hi&lt;/span&gt; &lt;span class="nx"&gt;CursorColumn&lt;/span&gt; &lt;span class="n"&gt;cterm&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;NONE&lt;/span&gt; &lt;span class="n"&gt;ctermbg&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;lightgrey&lt;/span&gt;
-&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;nnoremap&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;Leader&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nx"&gt;c&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="nx"&gt;cursorline&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt; &lt;span class="nx"&gt;cursorcolumn&lt;/span&gt;&lt;span class="o"&gt;!&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;CR&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;:hi CursorLine   cterm=NONE ctermbg=lightgrey
+:hi CursorColumn cterm=NONE ctermbg=lightgrey
+:nnoremap &amp;lt;Leader&amp;gt;c :set cursorline! cursorcolumn!&amp;lt;CR&amp;gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -839,177 +839,177 @@ leave a comment. Next big article the Rubygem packaging How to ;)&lt;/p&gt;
 3) ΔΕΝ είναι ενεργοποιημένο, αλλά μπορεί πολύ εύκολα να ενεργοποιηθεί/απενεργοποιηθεί πατώντας &lt;code&gt;\c&lt;/code&gt;.&lt;/p&gt;
 &lt;h1 id="_7"&gt;Ελληνικός ορθογράφος&lt;/h1&gt;
 &lt;p&gt;Αν η διανομή μας έχει πακέτο με το Ελληνικό αρχείο ορθογραφίας του vim, τότε απλά το εγκαθιστούμε, Αν όχι, τότε πρέπει να το δημιουργήσουμε με βάση μία λίστα λέξεων. Πολλές διανομές εγκαθιστούν λίστες λέξεων για Ελληνικά για aspell, myspell,  αλλά ας υποθέσουμε ότι δεν έχουμε τέτοιο πακέτο οπότε ας το κατεβάσουμε.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt; 
-&lt;span class="n"&gt;wget&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//extensions.services.openoffice.org/e-files/1411/2/el_gr_v110.oxt &lt;/span&gt;
-&lt;span class="n"&gt;unzip&lt;/span&gt; &lt;span class="n"&gt;el_gr_v100&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;oxt&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;mkdir foo; cd foo 
+wget http://extensions.services.openoffice.org/e-files/1411/2/el_gr_v110.oxt 
+unzip el_gr_v100.oxt
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Τα αρχεία που μας ενδιαφέρουν είναι το &lt;code&gt;el_GR.dic&lt;/code&gt; που είναι η λίστα με τις λέξεις και το &lt;code&gt;el_GR.aff&lt;/code&gt; που έχει διάφορα χαρακτηριστικά των Ελληνικών. Έπειτα τρέχουμε το vim για να δημιουργήσουμε το αρχείο και τρέχουμε&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;mkspell&lt;/span&gt; &lt;span class="n"&gt;el&lt;/span&gt; &lt;span class="n"&gt;el_GR&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;:mkspell el el_GR
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Η εντολή θα δημιουργήσει ένα αρχείο &lt;code&gt;el.utf-8.spl&lt;/code&gt; ή &lt;code&gt;el.iso8859-7.spl&lt;/code&gt; ανάλογα με το encoding που έχoυμε με βάση τα αρχεία &lt;code&gt;.aff&lt;/code&gt; και &lt;code&gt;.dic&lt;/code&gt; που έχουν πρόθεμα &lt;code&gt;el_GR&lt;/code&gt;. Έπειτα απλά πρέπει να το βάλουμε στο σωστό μέρος.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vim&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;spell&lt;/span&gt; 
-&lt;span class="n"&gt;mv&lt;/span&gt; &lt;span class="n"&gt;el&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;utf&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;8.&lt;/span&gt;&lt;span class="n"&gt;spl&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vim&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;spell&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;mkdir -p ~/.vim/spell 
+mv el.utf-8.spl ~/.vim/spell
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Από εδώ και πέρα έχουμε Ελληνικό ορθογράφο ο οποίος ενεργοποιείται με&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;spell&lt;/span&gt; &lt;span class="n"&gt;spelllang&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;el&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;:set spell spelllang=el
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Τέλος μπορούμε να έχουμε ταυτόχρονα 2 λεξικά ενεργοποιημένα (πχ ελληνικό - αγγλικό)&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;spell&lt;/span&gt; &lt;span class="n"&gt;spelllang&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;el&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;en&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;:set spell spelllang=el,en
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Για το λόγο αυτό παράξαμε παραπάνω την «precompiled» μορφή ώστε το vim να αναγνωρίζει γρήγορα μια λέξη και να μπορούμε να έχουμε φορτωμένα πολλά λεξικά. Ουσιαστικά η mkspell κάνει το αρχείο binary για να γίνεται πιο γρήγορα το matching.&lt;/p&gt;
 &lt;h1 id="vimrc"&gt;Παράδειγμα .vimrc&lt;/h1&gt;
 &lt;p&gt;&lt;em&gt;Τα διπλά αυτάκια &lt;code&gt;"&lt;/code&gt; δηλώνουν σχόλια.&lt;/em&gt;&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="s2"&gt;&amp;quot;Με την autoread αν το αρχείο έχει αλλάξει από το άνοιγμα του αλλά δεν&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;έχει&lt;/span&gt; &lt;span class="err"&gt;γίνει&lt;/span&gt; &lt;span class="err"&gt;κάποια&lt;/span&gt; &lt;span class="err"&gt;αλλαγή&lt;/span&gt; &lt;span class="err"&gt;από&lt;/span&gt; &lt;span class="err"&gt;εμάς&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;τότε&lt;/span&gt; &lt;span class="err"&gt;διαβάζει&lt;/span&gt; &lt;span class="err"&gt;ξανά&lt;/span&gt; &lt;span class="err"&gt;αυτόματα&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="err"&gt;αρχείο&lt;/span&gt;&lt;span class="nx"&gt;.&lt;/span&gt; 
-&lt;span class="s2"&gt;&amp;quot;Το lazyredraw δεν σχεδιάζει ξανά την οθόνη κατά την εκτέλεση των macros.&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&amp;quot;Με την autoread αν το αρχείο έχει αλλάξει από το άνοιγμα του αλλά δεν
+&amp;quot;έχει γίνει κάποια αλλαγή από εμάς, τότε διαβάζει ξανά αυτόματα το αρχείο. 
+&amp;quot;Το lazyredraw δεν σχεδιάζει ξανά την οθόνη κατά την εκτέλεση των macros.
 
-&lt;span class="s2"&gt;set autoread&lt;/span&gt;
-&lt;span class="s2"&gt;set lazyredraw&lt;/span&gt;
-&lt;span class="s2"&gt;set nomodeline&lt;/span&gt;
-&lt;span class="s2"&gt;set nobackup        &amp;quot;&lt;/span&gt;&lt;span class="err"&gt;δεν&lt;/span&gt; &lt;span class="err"&gt;κάνει&lt;/span&gt; &lt;span class="err"&gt;αυτόματα&lt;/span&gt; &lt;span class="nx"&gt;backups&lt;/span&gt;
-&lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="n"&gt;viminfo&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;NONE&amp;quot;&lt;/span&gt;  &lt;span class="s2"&gt;&amp;quot;απενεργοποιεί το .viminfo&lt;/span&gt;
+set autoread
+set lazyredraw
+set nomodeline
+set nobackup        &amp;quot;δεν κάνει αυτόματα backups
+set viminfo=&amp;quot;NONE&amp;quot;  &amp;quot;απενεργοποιεί το .viminfo
 
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;Απενεργοποίηση&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="nx"&gt;mouse&lt;/span&gt; 
- &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nx"&gt;has&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;mouse&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-     &lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="n"&gt;mouse&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;
- &lt;span class="nx"&gt;endif&lt;/span&gt;
+&amp;quot;Απενεργοποίηση του mouse 
+ if has(&amp;#39;mouse&amp;#39;)
+     set mouse=a
+ endif
 
-&lt;span class="s2"&gt;&amp;quot;Σκοτεινό φόντο και εμφάνιση των tabs και των τελικών spaces σε κώδικα.&lt;/span&gt;
-&lt;span class="s2"&gt;set background=dark&lt;/span&gt;
-&lt;span class="s2"&gt;set listchars=eol:$,tab:&amp;gt;-,trail:.&lt;/span&gt;
-&lt;span class="s2"&gt;highlight SpecialKey ctermfg=red&lt;/span&gt;
-&lt;span class="s2"&gt;let c_space_errors = 1&lt;/span&gt;
+&amp;quot;Σκοτεινό φόντο και εμφάνιση των tabs και των τελικών spaces σε κώδικα.
+set background=dark
+set listchars=eol:$,tab:&amp;gt;-,trail:.
+highlight SpecialKey ctermfg=red
+let c_space_errors = 1
 
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;Διάφορες&lt;/span&gt; &lt;span class="nb"&gt;custom&lt;/span&gt; &lt;span class="err"&gt;λέξεις&lt;/span&gt; &lt;span class="err"&gt;και&lt;/span&gt; &lt;span class="nx"&gt;patterns&lt;/span&gt; &lt;span class="err"&gt;που&lt;/span&gt; &lt;span class="err"&gt;θέλω&lt;/span&gt; &lt;span class="err"&gt;να&lt;/span&gt; &lt;span class="err"&gt;είναι&lt;/span&gt; &lt;span class="err"&gt;τονισμένες&lt;/span&gt;&lt;span class="nx"&gt;.&lt;/span&gt;
-&lt;span class="nx"&gt;syntax&lt;/span&gt; &lt;span class="k"&gt;match&lt;/span&gt; &lt;span class="nx"&gt;TadeName&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Pattern&amp;quot;&lt;/span&gt;
-&lt;span class="nx"&gt;highlight&lt;/span&gt; &lt;span class="k"&gt;match&lt;/span&gt; &lt;span class="nx"&gt;TadeName&lt;/span&gt; &lt;span class="n"&gt;ctermfg&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;tadexroma&lt;/span&gt;
+&amp;quot;Διάφορες custom λέξεις και patterns που θέλω να είναι τονισμένες.
+syntax match TadeName &amp;quot;Pattern&amp;quot;
+highlight match TadeName ctermfg=tadexroma
 
-&lt;span class="s2"&gt;&amp;quot;Όταν διαβάζω αρχεία που βρίσκονται μέσα στο /var/log δηλαδή logs να πηγαίνει&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;αυτόματα&lt;/span&gt; &lt;span class="err"&gt;στο&lt;/span&gt; &lt;span class="err"&gt;τέλος&lt;/span&gt; &lt;span class="err"&gt;του&lt;/span&gt; &lt;span class="err"&gt;αρχείου&lt;/span&gt;&lt;span class="nx"&gt;.&lt;/span&gt; &lt;span class="err"&gt;Μέσα&lt;/span&gt; &lt;span class="err"&gt;στον&lt;/span&gt; &lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;var&lt;/span&gt;&lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="k"&gt;log&lt;/span&gt; &lt;span class="err"&gt;όμως&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="nx"&gt;Slackware&lt;/span&gt; &lt;span class="err"&gt;έχει&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;και άλλους καταλόγους όπως π.χ τον κατάλογο με τις πληροφορίες των πακέτων.&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;Εκεί&lt;/span&gt; &lt;span class="err"&gt;δεν&lt;/span&gt; &lt;span class="err"&gt;θέλω&lt;/span&gt; &lt;span class="err"&gt;να&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="err"&gt;πηγαίνει&lt;/span&gt; &lt;span class="err"&gt;στο&lt;/span&gt; &lt;span class="err"&gt;τέλος&lt;/span&gt;&lt;span class="nx"&gt;.&lt;/span&gt; &lt;span class="err"&gt;Παλαιότερα&lt;/span&gt; &lt;span class="err"&gt;είχα&lt;/span&gt; &lt;span class="nb"&gt;regexp&lt;/span&gt; &lt;span class="err"&gt;αλλά&lt;/span&gt; &lt;span class="err"&gt;από&lt;/span&gt; &lt;span class="err"&gt;μια&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;έκδοση και μετά δεν έπαιζε οπότε μετράω τις / που υπάρχουν στο όνομα.&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;Αν&lt;/span&gt; &lt;span class="err"&gt;χαλάσει&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="k"&gt;match&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;να&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="err"&gt;κάνω&lt;/span&gt; &lt;span class="nx"&gt;stridx&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;s&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nb"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="nx"&gt;autocmd&lt;/span&gt; &lt;span class="nx"&gt;BufReadPost&lt;/span&gt; &lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;var&lt;/span&gt;&lt;span class="p"&gt;/&lt;/span&gt;&lt;span class="k"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/*&lt;/span&gt;
-&lt;span class="o"&gt;\&lt;/span&gt; &lt;span class="k"&gt;let&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;expand&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;lt;afile&amp;gt;:p&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;
-&lt;span class="o"&gt;\&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="k"&gt;match&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;s&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nb"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;
-&lt;span class="o"&gt;\&lt;/span&gt;   &lt;span class="nx"&gt;exe&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;normal G&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;
-&lt;span class="o"&gt;\&lt;/span&gt; &lt;span class="nx"&gt;endif&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;
-&lt;span class="o"&gt;\&lt;/span&gt; &lt;span class="nx"&gt;unlet&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt; &lt;span class="nb"&gt;s&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nb"&gt;name&lt;/span&gt;
+&amp;quot;Όταν διαβάζω αρχεία που βρίσκονται μέσα στο /var/log δηλαδή logs να πηγαίνει
+&amp;quot;αυτόματα στο τέλος του αρχείου. Μέσα στον /var/log όμως το Slackware έχει
+&amp;quot;και άλλους καταλόγους όπως π.χ τον κατάλογο με τις πληροφορίες των πακέτων.
+&amp;quot;Εκεί δεν θέλω να με πηγαίνει στο τέλος. Παλαιότερα είχα regexp αλλά από μια
+&amp;quot;έκδοση και μετά δεν έπαιζε οπότε μετράω τις / που υπάρχουν στο όνομα.
+&amp;quot;Αν χαλάσει το match, να το κάνω stridx(s:name,&amp;#39;/&amp;#39;,9)
+autocmd BufReadPost /var/log/*
+\ let s:name = expand(&amp;quot;&amp;lt;afile&amp;gt;:p&amp;quot;) |
+\ if match(s:name,&amp;#39;/&amp;#39;,0,4) == -1 |
+\   exe &amp;quot;normal G&amp;quot; |
+\ endif |
+\ unlet! s:name
 
-&lt;span class="s2"&gt;&amp;quot;Μερικές φορές θέλω να κάνω επικόλληση κάτι χωρίς όμως να χαλάσει η δομή του.&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;Το&lt;/span&gt; &lt;span class="nx"&gt;vim&lt;/span&gt; &lt;span class="err"&gt;παρέχει&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="err"&gt;επιλογή&lt;/span&gt; &lt;span class="nx"&gt;paste&lt;/span&gt; &lt;span class="err"&gt;για&lt;/span&gt; &lt;span class="err"&gt;αυτό&lt;/span&gt;&lt;span class="nx"&gt;.&lt;/span&gt; &lt;span class="err"&gt;Έτσι&lt;/span&gt; &lt;span class="err"&gt;με&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="nx"&gt;F10&lt;/span&gt; &lt;span class="err"&gt;αλλάζω&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="err"&gt;επιλογή&lt;/span&gt;&lt;span class="nx"&gt;.&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;Επίσης το F2 ενεργοποιεί/απενεργοποιεί την list ώστε να βλέπω σε κώδικα αν&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;έχω&lt;/span&gt; &lt;span class="err"&gt;ξεχάσει&lt;/span&gt; &lt;span class="err"&gt;κενά&lt;/span&gt; &lt;span class="err"&gt;ή&lt;/span&gt; &lt;span class="nb"&gt;tabs&lt;/span&gt; &lt;span class="err"&gt;και&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="nx"&gt;F8&lt;/span&gt; &lt;span class="err"&gt;απενεργοποιεί&lt;/span&gt; &lt;span class="err"&gt;την&lt;/span&gt; &lt;span class="nx"&gt;hlsearch&lt;/span&gt; &lt;span class="err"&gt;όταν&lt;/span&gt; &lt;span class="err"&gt;έχω&lt;/span&gt; &lt;span class="err"&gt;βρει&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;αυτό που θέλω και δεν θέλω να βλέπω πλέον τα highlights.&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nb"&gt;Key&lt;/span&gt; &lt;span class="nx"&gt;Mappings&lt;/span&gt;
-&lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="n"&gt;pastetoggle&lt;/span&gt;&lt;span class="o"&gt;=&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;F10&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="nx"&gt;nmap&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;silent&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;F2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="o"&gt;!&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="nx"&gt;imap&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;silent&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;F2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;esc&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="o"&gt;!&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;
-&lt;span class="nx"&gt;nmap&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;silent&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;F8&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="nx"&gt;hls&lt;/span&gt;&lt;span class="o"&gt;!&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&amp;quot;Μερικές φορές θέλω να κάνω επικόλληση κάτι χωρίς όμως να χαλάσει η δομή του.
+&amp;quot;Το vim παρέχει την επιλογή paste για αυτό. Έτσι με το F10 αλλάζω την επιλογή.
+&amp;quot;Επίσης το F2 ενεργοποιεί/απενεργοποιεί την list ώστε να βλέπω σε κώδικα αν
+&amp;quot;έχω ξεχάσει κενά ή tabs και το F8 απενεργοποιεί την hlsearch όταν έχω βρει
+&amp;quot;αυτό που θέλω και δεν θέλω να βλέπω πλέον τα highlights.
+&amp;quot;Key Mappings
+set pastetoggle=&amp;lt;F10&amp;gt;
+nmap &amp;lt;silent&amp;gt; &amp;lt;F2&amp;gt; :set list!&amp;lt;cr&amp;gt;
+imap &amp;lt;silent&amp;gt; &amp;lt;F2&amp;gt; &amp;lt;esc&amp;gt;:set list!&amp;lt;cr&amp;gt;a
+nmap &amp;lt;silent&amp;gt; &amp;lt;F8&amp;gt; :set hls!&amp;lt;cr&amp;gt;
 
-&lt;span class="s2"&gt;&amp;quot;Τα leader και localleader είναι κάποια εικονικά πλήκτρα για την εύκολη χρήση&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;συνδυασμών&lt;/span&gt;&lt;span class="nx"&gt;.&lt;/span&gt; &lt;span class="err"&gt;Κανονικά&lt;/span&gt; &lt;span class="err"&gt;είναι&lt;/span&gt; &lt;span class="err"&gt;ρυθμισμένα&lt;/span&gt; &lt;span class="err"&gt;να&lt;/span&gt; &lt;span class="err"&gt;χρησιμοποιούν&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="nx"&gt;backslash&lt;/span&gt; &lt;span class="err"&gt;αλλά&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;μπορούμε να αλλάξουμε την τιμή τους. Οι καρτέλες δεν έχουν και πολύ νόημα&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;σε&lt;/span&gt; &lt;span class="nx"&gt;X&lt;/span&gt; &lt;span class="err"&gt;τερματικά&lt;/span&gt; &lt;span class="err"&gt;μια&lt;/span&gt; &lt;span class="err"&gt;και&lt;/span&gt; &lt;span class="err"&gt;υποστηρίζουν&lt;/span&gt; &lt;span class="err"&gt;και&lt;/span&gt; &lt;span class="err"&gt;αυτά&lt;/span&gt; &lt;span class="err"&gt;καρτέλες&lt;/span&gt; &lt;span class="err"&gt;αλλά&lt;/span&gt; &lt;span class="err"&gt;είναι&lt;/span&gt; &lt;span class="err"&gt;χρήσιμες&lt;/span&gt; &lt;span class="err"&gt;στην&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;κονσόλα.&lt;/span&gt;
+&amp;quot;Τα leader και localleader είναι κάποια εικονικά πλήκτρα για την εύκολη χρήση
+&amp;quot;συνδυασμών. Κανονικά είναι ρυθμισμένα να χρησιμοποιούν το backslash αλλά
+&amp;quot;μπορούμε να αλλάξουμε την τιμή τους. Οι καρτέλες δεν έχουν και πολύ νόημα
+&amp;quot;σε X τερματικά μια και υποστηρίζουν και αυτά καρτέλες αλλά είναι χρήσιμες στην
+&amp;quot;κονσόλα.
 
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;Αλλαγή&lt;/span&gt; &lt;span class="err"&gt;των&lt;/span&gt; &lt;span class="err"&gt;πλήκτρων&lt;/span&gt; &lt;span class="nx"&gt;leader&lt;/span&gt; &lt;span class="err"&gt;από&lt;/span&gt; &lt;span class="err"&gt;το&lt;/span&gt; &lt;span class="nb"&gt;default&lt;/span&gt; &lt;span class="o"&gt;\&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;let mapleader = &amp;#39;,&amp;#39;&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;let&lt;/span&gt; &lt;span class="n"&gt;maplocalleader&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;,&amp;#39;&lt;/span&gt;
+&amp;quot;Αλλαγή των πλήκτρων leader από το default \
+&amp;quot;let mapleader = &amp;#39;,&amp;#39;
+&amp;quot;let maplocalleader = &amp;#39;,&amp;#39;
 
-&lt;span class="s2"&gt;&amp;quot;Αποθήκευση αρχείου&lt;/span&gt;
-&lt;span class="s2"&gt;nmap &amp;lt;leader&amp;gt;w :w&amp;lt;cr&amp;gt;&lt;/span&gt;
+&amp;quot;Αποθήκευση αρχείου
+nmap &amp;lt;leader&amp;gt;w :w&amp;lt;cr&amp;gt;
 
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;Μεταφορά&lt;/span&gt; &lt;span class="err"&gt;στο&lt;/span&gt; &lt;span class="err"&gt;προηγούμενο&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;επόμενο&lt;/span&gt; &lt;span class="nx"&gt;buffer&lt;/span&gt;
-&lt;span class="nx"&gt;nmap&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;leader&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nb"&gt;n&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;bn&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="nx"&gt;nmap&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;leader&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nx"&gt;p&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;bp&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&amp;quot;Μεταφορά στο προηγούμενο/επόμενο buffer
+nmap &amp;lt;leader&amp;gt;n :bn&amp;lt;cr&amp;gt;
+nmap &amp;lt;leader&amp;gt;p :bp&amp;lt;cr&amp;gt;
 
-&lt;span class="s2"&gt;&amp;quot;Άνοιγμα νέας καρτέλας&lt;/span&gt;
-&lt;span class="s2"&gt;nmap &amp;lt;leader&amp;gt;to :tabnew&amp;lt;cr&amp;gt;&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;Κλείσιμο&lt;/span&gt; &lt;span class="err"&gt;τρέχουσας&lt;/span&gt; &lt;span class="err"&gt;καρτέλας&lt;/span&gt;
-&lt;span class="nx"&gt;nmap&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;leader&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nx"&gt;tc&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;tabclose&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;Μεταφορά στην προηγούμενη/επόμενη καρτέλα&lt;/span&gt;
-&lt;span class="s2"&gt;nmap &amp;lt;leader&amp;gt;tn :tabnext&amp;lt;cr&amp;gt;&lt;/span&gt;
-&lt;span class="s2"&gt;nmap &amp;lt;leader&amp;gt;tp :tabprev&amp;lt;cr&amp;gt;&lt;/span&gt;
+&amp;quot;Άνοιγμα νέας καρτέλας
+nmap &amp;lt;leader&amp;gt;to :tabnew&amp;lt;cr&amp;gt;
+&amp;quot;Κλείσιμο τρέχουσας καρτέλας
+nmap &amp;lt;leader&amp;gt;tc :tabclose&amp;lt;cr&amp;gt;
+&amp;quot;Μεταφορά στην προηγούμενη/επόμενη καρτέλα
+nmap &amp;lt;leader&amp;gt;tn :tabnext&amp;lt;cr&amp;gt;
+nmap &amp;lt;leader&amp;gt;tp :tabprev&amp;lt;cr&amp;gt;
 
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;Κατάργηση&lt;/span&gt; &lt;span class="err"&gt;των&lt;/span&gt; &lt;span class="err"&gt;βελακίων&lt;/span&gt; &lt;span class="err"&gt;ώστε&lt;/span&gt; &lt;span class="err"&gt;να&lt;/span&gt; &lt;span class="err"&gt;γίνουν&lt;/span&gt; &lt;span class="err"&gt;συνήθεια&lt;/span&gt; &lt;span class="err"&gt;τα&lt;/span&gt; &lt;span class="nx"&gt;hjkl.&lt;/span&gt; 
-&lt;span class="s2"&gt;&amp;quot;Τα απενεργοποιούμε μόνο στην normal κατάσταση&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="err"&gt;γιατί&lt;/span&gt; &lt;span class="err"&gt;στην&lt;/span&gt; &lt;span class="nb"&gt;insert&lt;/span&gt; &lt;span class="err"&gt;και&lt;/span&gt; &lt;span class="err"&gt;στην&lt;/span&gt; &lt;span class="nb"&gt;command&lt;/span&gt; &lt;span class="err"&gt;δεν&lt;/span&gt; &lt;span class="err"&gt;υπάρχουν&lt;/span&gt; &lt;span class="err"&gt;εναλλακτικές&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;εκτός&lt;/span&gt; &lt;span class="err"&gt;από&lt;/span&gt; &lt;span class="nx"&gt;macros&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="nx"&gt;.&lt;/span&gt;
+&amp;quot;Κατάργηση των βελακίων ώστε να γίνουν συνήθεια τα hjkl. 
+&amp;quot;Τα απενεργοποιούμε μόνο στην normal κατάσταση
+&amp;quot;γιατί στην insert και στην command δεν υπάρχουν εναλλακτικές (εκτός από macros).
 
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="nb"&gt;encoding&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;
-  &lt;span class="nx"&gt;nnoremap&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Left&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;     &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;echoerr&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Το h αγκάθια έχει?&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class="nx"&gt;nnoremap&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Down&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;     &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;echoerr&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Το j αγκάθια έχει?&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class="nx"&gt;nnoremap&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Up&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;       &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;echoerr&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Το k αγκάθια έχει?&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class="nx"&gt;nnoremap&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;Right&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;    &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;echoerr&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Το l αγκάθια έχει?&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class="nx"&gt;nnoremap&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;PageUp&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;   &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;echoerr&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Το Ctrl-B αγκάθια έχει?&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class="nx"&gt;nnoremap&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;PageDown&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;echoerr&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Το Ctrl-F αγκάθια έχει?&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;cr&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="nx"&gt;endif&lt;/span&gt;
+if &amp;amp;encoding == &amp;quot;utf-8&amp;quot;
+  nnoremap &amp;lt;Left&amp;gt;     :echoerr &amp;quot;Το h αγκάθια έχει?&amp;quot;&amp;lt;cr&amp;gt;
+  nnoremap &amp;lt;Down&amp;gt;     :echoerr &amp;quot;Το j αγκάθια έχει?&amp;quot;&amp;lt;cr&amp;gt;
+  nnoremap &amp;lt;Up&amp;gt;       :echoerr &amp;quot;Το k αγκάθια έχει?&amp;quot;&amp;lt;cr&amp;gt;
+  nnoremap &amp;lt;Right&amp;gt;    :echoerr &amp;quot;Το l αγκάθια έχει?&amp;quot;&amp;lt;cr&amp;gt;
+  nnoremap &amp;lt;PageUp&amp;gt;   :echoerr &amp;quot;Το Ctrl-B αγκάθια έχει?&amp;quot;&amp;lt;cr&amp;gt;
+  nnoremap &amp;lt;PageDown&amp;gt; :echoerr &amp;quot;Το Ctrl-F αγκάθια έχει?&amp;quot;&amp;lt;cr&amp;gt;
+endif
 
-&lt;span class="s2"&gt;&amp;quot;Για συγγραφή latex&lt;/span&gt;
-&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;assign&lt;/span&gt; &lt;span class="nx"&gt;keyboard&lt;/span&gt; &lt;span class="nx"&gt;commands&lt;/span&gt; &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nx"&gt;using&lt;/span&gt; &lt;span class="nx"&gt;the&lt;/span&gt; &lt;span class="nx"&gt;greek&lt;/span&gt; &lt;span class="nx"&gt;keyboard&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Α&lt;/span&gt; &lt;span class="nx"&gt;A&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Β&lt;/span&gt; &lt;span class="nx"&gt;B&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Ψ&lt;/span&gt; &lt;span class="nx"&gt;C&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Δ&lt;/span&gt; &lt;span class="nb"&gt;D&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Ε&lt;/span&gt; &lt;span class="nx"&gt;E&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Φ&lt;/span&gt; &lt;span class="nb"&gt;F&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Γ&lt;/span&gt; &lt;span class="nx"&gt;G&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Η&lt;/span&gt; &lt;span class="nx"&gt;H&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Ι&lt;/span&gt; &lt;span class="nx"&gt;I&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Ξ&lt;/span&gt; &lt;span class="nx"&gt;J&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Κ&lt;/span&gt; &lt;span class="nx"&gt;K&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Λ&lt;/span&gt; &lt;span class="nx"&gt;L&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Μ&lt;/span&gt; &lt;span class="nx"&gt;M&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Ν&lt;/span&gt; &lt;span class="nb"&gt;N&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Ο&lt;/span&gt; &lt;span class="nx"&gt;O&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Π&lt;/span&gt; &lt;span class="nx"&gt;P&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;Q&lt;/span&gt; &lt;span class="nx"&gt;Q&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Ρ&lt;/span&gt; &lt;span class="nb"&gt;R&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Σ&lt;/span&gt; &lt;span class="nb"&gt;S&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Τ&lt;/span&gt; &lt;span class="nb"&gt;T&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Θ&lt;/span&gt; &lt;span class="nx"&gt;U&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Ω&lt;/span&gt; &lt;span class="nx"&gt;V&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;W&lt;/span&gt; &lt;span class="nx"&gt;W&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Χ&lt;/span&gt; &lt;span class="nx"&gt;X&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Υ&lt;/span&gt; &lt;span class="nx"&gt;Y&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;Ζ&lt;/span&gt; &lt;span class="nb"&gt;Z&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;α&lt;/span&gt; &lt;span class="nx"&gt;a&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;β&lt;/span&gt; &lt;span class="nx"&gt;b&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ψ&lt;/span&gt; &lt;span class="nx"&gt;c&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;δ&lt;/span&gt; &lt;span class="nb"&gt;d&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ε&lt;/span&gt; &lt;span class="nx"&gt;e&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;φ&lt;/span&gt; &lt;span class="nb"&gt;f&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;γ&lt;/span&gt; &lt;span class="nx"&gt;g&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;η&lt;/span&gt; &lt;span class="nx"&gt;h&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ι&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ξ&lt;/span&gt; &lt;span class="nx"&gt;j&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;κ&lt;/span&gt; &lt;span class="nx"&gt;k&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;λ&lt;/span&gt; &lt;span class="nx"&gt;l&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;μ&lt;/span&gt; &lt;span class="nx"&gt;m&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ν&lt;/span&gt; &lt;span class="nb"&gt;n&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ο&lt;/span&gt; &lt;span class="nx"&gt;o&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;π&lt;/span&gt; &lt;span class="nx"&gt;p&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="nx"&gt;q&lt;/span&gt; &lt;span class="nx"&gt;q&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ρ&lt;/span&gt; &lt;span class="nb"&gt;r&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;σ&lt;/span&gt; &lt;span class="nb"&gt;s&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;τ&lt;/span&gt; &lt;span class="nb"&gt;t&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;θ&lt;/span&gt; &lt;span class="nx"&gt;u&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ω&lt;/span&gt; &lt;span class="nx"&gt;v&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ς&lt;/span&gt; &lt;span class="nx"&gt;w&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;χ&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;υ&lt;/span&gt; &lt;span class="nx"&gt;y&lt;/span&gt;
-&lt;span class="kt"&gt;map&lt;/span&gt; &lt;span class="err"&gt;ζ&lt;/span&gt; &lt;span class="nb"&gt;z&lt;/span&gt;
+&amp;quot;Για συγγραφή latex
+&amp;quot;assign keyboard commands while using the greek keyboard:
+map Α A
+map Β B
+map Ψ C
+map Δ D
+map Ε E
+map Φ F
+map Γ G
+map Η H
+map Ι I
+map Ξ J
+map Κ K
+map Λ L
+map Μ M
+map Ν N
+map Ο O
+map Π P
+map Q Q
+map Ρ R
+map Σ S
+map Τ T
+map Θ U
+map Ω V
+map W W
+map Χ X
+map Υ Y
+map Ζ Z
+map α a
+map β b
+map ψ c
+map δ d
+map ε e
+map φ f
+map γ g
+map η h
+map ι i
+map ξ j
+map κ k
+map λ l
+map μ m
+map ν n
+map ο o
+map π p
+map q q
+map ρ r
+map σ s
+map τ t
+map θ u
+map ω v
+map ς w
+map χ x
+map υ y
+map ζ z
 &lt;/pre&gt;&lt;/div&gt;
 
 

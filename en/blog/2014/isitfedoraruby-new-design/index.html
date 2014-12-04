@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    <meta charset="utf-8">
-        <title>IsItFedoraRuby new design</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="Pragma" content="no-cache" />
-        <meta http-equiv="Expires" content="-1" />
-        <link rel="stylesheet" href="/theme/style/reset.css" type="text/css" />
-        <link rel="stylesheet" href="/theme/style/screen.css" type="text/css" />
-        <link rel="stylesheet" href="/theme/style/friendly.css" type="text/css" />
-        <link rel="stylesheet" href="/theme/style/print.css" type="text/css" media="print" />
-        <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+   <head>
+   <meta charset="utf-8">
+       <title>IsItFedoraRuby new design</title>
+       <meta charset="utf-8" />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <meta http-equiv="Pragma" content="no-cache" />
+       <meta http-equiv="Expires" content="-1" />
+       <link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+       <link rel="stylesheet" href="/theme/css/friendly.css" type="text/css" />
+       <link rel="stylesheet" href="/theme/css/print.css" type="text/css" media="print" />
+       <link rel="stylesheet" type="text/css" href="http://axilleas.me/theme/tipuesearch/tipuesearch.css" media="screen">
+       <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
 </head>
 <body>
-    <header id="main">
-        <div class="container">
-            <div class="logo">
-                <p><a href="/" title="Home">Over the line</a> <span class="welcome">Yeah, well, you know, that's just, like, my opinion, man.</span></p>
-            </div>
-        </div>
-    </header>
+   <header>
+       <h1><a href="/" title="Mark it zero">Over the line</a></h1>
+       <nav>
+         <a href="/about" title="about me">whoami</a> &bull;
+         <a href="/archives.html" title="Archives">Archives</a> &bull;
+         <a id="subscribe-link" href="/rss" title="RSS feed" rel="nofollow">subscribe</a>
+         <form id="searchform" action="/search.html" onsubmit="return (this.elements['q'].value.length > 0)">
+               <input id="searchbox" type="text" name="q" size="12" placeholder="Search">
+         </form>
+       </nav>
+   </header>
 
-    <div class="splash">
-        <div class="container">
-            <ul>
-                <li><a href="/">Home</a></li>
-                    <li><a href="/about">whoami</a></li>
-                    <li><a href="/rss">Rss Feed</a></li>
-                <li><a href="/archives.html" title="Archive">Archive</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="container content">
+   <div id="main">
 <article>
     <header>
 <h1><a href="/en/blog/2014/isitfedoraruby-new-design" rel="bookmark">
     IsItFedoraRuby new design
 </a></h1>
-<time datetime="2014-07-30 00:00:00" pubdate>Posted on
+<span title="~826 words" id='stats'>~4 min read</span>
+&bull;
+<time datetime="2014-07-30 00:00:00+03:00" pubdate>Posted on
     Wed 30 July 2014
 </time>
-<address class="vcard author">
-    by <a class="url fn" href="/author/axil.html">
-    axil</a>
-</address>
 <span class="category">in <a href="/category/geek.html">
-    geek</a>.
-        </span>
+    geek</a>
+</span>
+    <ul class="tags">
+    Tags:
+        <li><a href="/tag/fedora.html">fedora</a></li>
+        <li><a href="/tag/gsoc.html">gsoc</a></li>
+        <li><a href="/tag/ruby.html">ruby</a></li>
+        <li><a href="/tag/rails.html">rails</a></li>
+        <li><a href="/tag/webdev.html">webdev</a></li>
+        <li><a href="/tag/isitfedoraruby.html">isitfedoraruby</a></li>
+    </ul>
     </header>
 
     <div class="body">
@@ -93,7 +93,7 @@ On the other hand green means is up to date with latest upstream.</p>
 <p>The code that does that is pretty simple. Bootstrap provides some css classes
 for coloring. So I wanted to use <code>warning</code> for outdated and <code>success</code> for up to
 date packages. I highlighted the whole table row so I used:</p>
-<div class="codehilite"><pre><span class="c">%tr{class: rpm.up_to_date? ? &#39;success&#39; : &#39;danger&#39;}</span>
+<div class="codehilite"><pre>%tr<span class="o">{</span>class: rpm.up_to_date? ? <span class="s1">&#39;success&#39;</span> : <span class="s1">&#39;danger&#39;</span><span class="o">}</span>
 </pre></div>
 
 
@@ -172,50 +172,50 @@ the steps are:</p>
 <p>1.Add <code>*= require bootstrap</code> in <code>app/assets/stylesheets/application.css</code></p>
 <p>2.Add <code>//= require bootstrap</code> in <code>app/assets/javascripts/application.js</code></p>
 <p>3.Add in <code>app/assets/javascripts/application.js</code>:</p>
-<div class="codehilite"><pre><span class="err">$</span><span class="p">(</span><span class="err">&#39;#</span><span class="n">header</span><span class="o">-</span><span class="n">collapse</span><span class="err">&#39;</span><span class="p">).</span><span class="n">collapse</span><span class="p">({</span>
-  <span class="nl">toggle:</span> <span class="nb">false</span>
-<span class="p">})</span>
+<div class="codehilite"><pre><span class="k">$(</span><span class="s1">&#39;#header-collapse&#39;</span><span class="k">)</span>.collapse<span class="o">({</span>
+  toggle: <span class="nb">false</span>
+<span class="o">})</span>
 </pre></div>
 
 
 <p>4.Add bootstrap classes to header view:</p>
-<div class="codehilite"><pre><span class="c">%header.navbar.navbar-default.navbar-fixed-top</span>
+<div class="codehilite"><pre><span class="nf">%header</span><span class="p">.</span><span class="n">navbar</span><span class="p">.</span><span class="n">navbar</span><span class="o">-</span><span class="k">default</span><span class="p">.</span><span class="n">navbar</span><span class="o">-</span><span class="n">fixed</span><span class="o">-</span><span class="n">top</span>
   <span class="p">.</span><span class="n">container</span>
     <span class="p">.</span><span class="n">navbar</span><span class="o">-</span><span class="n">header</span>
-      <span class="c">%button.navbar-toggle{ type: &#39;button&#39;, data: {toggle: &#39;collapse&#39;, target: &#39;#header-collapse&#39;}}</span>
-        <span class="c">%span.sr-only &#39;Toggle navigation&#39;</span>
-        <span class="c">%span.icon-bar</span>
-        <span class="c">%span.icon-bar</span>
-        <span class="c">%span.icon-bar</span>
-        <span class="c">%span.icon-bar</span>
-      <span class="p">=</span> <span class="n">link_to</span> <span class="s">&#39;FedoraRuby&#39;</span><span class="p">,</span> <span class="n">root_path</span><span class="p">,</span> <span class="n">class</span><span class="p">:</span> <span class="s">&#39;navbar-brand&#39;</span>
+      <span class="nf">%button</span><span class="p">.</span><span class="n">navbar</span><span class="o">-</span><span class="n">toggle</span><span class="p">{</span> <span class="nl">type</span><span class="p">:</span> <span class="err">&#39;</span><span class="n">button</span><span class="err">&#39;</span><span class="p">,</span> <span class="nl">data</span><span class="p">:</span> <span class="p">{</span><span class="nl">toggle</span><span class="p">:</span> <span class="err">&#39;</span><span class="n">collapse</span><span class="err">&#39;</span><span class="p">,</span> <span class="nl">target</span><span class="p">:</span> <span class="err">&#39;</span><span class="cp">#header</span><span class="o">-</span><span class="n">collapse</span><span class="err">&#39;</span><span class="p">}}</span>
+        <span class="nf">%span</span><span class="p">.</span><span class="n">sr</span><span class="o">-</span><span class="n">only</span> <span class="err">&#39;</span><span class="n">Toggle</span> <span class="n">navigation</span><span class="err">&#39;</span>
+        <span class="nf">%span</span><span class="p">.</span><span class="n">icon</span><span class="o">-</span><span class="n">bar</span>
+        <span class="nf">%span</span><span class="p">.</span><span class="n">icon</span><span class="o">-</span><span class="n">bar</span>
+        <span class="nf">%span</span><span class="p">.</span><span class="n">icon</span><span class="o">-</span><span class="n">bar</span>
+        <span class="nf">%span</span><span class="p">.</span><span class="n">icon</span><span class="o">-</span><span class="n">bar</span>
+      <span class="o">=</span> <span class="n">link_to</span> <span class="err">&#39;</span><span class="n">FedoraRuby</span><span class="err">&#39;</span><span class="p">,</span> <span class="n">root_path</span><span class="p">,</span> <span class="nl">class</span><span class="p">:</span> <span class="err">&#39;</span><span class="n">navbar</span><span class="o">-</span><span class="n">brand</span><span class="err">&#39;</span>
 
-    <span class="c">%nav.collapse.navbar-collapse#header-collapse{role: &#39;navigation&#39;}</span>
-      <span class="c">%ul.nav.navbar-nav</span>
-        <span class="c">%li{class: is_active?(root_path)}</span>
-          <span class="p">=</span> <span class="n">link_to</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;Home&#39;</span><span class="p">),</span> <span class="n">root_path</span>
-        <span class="c">%li{class: is_active?(rubygems_path)}</span>
-          <span class="p">=</span> <span class="n">link_to</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;Ruby Gems&#39;</span><span class="p">),</span> <span class="n">rubygems_path</span>
-        <span class="c">%li{class: is_active?(fedorarpms_path)}</span>
-          <span class="p">=</span> <span class="n">link_to</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;Fedora Rpms&#39;</span><span class="p">),</span> <span class="n">fedorarpms_path</span>
-        <span class="c">%li{class: is_active?(about_path)}</span>
-          <span class="p">=</span> <span class="n">link_to</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;About&#39;</span><span class="p">),</span> <span class="n">about_path</span>
+    <span class="nf">%nav</span><span class="p">.</span><span class="n">collapse</span><span class="p">.</span><span class="n">navbar</span><span class="o">-</span><span class="n">collapse</span><span class="cp">#header</span><span class="o">-</span><span class="n">collapse</span><span class="p">{</span><span class="nl">role</span><span class="p">:</span> <span class="err">&#39;</span><span class="n">navigation</span><span class="err">&#39;</span><span class="p">}</span>
+      <span class="nf">%ul</span><span class="p">.</span><span class="n">nav</span><span class="p">.</span><span class="n">navbar</span><span class="o">-</span><span class="n">nav</span>
+        <span class="nf">%li</span><span class="p">{</span><span class="nl">class</span><span class="p">:</span> <span class="n">is_active</span><span class="o">?</span><span class="p">(</span><span class="n">root_path</span><span class="p">)}</span>
+          <span class="o">=</span> <span class="n">link_to</span> <span class="n">_</span><span class="p">(</span><span class="err">&#39;</span><span class="n">Home</span><span class="err">&#39;</span><span class="p">),</span> <span class="n">root_path</span>
+        <span class="nf">%li</span><span class="p">{</span><span class="nl">class</span><span class="p">:</span> <span class="n">is_active</span><span class="o">?</span><span class="p">(</span><span class="n">rubygems_path</span><span class="p">)}</span>
+          <span class="o">=</span> <span class="n">link_to</span> <span class="n">_</span><span class="p">(</span><span class="err">&#39;</span><span class="n">Ruby</span> <span class="n">Gems</span><span class="err">&#39;</span><span class="p">),</span> <span class="n">rubygems_path</span>
+        <span class="nf">%li</span><span class="p">{</span><span class="nl">class</span><span class="p">:</span> <span class="n">is_active</span><span class="o">?</span><span class="p">(</span><span class="n">fedorarpms_path</span><span class="p">)}</span>
+          <span class="o">=</span> <span class="n">link_to</span> <span class="n">_</span><span class="p">(</span><span class="err">&#39;</span><span class="n">Fedora</span> <span class="n">Rpms</span><span class="err">&#39;</span><span class="p">),</span> <span class="n">fedorarpms_path</span>
+        <span class="nf">%li</span><span class="p">{</span><span class="nl">class</span><span class="p">:</span> <span class="n">is_active</span><span class="o">?</span><span class="p">(</span><span class="n">about_path</span><span class="p">)}</span>
+          <span class="o">=</span> <span class="n">link_to</span> <span class="n">_</span><span class="p">(</span><span class="err">&#39;</span><span class="n">About</span><span class="err">&#39;</span><span class="p">),</span> <span class="n">about_path</span>
 </pre></div>
 
 
 <h3 id="search-field">Search field</h3>
 <p>I wanted the search field to be together with the search button. In bootstrap
 this is accomplished with <a href="http://getbootstrap.com/components/#input-groups-buttons">input-group-buttons</a>. The final code was:</p>
-<div class="codehilite"><pre><span class="c">%ul.nav.navbar-nav.navbar-right</span>
-  <span class="c">%li</span>
-    <span class="p">=</span> <span class="n">form_tag</span><span class="p">(</span> <span class="p">{</span> <span class="p">:</span><span class="n">controller</span> <span class="p">=</span><span class="o">&gt;</span> <span class="s">&#39;searches&#39;</span><span class="p">,</span> <span class="p">:</span><span class="n">action</span> <span class="p">=</span><span class="o">&gt;</span> <span class="s">&#39;redirect&#39;</span> <span class="p">},</span>
-    <span class="p">:</span><span class="n">class</span> <span class="p">=</span><span class="o">&gt;</span> <span class="s">&#39;navbar-form&#39;</span><span class="p">,</span> <span class="p">:</span><span class="n">method</span> <span class="p">=</span><span class="o">&gt;</span> <span class="s">&#39;post&#39;</span><span class="p">)</span> <span class="n">do</span>
-      <span class="p">.</span><span class="n">input</span><span class="o">-</span><span class="n">group</span>
-        <span class="p">=</span> <span class="n">text_field_tag</span> <span class="p">:</span><span class="n">search</span><span class="p">,</span> <span class="n">params</span><span class="p">[:</span><span class="n">search</span><span class="p">]</span> <span class="o">||</span><span class="p">=</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
-            <span class="n">class</span><span class="p">:</span> <span class="s">&#39;search-query form-control&#39;</span><span class="p">,</span>
-            <span class="n">placeholder</span><span class="p">:</span> <span class="s">&#39;Search&#39;</span>
-        <span class="c">%span.input-group-btn</span>
-          <span class="p">=</span> <span class="n">button_tag</span> <span class="n">raw</span><span class="p">(</span><span class="s">&#39;&lt;span class=&quot;glyphicon glyphicon-search&quot;&gt;&lt;/span&gt;&#39;</span><span class="p">),</span> <span class="n">name</span><span class="p">:</span> <span class="n">nil</span><span class="p">,</span> <span class="n">class</span><span class="p">:</span> <span class="s">&#39;btn btn-default&#39;</span>
+<div class="codehilite"><pre>%ul.nav.navbar-nav.navbar-right
+  %li
+    <span class="o">=</span> form_tag<span class="o">(</span> <span class="o">{</span> :controller <span class="o">=</span>&gt; <span class="s1">&#39;searches&#39;</span>, :action <span class="o">=</span>&gt; <span class="s1">&#39;redirect&#39;</span> <span class="o">}</span>,
+    :class <span class="o">=</span>&gt; <span class="s1">&#39;navbar-form&#39;</span>, :method <span class="o">=</span>&gt; <span class="s1">&#39;post&#39;</span><span class="o">)</span> <span class="k">do</span>
+      .input-group
+        <span class="o">=</span> text_field_tag :search, params<span class="o">[</span>:search<span class="o">]</span> <span class="o">||=</span> <span class="s1">&#39;&#39;</span>,
+            class: <span class="s1">&#39;search-query form-control&#39;</span>,
+            placeholder: <span class="s1">&#39;Search&#39;</span>
+        %span.input-group-btn
+          <span class="o">=</span> button_tag raw<span class="o">(</span><span class="s1">&#39;&lt;span class=&quot;glyphicon glyphicon-search&quot;&gt;&lt;/span&gt;&#39;</span><span class="o">)</span>, name: nil, class: <span class="s1">&#39;btn btn-default&#39;</span>
 </pre></div>
 
 
@@ -224,11 +224,11 @@ this is accomplished with <a href="http://getbootstrap.com/components/#input-gro
 the header looked ugly and the search bar was getting under the menu.</p>
 <p>I fixed it by adding a media query in <code>custom.css.scss</code> that disappears the
 logo in certain widths.</p>
-<div class="codehilite"><pre><span class="err">@</span><span class="n">media</span> <span class="p">(</span><span class="n">min</span><span class="o">-</span><span class="n">width</span><span class="o">:</span> <span class="mi">768</span><span class="n">px</span><span class="p">)</span> <span class="n">and</span> <span class="p">(</span><span class="n">max</span><span class="o">-</span><span class="n">width</span><span class="o">:</span> <span class="mi">993</span><span class="n">px</span><span class="p">)</span> <span class="p">{</span>
-  <span class="p">.</span><span class="n">navbar</span><span class="o">-</span><span class="n">brand</span> <span class="p">{</span>
-    <span class="nl">display:</span> <span class="n">none</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<div class="codehilite"><pre>@media (min-width: 768px) and (max-width: 993px) {
+  .navbar-brand {
+    display: none
+  }
+}
 </pre></div>
 
 
@@ -239,7 +239,7 @@ logo in certain widths.</p>
 <p>Bootstrap comes with responsiveness by default. In order to activate it you have
 to add a viewport meta tag in the head of your html, so in
 <code>app/views/layouts/application.html.haml</code> add:</p>
-<div class="codehilite"><pre><span class="c">%meta{ :content =&gt; &quot;width=device-width, initial-scale=1, maximum-scale=1&quot;, :name =&gt; &quot;viewport&quot; }</span>
+<div class="codehilite"><pre>%meta<span class="o">{</span> :content <span class="o">=</span>&gt; <span class="s2">&quot;width=device-width, initial-scale=1, maximum-scale=1&quot;</span>, :name <span class="o">=</span>&gt; <span class="s2">&quot;viewport&quot;</span> <span class="o">}</span>
 </pre></div>
 
 
@@ -249,56 +249,51 @@ to add a viewport meta tag in the head of your html, so in
 stuff :)</p>
     </div>
 
-    <footer>
-        <ul class="tags">
-        Tags:
-            <li><a href="/tag/fedora.html">fedora</a></li>
-            <li><a href="/tag/gsoc.html">gsoc</a></li>
-            <li><a href="/tag/ruby.html">ruby</a></li>
-            <li><a href="/tag/rails.html">rails</a></li>
-            <li><a href="/tag/webdev.html">webdev</a></li>
-            <li><a href="/tag/isitfedoraruby.html">isitfedoraruby</a></li>
-        </ul>
-    </footer>
+    <div class="neighbors"></div>
 
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'kissmyarch'; // required: replace example with your forum shortname
+      <nav class="older">
+          <a href="http://axilleas.me/en/blog/2014/custom-gitlab-login-page">
+              <span class="lpin"></span>
+              Custom GitLab login page
+          </a>
+      </nav>
 
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</article>
-    </div>
+      <nav class="newer">
+          <a href="http://axilleas.me/en/blog/2014/pelican-new-theme-redesign">
+              Redesigning the looks of this blog
+              <span class="rpin"></span>
+          </a>
+      </nav>
 
-    <div class="container footnote">
-        <a href="javascript:window.print();" title="Print">Print</a>
-    </div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'kissmyarch';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></article>
+   </div>
+
+   <footer>
+       <p>Powered by <a href="http://docs.getpelican.com">
+           Pelican</a> using <a href="https://github.com/axilleas/pelican-uberspot">uberspot theme</a> &bull;
+         Background image from <a href="http://subtlepatterns.com/">Subtle patterns</a> &bull;
+               <a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a>
+</p>
 
 
+ <p><a id="cc-logo" title="Creative Commons License"
+ rel="license" href="http://creativecommons.org/licenses/by/4.0/"></a>
+ Except where otherwise noted, content on this site is licensed under a<br />
+ <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
 
-    <footer>
-        <div class="container footer">
-            <span>Powered by <a href="http://docs.getpelican.com">
-                Pelican</a> using <a href="https://github.com/BYK/pelican-neat">
-                neat theme</a>. 
-            </span>
-            <nav>
-                <ul>
-                    <li><a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a></li>
-                <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img
-                    alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"></a></li>
-                </ul>
-            </nav>
-        </div>
-    </footer>
+   </footer>
      <!-- Piwik -->
     <script type="text/javascript">
       var _paq = _paq || [];

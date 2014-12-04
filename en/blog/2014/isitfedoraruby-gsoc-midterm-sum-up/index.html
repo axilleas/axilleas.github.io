@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    <meta charset="utf-8">
-        <title>isitfedoraruby gsoc midterm sum up</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="Pragma" content="no-cache" />
-        <meta http-equiv="Expires" content="-1" />
-        <link rel="stylesheet" href="/theme/style/reset.css" type="text/css" />
-        <link rel="stylesheet" href="/theme/style/screen.css" type="text/css" />
-        <link rel="stylesheet" href="/theme/style/friendly.css" type="text/css" />
-        <link rel="stylesheet" href="/theme/style/print.css" type="text/css" media="print" />
-        <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+   <head>
+   <meta charset="utf-8">
+       <title>isitfedoraruby gsoc midterm sum up</title>
+       <meta charset="utf-8" />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <meta http-equiv="Pragma" content="no-cache" />
+       <meta http-equiv="Expires" content="-1" />
+       <link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+       <link rel="stylesheet" href="/theme/css/friendly.css" type="text/css" />
+       <link rel="stylesheet" href="/theme/css/print.css" type="text/css" media="print" />
+       <link rel="stylesheet" type="text/css" href="http://axilleas.me/theme/tipuesearch/tipuesearch.css" media="screen">
+       <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
 </head>
 <body>
-    <header id="main">
-        <div class="container">
-            <div class="logo">
-                <p><a href="/" title="Home">Over the line</a> <span class="welcome">Yeah, well, you know, that's just, like, my opinion, man.</span></p>
-            </div>
-        </div>
-    </header>
+   <header>
+       <h1><a href="/" title="Mark it zero">Over the line</a></h1>
+       <nav>
+         <a href="/about" title="about me">whoami</a> &bull;
+         <a href="/archives.html" title="Archives">Archives</a> &bull;
+         <a id="subscribe-link" href="/rss" title="RSS feed" rel="nofollow">subscribe</a>
+         <form id="searchform" action="/search.html" onsubmit="return (this.elements['q'].value.length > 0)">
+               <input id="searchbox" type="text" name="q" size="12" placeholder="Search">
+         </form>
+       </nav>
+   </header>
 
-    <div class="splash">
-        <div class="container">
-            <ul>
-                <li><a href="/">Home</a></li>
-                    <li><a href="/about">whoami</a></li>
-                    <li><a href="/rss">Rss Feed</a></li>
-                <li><a href="/archives.html" title="Archive">Archive</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="container content">
+   <div id="main">
 <article>
     <header>
 <h1><a href="/en/blog/2014/isitfedoraruby-gsoc-midterm-sum-up" rel="bookmark">
     isitfedoraruby gsoc midterm sum up
 </a></h1>
-<time datetime="2014-07-13 00:00:00" pubdate>Posted on
+<span title="~976 words" id='stats'>~4 min read</span>
+&bull;
+<time datetime="2014-07-13 00:00:00+03:00" pubdate>Posted on
     Sun 13 July 2014
 </time>
-<address class="vcard author">
-    by <a class="url fn" href="/author/axil.html">
-    axil</a>
-</address>
 <span class="category">in <a href="/category/geek.html">
-    geek</a>.
-        </span>
+    geek</a>
+</span>
+    <ul class="tags">
+    Tags:
+        <li><a href="/tag/fedora.html">fedora</a></li>
+        <li><a href="/tag/gsoc.html">gsoc</a></li>
+        <li><a href="/tag/ruby.html">ruby</a></li>
+        <li><a href="/tag/rails.html">rails</a></li>
+        <li><a href="/tag/webdev.html">webdev</a></li>
+        <li><a href="/tag/isitfedoraruby.html">isitfedoraruby</a></li>
+    </ul>
     </header>
 
     <div class="body">
@@ -74,27 +74,27 @@ between...</p>
 </div>
 <h2 id="changelog">Changelog</h2>
 <p>I added a changelog so that the changes are easily seen, so here it is (this week is v 0.9.1):</p>
-<div class="codehilite"><pre><span class="n">v</span> <span class="mf">0.9.1</span>
+<div class="codehilite"><pre><span class="n">v</span> <span class="mf">0.9</span><span class="o">.</span><span class="mi">1</span>
 
 <span class="o">-</span> <span class="n">Refactor</span> <span class="n">rake</span> <span class="n">tasks</span>
-<span class="o">-</span> <span class="n">Source</span> <span class="n">Code</span> <span class="n">uri</span> <span class="n">in</span> <span class="n">fedorarpms</span><span class="p">,</span> <span class="n">points</span> <span class="n">to</span> <span class="n">pkgs</span><span class="p">.</span><span class="n">fp</span><span class="p">.</span><span class="n">o</span> <span class="n">gitweb</span>
+<span class="o">-</span> <span class="n">Source</span> <span class="n">Code</span> <span class="n">uri</span> <span class="ow">in</span> <span class="n">fedorarpms</span><span class="p">,</span> <span class="n">points</span> <span class="n">to</span> <span class="n">pkgs</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">o</span> <span class="n">gitweb</span>
 <span class="o">-</span> <span class="n">Add</span> <span class="n">first</span> <span class="n">integration</span> <span class="n">tests</span>
 <span class="o">-</span> <span class="n">Retrieve</span> <span class="n">commit</span> <span class="n">data</span> <span class="n">via</span> <span class="n">Pkgwat</span>
-<span class="o">-</span> <span class="n">Show</span> <span class="n">name</span> <span class="n">of</span> <span class="n">last</span> <span class="n">packager</span> <span class="n">in</span> <span class="n">fedorarpms</span><span class="err">#</span><span class="n">show</span>
-<span class="o">-</span> <span class="n">Show</span> <span class="n">last</span> <span class="n">commit</span> <span class="n">message</span> <span class="n">in</span> <span class="n">fedorarpms</span><span class="err">#</span><span class="n">show</span>
-<span class="o">-</span> <span class="n">Show</span> <span class="n">last</span> <span class="n">commit</span> <span class="n">date</span> <span class="n">in</span> <span class="n">fedorarpms</span><span class="err">#</span><span class="n">show</span>
+<span class="o">-</span> <span class="n">Show</span> <span class="n">name</span> <span class="n">of</span> <span class="n">last</span> <span class="n">packager</span> <span class="ow">in</span> <span class="n">fedorarpms</span><span class="c">#show</span>
+<span class="o">-</span> <span class="n">Show</span> <span class="n">last</span> <span class="n">commit</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">fedorarpms</span><span class="c">#show</span>
+<span class="o">-</span> <span class="n">Show</span> <span class="n">last</span> <span class="n">commit</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">fedorarpms</span><span class="c">#show</span>
 <span class="o">-</span> <span class="n">Use</span> <span class="n">api</span> <span class="n">to</span> <span class="n">fetch</span> <span class="n">rawhide</span> <span class="n">version</span> <span class="n">instead</span> <span class="n">of</span> <span class="n">scrapping</span> <span class="n">page</span>
 <span class="o">-</span> <span class="n">Retrieve</span> <span class="n">homepage</span> <span class="n">via</span> <span class="n">Pkgwat</span>
-<span class="o">-</span> <span class="n">Fix</span> <span class="n">duplication</span> <span class="n">of</span> <span class="n">dependencies</span> <span class="n">in</span> <span class="n">fedorarpms</span><span class="err">#</span><span class="n">show</span>
-<span class="o">-</span> <span class="n">Do</span> <span class="n">not</span> <span class="n">show</span> <span class="n">source</span> <span class="n">url</span> <span class="n">in</span> <span class="n">rubygems</span><span class="err">#</span><span class="n">show</span> <span class="k">if</span> <span class="n">it</span> <span class="n">is</span> <span class="n">the</span> <span class="n">same</span> <span class="n">as</span> <span class="n">the</span> <span class="n">homepage</span>
-<span class="o">-</span> <span class="n">Do</span> <span class="n">not</span> <span class="n">show</span> <span class="n">source</span> <span class="n">url</span> <span class="n">in</span> <span class="n">fedorarpms</span><span class="err">#</span><span class="n">show</span> <span class="k">if</span> <span class="n">it</span> <span class="n">is</span> <span class="n">the</span> <span class="n">same</span> <span class="n">as</span> <span class="n">the</span> <span class="n">homepage</span>
-<span class="o">-</span> <span class="n">Split</span> <span class="n">methods</span><span class="o">:</span> <span class="n">versions</span><span class="p">,</span> <span class="n">dependencies</span> <span class="n">in</span> <span class="n">fedorarpm</span> <span class="n">model</span>
-<span class="o">-</span> <span class="n">New</span> <span class="n">rake</span> <span class="n">tasks</span> <span class="n">to</span> <span class="n">import</span> <span class="n">versions</span><span class="p">,</span> <span class="n">dependencies</span> <span class="n">and</span> <span class="n">commits</span>
-<span class="o">-</span> <span class="n">Show</span> <span class="n">last</span> <span class="n">packager</span> <span class="n">in</span> <span class="n">fedorarpms</span><span class="err">#</span><span class="n">show</span>
-<span class="o">-</span> <span class="n">Show</span> <span class="n">last</span> <span class="n">commit</span> <span class="n">message</span> <span class="n">in</span> <span class="n">fedorarpms</span><span class="err">#</span><span class="n">show</span>
-<span class="o">-</span> <span class="n">Show</span> <span class="n">last</span> <span class="n">commit</span> <span class="n">date</span> <span class="n">in</span> <span class="n">fedorarpms</span><span class="err">#</span><span class="n">show</span>
+<span class="o">-</span> <span class="n">Fix</span> <span class="n">duplication</span> <span class="n">of</span> <span class="n">dependencies</span> <span class="ow">in</span> <span class="n">fedorarpms</span><span class="c">#show</span>
+<span class="o">-</span> <span class="n">Do</span> <span class="ow">not</span> <span class="n">show</span> <span class="n">source</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">rubygems</span><span class="c">#show if it is the same as the homepage</span>
+<span class="o">-</span> <span class="n">Do</span> <span class="ow">not</span> <span class="n">show</span> <span class="n">source</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">fedorarpms</span><span class="c">#show if it is the same as the homepage</span>
+<span class="o">-</span> <span class="n">Split</span> <span class="n">methods</span><span class="p">:</span> <span class="n">versions</span><span class="p">,</span> <span class="n">dependencies</span> <span class="ow">in</span> <span class="n">fedorarpm</span> <span class="n">model</span>
+<span class="o">-</span> <span class="n">New</span> <span class="n">rake</span> <span class="n">tasks</span> <span class="n">to</span> <span class="kn">import</span> <span class="nn">versions</span><span class="o">,</span> <span class="nn">dependencies</span> <span class="nn">and</span> <span class="nn">commits</span>
+<span class="o">-</span> <span class="n">Show</span> <span class="n">last</span> <span class="n">packager</span> <span class="ow">in</span> <span class="n">fedorarpms</span><span class="c">#show</span>
+<span class="o">-</span> <span class="n">Show</span> <span class="n">last</span> <span class="n">commit</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">fedorarpms</span><span class="c">#show</span>
+<span class="o">-</span> <span class="n">Show</span> <span class="n">last</span> <span class="n">commit</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">fedorarpms</span><span class="c">#show</span>
 
-<span class="n">v</span> <span class="mf">0.9.0</span>
+<span class="n">v</span> <span class="mf">0.9</span><span class="o">.</span><span class="mi">0</span>
 
 <span class="o">-</span> <span class="n">Remove</span> <span class="n">unused</span> <span class="n">code</span>
   <span class="o">-</span> <span class="n">Remove</span> <span class="n">HistoricalGems</span> <span class="n">model</span>
@@ -105,12 +105,12 @@ between...</p>
 <span class="o">-</span> <span class="n">Conform</span> <span class="n">to</span> <span class="n">ruby</span><span class="o">/</span><span class="n">rails</span> <span class="n">style</span> <span class="n">guide</span>
 <span class="o">-</span> <span class="n">Maintainer</span> <span class="n">field</span> <span class="k">for</span> <span class="n">packages</span> <span class="n">are</span> <span class="n">now</span> <span class="n">using</span> <span class="n">the</span> <span class="n">fas_name</span>
 <span class="o">-</span> <span class="n">Automatically</span> <span class="n">fetch</span> <span class="n">versions</span> <span class="n">of</span> <span class="n">Fedora</span> <span class="n">by</span> <span class="n">querying</span> <span class="n">the</span> <span class="n">pkgdb</span> <span class="n">api</span>
-<span class="o">-</span> <span class="n">Addded</span> <span class="n">rake</span> <span class="n">task</span> <span class="n">to</span> <span class="n">fetch</span> <span class="n">rawhide</span> <span class="n">version</span> <span class="n">and</span> <span class="n">store</span> <span class="n">it</span> <span class="n">in</span> <span class="n">a</span> <span class="n">file</span> <span class="n">locally</span>
-<span class="o">-</span> <span class="n">Show</span> <span class="n">koji</span> <span class="n">builds</span> <span class="n">from</span> <span class="n">supported</span> <span class="n">Fedora</span> <span class="n">versions</span> <span class="n">only</span>
+<span class="o">-</span> <span class="n">Addded</span> <span class="n">rake</span> <span class="n">task</span> <span class="n">to</span> <span class="n">fetch</span> <span class="n">rawhide</span> <span class="n">version</span> <span class="ow">and</span> <span class="n">store</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">a</span> <span class="nb">file</span> <span class="n">locally</span>
+<span class="o">-</span> <span class="n">Show</span> <span class="n">koji</span> <span class="n">builds</span> <span class="kn">from</span> <span class="nn">supported</span> <span class="nn">Fedora</span> <span class="nn">versions</span> <span class="nn">only</span>
 <span class="o">-</span> <span class="n">Bugs</span>
   <span class="o">-</span> <span class="n">Query</span> <span class="n">bugs</span> <span class="n">via</span> <span class="n">api</span> <span class="n">using</span> <span class="n">pkgwat</span>
-  <span class="o">-</span> <span class="n">Drop</span> <span class="n">is_open</span> <span class="n">from</span> <span class="n">bugs</span> <span class="n">table</span>
-  <span class="o">-</span> <span class="n">Show</span> <span class="n">only</span> <span class="n">open</span> <span class="n">Fedora</span> <span class="n">bugs</span><span class="p">,</span> <span class="n">exclude</span> <span class="n">EPEL</span>
+  <span class="o">-</span> <span class="n">Drop</span> <span class="n">is_open</span> <span class="kn">from</span> <span class="nn">bugs</span> <span class="nn">table</span>
+  <span class="o">-</span> <span class="n">Show</span> <span class="n">only</span> <span class="nb">open</span> <span class="n">Fedora</span> <span class="n">bugs</span><span class="p">,</span> <span class="n">exclude</span> <span class="n">EPEL</span>
 <span class="o">-</span> <span class="n">Hover</span> <span class="n">over</span> <span class="n">links</span> <span class="n">to</span> <span class="n">see</span> <span class="n">full</span> <span class="n">titles</span> <span class="n">when</span> <span class="n">truncated</span>
 <span class="o">-</span> <span class="n">Rename</span> <span class="n">builds</span> <span class="n">table</span> <span class="n">to</span> <span class="n">koji_builds</span>
 <span class="o">-</span> <span class="n">Added</span> <span class="n">tests</span>
@@ -167,7 +167,7 @@ action:</p>
     <span class="vi">@page_title</span> <span class="o">=</span> <span class="vi">@rpm</span><span class="o">.</span><span class="n">name</span>
     <span class="vi">@dependencies</span> <span class="o">=</span> <span class="vi">@rpm</span><span class="o">.</span><span class="n">dependency_packages</span><span class="o">.</span><span class="n">uniq</span>
     <span class="vi">@dependents</span> <span class="o">=</span> <span class="vi">@rpm</span><span class="o">.</span><span class="n">dependent_packages</span><span class="o">.</span><span class="n">uniq</span>
-    <span class="k">rescue</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:RecordNotFound</span>
+    <span class="k">rescue</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">RecordNotFound</span>
       <span class="n">redirect_to</span> <span class="ss">action</span><span class="p">:</span> <span class="s1">&#39;not_found&#39;</span>
   <span class="k">end</span>
 </pre></div>
@@ -219,77 +219,72 @@ method for importing the versions and dependencies, now they are two separate.</
 <p>As a consequense, I added rake tasks that could be invoked for a single package.
 Also the namespace is now more descriptive.</p>
 <p>The tasks are for now the following:</p>
-<div class="codehilite"><pre><span class="nx">rake</span> <span class="nx">fedora</span><span class="p">:</span><span class="nx">gem</span><span class="p">:</span><span class="k">import</span><span class="p">:</span><span class="nx">all_names</span>               <span class="err">#</span> <span class="nx">FEDORA</span> <span class="o">|</span> <span class="k">Import</span> <span class="nx">a</span> <span class="nb">list</span> <span class="nx">of</span> <span class="nx">names</span> <span class="nx">of</span> <span class="kc">ALL</span> <span class="nx">gems</span> <span class="nb">from</span> <span class="nx">rubygems.org</span>
-<span class="nx">rake</span> <span class="nx">fedora</span><span class="p">:</span><span class="nx">gem</span><span class="p">:</span><span class="k">import</span><span class="p">:</span><span class="nx">metadata</span><span class="err">[</span><span class="nx">number</span><span class="p">,</span><span class="nx">delay</span><span class="cp">]</span>  # FEDORA | Import gems metadata from rubygems.org
-rake fedora:gem:update:gems<span class="cp">[</span><span class="nx">age</span><span class="cp">]</span>               # FEDORA | Update gems metadata from rubygems.org
+<div class="codehilite"><pre>rake fedora:gem:import:all_names               # FEDORA | Import a list of names of ALL gems from rubygems.org
+rake fedora:gem:import:metadata[number,delay]  # FEDORA | Import gems metadata from rubygems.org
+rake fedora:gem:update:gems[age]               # FEDORA | Update gems metadata from rubygems.org
 rake fedora:rawhide:create                     # FEDORA | Create file containing Fedora rawhide(development) version
 rake fedora:rawhide:version                    # FEDORA | Get Fedora rawhide(development) version
-rake fedora:rpm:import:all<span class="cp">[</span><span class="nx">number</span><span class="p">,</span><span class="nx">delay</span><span class="cp">]</span>       # FEDORA | Import ALL rpm metadata (time consuming)
-rake fedora:rpm:import:bugs<span class="cp">[</span><span class="nx">rpm_name</span><span class="cp">]</span>          # FEDORA | Import bugs of a given rubygem package
-rake fedora:rpm:import:commits<span class="cp">[</span><span class="nx">rpm_name</span><span class="cp">]</span>       # FEDORA | Import commits of a given rubygem package
-rake fedora:rpm:import:deps<span class="cp">[</span><span class="nx">rpm_name</span><span class="cp">]</span>          # FEDORA | Import dependencies of a given rubygem package
-rake fedora:rpm:import:gem<span class="cp">[</span><span class="nx">rpm_name</span><span class="cp">]</span>           # FEDORA | Import respective gem of a given rubygem package
-rake fedora:rpm:import:koji_builds<span class="cp">[</span><span class="nx">rpm_name</span><span class="cp">]</span>   # FEDORA | Import koji builds of a given rubygem package
+rake fedora:rpm:import:all[number,delay]       # FEDORA | Import ALL rpm metadata (time consuming)
+rake fedora:rpm:import:bugs[rpm_name]          # FEDORA | Import bugs of a given rubygem package
+rake fedora:rpm:import:commits[rpm_name]       # FEDORA | Import commits of a given rubygem package
+rake fedora:rpm:import:deps[rpm_name]          # FEDORA | Import dependencies of a given rubygem package
+rake fedora:rpm:import:gem[rpm_name]           # FEDORA | Import respective gem of a given rubygem package
+rake fedora:rpm:import:koji_builds[rpm_name]   # FEDORA | Import koji builds of a given rubygem package
 rake fedora:rpm:import:names                   # FEDORA | Import a list of names of all rubygems from apps.fedoraproject.org
-rake fedora:rpm:import:versions<span class="cp">[</span><span class="nx">rpm_name</span><span class="cp">]</span>      # FEDORA | Import versions of a given rubygem package
-rake fedora:rpm:update:oldest_rpms<span class="cp">[</span><span class="nx">number</span><span class="cp">]</span>     # FEDORA | Update oldest <span class="nt">&lt;n&gt;</span> rpms
-rake fedora:rpm:update:rpms<span class="cp">[</span><span class="nx">age</span><span class="cp">]</span>               # FEDORA | Update rpms metadata
+rake fedora:rpm:import:versions[rpm_name]      # FEDORA | Import versions of a given rubygem package
+rake fedora:rpm:update:oldest_rpms[number]     # FEDORA | Update oldest &lt;n&gt; rpms
+rake fedora:rpm:update:rpms[age]               # FEDORA | Update rpms metadata
 </pre></div>
 
 
 <p>That was it for now. For any changes be sure to check out the changelog regularly!</p>
     </div>
 
-    <footer>
-        <ul class="tags">
-        Tags:
-            <li><a href="/tag/fedora.html">fedora</a></li>
-            <li><a href="/tag/gsoc.html">gsoc</a></li>
-            <li><a href="/tag/ruby.html">ruby</a></li>
-            <li><a href="/tag/rails.html">rails</a></li>
-            <li><a href="/tag/webdev.html">webdev</a></li>
-            <li><a href="/tag/isitfedoraruby.html">isitfedoraruby</a></li>
-        </ul>
-    </footer>
+    <div class="neighbors"></div>
 
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'kissmyarch'; // required: replace example with your forum shortname
+      <nav class="older">
+          <a href="http://axilleas.me/en/blog/2014/ruby-on-rails-development-tools">
+              <span class="lpin"></span>
+              Rails development tools
+          </a>
+      </nav>
 
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</article>
-    </div>
+      <nav class="newer">
+          <a href="http://axilleas.me/en/blog/2014/custom-gitlab-login-page">
+              Custom GitLab login page
+              <span class="rpin"></span>
+          </a>
+      </nav>
 
-    <div class="container footnote">
-        <a href="javascript:window.print();" title="Print">Print</a>
-    </div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'kissmyarch';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></article>
+   </div>
+
+   <footer>
+       <p>Powered by <a href="http://docs.getpelican.com">
+           Pelican</a> using <a href="https://github.com/axilleas/pelican-uberspot">uberspot theme</a> &bull;
+         Background image from <a href="http://subtlepatterns.com/">Subtle patterns</a> &bull;
+               <a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a>
+</p>
 
 
+ <p><a id="cc-logo" title="Creative Commons License"
+ rel="license" href="http://creativecommons.org/licenses/by/4.0/"></a>
+ Except where otherwise noted, content on this site is licensed under a<br />
+ <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
 
-    <footer>
-        <div class="container footer">
-            <span>Powered by <a href="http://docs.getpelican.com">
-                Pelican</a> using <a href="https://github.com/BYK/pelican-neat">
-                neat theme</a>. 
-            </span>
-            <nav>
-                <ul>
-                    <li><a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a></li>
-                <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img
-                    alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"></a></li>
-                </ul>
-            </nav>
-        </div>
-    </footer>
+   </footer>
      <!-- Piwik -->
     <script type="text/javascript">
       var _paq = _paq || [];

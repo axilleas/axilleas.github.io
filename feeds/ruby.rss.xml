@@ -40,7 +40,7 @@ On the other hand green means is up to date with latest upstream.&lt;/p&gt;
 &lt;p&gt;The code that does that is pretty simple. Bootstrap provides some css classes
 for coloring. So I wanted to use &lt;code&gt;warning&lt;/code&gt; for outdated and &lt;code&gt;success&lt;/code&gt; for up to
 date packages. I highlighted the whole table row so I used:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;%tr{class: rpm.up_to_date? ? &amp;#39;success&amp;#39; : &amp;#39;danger&amp;#39;}&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;%tr&lt;span class="o"&gt;{&lt;/span&gt;class: rpm.up_to_date? ? &lt;span class="s1"&gt;&amp;#39;success&amp;#39;&lt;/span&gt; : &lt;span class="s1"&gt;&amp;#39;danger&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -119,50 +119,50 @@ the steps are:&lt;/p&gt;
 &lt;p&gt;1.Add &lt;code&gt;*= require bootstrap&lt;/code&gt; in &lt;code&gt;app/assets/stylesheets/application.css&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;2.Add &lt;code&gt;//= require bootstrap&lt;/code&gt; in &lt;code&gt;app/assets/javascripts/application.js&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;3.Add in &lt;code&gt;app/assets/javascripts/application.js&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;#&lt;/span&gt;&lt;span class="n"&gt;header&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;collapse&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;collapse&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
-  &lt;span class="nl"&gt;toggle:&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt;
-&lt;span class="p"&gt;})&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#header-collapse&amp;#39;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;.collapse&lt;span class="o"&gt;({&lt;/span&gt;
+  toggle: &lt;span class="nb"&gt;false&lt;/span&gt;
+&lt;span class="o"&gt;})&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;4.Add bootstrap classes to header view:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;%header.navbar.navbar-default.navbar-fixed-top&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nf"&gt;%header&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;navbar&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;navbar&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;default&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;navbar&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;fixed&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;top&lt;/span&gt;
   &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;container&lt;/span&gt;
     &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;navbar&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;header&lt;/span&gt;
-      &lt;span class="c"&gt;%button.navbar-toggle{ type: &amp;#39;button&amp;#39;, data: {toggle: &amp;#39;collapse&amp;#39;, target: &amp;#39;#header-collapse&amp;#39;}}&lt;/span&gt;
-        &lt;span class="c"&gt;%span.sr-only &amp;#39;Toggle navigation&amp;#39;&lt;/span&gt;
-        &lt;span class="c"&gt;%span.icon-bar&lt;/span&gt;
-        &lt;span class="c"&gt;%span.icon-bar&lt;/span&gt;
-        &lt;span class="c"&gt;%span.icon-bar&lt;/span&gt;
-        &lt;span class="c"&gt;%span.icon-bar&lt;/span&gt;
-      &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;link_to&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;FedoraRuby&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;root_path&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;class&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;navbar-brand&amp;#39;&lt;/span&gt;
+      &lt;span class="nf"&gt;%button&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;navbar&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;toggle&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nl"&gt;type&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;button&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nl"&gt;data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nl"&gt;toggle&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;collapse&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nl"&gt;target&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;#header&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;collapse&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;}}&lt;/span&gt;
+        &lt;span class="nf"&gt;%span&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sr&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;only&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Toggle&lt;/span&gt; &lt;span class="n"&gt;navigation&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
+        &lt;span class="nf"&gt;%span&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;icon&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bar&lt;/span&gt;
+        &lt;span class="nf"&gt;%span&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;icon&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bar&lt;/span&gt;
+        &lt;span class="nf"&gt;%span&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;icon&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bar&lt;/span&gt;
+        &lt;span class="nf"&gt;%span&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;icon&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bar&lt;/span&gt;
+      &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;link_to&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;FedoraRuby&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;root_path&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nl"&gt;class&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;navbar&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;brand&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
 
-    &lt;span class="c"&gt;%nav.collapse.navbar-collapse#header-collapse{role: &amp;#39;navigation&amp;#39;}&lt;/span&gt;
-      &lt;span class="c"&gt;%ul.nav.navbar-nav&lt;/span&gt;
-        &lt;span class="c"&gt;%li{class: is_active?(root_path)}&lt;/span&gt;
-          &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;link_to&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Home&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;root_path&lt;/span&gt;
-        &lt;span class="c"&gt;%li{class: is_active?(rubygems_path)}&lt;/span&gt;
-          &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;link_to&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Ruby Gems&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;rubygems_path&lt;/span&gt;
-        &lt;span class="c"&gt;%li{class: is_active?(fedorarpms_path)}&lt;/span&gt;
-          &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;link_to&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Fedora Rpms&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;fedorarpms_path&lt;/span&gt;
-        &lt;span class="c"&gt;%li{class: is_active?(about_path)}&lt;/span&gt;
-          &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;link_to&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;About&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;about_path&lt;/span&gt;
+    &lt;span class="nf"&gt;%nav&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;collapse&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;navbar&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;collapse&lt;/span&gt;&lt;span class="cp"&gt;#header&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;collapse&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nl"&gt;role&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;navigation&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+      &lt;span class="nf"&gt;%ul&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nav&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;navbar&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;nav&lt;/span&gt;
+        &lt;span class="nf"&gt;%li&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nl"&gt;class&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;is_active&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;root_path&lt;/span&gt;&lt;span class="p"&gt;)}&lt;/span&gt;
+          &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;link_to&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Home&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;root_path&lt;/span&gt;
+        &lt;span class="nf"&gt;%li&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nl"&gt;class&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;is_active&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rubygems_path&lt;/span&gt;&lt;span class="p"&gt;)}&lt;/span&gt;
+          &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;link_to&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Ruby&lt;/span&gt; &lt;span class="n"&gt;Gems&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;rubygems_path&lt;/span&gt;
+        &lt;span class="nf"&gt;%li&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nl"&gt;class&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;is_active&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fedorarpms_path&lt;/span&gt;&lt;span class="p"&gt;)}&lt;/span&gt;
+          &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;link_to&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Fedora&lt;/span&gt; &lt;span class="n"&gt;Rpms&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;fedorarpms_path&lt;/span&gt;
+        &lt;span class="nf"&gt;%li&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nl"&gt;class&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;is_active&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;about_path&lt;/span&gt;&lt;span class="p"&gt;)}&lt;/span&gt;
+          &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;link_to&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;About&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;about_path&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h3 id="search-field"&gt;Search field&lt;/h3&gt;
 &lt;p&gt;I wanted the search field to be together with the search button. In bootstrap
 this is accomplished with &lt;a href="http://getbootstrap.com/components/#input-groups-buttons"&gt;input-group-buttons&lt;/a&gt;. The final code was:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;%ul.nav.navbar-nav.navbar-right&lt;/span&gt;
-  &lt;span class="c"&gt;%li&lt;/span&gt;
-    &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;form_tag&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;controller&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;searches&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;action&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;redirect&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;},&lt;/span&gt;
-    &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;class&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;navbar-form&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;method&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;post&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;do&lt;/span&gt;
-      &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;group&lt;/span&gt;
-        &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;text_field_tag&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;search&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;params&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="n"&gt;search&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-            &lt;span class="n"&gt;class&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;search-query form-control&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-            &lt;span class="n"&gt;placeholder&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Search&amp;#39;&lt;/span&gt;
-        &lt;span class="c"&gt;%span.input-group-btn&lt;/span&gt;
-          &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;button_tag&lt;/span&gt; &lt;span class="n"&gt;raw&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;lt;span class=&amp;quot;glyphicon glyphicon-search&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;nil&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;class&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;btn btn-default&amp;#39;&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;%ul.nav.navbar-nav.navbar-right
+  %li
+    &lt;span class="o"&gt;=&lt;/span&gt; form_tag&lt;span class="o"&gt;(&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt; :controller &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; &lt;span class="s1"&gt;&amp;#39;searches&amp;#39;&lt;/span&gt;, :action &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; &lt;span class="s1"&gt;&amp;#39;redirect&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;}&lt;/span&gt;,
+    :class &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; &lt;span class="s1"&gt;&amp;#39;navbar-form&amp;#39;&lt;/span&gt;, :method &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; &lt;span class="s1"&gt;&amp;#39;post&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+      .input-group
+        &lt;span class="o"&gt;=&lt;/span&gt; text_field_tag :search, params&lt;span class="o"&gt;[&lt;/span&gt;:search&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;||=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;,
+            class: &lt;span class="s1"&gt;&amp;#39;search-query form-control&amp;#39;&lt;/span&gt;,
+            placeholder: &lt;span class="s1"&gt;&amp;#39;Search&amp;#39;&lt;/span&gt;
+        %span.input-group-btn
+          &lt;span class="o"&gt;=&lt;/span&gt; button_tag raw&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;lt;span class=&amp;quot;glyphicon glyphicon-search&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;, name: nil, class: &lt;span class="s1"&gt;&amp;#39;btn btn-default&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -171,11 +171,11 @@ this is accomplished with &lt;a href="http://getbootstrap.com/components/#input-
 the header looked ugly and the search bar was getting under the menu.&lt;/p&gt;
 &lt;p&gt;I fixed it by adding a media query in &lt;code&gt;custom.css.scss&lt;/code&gt; that disappears the
 logo in certain widths.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;media&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;min&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;768&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;993&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;navbar&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;brand&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="nl"&gt;display:&lt;/span&gt; &lt;span class="n"&gt;none&lt;/span&gt;
-  &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;@media (min-width: 768px) and (max-width: 993px) {
+  .navbar-brand {
+    display: none
+  }
+}
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -186,7 +186,7 @@ logo in certain widths.&lt;/p&gt;
 &lt;p&gt;Bootstrap comes with responsiveness by default. In order to activate it you have
 to add a viewport meta tag in the head of your html, so in
 &lt;code&gt;app/views/layouts/application.html.haml&lt;/code&gt; add:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;%meta{ :content =&amp;gt; &amp;quot;width=device-width, initial-scale=1, maximum-scale=1&amp;quot;, :name =&amp;gt; &amp;quot;viewport&amp;quot; }&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;%meta&lt;span class="o"&gt;{&lt;/span&gt; :content &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; &lt;span class="s2"&gt;&amp;quot;width=device-width, initial-scale=1, maximum-scale=1&amp;quot;&lt;/span&gt;, :name &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; &lt;span class="s2"&gt;&amp;quot;viewport&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -231,9 +231,9 @@ any 500 errors, it means something went wrong. Either check the unicorn logs
 or better, run &lt;code&gt;git diff&lt;/code&gt; to see if there are any indentation errors.&lt;/p&gt;
 &lt;p&gt;If you are using vim, create/open &lt;code&gt;/home/git/.vimrc&lt;/code&gt; and place the following
 lines:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;tabstop&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
-&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;shiftwidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
-&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;expandtab&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;set tabstop=2
+set shiftwidth=2
+set expandtab
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -286,16 +286,16 @@ even remove it completely.&lt;/p&gt;
 Remember to indent correctly.&lt;/p&gt;
 &lt;p&gt;The text can also contain links. Place each link in its own line.&lt;/p&gt;
 &lt;p&gt;An example would be:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;Accounts&lt;/span&gt; &lt;span class="n"&gt;are&lt;/span&gt; &lt;span class="n"&gt;temporarily&lt;/span&gt; &lt;span class="n"&gt;created&lt;/span&gt; &lt;span class="n"&gt;manually&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt; &lt;span class="n"&gt;ask&lt;/span&gt; &lt;span class="n"&gt;one&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;our&lt;/span&gt;
-&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;link_to&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;forum discussion&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;https://forum.example.com/gitlab-reg&amp;quot;&lt;/span&gt;
-&lt;span class="n"&gt;You&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt; &lt;span class="n"&gt;find&lt;/span&gt; &lt;span class="n"&gt;more&lt;/span&gt; &lt;span class="n"&gt;info&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt;
-&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;link_to&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Wiki.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;https://example.com/wiki/index.php/GitLab&amp;quot;&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;Accounts are temporarily created manually, you can ask one in our
+= link_to &amp;quot;forum discussion&amp;quot;, &amp;quot;https://forum.example.com/gitlab-reg&amp;quot;
+You can find more info in the
+= link_to &amp;quot;Wiki.&amp;quot;, &amp;quot;https://example.com/wiki/index.php/GitLab&amp;quot;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;A link can also have a &lt;code&gt;target = "_blank"&lt;/code&gt; to open in a new window.
 The &lt;a href="http://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html#method-i-link_to" title="link_to definition"&gt;format&lt;/a&gt; is:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;link_to&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;text&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;http://example.com&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;blank&amp;quot;&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;= link_to &amp;quot;text&amp;quot;, &amp;quot;http://example.com&amp;quot;, target: &amp;quot;blank&amp;quot;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -314,11 +314,11 @@ my language. I went with &lt;em&gt;Open Sans&lt;/em&gt; from &lt;a href="https:/
 &lt;/ol&gt;
 &lt;p&gt;For the first step I created &lt;code&gt;app/assets/stylesheets/custom_login.scss&lt;/code&gt;
 with contents:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//fonts.googleapis.com/css?family=Open+Sans&amp;amp;subset=latin,greek);&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nd"&gt;@import&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;fonts&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;googleapis&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;&lt;span class="err"&gt;?&lt;/span&gt;&lt;span class="n"&gt;family&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;Open&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;Sans&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;subset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;latin&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;greek&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 
-&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;custom&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;login&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;custom&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;login&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
   &lt;span class="n"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;h2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;family&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Open&lt;/span&gt; &lt;span class="n"&gt;Sans&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sans&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;serif&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;family&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Open Sans&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sans&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;serif&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
   &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -327,11 +327,11 @@ with contents:&lt;/p&gt;
 &lt;p&gt;Here I used &lt;a href="http://sass-lang.com/guide"&gt;sass&lt;/a&gt;. These are nested values that will be picked by html.&lt;/p&gt;
 &lt;p&gt;The second step is to change &lt;code&gt;devise.html.haml&lt;/code&gt; and include the new
 &lt;code&gt;custom-login&lt;/code&gt; css class. There were 2 places where I needed to do that:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;brand_text&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hidden&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;xs&lt;/span&gt;
-&lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;brand_text&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hidden&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;xs&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;custom&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;login&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;- .brand_text.hidden-xs
++ .brand_text.hidden-xs.custom-login
 
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lead&lt;/span&gt;
-&lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lead&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;custom&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;login&lt;/span&gt;
+- %p.lead
++ %p.lead.custom-login
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -365,8 +365,8 @@ Greek and English words are using different fonts.&lt;/p&gt;
 our users. It's time to commit our changes. Check the diff with &lt;code&gt;git diff&lt;/code&gt;
 one more time, and make sure you are on the right branch with &lt;code&gt;git branch&lt;/code&gt;.
 It should show &lt;code&gt;* custom_login_page&lt;/code&gt;. Add and commit the changed files:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
-&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Custom&lt;/span&gt; &lt;span class="n"&gt;login&lt;/span&gt; &lt;span class="n"&gt;page&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;git add app/
+git commit -m &amp;#39;Custom login page.&amp;#39;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -418,27 +418,27 @@ between...&lt;/p&gt;
 &lt;/div&gt;
 &lt;h2 id="changelog"&gt;Changelog&lt;/h2&gt;
 &lt;p&gt;I added a changelog so that the changes are easily seen, so here it is (this week is v 0.9.1):&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="mf"&gt;0.9.1&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="mf"&gt;0.9&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
 
 &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Refactor&lt;/span&gt; &lt;span class="n"&gt;rake&lt;/span&gt; &lt;span class="n"&gt;tasks&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Source&lt;/span&gt; &lt;span class="n"&gt;Code&lt;/span&gt; &lt;span class="n"&gt;uri&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fedorarpms&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;points&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;pkgs&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;gitweb&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Source&lt;/span&gt; &lt;span class="n"&gt;Code&lt;/span&gt; &lt;span class="n"&gt;uri&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fedorarpms&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;points&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;pkgs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;gitweb&lt;/span&gt;
 &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Add&lt;/span&gt; &lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="n"&gt;integration&lt;/span&gt; &lt;span class="n"&gt;tests&lt;/span&gt;
 &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Retrieve&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="n"&gt;via&lt;/span&gt; &lt;span class="n"&gt;Pkgwat&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Show&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="n"&gt;packager&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fedorarpms&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Show&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fedorarpms&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Show&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fedorarpms&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Show&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="n"&gt;packager&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fedorarpms&lt;/span&gt;&lt;span class="c"&gt;#show&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Show&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fedorarpms&lt;/span&gt;&lt;span class="c"&gt;#show&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Show&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fedorarpms&lt;/span&gt;&lt;span class="c"&gt;#show&lt;/span&gt;
 &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Use&lt;/span&gt; &lt;span class="n"&gt;api&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;fetch&lt;/span&gt; &lt;span class="n"&gt;rawhide&lt;/span&gt; &lt;span class="n"&gt;version&lt;/span&gt; &lt;span class="n"&gt;instead&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;scrapping&lt;/span&gt; &lt;span class="n"&gt;page&lt;/span&gt;
 &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Retrieve&lt;/span&gt; &lt;span class="n"&gt;homepage&lt;/span&gt; &lt;span class="n"&gt;via&lt;/span&gt; &lt;span class="n"&gt;Pkgwat&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Fix&lt;/span&gt; &lt;span class="n"&gt;duplication&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;dependencies&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fedorarpms&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Do&lt;/span&gt; &lt;span class="n"&gt;not&lt;/span&gt; &lt;span class="n"&gt;show&lt;/span&gt; &lt;span class="n"&gt;source&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;rubygems&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;same&lt;/span&gt; &lt;span class="n"&gt;as&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;homepage&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Do&lt;/span&gt; &lt;span class="n"&gt;not&lt;/span&gt; &lt;span class="n"&gt;show&lt;/span&gt; &lt;span class="n"&gt;source&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fedorarpms&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;same&lt;/span&gt; &lt;span class="n"&gt;as&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;homepage&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Split&lt;/span&gt; &lt;span class="n"&gt;methods&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;versions&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dependencies&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fedorarpm&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;New&lt;/span&gt; &lt;span class="n"&gt;rake&lt;/span&gt; &lt;span class="n"&gt;tasks&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;versions&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dependencies&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;commits&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Show&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="n"&gt;packager&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fedorarpms&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Show&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fedorarpms&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Show&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fedorarpms&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Fix&lt;/span&gt; &lt;span class="n"&gt;duplication&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;dependencies&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fedorarpms&lt;/span&gt;&lt;span class="c"&gt;#show&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Do&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;show&lt;/span&gt; &lt;span class="n"&gt;source&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;rubygems&lt;/span&gt;&lt;span class="c"&gt;#show if it is the same as the homepage&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Do&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;show&lt;/span&gt; &lt;span class="n"&gt;source&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fedorarpms&lt;/span&gt;&lt;span class="c"&gt;#show if it is the same as the homepage&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Split&lt;/span&gt; &lt;span class="n"&gt;methods&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;versions&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dependencies&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fedorarpm&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;New&lt;/span&gt; &lt;span class="n"&gt;rake&lt;/span&gt; &lt;span class="n"&gt;tasks&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;versions&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;dependencies&lt;/span&gt; &lt;span class="nn"&gt;and&lt;/span&gt; &lt;span class="nn"&gt;commits&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Show&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="n"&gt;packager&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fedorarpms&lt;/span&gt;&lt;span class="c"&gt;#show&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Show&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fedorarpms&lt;/span&gt;&lt;span class="c"&gt;#show&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Show&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;fedorarpms&lt;/span&gt;&lt;span class="c"&gt;#show&lt;/span&gt;
 
-&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="mf"&gt;0.9.0&lt;/span&gt;
+&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="mf"&gt;0.9&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
 
 &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Remove&lt;/span&gt; &lt;span class="n"&gt;unused&lt;/span&gt; &lt;span class="n"&gt;code&lt;/span&gt;
   &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Remove&lt;/span&gt; &lt;span class="n"&gt;HistoricalGems&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;
@@ -449,12 +449,12 @@ between...&lt;/p&gt;
 &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Conform&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;ruby&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rails&lt;/span&gt; &lt;span class="n"&gt;style&lt;/span&gt; &lt;span class="n"&gt;guide&lt;/span&gt;
 &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Maintainer&lt;/span&gt; &lt;span class="n"&gt;field&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;packages&lt;/span&gt; &lt;span class="n"&gt;are&lt;/span&gt; &lt;span class="n"&gt;now&lt;/span&gt; &lt;span class="n"&gt;using&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;fas_name&lt;/span&gt;
 &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Automatically&lt;/span&gt; &lt;span class="n"&gt;fetch&lt;/span&gt; &lt;span class="n"&gt;versions&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;Fedora&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt; &lt;span class="n"&gt;querying&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;pkgdb&lt;/span&gt; &lt;span class="n"&gt;api&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Addded&lt;/span&gt; &lt;span class="n"&gt;rake&lt;/span&gt; &lt;span class="n"&gt;task&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;fetch&lt;/span&gt; &lt;span class="n"&gt;rawhide&lt;/span&gt; &lt;span class="n"&gt;version&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;store&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;locally&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Show&lt;/span&gt; &lt;span class="n"&gt;koji&lt;/span&gt; &lt;span class="n"&gt;builds&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;supported&lt;/span&gt; &lt;span class="n"&gt;Fedora&lt;/span&gt; &lt;span class="n"&gt;versions&lt;/span&gt; &lt;span class="n"&gt;only&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Addded&lt;/span&gt; &lt;span class="n"&gt;rake&lt;/span&gt; &lt;span class="n"&gt;task&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;fetch&lt;/span&gt; &lt;span class="n"&gt;rawhide&lt;/span&gt; &lt;span class="n"&gt;version&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;store&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="nb"&gt;file&lt;/span&gt; &lt;span class="n"&gt;locally&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Show&lt;/span&gt; &lt;span class="n"&gt;koji&lt;/span&gt; &lt;span class="n"&gt;builds&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;supported&lt;/span&gt; &lt;span class="nn"&gt;Fedora&lt;/span&gt; &lt;span class="nn"&gt;versions&lt;/span&gt; &lt;span class="nn"&gt;only&lt;/span&gt;
 &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Bugs&lt;/span&gt;
   &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Query&lt;/span&gt; &lt;span class="n"&gt;bugs&lt;/span&gt; &lt;span class="n"&gt;via&lt;/span&gt; &lt;span class="n"&gt;api&lt;/span&gt; &lt;span class="n"&gt;using&lt;/span&gt; &lt;span class="n"&gt;pkgwat&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Drop&lt;/span&gt; &lt;span class="n"&gt;is_open&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;bugs&lt;/span&gt; &lt;span class="n"&gt;table&lt;/span&gt;
-  &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Show&lt;/span&gt; &lt;span class="n"&gt;only&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt; &lt;span class="n"&gt;Fedora&lt;/span&gt; &lt;span class="n"&gt;bugs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;exclude&lt;/span&gt; &lt;span class="n"&gt;EPEL&lt;/span&gt;
+  &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Drop&lt;/span&gt; &lt;span class="n"&gt;is_open&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;bugs&lt;/span&gt; &lt;span class="nn"&gt;table&lt;/span&gt;
+  &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Show&lt;/span&gt; &lt;span class="n"&gt;only&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt; &lt;span class="n"&gt;Fedora&lt;/span&gt; &lt;span class="n"&gt;bugs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;exclude&lt;/span&gt; &lt;span class="n"&gt;EPEL&lt;/span&gt;
 &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Hover&lt;/span&gt; &lt;span class="n"&gt;over&lt;/span&gt; &lt;span class="n"&gt;links&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;see&lt;/span&gt; &lt;span class="n"&gt;full&lt;/span&gt; &lt;span class="n"&gt;titles&lt;/span&gt; &lt;span class="n"&gt;when&lt;/span&gt; &lt;span class="n"&gt;truncated&lt;/span&gt;
 &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Rename&lt;/span&gt; &lt;span class="n"&gt;builds&lt;/span&gt; &lt;span class="n"&gt;table&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;koji_builds&lt;/span&gt;
 &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Added&lt;/span&gt; &lt;span class="n"&gt;tests&lt;/span&gt;
@@ -511,7 +511,7 @@ action:&lt;/p&gt;
     &lt;span class="vi"&gt;@page_title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="vi"&gt;@rpm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;
     &lt;span class="vi"&gt;@dependencies&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="vi"&gt;@rpm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dependency_packages&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;uniq&lt;/span&gt;
     &lt;span class="vi"&gt;@dependents&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="vi"&gt;@rpm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dependent_packages&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;uniq&lt;/span&gt;
-    &lt;span class="k"&gt;rescue&lt;/span&gt; &lt;span class="ss"&gt;ActiveRecord&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="ss"&gt;:RecordNotFound&lt;/span&gt;
+    &lt;span class="k"&gt;rescue&lt;/span&gt; &lt;span class="no"&gt;ActiveRecord&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;RecordNotFound&lt;/span&gt;
       &lt;span class="n"&gt;redirect_to&lt;/span&gt; &lt;span class="ss"&gt;action&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;not_found&amp;#39;&lt;/span&gt;
   &lt;span class="k"&gt;end&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -563,21 +563,21 @@ method for importing the versions and dependencies, now they are two separate.&l
 &lt;p&gt;As a consequense, I added rake tasks that could be invoked for a single package.
 Also the namespace is now more descriptive.&lt;/p&gt;
 &lt;p&gt;The tasks are for now the following:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nx"&gt;rake&lt;/span&gt; &lt;span class="nx"&gt;fedora&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;gem&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="k"&gt;import&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;all_names&lt;/span&gt;               &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="nx"&gt;FEDORA&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="k"&gt;Import&lt;/span&gt; &lt;span class="nx"&gt;a&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt; &lt;span class="nx"&gt;of&lt;/span&gt; &lt;span class="nx"&gt;names&lt;/span&gt; &lt;span class="nx"&gt;of&lt;/span&gt; &lt;span class="kc"&gt;ALL&lt;/span&gt; &lt;span class="nx"&gt;gems&lt;/span&gt; &lt;span class="nb"&gt;from&lt;/span&gt; &lt;span class="nx"&gt;rubygems.org&lt;/span&gt;
-&lt;span class="nx"&gt;rake&lt;/span&gt; &lt;span class="nx"&gt;fedora&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;gem&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="k"&gt;import&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nx"&gt;metadata&lt;/span&gt;&lt;span class="err"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;number&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;delay&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;  # FEDORA | Import gems metadata from rubygems.org
-rake fedora:gem:update:gems&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;age&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;               # FEDORA | Update gems metadata from rubygems.org
+&lt;div class="codehilite"&gt;&lt;pre&gt;rake fedora:gem:import:all_names               # FEDORA | Import a list of names of ALL gems from rubygems.org
+rake fedora:gem:import:metadata[number,delay]  # FEDORA | Import gems metadata from rubygems.org
+rake fedora:gem:update:gems[age]               # FEDORA | Update gems metadata from rubygems.org
 rake fedora:rawhide:create                     # FEDORA | Create file containing Fedora rawhide(development) version
 rake fedora:rawhide:version                    # FEDORA | Get Fedora rawhide(development) version
-rake fedora:rpm:import:all&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;number&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;delay&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;       # FEDORA | Import ALL rpm metadata (time consuming)
-rake fedora:rpm:import:bugs&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;rpm_name&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;          # FEDORA | Import bugs of a given rubygem package
-rake fedora:rpm:import:commits&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;rpm_name&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;       # FEDORA | Import commits of a given rubygem package
-rake fedora:rpm:import:deps&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;rpm_name&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;          # FEDORA | Import dependencies of a given rubygem package
-rake fedora:rpm:import:gem&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;rpm_name&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;           # FEDORA | Import respective gem of a given rubygem package
-rake fedora:rpm:import:koji_builds&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;rpm_name&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;   # FEDORA | Import koji builds of a given rubygem package
+rake fedora:rpm:import:all[number,delay]       # FEDORA | Import ALL rpm metadata (time consuming)
+rake fedora:rpm:import:bugs[rpm_name]          # FEDORA | Import bugs of a given rubygem package
+rake fedora:rpm:import:commits[rpm_name]       # FEDORA | Import commits of a given rubygem package
+rake fedora:rpm:import:deps[rpm_name]          # FEDORA | Import dependencies of a given rubygem package
+rake fedora:rpm:import:gem[rpm_name]           # FEDORA | Import respective gem of a given rubygem package
+rake fedora:rpm:import:koji_builds[rpm_name]   # FEDORA | Import koji builds of a given rubygem package
 rake fedora:rpm:import:names                   # FEDORA | Import a list of names of all rubygems from apps.fedoraproject.org
-rake fedora:rpm:import:versions&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;rpm_name&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;      # FEDORA | Import versions of a given rubygem package
-rake fedora:rpm:update:oldest_rpms&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;number&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;     # FEDORA | Update oldest &lt;span class="nt"&gt;&amp;lt;n&amp;gt;&lt;/span&gt; rpms
-rake fedora:rpm:update:rpms&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;age&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;               # FEDORA | Update rpms metadata
+rake fedora:rpm:import:versions[rpm_name]      # FEDORA | Import versions of a given rubygem package
+rake fedora:rpm:update:oldest_rpms[number]     # FEDORA | Update oldest &amp;lt;n&amp;gt; rpms
+rake fedora:rpm:update:rpms[age]               # FEDORA | Update rpms metadata
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -638,13 +638,13 @@ some time ago so I'll stick with it.&lt;/p&gt;
 commands.&lt;/p&gt;
 &lt;h2 id="vim-plugins"&gt;vim plugins&lt;/h2&gt;
 &lt;p&gt;Start by installing &lt;a href="https://github.com/tpope/vim-pathogen" title="pathogen vim plugin"&gt;pathogen.vim&lt;/a&gt;, a vim plugin manager:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vim&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;autoload&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vim&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bundle&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; \
-&lt;span class="n"&gt;curl&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;LSso&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vim&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;autoload&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;pathogen&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//tpo.pe/pathogen.vim&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;mkdir -p ~/.vim/autoload ~/.vim/bundle &amp;amp;&amp;amp; \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Then add this to your vimrc:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;execute&lt;/span&gt; &lt;span class="n"&gt;pathogen&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;infect&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;execute pathogen#infect()
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -655,7 +655,7 @@ behaves similarly.&lt;/p&gt;
 &lt;h3 id="railsvim"&gt;rails.vim&lt;/h3&gt;
 &lt;p&gt;Probably the one most useful plugin when dealing with Rails projects.&lt;/p&gt;
 &lt;p&gt;Install it with:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/tpope/vim-rails.git ~/.vim/bundle/vim-rails&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;git clone git://github.com/tpope/vim-rails.git ~/.vim/bundle/vim-rails
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -668,7 +668,7 @@ you can toggle between all models/controllers, etc.&lt;/p&gt;
 searches for a model named foo. Tab completion is also your friend.&lt;/p&gt;
 &lt;p&gt;One other really cool feature is the go to file. Supposedly we have the
 following model:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Blog&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="ss"&gt;ActiveRecord&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="ss"&gt;:Base&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Blog&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="no"&gt;ActiveRecord&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Base&lt;/span&gt;
 
   &lt;span class="n"&gt;has_many&lt;/span&gt; &lt;span class="ss"&gt;:articles&lt;/span&gt;
 
@@ -692,11 +692,11 @@ reducing repetitive insertion of pieces of text. Snippets can contain
 placeholders for modifying the text if necessary or interpolated code for
 evaluation.&lt;/p&gt;
 &lt;p&gt;Install it:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vim&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bundle&lt;/span&gt;
-&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/tomtom/tlib_vim.git&lt;/span&gt;
-&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/MarcWeber/vim-addon-mw-utils.git&lt;/span&gt;
-&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/garbas/vim-snipmate.git&lt;/span&gt;
-&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/honza/vim-snippets.git&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;cd ~/.vim/bundle
+git clone https://github.com/tomtom/tlib_vim.git
+git clone https://github.com/MarcWeber/vim-addon-mw-utils.git
+git clone https://github.com/garbas/vim-snipmate.git
+git clone https://github.com/honza/vim-snippets.git
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -717,9 +717,9 @@ method. The snippet reads:&lt;/p&gt;
 &lt;p&gt;So, the snippet is named &lt;code&gt;def&lt;/code&gt; and in order to invoke it we must write
 def and hit Tab. It then expands, placing the cursor in the highlited
 &lt;code&gt;method_name&lt;/code&gt;. This is what it looks like:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;def&lt;/span&gt; &lt;span class="n"&gt;method_name&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;def method_name
 
-&lt;span class="n"&gt;end&lt;/span&gt;
+end
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -730,7 +730,7 @@ snippets are supported.&lt;/p&gt;
 &lt;h3 id="fugitivevim"&gt;fugitive.vim&lt;/h3&gt;
 &lt;p&gt;&lt;a href="https://github.com/tpope/vim-fugitive" title="vim-fugitive on github"&gt;vim-fugitive&lt;/a&gt; brings the power of git commands inside vim.&lt;/p&gt;
 &lt;p&gt;Install it with:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;git clone git://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -748,24 +748,24 @@ for development, some of which I haven't tested. Here is what I got so far.&lt;/
 &lt;h2 id="jazz_hands"&gt;jazz_hands&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://github.com/nixme/jazz_hands" title="jazz_hands on github"&gt;jazz_hands&lt;/a&gt; is basically a collection of gems that you get for free with
 just one gem. It focuses on enhancing the rails console. It provides:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Pry&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;powerful&lt;/span&gt; &lt;span class="n"&gt;shell&lt;/span&gt; &lt;span class="n"&gt;alternative&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;IRB&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Awesome&lt;/span&gt; &lt;span class="n"&gt;Print&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;stylish&lt;/span&gt; &lt;span class="n"&gt;pretty&lt;/span&gt; &lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Hirb&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;tabular&lt;/span&gt; &lt;span class="n"&gt;collection&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Pry&lt;/span&gt; &lt;span class="n"&gt;Rails&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;additional&lt;/span&gt; &lt;span class="n"&gt;commands&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;routes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;middleware&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;Rails&lt;/span&gt; &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Pry&lt;/span&gt; &lt;span class="n"&gt;Doc&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;browse&lt;/span&gt; &lt;span class="n"&gt;Ruby&lt;/span&gt; &lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;including&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;directly&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Pry&lt;/span&gt; &lt;span class="n"&gt;Git&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;teach&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;console&lt;/span&gt; &lt;span class="n"&gt;about&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Diffs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;blames&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;commits&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;methods&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;classes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;not&lt;/span&gt; &lt;span class="n"&gt;just&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Pry&lt;/span&gt; &lt;span class="n"&gt;Remote&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;connect&lt;/span&gt; &lt;span class="n"&gt;remotely&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;Pry&lt;/span&gt; &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Pry&lt;/span&gt; &lt;span class="n"&gt;Debugger&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;turn&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;console&lt;/span&gt; &lt;span class="n"&gt;into&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;simple&lt;/span&gt; &lt;span class="n"&gt;debugger&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Pry&lt;/span&gt; &lt;span class="n"&gt;Stack&lt;/span&gt; &lt;span class="n"&gt;Explorer&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;navigate&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="n"&gt;stack&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;frames&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Coolline&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;Coderay&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;syntax&lt;/span&gt; &lt;span class="n"&gt;highlighting&lt;/span&gt; &lt;span class="n"&gt;as&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Optional&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;MRI&lt;/span&gt; &lt;span class="mf"&gt;1.9.3&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;2.0.0&lt;/span&gt; &lt;span class="n"&gt;only&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;- Pry for a powerful shell alternative to IRB.
+- Awesome Print for stylish pretty print.
+- Hirb for tabular collection output.
+- Pry Rails for additional commands (show-routes, show-models, show-middleware) in the Rails console.
+- Pry Doc to browse Ruby source, including C, directly from the console.
+- Pry Git to teach the console about git. Diffs, blames, and commits on methods and classes, not just files.
+- Pry Remote to connect remotely to a Pry console.
+- Pry Debugger to turn the console into a simple debugger.
+- Pry Stack Explorer to navigate the call stack and frames.
+- Coolline and Coderay for syntax highlighting as you type. Optional. MRI 1.9.3/2.0.0 only
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Again, visiting the github page, you will get all the info you want.
 There is an open &lt;a href="https://github.com/nixme/jazz_hands/pull/26"&gt;issue&lt;/a&gt; and installation on ruby 2.1.2 is failing for now.
 For the time being you can put the following in your Gemfile:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;gem&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;jazz_hands&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;github&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;nixme&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;jazz_hands&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;branch&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;bring&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;your&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;own&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;debugger&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;gem&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;pry&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;byebug&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;gem &amp;#39;jazz_hands&amp;#39;, github: &amp;#39;nixme/jazz_hands&amp;#39;, branch: &amp;#39;bring-your-own-debugger&amp;#39;
+gem &amp;#39;pry-byebug&amp;#39;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -783,20 +783,20 @@ fedoraruby project I'm currently working on.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/ctran/annotate_models" title="annotate on github"&gt;annotate&lt;/a&gt; generates a schema of the model and places it on top of the model.
 It can also place it on top of your rspec files and the factories. It looks
 like this:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# == Schema Information&lt;/span&gt;
-&lt;span class="c"&gt;#&lt;/span&gt;
-&lt;span class="c"&gt;# Table name: bugs&lt;/span&gt;
-&lt;span class="c"&gt;#&lt;/span&gt;
-&lt;span class="c"&gt;#  id            :integer          not null, primary key&lt;/span&gt;
-&lt;span class="c"&gt;#  name          :string(255)&lt;/span&gt;
-&lt;span class="c"&gt;#  bz_id         :string(255)&lt;/span&gt;
-&lt;span class="c"&gt;#  fedora_rpm_id :integer&lt;/span&gt;
-&lt;span class="c"&gt;#  is_review     :boolean&lt;/span&gt;
-&lt;span class="c"&gt;#  created_at    :datetime&lt;/span&gt;
-&lt;span class="c"&gt;#  updated_at    :datetime&lt;/span&gt;
-&lt;span class="c"&gt;#  last_updated  :string(255)&lt;/span&gt;
-&lt;span class="c"&gt;#  is_open       :boolean&lt;/span&gt;
-&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;# == Schema Information
+#
+# Table name: bugs
+#
+#  id            :integer          not null, primary key
+#  name          :string(255)
+#  bz_id         :string(255)
+#  fedora_rpm_id :integer
+#  is_review     :boolean
+#  created_at    :datetime
+#  updated_at    :datetime
+#  last_updated  :string(255)
+#  is_open       :boolean
+#
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -844,7 +844,7 @@ directories&lt;/p&gt;
 major ditributions.&lt;/p&gt;
 &lt;h3 id="configuration"&gt;Configuration&lt;/h3&gt;
 &lt;p&gt;For a rails project, in your application root directory you can run:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;ctags&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;R&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;exclude&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;exclude&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;ctags -R --exclude=.git --exclude=log *
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -852,7 +852,7 @@ major ditributions.&lt;/p&gt;
 the &lt;code&gt;.git&lt;/code&gt; and &lt;code&gt;log&lt;/code&gt; directories and creates a &lt;code&gt;tags&lt;/code&gt; file under current
 dir. You may want to add it to &lt;code&gt;.gitignore&lt;/code&gt; by the way.&lt;/p&gt;
 &lt;p&gt;Next, adding the following line to &lt;code&gt;~/.vimrc&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;tags&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tags&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;set tags=./tags;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -860,10 +860,10 @@ dir. You may want to add it to &lt;code&gt;.gitignore&lt;/code&gt; by the way.&l
 directory.&lt;/p&gt;
 &lt;p&gt;You can move the above options in &lt;code&gt;~/.ctags&lt;/code&gt;, so in our case this will
 be:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;recurse&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;yes&lt;/span&gt;
-&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;tag&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;relative&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;yes&lt;/span&gt;
-&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;exclude&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt;
-&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;exclude&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;--recurse=yes
+--tag-relative=yes
+--exclude=.git
+--exclude=log
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -902,7 +902,7 @@ for it will jump in this particular file.&lt;/p&gt;
 code? Here is where the power of ctags really excels. All you have to do
 is tell ctags to also tag the rails source code.&lt;/p&gt;
 &lt;p&gt;First I cloned the rails repository into &lt;code&gt;vendor/rails&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/rails/rails.git vendor/rails&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;git clone https://github.com/rails/rails.git vendor/rails
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -975,7 +975,7 @@ work your way up in fixing all violations by enabling one cop at a time.
 Basically what is included in this file, overrides the default values.&lt;/p&gt;
 &lt;p&gt;If you want to omit calling on &lt;code&gt;.rubocop_todo_yml&lt;/code&gt; every single time, place
 this in &lt;code&gt;.rubocop.yml&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nl"&gt;inherit_from:&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rubocop_todo&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;yml&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;inherit_from: .rubocop_todo.yml
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1032,9 +1032,9 @@ fix that.&lt;/p&gt;
 &lt;p&gt;Reading the &lt;a href="https://houndci.com/configuration" title="Hound configuration"&gt;configuration&lt;/a&gt; guide, and since houndci uses rubocop, I
 copied &lt;code&gt;.rubocop_todo_yml&lt;/code&gt; to &lt;code&gt;.hound.yml&lt;/code&gt;. There, following the &lt;a href="https://github.com/bbatsov/rubocop/blob/master/config/default.yml#L187" title="Default configuration about the dot position cop"&gt;config&lt;/a&gt;
 file I appended&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;Style&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;DotPosition&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-  &lt;span class="nl"&gt;EnforcedStyle:&lt;/span&gt; &lt;span class="n"&gt;leading&lt;/span&gt;
-  &lt;span class="nl"&gt;Enabled:&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;Style/DotPosition:
+  EnforcedStyle: leading
+  Enabled: true
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1059,13 +1059,13 @@ I highly recommend is &lt;a href="https://leanpub.com/everydayrailsrspec" title=
 basically includes all the tools I'll be using, I'm a little biased I admit it
 but it is really worth it.&lt;/p&gt;
 &lt;p&gt;Here are the specs that will be populated with tests over time.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;models&lt;/span&gt;
-&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;bug_spec&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rb&lt;/span&gt;
-&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;build_spec&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rb&lt;/span&gt;
-&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;dependency_spec&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rb&lt;/span&gt;
-&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;fedora_rpm_spec&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rb&lt;/span&gt;
-&lt;span class="err"&gt;├──&lt;/span&gt; &lt;span class="n"&gt;rpm_version_spec&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rb&lt;/span&gt;
-&lt;span class="err"&gt;└──&lt;/span&gt; &lt;span class="n"&gt;ruby_gem_spec&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rb&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;models
+├── bug_spec.rb
+├── build_spec.rb
+├── dependency_spec.rb
+├── fedora_rpm_spec.rb
+├── rpm_version_spec.rb
+└── ruby_gem_spec.rb
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1193,7 +1193,7 @@ I used postgres as a database backend, unicorn serving the app and nginx as
 a reverse proxy.&lt;/p&gt;
 &lt;p&gt;First of all, I had to &lt;a href="https://docs.fedoraproject.org/en-US/Fedora/13/html/Security-Enhanced_Linux/sect-Security-Enhanced_Linux-Working_with_SELinux-Enabling_and_Disabling_SELinux.html" title="Enabling and Disabling SELinux"&gt;enable SELinux&lt;/a&gt;, I &lt;a href="http://stopdisablingselinux.com/" title="Seriously, stop disabling SELinux"&gt;had&lt;/a&gt; to,
 it was off by default. Then I changed a boolean to make nginx work:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;setsebool&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;P&lt;/span&gt; &lt;span class="n"&gt;httpd_can_network_connect&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;setsebool -P httpd_can_network_connect on
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1546,7 +1546,7 @@ that are documentation.&lt;/p&gt;
 &lt;span class="nv"&gt;file_raw&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/home/axil/tools/fedora-gitlab/rubygems_fedora_raw&amp;#39;&lt;/span&gt;
 &lt;span class="nv"&gt;file_new&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/home/axil/tools/fedora-gitlab/rubygems_fedora&amp;#39;&lt;/span&gt;
 
-yum search all rubygem | awk &lt;span class="s1"&gt;&amp;#39;{print $1}&amp;#39;&lt;/span&gt; &amp;gt; &lt;span class="nv"&gt;$file_raw&lt;/span&gt;
+yum search all rubygem &lt;span class="p"&gt;|&lt;/span&gt; awk &lt;span class="s1"&gt;&amp;#39;{print $1}&amp;#39;&lt;/span&gt; &amp;gt; &lt;span class="nv"&gt;$file_raw&lt;/span&gt;
 
 sed -e &lt;span class="s1"&gt;&amp;#39;s/rubygem-//g&amp;#39;&lt;/span&gt; -e &lt;span class="s1"&gt;&amp;#39;s/.noarch//g&amp;#39;&lt;/span&gt; -e &lt;span class="s1"&gt;&amp;#39;s/.x86_64//g&amp;#39;&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
 -e &lt;span class="s1"&gt;&amp;#39;/i686/d&amp;#39;&lt;/span&gt; -e &lt;span class="s1"&gt;&amp;#39;/==/d&amp;#39;&lt;/span&gt; -e &lt;span class="s1"&gt;&amp;#39;/:/d&amp;#39;&lt;/span&gt; -e &lt;span class="s1"&gt;&amp;#39;/-doc/d&amp;#39;&lt;/span&gt; &amp;lt; &lt;span class="nv"&gt;$file_raw&lt;/span&gt; &amp;gt; &lt;span class="nv"&gt;$file_new&lt;/span&gt;

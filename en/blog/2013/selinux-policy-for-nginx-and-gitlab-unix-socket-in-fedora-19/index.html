@@ -1,54 +1,53 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    <meta charset="utf-8">
-        <title>SELinux policy for nginx and GitLab unix socket in Fedora 19</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="Pragma" content="no-cache" />
-        <meta http-equiv="Expires" content="-1" />
-        <link rel="stylesheet" href="/theme/style/reset.css" type="text/css" />
-        <link rel="stylesheet" href="/theme/style/screen.css" type="text/css" />
-        <link rel="stylesheet" href="/theme/style/friendly.css" type="text/css" />
-        <link rel="stylesheet" href="/theme/style/print.css" type="text/css" media="print" />
-        <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+   <head>
+   <meta charset="utf-8">
+       <title>SELinux policy for nginx and GitLab unix socket in Fedora 19</title>
+       <meta charset="utf-8" />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <meta http-equiv="Pragma" content="no-cache" />
+       <meta http-equiv="Expires" content="-1" />
+       <link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+       <link rel="stylesheet" href="/theme/css/friendly.css" type="text/css" />
+       <link rel="stylesheet" href="/theme/css/print.css" type="text/css" media="print" />
+       <link rel="stylesheet" type="text/css" href="http://axilleas.me/theme/tipuesearch/tipuesearch.css" media="screen">
+       <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
 </head>
 <body>
-    <header id="main">
-        <div class="container">
-            <div class="logo">
-                <p><a href="/" title="Home">Over the line</a> <span class="welcome">Yeah, well, you know, that's just, like, my opinion, man.</span></p>
-            </div>
-        </div>
-    </header>
+   <header>
+       <h1><a href="/" title="Mark it zero">Over the line</a></h1>
+       <nav>
+         <a href="/about" title="about me">whoami</a> &bull;
+         <a href="/archives.html" title="Archives">Archives</a> &bull;
+         <a id="subscribe-link" href="/rss" title="RSS feed" rel="nofollow">subscribe</a>
+         <form id="searchform" action="/search.html" onsubmit="return (this.elements['q'].value.length > 0)">
+               <input id="searchbox" type="text" name="q" size="12" placeholder="Search">
+         </form>
+       </nav>
+   </header>
 
-    <div class="splash">
-        <div class="container">
-            <ul>
-                <li><a href="/">Home</a></li>
-                    <li><a href="/about">whoami</a></li>
-                    <li><a href="/rss">Rss Feed</a></li>
-                <li><a href="/archives.html" title="Archive">Archive</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="container content">
+   <div id="main">
 <article>
     <header>
 <h1><a href="/en/blog/2013/selinux-policy-for-nginx-and-gitlab-unix-socket-in-fedora-19" rel="bookmark">
     SELinux policy for nginx and GitLab unix socket in Fedora 19
 </a></h1>
-<time datetime="2013-08-27 00:00:00" pubdate>Posted on
+<span title="~961 words" id='stats'>~4 min read</span>
+&bull;
+<time datetime="2013-08-27 00:00:00+03:00" pubdate>Posted on
     Tue 27 August 2013
 </time>
-<address class="vcard author">
-    by <a class="url fn" href="/author/axil.html">
-    axil</a>
-</address>
 <span class="category">in <a href="/category/linux.html">
-    linux</a>.
-        </span>
+    linux</a>
+</span>
+    <ul class="tags">
+    Tags:
+        <li><a href="/tag/selinux.html">selinux</a></li>
+        <li><a href="/tag/fedora.html">fedora</a></li>
+        <li><a href="/tag/gitlab.html">gitlab</a></li>
+        <li><a href="/tag/unixsocket.html">unixsocket</a></li>
+        <li><a href="/tag/nginx.html">nginx</a></li>
+    </ul>
     </header>
 
     <div class="body">
@@ -85,7 +84,7 @@ nginx was serving. So there clearly was something wrong with nginx.</p>
 <p>So the first thing when such an error occurs is to look through the logs.</p>
 <h3 id="nginx">Nginx</h3>
 <p>In <code>/var/log/nginx/gitlab_error.log</code> I could see this error repeating:</p>
-<div class="codehilite"><pre><span class="mi">2013</span><span class="o">/</span><span class="mi">08</span><span class="o">/</span><span class="mi">26</span> <span class="mi">21</span><span class="o">:</span><span class="mi">43</span><span class="o">:</span><span class="mo">01</span> <span class="p">[</span><span class="n">crit</span><span class="p">]</span> <span class="mi">2597</span><span class="err">#</span><span class="mi">0</span><span class="o">:</span> <span class="o">*</span><span class="mi">50</span> <span class="n">connect</span><span class="p">()</span> <span class="n">to</span> <span class="n">unix</span><span class="o">:/</span><span class="n">home</span><span class="o">/</span><span class="n">git</span><span class="o">/</span><span class="n">gitlab</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">sockets</span><span class="o">/</span><span class="n">gitlab</span><span class="p">.</span><span class="n">socket</span> <span class="n">failed</span> <span class="p">(</span><span class="mi">13</span><span class="o">:</span> <span class="n">Permission</span> <span class="n">denied</span><span class="p">)</span> <span class="k">while</span> <span class="n">connecting</span> <span class="n">to</span> <span class="n">upstream</span><span class="p">,</span> <span class="n">client</span> <span class="mf">12.34.56.78</span><span class="p">,</span> <span class="n">server</span><span class="o">:</span> <span class="n">fedora</span><span class="p">.</span><span class="n">axilleas</span><span class="p">.</span><span class="n">me</span><span class="p">,</span> <span class="n">request</span><span class="o">:</span> <span class="s">&quot;GET /users/sign_in HTTP/1.1&quot;</span><span class="p">,</span> <span class="n">upstream</span><span class="o">:</span> <span class="s">&quot;http://unix:/home/git/gitlab/tmp/sockets/gitlab.socket:/users/sign_in&quot;</span><span class="p">,</span> <span class="n">host</span><span class="o">:</span> <span class="s">&quot;fedora.axilleas.me&quot;</span>
+<div class="codehilite"><pre>2013/08/26 21:43:01 [crit] 2597#0: *50 connect() to unix:/home/git/gitlab/tmp/sockets/gitlab.socket failed (13: Permission denied) while connecting to upstream, client 12.34.56.78, server: fedora.axilleas.me, request: &quot;GET /users/sign_in HTTP/1.1&quot;, upstream: &quot;http://unix:/home/git/gitlab/tmp/sockets/gitlab.socket:/users/sign_in&quot;, host: &quot;fedora.axilleas.me&quot;
 </pre></div>
 
 
@@ -102,43 +101,43 @@ If the <code>auditd</code> daemon is not running, then messages are written to <
 SELinux log messages are labeled with the <em>AVC</em> keyword so that they might be easily filtered from other messages, as with <code>grep</code>. </p>
 <p>So, by greping nginx in <code>/var/log/audit/audit.log</code> I found those relative AVC messages, which indicate indeed
 a denial of nginx connection to <code>gitlab.socket</code>.</p>
-<div class="codehilite"><pre><span class="n">type</span><span class="o">=</span><span class="n">AVC</span> <span class="n">msg</span><span class="o">=</span><span class="n">audit</span><span class="p">(</span><span class="mf">1377542938.307</span><span class="o">:</span><span class="mi">248364</span><span class="p">)</span><span class="o">:</span> <span class="n">avc</span><span class="o">:</span>  <span class="n">denied</span>  <span class="p">{</span> <span class="n">write</span> <span class="p">}</span> <span class="k">for</span>  <span class="n">pid</span><span class="o">=</span><span class="mi">2597</span> <span class="n">comm</span><span class="o">=</span><span class="s">&quot;nginx&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;gitlab.socket&quot;</span> <span class="n">dev</span><span class="o">=</span><span class="s">&quot;vda1&quot;</span> <span class="n">ino</span><span class="o">=</span><span class="mi">1180273</span> <span class="n">scontext</span><span class="o">=</span><span class="n">system_u</span><span class="o">:</span><span class="n">system_r</span><span class="o">:</span><span class="kt">httpd_t</span><span class="o">:</span><span class="n">s0</span> <span class="n">tcontext</span><span class="o">=</span><span class="n">system_u</span><span class="o">:</span><span class="n">object_r</span><span class="o">:</span><span class="kt">httpd_sys_content_t</span><span class="o">:</span><span class="n">s0</span> <span class="n">tclass</span><span class="o">=</span><span class="n">sock_file</span>
-<span class="n">type</span><span class="o">=</span><span class="n">AVC</span> <span class="n">msg</span><span class="o">=</span><span class="n">audit</span><span class="p">(</span><span class="mf">1377542938.307</span><span class="o">:</span><span class="mi">248364</span><span class="p">)</span><span class="o">:</span> <span class="n">avc</span><span class="o">:</span>  <span class="n">denied</span>  <span class="p">{</span> <span class="n">connectto</span> <span class="p">}</span> <span class="k">for</span>  <span class="n">pid</span><span class="o">=</span><span class="mi">2597</span> <span class="n">comm</span><span class="o">=</span><span class="s">&quot;nginx&quot;</span> <span class="n">path</span><span class="o">=</span><span class="s">&quot;/home/git/gitlab/tmp/sockets/gitlab.socket&quot;</span> <span class="n">scontext</span><span class="o">=</span><span class="n">system_u</span><span class="o">:</span><span class="n">system_r</span><span class="o">:</span><span class="kt">httpd_t</span><span class="o">:</span><span class="n">s0</span> <span class="n">tcontext</span><span class="o">=</span><span class="n">system_u</span><span class="o">:</span><span class="n">system_r</span><span class="o">:</span><span class="kt">initrc_t</span><span class="o">:</span><span class="n">s0</span> <span class="n">tclass</span><span class="o">=</span><span class="n">unix_stream_socket</span>
+<div class="codehilite"><pre>type=AVC msg=audit(1377542938.307:248364): avc:  denied  { write } for  pid=2597 comm=&quot;nginx&quot; name=&quot;gitlab.socket&quot; dev=&quot;vda1&quot; ino=1180273 scontext=system_u:system_r:httpd_t:s0 tcontext=system_u:object_r:httpd_sys_content_t:s0 tclass=sock_file
+type=AVC msg=audit(1377542938.307:248364): avc:  denied  { connectto } for  pid=2597 comm=&quot;nginx&quot; path=&quot;/home/git/gitlab/tmp/sockets/gitlab.socket&quot; scontext=system_u:system_r:httpd_t:s0 tcontext=system_u:system_r:initrc_t:s0 tclass=unix_stream_socket
 </pre></div>
 
 
 <p>Using a tool called <code>audit2allow</code> we are able to clear the AVC messages. If you haven't got it
 installed, it is shipped with the <code>policycoreutils-devel</code> package.</p>
-<div class="codehilite"><pre><span class="n">grep</span> <span class="n">nginx</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">audit</span><span class="o">/</span><span class="n">audit</span><span class="p">.</span><span class="n">log</span> <span class="o">|</span> <span class="n">audit2allow</span>
+<div class="codehilite"><pre>grep nginx /var/log/audit/audit.log | audit2allow
 </pre></div>
 
 
 <p>and the result is:</p>
-<div class="codehilite"><pre><span class="cp">#============= httpd_t ==============</span>
+<div class="codehilite"><pre><span class="err">#</span><span class="o">=============</span> <span class="nt">httpd_t</span> <span class="o">==============</span>
 
-<span class="cp">#!!!! This avc is allowed in the current policy</span>
-<span class="n">allow</span> <span class="kt">httpd_t</span> <span class="kt">http_cache_port_t</span><span class="o">:</span><span class="n">tcp_socket</span> <span class="n">name_connect</span><span class="p">;</span>
+<span class="err">#</span><span class="o">!!!!</span> <span class="nt">This</span> <span class="nt">avc</span> <span class="nt">is</span> <span class="nt">allowed</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">current</span> <span class="nt">policy</span>
+<span class="nt">allow</span> <span class="nt">httpd_t</span> <span class="nt">http_cache_port_t</span><span class="nd">:tcp_socket</span> <span class="nt">name_connect</span><span class="o">;</span>
 
-<span class="cp">#!!!! This avc is allowed in the current policy</span>
-<span class="n">allow</span> <span class="kt">httpd_t</span> <span class="kt">httpd_log_t</span><span class="o">:</span><span class="n">file</span> <span class="n">setattr</span><span class="p">;</span>
+<span class="err">#</span><span class="o">!!!!</span> <span class="nt">This</span> <span class="nt">avc</span> <span class="nt">is</span> <span class="nt">allowed</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">current</span> <span class="nt">policy</span>
+<span class="nt">allow</span> <span class="nt">httpd_t</span> <span class="nt">httpd_log_t</span><span class="nd">:file</span> <span class="nt">setattr</span><span class="o">;</span>
 
-<span class="cp">#!!!! This avc is allowed in the current policy</span>
-<span class="n">allow</span> <span class="kt">httpd_t</span> <span class="kt">httpd_sys_content_t</span><span class="o">:</span><span class="n">sock_file</span> <span class="n">write</span><span class="p">;</span>
+<span class="err">#</span><span class="o">!!!!</span> <span class="nt">This</span> <span class="nt">avc</span> <span class="nt">is</span> <span class="nt">allowed</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">current</span> <span class="nt">policy</span>
+<span class="nt">allow</span> <span class="nt">httpd_t</span> <span class="nt">httpd_sys_content_t</span><span class="nd">:sock_file</span> <span class="nt">write</span><span class="o">;</span>
 
-<span class="cp">#!!!! This avc is allowed in the current policy</span>
-<span class="n">allow</span> <span class="kt">httpd_t</span> <span class="kt">initrc_t</span><span class="o">:</span><span class="n">unix_stream_socket</span> <span class="n">connectto</span><span class="p">;</span>
+<span class="err">#</span><span class="o">!!!!</span> <span class="nt">This</span> <span class="nt">avc</span> <span class="nt">is</span> <span class="nt">allowed</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">current</span> <span class="nt">policy</span>
+<span class="nt">allow</span> <span class="nt">httpd_t</span> <span class="nt">initrc_t</span><span class="nd">:unix_stream_socket</span> <span class="nt">connectto</span><span class="o">;</span>
 
-<span class="cp">#!!!! This avc is allowed in the current policy</span>
-<span class="n">allow</span> <span class="kt">httpd_t</span> <span class="kt">user_home_dir_t</span><span class="o">:</span><span class="n">dir</span> <span class="n">search</span><span class="p">;</span>
+<span class="err">#</span><span class="o">!!!!</span> <span class="nt">This</span> <span class="nt">avc</span> <span class="nt">is</span> <span class="nt">allowed</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">current</span> <span class="nt">policy</span>
+<span class="nt">allow</span> <span class="nt">httpd_t</span> <span class="nt">user_home_dir_t</span><span class="nd">:dir</span> <span class="nt">search</span><span class="o">;</span>
 
-<span class="cp">#!!!! This avc is allowed in the current policy</span>
-<span class="n">allow</span> <span class="kt">httpd_t</span> <span class="kt">user_home_t</span><span class="o">:</span><span class="n">dir</span> <span class="p">{</span> <span class="n">search</span> <span class="n">getattr</span> <span class="p">};</span>
+<span class="err">#</span><span class="o">!!!!</span> <span class="nt">This</span> <span class="nt">avc</span> <span class="nt">is</span> <span class="nt">allowed</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">current</span> <span class="nt">policy</span>
+<span class="nt">allow</span> <span class="nt">httpd_t</span> <span class="nt">user_home_t</span><span class="nd">:dir</span> <span class="p">{</span> <span class="n">search</span> <span class="n">getattr</span> <span class="p">}</span><span class="o">;</span>
 
-<span class="cp">#!!!! This avc is allowed in the current policy</span>
-<span class="n">allow</span> <span class="kt">httpd_t</span> <span class="kt">user_home_t</span><span class="o">:</span><span class="n">sock_file</span> <span class="n">write</span><span class="p">;</span>
+<span class="err">#</span><span class="o">!!!!</span> <span class="nt">This</span> <span class="nt">avc</span> <span class="nt">is</span> <span class="nt">allowed</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">current</span> <span class="nt">policy</span>
+<span class="nt">allow</span> <span class="nt">httpd_t</span> <span class="nt">user_home_t</span><span class="nd">:sock_file</span> <span class="nt">write</span><span class="o">;</span>
 
-<span class="cp">#!!!! This avc is allowed in the current policy</span>
-<span class="n">allow</span> <span class="kt">httpd_t</span> <span class="kt">var_run_t</span><span class="o">:</span><span class="n">file</span> <span class="p">{</span> <span class="n">read</span> <span class="n">write</span> <span class="p">};</span>
+<span class="err">#</span><span class="o">!!!!</span> <span class="nt">This</span> <span class="nt">avc</span> <span class="nt">is</span> <span class="nt">allowed</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">current</span> <span class="nt">policy</span>
+<span class="nt">allow</span> <span class="nt">httpd_t</span> <span class="nt">var_run_t</span><span class="nd">:file</span> <span class="p">{</span> <span class="n">read</span> <span class="n">write</span> <span class="p">}</span><span class="o">;</span>
 </pre></div>
 
 
@@ -149,50 +148,50 @@ the denied socket connection: <code>unix_stream_socket connectto</code>.</p>
 <p>After all the investigation we are closer to the solution. All we have to do is use <code>audit2allow</code>
 to generate a set of policy rules that would allow the required actions. We can generate
 a local nginx Type Enforcement policy file (nginx.te): </p>
-<div class="codehilite"><pre><span class="n">grep</span> <span class="n">nginx</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">audit</span><span class="o">/</span><span class="n">audit</span><span class="p">.</span><span class="n">log</span> <span class="o">|</span> <span class="n">audit2allow</span> <span class="o">-</span><span class="n">m</span> <span class="n">nginx</span> <span class="o">&gt;</span> <span class="n">nginx</span><span class="p">.</span><span class="n">te</span>
-<span class="n">cat</span> <span class="n">nginx</span><span class="p">.</span><span class="n">te</span>
+<div class="codehilite"><pre><span class="nt">grep</span> <span class="nt">nginx</span> <span class="o">/</span><span class="nt">var</span><span class="o">/</span><span class="nt">log</span><span class="o">/</span><span class="nt">audit</span><span class="o">/</span><span class="nt">audit</span><span class="nc">.log</span> <span class="o">|</span> <span class="nt">audit2allow</span> <span class="nt">-m</span> <span class="nt">nginx</span> <span class="o">&gt;</span> <span class="nt">nginx</span><span class="nc">.te</span>
+<span class="nt">cat</span> <span class="nt">nginx</span><span class="nc">.te</span>
 
 
-<span class="n">module</span> <span class="n">nginx</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="nt">module</span> <span class="nt">nginx</span> <span class="nt">1</span><span class="nc">.0</span><span class="o">;</span>
 
-<span class="n">require</span> <span class="p">{</span>
-    <span class="n">type</span> <span class="kt">var_run_t</span><span class="p">;</span>
-    <span class="n">type</span> <span class="kt">user_home_dir_t</span><span class="p">;</span>
-    <span class="n">type</span> <span class="kt">httpd_log_t</span><span class="p">;</span>
-    <span class="n">type</span> <span class="kt">httpd_t</span><span class="p">;</span>
-    <span class="n">type</span> <span class="kt">user_home_t</span><span class="p">;</span>
-    <span class="n">type</span> <span class="kt">httpd_sys_content_t</span><span class="p">;</span>
-    <span class="n">type</span> <span class="kt">initrc_t</span><span class="p">;</span>
-    <span class="n">type</span> <span class="kt">http_cache_port_t</span><span class="p">;</span>
+<span class="nt">require</span> <span class="p">{</span>
+    <span class="n">type</span> <span class="n">var_run_t</span><span class="p">;</span>
+    <span class="n">type</span> <span class="n">user_home_dir_t</span><span class="p">;</span>
+    <span class="n">type</span> <span class="n">httpd_log_t</span><span class="p">;</span>
+    <span class="n">type</span> <span class="n">httpd_t</span><span class="p">;</span>
+    <span class="n">type</span> <span class="n">user_home_t</span><span class="p">;</span>
+    <span class="n">type</span> <span class="n">httpd_sys_content_t</span><span class="p">;</span>
+    <span class="n">type</span> <span class="n">initrc_t</span><span class="p">;</span>
+    <span class="n">type</span> <span class="n">http_cache_port_t</span><span class="p">;</span>
     <span class="n">class</span> <span class="n">sock_file</span> <span class="n">write</span><span class="p">;</span>
     <span class="n">class</span> <span class="n">unix_stream_socket</span> <span class="n">connectto</span><span class="p">;</span>
-    <span class="n">class</span> <span class="n">dir</span> <span class="p">{</span> <span class="n">search</span> <span class="n">getattr</span> <span class="p">};</span>
-    <span class="n">class</span> <span class="n">file</span> <span class="p">{</span> <span class="n">read</span> <span class="n">write</span> <span class="n">setattr</span> <span class="p">};</span>
-    <span class="n">class</span> <span class="n">tcp_socket</span> <span class="n">name_connect</span><span class="p">;</span>
-<span class="p">}</span>
+    <span class="n">class</span> <span class="n">dir</span> <span class="err">{</span> <span class="n">search</span> <span class="n">getattr</span> <span class="p">}</span><span class="o">;</span>
+    <span class="nt">class</span> <span class="nt">file</span> <span class="p">{</span> <span class="n">read</span> <span class="n">write</span> <span class="n">setattr</span> <span class="p">}</span><span class="o">;</span>
+    <span class="nt">class</span> <span class="nt">tcp_socket</span> <span class="nt">name_connect</span><span class="o">;</span>
+<span class="err">}</span>
 
-<span class="cp">#============= httpd_t ==============</span>
+<span class="err">#</span><span class="o">=============</span> <span class="nt">httpd_t</span> <span class="o">==============</span>
 
-<span class="cp">#!!!! This avc is allowed in the current policy</span>
-<span class="n">allow</span> <span class="kt">httpd_t</span> <span class="kt">http_cache_port_t</span><span class="o">:</span><span class="n">tcp_socket</span> <span class="n">name_connect</span><span class="p">;</span>
-<span class="n">allow</span> <span class="kt">httpd_t</span> <span class="kt">httpd_log_t</span><span class="o">:</span><span class="n">file</span> <span class="n">setattr</span><span class="p">;</span>
-<span class="n">allow</span> <span class="kt">httpd_t</span> <span class="kt">httpd_sys_content_t</span><span class="o">:</span><span class="n">sock_file</span> <span class="n">write</span><span class="p">;</span>
-<span class="n">allow</span> <span class="kt">httpd_t</span> <span class="kt">initrc_t</span><span class="o">:</span><span class="n">unix_stream_socket</span> <span class="n">connectto</span><span class="p">;</span>
+<span class="err">#</span><span class="o">!!!!</span> <span class="nt">This</span> <span class="nt">avc</span> <span class="nt">is</span> <span class="nt">allowed</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">current</span> <span class="nt">policy</span>
+<span class="nt">allow</span> <span class="nt">httpd_t</span> <span class="nt">http_cache_port_t</span><span class="nd">:tcp_socket</span> <span class="nt">name_connect</span><span class="o">;</span>
+<span class="nt">allow</span> <span class="nt">httpd_t</span> <span class="nt">httpd_log_t</span><span class="nd">:file</span> <span class="nt">setattr</span><span class="o">;</span>
+<span class="nt">allow</span> <span class="nt">httpd_t</span> <span class="nt">httpd_sys_content_t</span><span class="nd">:sock_file</span> <span class="nt">write</span><span class="o">;</span>
+<span class="nt">allow</span> <span class="nt">httpd_t</span> <span class="nt">initrc_t</span><span class="nd">:unix_stream_socket</span> <span class="nt">connectto</span><span class="o">;</span>
 
-<span class="cp">#!!!! This avc is allowed in the current policy</span>
-<span class="n">allow</span> <span class="kt">httpd_t</span> <span class="kt">user_home_dir_t</span><span class="o">:</span><span class="n">dir</span> <span class="n">search</span><span class="p">;</span>
+<span class="err">#</span><span class="o">!!!!</span> <span class="nt">This</span> <span class="nt">avc</span> <span class="nt">is</span> <span class="nt">allowed</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">current</span> <span class="nt">policy</span>
+<span class="nt">allow</span> <span class="nt">httpd_t</span> <span class="nt">user_home_dir_t</span><span class="nd">:dir</span> <span class="nt">search</span><span class="o">;</span>
 
-<span class="cp">#!!!! This avc is allowed in the current policy</span>
-<span class="n">allow</span> <span class="kt">httpd_t</span> <span class="kt">user_home_t</span><span class="o">:</span><span class="n">dir</span> <span class="p">{</span> <span class="n">search</span> <span class="n">getattr</span> <span class="p">};</span>
-<span class="n">allow</span> <span class="kt">httpd_t</span> <span class="kt">user_home_t</span><span class="o">:</span><span class="n">sock_file</span> <span class="n">write</span><span class="p">;</span>
-<span class="n">allow</span> <span class="kt">httpd_t</span> <span class="kt">var_run_t</span><span class="o">:</span><span class="n">file</span> <span class="p">{</span> <span class="n">read</span> <span class="n">write</span> <span class="p">};</span>
+<span class="err">#</span><span class="o">!!!!</span> <span class="nt">This</span> <span class="nt">avc</span> <span class="nt">is</span> <span class="nt">allowed</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">current</span> <span class="nt">policy</span>
+<span class="nt">allow</span> <span class="nt">httpd_t</span> <span class="nt">user_home_t</span><span class="nd">:dir</span> <span class="p">{</span> <span class="n">search</span> <span class="n">getattr</span> <span class="p">}</span><span class="o">;</span>
+<span class="nt">allow</span> <span class="nt">httpd_t</span> <span class="nt">user_home_t</span><span class="nd">:sock_file</span> <span class="nt">write</span><span class="o">;</span>
+<span class="nt">allow</span> <span class="nt">httpd_t</span> <span class="nt">var_run_t</span><span class="nd">:file</span> <span class="p">{</span> <span class="n">read</span> <span class="n">write</span> <span class="p">}</span><span class="o">;</span>
 </pre></div>
 
 
 <p>We are not done yet, as this is a file for review only. We can then go ahead and use audit2allow 
 to make a custom policy module to allow these actions: </p>
-<div class="codehilite"><pre><span class="n">grep</span> <span class="n">nginx</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">audit</span><span class="o">/</span><span class="n">audit</span><span class="p">.</span><span class="n">log</span> <span class="o">|</span> <span class="n">audit2allow</span> <span class="o">-</span><span class="n">M</span> <span class="n">nginx</span>
-<span class="n">semodule</span> <span class="o">-</span><span class="n">i</span> <span class="n">nginx</span><span class="p">.</span><span class="n">pp</span>
+<div class="codehilite"><pre>grep nginx /var/log/audit/audit.log | audit2allow -M nginx
+semodule -i nginx.pp
 </pre></div>
 
 
@@ -202,18 +201,18 @@ to make a custom policy module to allow these actions: </p>
 <p>Unrelated to this article, but it is also needed for nginx to access the unix socket.
 First we add nginx to git group, and then we make sure the group that owns <code>/home/git/</code>
 has read and execute permissions:</p>
-<div class="codehilite"><pre><span class="n">usermod</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">G</span> <span class="n">git</span> <span class="n">nginx</span>
-<span class="n">chmod</span> <span class="n">g</span><span class="o">+</span><span class="n">rx</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">git</span><span class="o">/</span>
+<div class="codehilite"><pre>usermod -a -G git nginx
+chmod g+rx /home/git/
 </pre></div>
 
 
 <h2 id="tldr">TL;DR</h2>
 <p>To fix all nginx 502 issues, as root run:</p>
-<div class="codehilite"><pre><span class="n">yum</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">policycoreutils</span><span class="o">-</span><span class="p">{</span><span class="n">python</span><span class="p">,</span><span class="n">devel</span><span class="p">}</span>
-<span class="n">grep</span> <span class="n">nginx</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">audit</span><span class="o">/</span><span class="n">audit</span><span class="p">.</span><span class="n">log</span> <span class="o">|</span> <span class="n">audit2allow</span> <span class="o">-</span><span class="n">M</span> <span class="n">nginx</span>
-<span class="n">semodule</span> <span class="o">-</span><span class="n">i</span> <span class="n">nginx</span><span class="p">.</span><span class="n">pp</span>
-<span class="n">usermod</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">G</span> <span class="n">git</span> <span class="n">nginx</span>
-<span class="n">chmod</span> <span class="n">g</span><span class="o">+</span><span class="n">rx</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">git</span><span class="o">/</span>
+<div class="codehilite"><pre>yum install -y policycoreutils-{python,devel}
+grep nginx /var/log/audit/audit.log | audit2allow -M nginx
+semodule -i nginx.pp
+usermod -a -G git nginx
+chmod g+rx /home/git/
 </pre></div>
 
 
@@ -221,67 +220,63 @@ has read and execute permissions:</p>
 <p>In a very <a href="http://danwalsh.livejournal.com/65777.html">interesting article</a>, Dan Walsh explains how this whole process of error
 hunting will be much easier with Fedora 20. I urge you to read it.</p>
 <p>With the upcoming changes, the error would have appeared at systemd's status log:</p>
-<div class="codehilite"><pre><span class="n">systemctl</span> <span class="n">status</span> <span class="n">nginx</span>
+<div class="codehilite"><pre>systemctl status nginx
 </pre></div>
 
 
 <p>and the possible solutions with:</p>
-<div class="codehilite"><pre><span class="n">journalctl</span>  <span class="o">-</span><span class="n">r</span> <span class="o">-</span><span class="n">o</span> <span class="n">verbose</span> <span class="o">-</span><span class="n">u</span> <span class="n">nginx</span><span class="p">.</span><span class="n">service</span>
+<div class="codehilite"><pre>journalctl  -r -o verbose -u nginx.service
 </pre></div>
 
 
 <p>Pretty cool, huh?</p>
     </div>
 
-    <footer>
-        <ul class="tags">
-        Tags:
-            <li><a href="/tag/selinux.html">selinux</a></li>
-            <li><a href="/tag/fedora.html">fedora</a></li>
-            <li><a href="/tag/gitlab.html">gitlab</a></li>
-            <li><a href="/tag/unixsocket.html">unixsocket</a></li>
-            <li><a href="/tag/nginx.html">nginx</a></li>
-        </ul>
-    </footer>
+    <div class="neighbors"></div>
 
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'kissmyarch'; // required: replace example with your forum shortname
+      <nav class="older">
+          <a href="http://axilleas.me/en/blog/2013/gsoc-weekly-update-7-and-8">
+              <span class="lpin"></span>
+              GSoC - Weekly update 7 and 8
+          </a>
+      </nav>
 
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</article>
-    </div>
+      <nav class="newer">
+          <a href="http://axilleas.me/en/blog/2013/gsoc-weekly-update-9-and-10">
+              GSoC - Weekly update 9 and 10
+              <span class="rpin"></span>
+          </a>
+      </nav>
 
-    <div class="container footnote">
-        <a href="javascript:window.print();" title="Print">Print</a>
-    </div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'kissmyarch';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></article>
+   </div>
+
+   <footer>
+       <p>Powered by <a href="http://docs.getpelican.com">
+           Pelican</a> using <a href="https://github.com/axilleas/pelican-uberspot">uberspot theme</a> &bull;
+         Background image from <a href="http://subtlepatterns.com/">Subtle patterns</a> &bull;
+               <a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a>
+</p>
 
 
+ <p><a id="cc-logo" title="Creative Commons License"
+ rel="license" href="http://creativecommons.org/licenses/by/4.0/"></a>
+ Except where otherwise noted, content on this site is licensed under a<br />
+ <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
 
-    <footer>
-        <div class="container footer">
-            <span>Powered by <a href="http://docs.getpelican.com">
-                Pelican</a> using <a href="https://github.com/BYK/pelican-neat">
-                neat theme</a>. 
-            </span>
-            <nav>
-                <ul>
-                    <li><a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a></li>
-                <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img
-                    alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"></a></li>
-                </ul>
-            </nav>
-        </div>
-    </footer>
+   </footer>
      <!-- Piwik -->
     <script type="text/javascript">
       var _paq = _paq || [];

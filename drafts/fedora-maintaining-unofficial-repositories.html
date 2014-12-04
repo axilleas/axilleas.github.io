@@ -1,54 +1,51 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    <meta charset="utf-8">
-        <title>Fedora - maintaining unofficial repositories</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="Pragma" content="no-cache" />
-        <meta http-equiv="Expires" content="-1" />
-        <link rel="stylesheet" href="/theme/style/reset.css" type="text/css" />
-        <link rel="stylesheet" href="/theme/style/screen.css" type="text/css" />
-        <link rel="stylesheet" href="/theme/style/friendly.css" type="text/css" />
-        <link rel="stylesheet" href="/theme/style/print.css" type="text/css" media="print" />
-        <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+   <head>
+   <meta charset="utf-8">
+       <title>Fedora - maintaining unofficial repositories</title>
+       <meta charset="utf-8" />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <meta http-equiv="Pragma" content="no-cache" />
+       <meta http-equiv="Expires" content="-1" />
+       <link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+       <link rel="stylesheet" href="/theme/css/friendly.css" type="text/css" />
+       <link rel="stylesheet" href="/theme/css/print.css" type="text/css" media="print" />
+       <link rel="stylesheet" type="text/css" href="http://axilleas.me/theme/tipuesearch/tipuesearch.css" media="screen">
+       <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
 </head>
 <body>
-    <header id="main">
-        <div class="container">
-            <div class="logo">
-                <p><a href="/" title="Home">Over the line</a> <span class="welcome">Yeah, well, you know, that's just, like, my opinion, man.</span></p>
-            </div>
-        </div>
-    </header>
+   <header>
+       <h1><a href="/" title="Mark it zero">Over the line</a></h1>
+       <nav>
+         <a href="/about" title="about me">whoami</a> &bull;
+         <a href="/archives.html" title="Archives">Archives</a> &bull;
+         <a id="subscribe-link" href="/rss" title="RSS feed" rel="nofollow">subscribe</a>
+         <form id="searchform" action="/search.html" onsubmit="return (this.elements['q'].value.length > 0)">
+               <input id="searchbox" type="text" name="q" size="12" placeholder="Search">
+         </form>
+       </nav>
+   </header>
 
-    <div class="splash">
-        <div class="container">
-            <ul>
-                <li><a href="/">Home</a></li>
-                    <li><a href="/about">whoami</a></li>
-                    <li><a href="/rss">Rss Feed</a></li>
-                <li><a href="/archives.html" title="Archive">Archive</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="container content">
+   <div id="main">
 <article>
     <header>
-<h1><a href="/en/blog/2013/fedora-maintaining-unofficial-repositories" rel="bookmark">
+<h1><a href="/drafts/fedora-maintaining-unofficial-repositories.html" rel="bookmark">
     Fedora - maintaining unofficial repositories
 </a></h1>
-<time datetime="2013-07-22 00:00:00" pubdate>Posted on
+<span title="~144 words" id='stats'>~1 min read</span>
+&bull;
+<time datetime="2013-07-22 00:00:00+03:00" pubdate>Posted on
     Mon 22 July 2013
 </time>
-<address class="vcard author">
-    by <a class="url fn" href="/author/axil.html">
-    axil</a>
-</address>
 <span class="category">in <a href="/category/linux.html">
-    linux</a>.
-        </span>
+    linux</a>
+</span>
+    <ul class="tags">
+    Tags:
+        <li><a href="/tag/fedora.html">fedora</a></li>
+        <li><a href="/tag/packaging.html">packaging</a></li>
+        <li><a href="/tag/gitlab.html">gitlab</a></li>
+    </ul>
     </header>
 
     <div class="body">
@@ -82,16 +79,16 @@ Alternatively you can use the [script][repo-create] mentioned in the wiki.</p>
 <span class="nv">srpm_dir</span><span class="o">=</span><span class="nv">$HOME</span>/rpmbuild/SRPMS
 <span class="nv">src_dir</span><span class="o">=</span><span class="nv">$HOME</span>/rpmbuild/SOURCES
 
-<span class="nb">pushd</span> . &gt;&amp; /dev/null
+<span class="nb">pushd</span> . &gt;<span class="p">&amp;</span> /dev/null
 
 <span class="nb">cd</span> <span class="nv">$src_dir</span>
 
-<span class="nb">echo</span> <span class="s2">&quot;Fetching $1 from rubygems.org&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;Fetching </span><span class="nv">$1</span><span class="s2"> from rubygems.org&quot;</span>
 gem2rpm --fetch <span class="nv">$1</span> -o <span class="nv">$spec_dir</span>/rubygem-<span class="nv">$1</span>.spec
-<span class="nb">echo</span> <span class="s2">&quot;gem downloaded in : $src_dir&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;spec file is in   : $spec_dir&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;gem downloaded in : </span><span class="nv">$src_dir</span><span class="s2">&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;spec file is in   : </span><span class="nv">$spec_dir</span><span class="s2">&quot;</span>
 
-<span class="nb">popd</span> &gt;&amp; /dev/null
+<span class="nb">popd</span> &gt;<span class="p">&amp;</span> /dev/null
 </pre></div>
 
 
@@ -105,53 +102,39 @@ repo_rawhide='$HOME/repos/gitlab/fedora-rawhide'</p>
 <p>updaterepo:</p>
     </div>
 
-    <footer>
-        <ul class="tags">
-        Tags:
-            <li><a href="/tag/fedora.html">fedora</a></li>
-            <li><a href="/tag/packaging.html">packaging</a></li>
-            <li><a href="/tag/gitlab.html">gitlab</a></li>
-        </ul>
-    </footer>
-
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'kissmyarch'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</article>
-    </div>
-
-    <div class="container footnote">
-        <a href="javascript:window.print();" title="Print">Print</a>
-    </div>
+    <div class="neighbors"></div>
 
 
 
-    <footer>
-        <div class="container footer">
-            <span>Powered by <a href="http://docs.getpelican.com">
-                Pelican</a> using <a href="https://github.com/BYK/pelican-neat">
-                neat theme</a>. 
-            </span>
-            <nav>
-                <ul>
-                    <li><a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a></li>
-                <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img
-                    alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png"></a></li>
-                </ul>
-            </nav>
-        </div>
-    </footer>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'kissmyarch';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></article>
+   </div>
+
+   <footer>
+       <p>Powered by <a href="http://docs.getpelican.com">
+           Pelican</a> using <a href="https://github.com/axilleas/pelican-uberspot">uberspot theme</a> &bull;
+         Background image from <a href="http://subtlepatterns.com/">Subtle patterns</a> &bull;
+               <a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a>
+</p>
+
+
+ <p><a id="cc-logo" title="Creative Commons License"
+ rel="license" href="http://creativecommons.org/licenses/by/4.0/"></a>
+ Except where otherwise noted, content on this site is licensed under a<br />
+ <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+
+   </footer>
      <!-- Piwik -->
     <script type="text/javascript">
       var _paq = _paq || [];

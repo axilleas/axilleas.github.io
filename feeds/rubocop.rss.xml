@@ -41,7 +41,7 @@ work your way up in fixing all violations by enabling one cop at a time.
 Basically what is included in this file, overrides the default values.&lt;/p&gt;
 &lt;p&gt;If you want to omit calling on &lt;code&gt;.rubocop_todo_yml&lt;/code&gt; every single time, place
 this in &lt;code&gt;.rubocop.yml&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nl"&gt;inherit_from:&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rubocop_todo&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;yml&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;inherit_from: .rubocop_todo.yml
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -98,9 +98,9 @@ fix that.&lt;/p&gt;
 &lt;p&gt;Reading the &lt;a href="https://houndci.com/configuration" title="Hound configuration"&gt;configuration&lt;/a&gt; guide, and since houndci uses rubocop, I
 copied &lt;code&gt;.rubocop_todo_yml&lt;/code&gt; to &lt;code&gt;.hound.yml&lt;/code&gt;. There, following the &lt;a href="https://github.com/bbatsov/rubocop/blob/master/config/default.yml#L187" title="Default configuration about the dot position cop"&gt;config&lt;/a&gt;
 file I appended&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;Style&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;DotPosition&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-  &lt;span class="nl"&gt;EnforcedStyle:&lt;/span&gt; &lt;span class="n"&gt;leading&lt;/span&gt;
-  &lt;span class="nl"&gt;Enabled:&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;Style/DotPosition:
+  EnforcedStyle: leading
+  Enabled: true
 &lt;/pre&gt;&lt;/div&gt;
 
 

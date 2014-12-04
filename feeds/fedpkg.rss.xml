@@ -125,28 +125,28 @@ Uploaded and added to .gitignore: bootstrap-sass-2.3.2.1.gem
 diff status of all files to be commited
 ...
 New content staged and new sources uploaded.
-Commit &lt;span class="k"&gt;if &lt;/span&gt;happy or revert with: git reset --hard HEAD
+Commit &lt;span class="k"&gt;if&lt;/span&gt; happy or revert with: git reset --hard HEAD
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now we have 3 files in our directory:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;axil&lt;/span&gt; &lt;span class="n"&gt;axil&lt;/span&gt; &lt;span class="mi"&gt;86528&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;2.3.2.1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gem&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rw&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;axil&lt;/span&gt; &lt;span class="n"&gt;axil&lt;/span&gt;  &lt;span class="mi"&gt;2314&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;spec&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rw&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;axil&lt;/span&gt; &lt;span class="n"&gt;axil&lt;/span&gt;    &lt;span class="mi"&gt;61&lt;/span&gt; &lt;span class="n"&gt;Jul&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="n"&gt;sources&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;-r--r--r--. 1 axil axil 86528 Jul 20 15:30 bootstrap-sass-2.3.2.1.gem
+-rw-r--r--. 1 axil axil  2314 Jul 20 15:30 rubygem-bootstrap-sass.spec
+-rw-r--r--. 1 axil axil    61 Jul 20 15:30 sources
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;sources is a text file with the source package (gem) and its md5 hash.
 Notice that the gem name was automatically placed to the &lt;code&gt;.gitignore&lt;/code&gt;.
 Running &lt;code&gt;git status&lt;/code&gt; we see that there are 3 files in the &lt;a href="http://git-scm.com/about/staging-area"&gt;staging area&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# On branch master&lt;/span&gt;
-&lt;span class="c"&gt;# Changes to be committed:&lt;/span&gt;
-&lt;span class="c"&gt;#   (use &amp;quot;git reset HEAD &amp;lt;file&amp;gt;...&amp;quot; to unstage)&lt;/span&gt;
-&lt;span class="c"&gt;#&lt;/span&gt;
-&lt;span class="c"&gt;#       modified:   .gitignore&lt;/span&gt;
-&lt;span class="c"&gt;#       new file:   rubygem-bootstrap-sass.spec&lt;/span&gt;
-&lt;span class="c"&gt;#       modified:   sources&lt;/span&gt;
-&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;# On branch master
+# Changes to be committed:
+#   (use &amp;quot;git reset HEAD &amp;lt;file&amp;gt;...&amp;quot; to unstage)
+#
+#       modified:   .gitignore
+#       new file:   rubygem-bootstrap-sass.spec
+#       modified:   sources
+#
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -168,22 +168,22 @@ Use the bugzilla id from your review request. No scripts are parsing this, it is
 
 
 &lt;p&gt;Output:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;Building&lt;/span&gt; &lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;2.3.2.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.f&lt;/span&gt;&lt;span class="n"&gt;c20&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;rawhide&lt;/span&gt;
-&lt;span class="n"&gt;Created&lt;/span&gt; &lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5631690&lt;/span&gt;
-&lt;span class="n"&gt;Task&lt;/span&gt; &lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//koji.fedoraproject.org/koji/taskinfo?taskID=5631690&lt;/span&gt;
-&lt;span class="n"&gt;Watching&lt;/span&gt; &lt;span class="n"&gt;tasks&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;may&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;safely&lt;/span&gt; &lt;span class="n"&gt;interrupted&lt;/span&gt;&lt;span class="p"&gt;)...&lt;/span&gt;
-&lt;span class="mi"&gt;5631690&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rawhide&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;md5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arm02&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;builder11&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fedoraproject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="mi"&gt;5631691&lt;/span&gt; &lt;span class="n"&gt;buildSRPMFromSCM&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;md5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buildvm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;25.&lt;/span&gt;&lt;span class="n"&gt;phx2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fedoraproject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="mi"&gt;5631716&lt;/span&gt; &lt;span class="n"&gt;buildArch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;2.3.2.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.f&lt;/span&gt;&lt;span class="n"&gt;c20&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rpm&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;noarch&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buildvm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;01.&lt;/span&gt;&lt;span class="n"&gt;phx2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fedoraproject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="mi"&gt;5631691&lt;/span&gt; &lt;span class="n"&gt;buildSRPMFromSCM&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;md5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buildvm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;25.&lt;/span&gt;&lt;span class="n"&gt;phx2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fedoraproject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;closed&lt;/span&gt;
-&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;free&lt;/span&gt;  &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt;  &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;done&lt;/span&gt;  &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;failed&lt;/span&gt;
-&lt;span class="mi"&gt;5631716&lt;/span&gt; &lt;span class="n"&gt;buildArch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;2.3.2.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.f&lt;/span&gt;&lt;span class="n"&gt;c20&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rpm&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;noarch&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;buildvm&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;01.&lt;/span&gt;&lt;span class="n"&gt;phx2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fedoraproject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;closed&lt;/span&gt;
-&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;free&lt;/span&gt;  &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt;  &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;done&lt;/span&gt;  &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;failed&lt;/span&gt;
-&lt;span class="mi"&gt;5631737&lt;/span&gt; &lt;span class="n"&gt;tagBuild&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;noarch&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;closed&lt;/span&gt;
-&lt;span class="mi"&gt;5631690&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rawhide&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;md5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arm02&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;builder11&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fedoraproject&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;closed&lt;/span&gt;
-&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;free&lt;/span&gt;  &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt;  &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="n"&gt;done&lt;/span&gt;  &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;failed&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;Building rubygem-bootstrap-sass-2.3.2.1-1.fc20 for rawhide
+Created task: 5631690
+Task info: http://koji.fedoraproject.org/koji/taskinfo?taskID=5631690
+Watching tasks (this may be safely interrupted)...
+5631690 build (rawhide, /rubygem-bootstrap-sass:md5): open (arm02-builder11.arm.fedoraproject.org)
+5631691 buildSRPMFromSCM (/rubygem-bootstrap-sass:md5): open (buildvm-25.phx2.fedoraproject.org)
+5631716 buildArch (rubygem-bootstrap-sass-2.3.2.1-1.fc20.src.rpm, noarch): open (buildvm-01.phx2.fedoraproject.org)
+5631691 buildSRPMFromSCM (/rubygem-bootstrap-sass:md5): open (buildvm-25.phx2.fedoraproject.org) -&amp;gt; closed
+0 free  2 open  1 done  0 failed
+5631716 buildArch (rubygem-bootstrap-sass-2.3.2.1-1.fc20.src.rpm, noarch): open (buildvm-01.phx2.fedoraproject.org) -&amp;gt; closed
+0 free  1 open  2 done  0 failed
+5631737 tagBuild (noarch): closed
+5631690 build (rawhide, /rubygem-bootstrap-sass:md5): open (arm02-builder11.arm.fedoraproject.org) -&amp;gt; closed
+0 free  0 open  4 done  0 failed
 
-&lt;span class="mi"&gt;5631690&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rawhide&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;054f742970e4&lt;/span&gt;&lt;span class="n"&gt;b930bc55a5d3802fb31d26c57d0d&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;completed&lt;/span&gt; &lt;span class="n"&gt;successfully&lt;/span&gt;
+5631690 build (rawhide, /rubygem-bootstrap-sass:054f742970e4b930bc55a5d3802fb31d26c57d0d) completed successfully
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -327,21 +327,21 @@ fedpkg update
 
 &lt;p&gt;Once you make all the appropriate changes, save it and close it. You will be
 asked your FAS password to complete the process and you will get a similar output:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;================================================================================&lt;/span&gt;
-     &lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;2.3.2.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.f&lt;/span&gt;&lt;span class="n"&gt;c19&lt;/span&gt;
-&lt;span class="o"&gt;================================================================================&lt;/span&gt;
-    &lt;span class="nl"&gt;Release:&lt;/span&gt; &lt;span class="n"&gt;Fedora&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;
-     &lt;span class="nl"&gt;Status:&lt;/span&gt; &lt;span class="n"&gt;pending&lt;/span&gt;
-       &lt;span class="nl"&gt;Type:&lt;/span&gt; &lt;span class="n"&gt;newpackage&lt;/span&gt;
-      &lt;span class="nl"&gt;Karma:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-       &lt;span class="nl"&gt;Bugs:&lt;/span&gt; &lt;span class="mi"&gt;982679&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Review&lt;/span&gt; &lt;span class="n"&gt;Request&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;rubygem&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Twitter&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
-           &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Bootstrap&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;converted&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;Sass&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;ready&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;drop&lt;/span&gt; &lt;span class="n"&gt;into&lt;/span&gt;
-           &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Rails&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;Compass&lt;/span&gt;
-      &lt;span class="nl"&gt;Notes:&lt;/span&gt; &lt;span class="n"&gt;Initial&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt;
-  &lt;span class="nl"&gt;Submitter:&lt;/span&gt; &lt;span class="n"&gt;axilleas&lt;/span&gt;
-  &lt;span class="nl"&gt;Submitted:&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;07&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;================================================================================
+     rubygem-bootstrap-sass-2.3.2.1-1.fc19
+================================================================================
+    Release: Fedora 19
+     Status: pending
+       Type: newpackage
+      Karma: 0
+       Bugs: 982679 - Review Request: rubygem-bootstrap-sass - Twitter&amp;#39;s
+           : Bootstrap, converted to Sass and ready to drop into
+           : Rails or Compass
+      Notes: Initial commit
+  Submitter: axilleas
+  Submitted: 2013-07-20 15:20:18
 
-  &lt;span class="nl"&gt;https:&lt;/span&gt;&lt;span class="c1"&gt;//admin.fedoraproject.org/updates/rubygem-bootstrap-sass-2.3.2.1-1.fc19&lt;/span&gt;
+  https://admin.fedoraproject.org/updates/rubygem-bootstrap-sass-2.3.2.1-1.fc19
 &lt;/pre&gt;&lt;/div&gt;
 
 
