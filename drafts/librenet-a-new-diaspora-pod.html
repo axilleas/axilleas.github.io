@@ -10,7 +10,8 @@
        <link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
        <link rel="stylesheet" href="/theme/css/friendly.css" type="text/css" />
        <link rel="stylesheet" href="/theme/css/print.css" type="text/css" media="print" />
-       <link rel="stylesheet" type="text/css" href="http://axilleas.me/theme/tipuesearch/tipuesearch.css" media="screen">
+       <link rel="stylesheet" type="text/css" href="/theme/tipuesearch/tipuesearch.css" media="screen">
+       <link rel="stylesheet" href="/theme/css/font-awesome.min.css" type="text/css" />
        <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
 </head>
 <body>
@@ -32,17 +33,14 @@
 <h1><a href="/drafts/librenet-a-new-diaspora-pod.html" rel="bookmark">
     librenet.gr - a new Diaspora pod
 </a></h1>
-<span title="~188 words" id='stats'>~1 min read</span>
+<span title="~186 words" id='stats'>~1 min read</span>
 &bull;
-<time datetime="2014-12-02 00:00:00+02:00" pubdate>Posted on
-    Tue 02 December 2014
+<time datetime="2014-12-04 20:00:00+02:00" pubdate>Posted on
+    Thu 04 December 2014
 </time>
 <span class="category">in <a href="/category/blog.html">
     blog</a>
 </span>
-  <time datetime="2014-12-03 12:00" pubdate>Last updated:
-      2014-12-03 12:00
-  </time>
     <ul class="tags">
     Tags:
         <li><a href="/tag/ruby.html">ruby</a></li>
@@ -58,12 +56,7 @@
     <div class="body">
         <div class="toc">
 <ul>
-<li><a href="#diaspora">Diaspora</a><ul>
-<li><a href="#stable-vs-develop">Stable vs Develop</a></li>
-<li><a href="#how-to-contribute">How to contribute</a></li>
-</ul>
-</li>
-<li><a href="#librenet">librenet</a><ul>
+<li><a href="#librenetgr">librenet.gr</a><ul>
 <li><a href="#the-team">The team</a></li>
 <li><a href="#privacy-and-security-are-important-to-us">Privacy and security are important to us</a></li>
 <li><a href="#what-we-had-to-overcome">What we had to overcome</a></li>
@@ -72,14 +65,28 @@
 <li><a href="#using-vagrant-to-set-up-a-staging-environment">Using Vagrant to set up a staging environment</a></li>
 </ul>
 </li>
+<li><a href="#diaspora">Diaspora</a><ul>
+<li><a href="#stable-vs-develop">Stable vs Develop</a></li>
+<li><a href="#how-to-contribute">How to contribute</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <p>Hello world! A new Diaspora* pod has come to life. It was initially deployed
 for the Greek users, but the registrations are open so anyone can sign up for
-a new account and connect to the Diaspora network <i class="fa fa-cc"></i> .</p>
+a new account and connect to the Diaspora network.</p>
 <p>Visit <a href="https://librenet.gr">https://librenet.gr</a> now!</p>
-<p>At this time of writing we host something less than 300 users. And that has
-happened in less in a month!</p>
+<p>At this time of writing we host around 300 users. And that has happened in less
+in a month!</p>
+<h1 id="librenetgr">librenet.gr</h1>
+<h2 id="the-team">The team</h2>
+<h2 id="privacy-and-security-are-important-to-us">Privacy and security are important to us</h2>
+<h2 id="what-we-had-to-overcome">What we had to overcome</h2>
+<h2 id="custom-changes">Custom changes</h2>
+<p><a href="https://librenet.gr/posts/2480">https://librenet.gr/posts/2480</a></p>
+<h2 id="how-we-deploy-to-production">How we deploy to production</h2>
+<p>For all the repetitive administrative tasks we use Ansible.</p>
+<h2 id="using-vagrant-to-set-up-a-staging-environment">Using Vagrant to set up a staging environment</h2>
 <h1 id="diaspora">Diaspora</h1>
 <h2 id="stable-vs-develop">Stable vs Develop</h2>
 <h2 id="how-to-contribute">How to contribute</h2>
@@ -87,15 +94,6 @@ happened in less in a month!</p>
 great impact since this is a community project.</p>
 <p>If you are looking for ways to contribute, check <a href="https://diaspora-fr.org/posts/793785" title="There are tons of way to #contribute to the diaspora* project">this awesome post</a>
 by Fla, a core contributor of Diaspora.</p>
-<h1 id="librenet">librenet</h1>
-<h2 id="the-team">The team</h2>
-<h2 id="privacy-and-security-are-important-to-us">Privacy and security are important to us</h2>
-<h2 id="what-we-had-to-overcome">What we had to overcome</h2>
-<h2 id="custom-changes">Custom changes</h2>
-<p>https://librenet.gr/posts/2480</p>
-<h2 id="how-we-deploy-to-production">How we deploy to production</h2>
-<p>For all the repetitive administrative tasks we use Ansible.</p>
-<h2 id="using-vagrant-to-set-up-a-staging-environment">Using Vagrant to set up a staging environment</h2>
     </div>
 
     <div class="neighbors"></div>
@@ -138,9 +136,9 @@ by Fla, a core contributor of Diaspora.</p>
       _paq.push(["enableLinkTracking"]);
 
       (function() {
-        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik-glb.rhcloud.com/";
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik2-glb.rhcloud.com/";
         _paq.push(["setTrackerUrl", u+"piwik.php"]);
-        _paq.push(["setSiteId", "5"]);
+        _paq.push(["setSiteId", "1"]);
         var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
         g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
       })();
