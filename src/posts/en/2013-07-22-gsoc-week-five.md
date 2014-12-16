@@ -1,6 +1,6 @@
 Title: GSoC - Weekly update 5
 Tags: gsoc, fedora, gitlab, packaging
-Category: linux
+Category: opensource
 
 I can't believe that a month has already passed! I keep learning new things, mostly
 on packaging, and the cool fact is that many of them are through my Review Requests.

@@ -1,5 +1,5 @@
 Title: GitLab gem install benchmarking with bundler 1.4
-Category: linux
+Category: opensource
 Tag: gitlab, bundler, time
 
 It appears that the new `bundler 1.4.0` will [support][] parallel gem installation. Thanks to [thoughtbot's post][post]

@@ -1,6 +1,6 @@
 Title: GSoC - Weekly update 3 and 4
 Tags: gsoc, fedora, gitlab
-Category: geek
+Category: opensource
 
 Here is what I have been doing the last two weeks.
 

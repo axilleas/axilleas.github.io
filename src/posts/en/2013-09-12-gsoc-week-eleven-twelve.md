@@ -1,6 +1,6 @@
 Title: GSoC - Weekly update 11 and 12
 Tags: gsoc, fedora, gitlab, packaging
-Category: linux
+Category: opensource
 
 So far, I managed to [deploy GitLab][fedora] on a Fedora 19 machine using only packaged gems either from
 the official repos or a [custom][repo] one I have created.

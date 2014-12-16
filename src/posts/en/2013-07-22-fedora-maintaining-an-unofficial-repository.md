@@ -1,6 +1,6 @@
 Title: Fedora - maintaining unofficial repositories
 Tags: fedora, packaging, gitlab
-Category: linux
+Category: opensource
 Status: draft
 
 

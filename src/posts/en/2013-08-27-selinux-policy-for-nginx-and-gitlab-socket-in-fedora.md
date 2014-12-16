@@ -1,5 +1,5 @@
 Title: SELinux policy for nginx and GitLab unix socket in Fedora 19
-Category: linux
+Category: opensource
 Tags: selinux, fedora, gitlab, unixsocket, nginx
 
 The installation of GitLab in Fedora 19 went fine. I followed the official installation

@@ -1,7 +1,7 @@
 Title: Rubocop to the rescue!
 Slug: rubocop-to-the-rescue
 Tags: fedora, isitfedoraruby, gsoc, ruby, rails, webdev, rubocop
-Category: geek
+Category: opensource
 Lang: en
 
 *I decided to drop the GSoC related titles and focus on the things

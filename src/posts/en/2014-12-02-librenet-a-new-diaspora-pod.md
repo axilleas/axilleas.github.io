@@ -2,7 +2,7 @@ Title: librenet.gr - a new Diaspora pod
 Date: 2014-12-04 20:00
 Slug: librenet-a-new-diaspora-pod
 Tags: ruby, rails, diaspora, centos, systemd, devops, ansible
-Category: blog
+Category: opensource
 Lang: en
 Status: draft
 

@@ -1,6 +1,6 @@
 Title: Accepted for GSoC 2013
 Slug: accepted-for-gsoc-2013
-Category: geek
+Category: opensource
 Tags: gsoc, fedora, gitlab, superexcited
 
 ![gsoc-logo](https://1-ps.googleusercontent.com/sx/s.google-melange.appspot.com/www.google-melange.com/soc/content/2-1-20130521/images/gsoc/logo/924x156xbanner-gsoc2013.png.pagespeed.ic.Z9V_lgyiqp.jpg)

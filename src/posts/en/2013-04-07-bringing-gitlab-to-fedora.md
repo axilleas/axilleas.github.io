@@ -1,7 +1,7 @@
 Title: Bringing GitLab to Fedora
 Slug: bringing-gitlab-in-fedora
 Tags: fedora, gitlab, gsoc, ruby, rails
-Category: geek
+Category: opensource
 Lang: en
 
 ***Update***: I just got a confirmation mail that my proposal got accepted! [Read here.](|filename|2013-05-27-accepted-for-gsoc-2013.md)

@@ -1,7 +1,7 @@
 Title: GSoC-2014 isitfedoraruby - Week 3
 Slug: gsoc2014-week-three
 Tags: fedora, isitfedoraruby, gsoc, ruby, rails, webdev
-Category: geek
+Category: opensource
 Lang: en
 
 Testing, testing, testing.

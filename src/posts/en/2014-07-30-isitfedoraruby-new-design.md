@@ -1,7 +1,7 @@
 Title: IsItFedoraRuby new design
 Slug: isitfedoraruby-new-design
 Tags: fedora, gsoc, ruby, rails, webdev, isitfedoraruby
-Category: geek
+Category: opensource
 Lang: en
 
 The past week I tried to do something about the looks of isitfedoraruby.

@@ -1,7 +1,7 @@
 Title: GitLab on CentOS asks for password when using git push via ssh
 Slug: centos-gitlab-asks-for-password-on-git-push
 Tags: centos, gitlab, selinux
-Category: geek
+Category: opensource
 Lang: en
 
 Seems there is an issue floating around when a user tries to push on their

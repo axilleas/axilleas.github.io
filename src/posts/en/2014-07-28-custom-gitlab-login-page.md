@@ -1,7 +1,7 @@
 Title: Custom GitLab login page
 Slug: custom-gitlab-login-page
 Tags: ruby, rails, webdev, gitlab, haml
-Category: geek
+Category: opensource
 Lang: en
 
 With the [release of GitLab 7.1][rel71], the login page now looks like the
