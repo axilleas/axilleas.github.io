@@ -1,7 +1,7 @@
 Title: Rails development tools
 Slug: ruby-on-rails-development-tools
 Tags: fedora, gsoc, ruby, rails, webdev
-Category: geek
+Category: opensource
 Lang: en
 
 During the past two months I have been reading constantly about Rails and

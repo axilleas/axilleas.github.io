@@ -1,7 +1,7 @@
 Title: isitfedoraruby gsoc midterm sum up
 Slug: isitfedoraruby-gsoc-midterm-sum-up
 Tags: fedora, gsoc, ruby, rails, webdev, isitfedoraruby
-Category: geek
+Category: opensource
 Lang: en
 
 This sums up my past month involvement with the project. A lot of reading in

@@ -1,7 +1,7 @@
 Title: Redesigning the looks of this blog
 Slug: pelican-new-theme-redesign
 Tags: pelican, python, css, jinja, fedoraplanet
-Category: blog
+Category: opensource
 Lang: en
 
 It's been a long time since last I showed some love for the UI of this blog,

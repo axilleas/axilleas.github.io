@@ -1,6 +1,6 @@
 Title: I got approved as a packager, now what?
 Tags: fedora, packaging, fedpkg, bodhi, git
-Category: tech
+Category: opensource
 
 
 This must have been the most intense week in terms of learning how the build 

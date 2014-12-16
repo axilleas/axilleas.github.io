@@ -1,6 +1,6 @@
 Title: GSoC - Weekly update 2
 Tags: gsoc, fedora, gitlab
-Category: geek
+Category: opensource
 
 Unfortunately this week hasn't been very productive due to lack of time. I managed
 to package 5-6 more gems, but I haven't submit them in Bugzilla yet. As always, the

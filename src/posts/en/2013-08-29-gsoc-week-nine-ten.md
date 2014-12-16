@@ -1,6 +1,6 @@
 Title: GSoC - Weekly update 9 and 10
 Tags: gsoc, fedora, gitlab, packaging
-Category: linux
+Category: opensource
 
 I've been busy the past two weeks with some personal stuff so I got a little behind.
 Here's what happened in the GitLab front.

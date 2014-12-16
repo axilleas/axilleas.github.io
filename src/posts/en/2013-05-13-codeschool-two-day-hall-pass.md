@@ -1,6 +1,6 @@
 Title: Codeschool offers 2-day hall pass to all courses
 Slug: codeschool-two-day-hall-pass
-Category: geek
+Category: news
 Tags: codeschool, ruby, courses, javascript, html, css
 
 ![codeschool-logo](https://d1tijy5l7mg5kk.cloudfront.net/assets/press_kit/logo-full-text-842f207391207c249d46b10fb166a8cb.png)

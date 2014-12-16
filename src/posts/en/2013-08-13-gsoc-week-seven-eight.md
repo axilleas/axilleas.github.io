@@ -1,6 +1,6 @@
 Title: GSoC - Weekly update 7 and 8
 Tags: gsoc, fedora, gitlab, packaging
-Category: linux
+Category: opensource
 
 The past week or so, I have been trying to package every gem GitLab needs, in Fedora 19.
 This is something I should have done from the start, but better late than never.
