@@ -1,5 +1,6 @@
 Title: GitLab for DevOps
-Slug: gitlabfordevops
+Slug: gitlab-for-devops
+Status: hidden
 
 This is a book written to tackle everyday situations in a Developer and Operations
 engineer life. From installation to complex configuration, this is a book for you.
