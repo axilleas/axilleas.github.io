@@ -5,8 +5,8 @@ from fabric.api import local, lcd, settings
 from fabric.utils import puts
 
 #If no local_settings.py then settings.py
-from settings import OUTPUT_PATH
-SETTINGS_FILE = "settings.py"
+from settings_dev import OUTPUT_PATH
+SETTINGS_FILE = "settings_dev.py"
 
 
 # Get directories
