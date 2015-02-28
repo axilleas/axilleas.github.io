@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+   <head>
+   <meta charset="utf-8">
+       <title>GitLab Cookbook review</title>
+       <meta charset="utf-8" />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <meta http-equiv="Pragma" content="no-cache" />
+       <meta http-equiv="Expires" content="-1" />
+       <link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+       <link rel="stylesheet" href="/theme/css/friendly.css" type="text/css" />
+       <link rel="stylesheet" href="/theme/css/print.css" type="text/css" media="print" />
+       <link rel="stylesheet" type="text/css" href="/theme/tipuesearch/tipuesearch.css" media="screen">
+       <link rel="stylesheet" href="/theme/css/font-awesome.min.css" type="text/css" />
+       <link href="http://axilleas.me/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Over the line RSS Feed" />
+</head>
+<body>
+   <header>
+       <h1><a href="/" title="Mark it zero">Over the line</a></h1>
+       <nav>
+         <a href="/about" title="about me">whoami</a> &bull;
+         <a href="/archives.html" title="Archives">Archives</a> &bull;
+         <a id="subscribe-link" href="/rss" title="RSS feed" rel="nofollow">subscribe</a>
+         <form id="searchform" action="/search.html" onsubmit="return (this.elements['q'].value.length > 0)">
+               <input id="searchbox" type="text" name="q" size="12" placeholder="Search">
+         </form>
+       </nav>
+   </header>
+
+   <div id="main">
+<article>
+    <header>
+<h1><a href="/en/blog/2015/gitlab-cookbook-review" rel="bookmark">
+    GitLab Cookbook review
+</a></h1>
+<span title="~1339 words" id='stats'>~6 min read</span>
+&bull;
+<time datetime="2015-02-28 00:00:00+02:00" pubdate>Posted on
+    Sat 28 February 2015
+</time>
+<span class="category">in <a href="/category/reviews.html">
+    reviews</a>
+</span>
+    <ul class="tags">
+    Tags:
+        <li><a href="/tag/gitlab.html">gitlab</a></li>
+        <li><a href="/tag/book.html">book</a></li>
+        <li><a href="/tag/review.html">review</a></li>
+    </ul>
+    </header>
+
+    <div class="body">
+        <p>I'm happy to see more books written for GitLab and I'm even more happy when those
+books come from people that are active contributors.</p>
+<p>A year ago I wrote about the <a href="http://axilleas.me/en/blog/2014/gitlab-repository-management-book-review">GitLab repository management</a> book.
+This time it is written by a fellow teammate of the GitLab core team,
+<a href="http://www.jvanbaarsen.com/" title="Jeroen van Baarsen Blog">Jeroen van Baarsen</a>. Here is my review.</p>
+<p><img alt="GitLab Cookbook" src="/images/gitlab_cookbook_frontcover.png" /></p>
+<div class="toc">
+<ul>
+<li><a href="#chapters">Chapters</a><ul>
+<li><a href="#introduction-and-installation">Introduction and installation</a></li>
+<li><a href="#explaining-git">Explaining git</a></li>
+<li><a href="#managing-users-groups-and-permissions">Managing users, groups and permissions</a></li>
+<li><a href="#issue-tracker-and-wiki">Issue tracker and wiki</a></li>
+<li><a href="#maintaining-your-gitlab-instance">Maintaining your GitLab instance</a></li>
+<li><a href="#webhooks-external-services-and-the-api">Webhooks, external services and the API</a></li>
+<li><a href="#using-ldap-and-omniauth-providers">Using LDAP and OmniAuth providers</a></li>
+<li><a href="#gitlab-ci">GitLab CI</a></li>
+<li><a href="#tips-and-tricks">Tips and tricks</a></li>
+</ul>
+</li>
+<li><a href="#to-sum-up">To sum up</a></li>
+</ul>
+</div>
+<h2 id="chapters">Chapters</h2>
+<h3 id="introduction-and-installation">Introduction and installation</h3>
+<p>In the first chapter you are introduced to the history of GitLab and the various
+ways to install it on your server. Jeroen covers all three officially supported
+options and that is a huge plus. Whether you decide to install GitLab manually,
+use the omnibus packages or use Chef and the GitLab cookbook, it's all there.
+Every method is explained thoroughly so pick your medicine and deploy GitLab in
+no time.</p>
+<h3 id="explaining-git">Explaining git</h3>
+<p>If you are a newcomer to the world of Git and GitLab you will find this chapter
+a nice entry point to start using both of them. Generate your first key,
+upload it to GitLab and create a test project to see them in action.
+I really liked the fact that Jeroen also included a way to create SSH keys on
+windows as well (although I am a linux fanboy :p).</p>
+<p>You will learn vital git operations like cloning, working with branches,
+rebasing, squashing your commits and all these via a hands-on mini workshop!</p>
+<h3 id="managing-users-groups-and-permissions">Managing users, groups and permissions</h3>
+<p>As the author states:</p>
+<blockquote>
+<p>GitLab is based on user interaction, but you want to have some control over all
+the users in your system.</p>
+</blockquote>
+<p>As an administrator of your GitLab instance you need to know the basic ins and
+outs, and that is users and groups control. In this chapter you will learn how
+to create new users and groups, add other people to groups and assign them the
+correct permissions.</p>
+<p>One of the greatest features of GitLab (among tens of others...) is the branch
+protection. Git has a force push flag (<code>-f</code>) that may result to unwanted
+effects in your project. How to properly use this feature is also covered here.</p>
+<p>The last recipes of this chapter are the configuration of a project's visibility
+and the removal of users through the admin area.</p>
+<p>For someone new to GitLab this chapter includes some concepts that are well
+explained with images where necessary.</p>
+<h3 id="issue-tracker-and-wiki">Issue tracker and wiki</h3>
+<p>GitLab advertises itself as a collaboration tool, so working with people is of
+utmost importance. The issue tracker and the wiki are two of those features
+that make collaboration a breeze.</p>
+<p>Jeroen covers the usage of the issue tracker, the merge requests feature as
+well as the milestones. Again, if you are new to these terms which form a
+a very well known workflow among developers, you are about to learn a lot.</p>
+<p>Then there is the small things that make a developer's life easier like the
+reference of issues in commits, etc. Learn how to close an issue when
+referencing its number in your commit message and making a merge request, as
+well as referencing your team members, other issues, commits, etc.</p>
+<p>Finishing this chapter you will learn how to interact with the wiki by creating
+pages and also how to locally edit them with gollum. I really enjoyed the gollum
+part as it was something I had not attempted before :)</p>
+<h3 id="maintaining-your-gitlab-instance">Maintaining your GitLab instance</h3>
+<p>So far we have seen how to use the web interface of GitLab to interact with
+projects, users and groups. Starting from this chapter you are presented to
+some system administration work that is vital if you are the owner of the
+GitLab server.</p>
+<p>In this chapter you will learn how to update GitLab to its latest version using
+the omnibus packages or performing a manual upgrade. To be fair, I expected to
+see an upgrade method using the Chef cookbook, just to be on par with the
+installation methods, but that is not that big a deal.</p>
+<p>Performing an upgrade can sometimes lead to some unintended errors and here you
+will learn to use the tools GitLab provides to troubleshoot such situations.</p>
+<p>Backup is a critical component of system administration tasks and it could not
+be missing from the book! Learn how to backup and restore properly your GitLab
+data. Extra points given to the fact that cron is mentioned and explained how
+to be used with the backup process.</p>
+<h3 id="webhooks-external-services-and-the-api">Webhooks, external services and the API</h3>
+<p>Here is something we rarely see in tutorials on the internet.
+GitLab is very powerful in that it provides methods to do more than code
+collaboration. It can interact with other external services via a plugin system.
+Send messages to Slack, Campfire, recieve mails when a push is made, are some of
+the many supported services.</p>
+<p>Web hooks and system hooks are nicely explained with examples and it's a really
+good start for someone who is unaware of them.</p>
+<p>If you are keen on automating certain actions like project or user creation, you
+most probably want to use a script or an automation tool to do it without
+interacting with the web UI. Enter API.</p>
+<p>GitLab provides a very robust API and Jeroen does a wonderful job explaining
+the various actions you can perform. I won't go into details but you will learn
+among others how to manage your projects and users via the API. All with good
+examples and images where needed to have a nice visual.</p>
+<h3 id="using-ldap-and-omniauth-providers">Using LDAP and OmniAuth providers</h3>
+<p>If you work to a company you probably have some internal authentication
+mechanism like LDAP. You will be happy to know that GitLab supports LDAP out
+of the box (well after some minimal configuration that is).</p>
+<p>In this chapter you will learn how to set up your own LDAP server, adding users
+to it and configuring GitLab to use LDAP.</p>
+<p><strong>Note:</strong> When the book was written, GitLab used to use a different method to
+    declare the LDAP values in omnibus installations. The book's method is
+    outdated as we now set the values in yaml format.
+    See the <a href="https://gitlab.com/gitlab-org/omnibus-gitlab/blob/484227e2dfe33f59e3683a5757be6842d7ce79d2/files/gitlab-config-template/gitlab.rb.template#L44">gitlab.rb.template</a>.</p>
+<p>GitLab also comes with OmniAuth support, that is you can sign-up and create new
+users by other authentication applications. GitHub is explained here.</p>
+<h3 id="gitlab-ci">GitLab CI</h3>
+<blockquote>
+<p>GitLab CI is a continuous integration solution made by the same team that made
+GitLab. A CI system allows you to run automated unit tests on every commit, and
+will warn you when a build is not successful. It is also possible to have a
+healthy build deployed automatically.</p>
+</blockquote>
+<p>In this chapter you will learn how to manually install the coordinator, the
+heart of the GitLab CI system, a runner and how to link your first
+GitLab project to the CI. All meticulously explained.</p>
+<p><strong>Note:</strong> Newer versions of the omnibus package <a href="https://about.gitlab.com/2014/11/04/gitlab-omnibus-packages-now-include-gitlab-ci/" title="GitLab Omnibus packages now include GitLab CI">include the CI</a>, so there
+    is no need to manually install it.</p>
+<h3 id="tips-and-tricks">Tips and tricks</h3>
+<p>The last chapter of the book deals with tips and tricks of GitLab. Here you will
+learn about the anatomy of GitLab itself, the differences between the free,
+open source edition and the enterprise one as well as some best practices like
+the branch workflow.</p>
+<p>Rest assured that you're not finished yet! You will also learn how to get
+involved to the vibrant community of GitLab and where to ask for help.</p>
+<h2 id="to-sum-up">To sum up</h2>
+<p>Whether you are just entering the world of Git and GitLab<sup id="fnref:worldofpain"><a class="footnote-ref" href="#fn:worldofpain" rel="footnote">1</a></sup> or just
+looking for ways to expand your knowledge on the stuff that make GitLab excel
+in its field, this is the book for you. If I were to rate it I would give it
+<strong>9/10</strong>. The lost point is because some parts are outdated but that's only
+natural given the nature of the publishment of the book and the fast pace of
+GitLab.</p>
+<p>Well done my friend!</p>
+<p>--&gt; <a href="https://www.packtpub.com/application-development/gitlab-cookbook" title="GitLab Cookbook on Packt Publishing">Now go grab a copy!</a> &lt;--</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:worldofpain">
+<p>I couldn't help it :p <a href="https://youtu.be/YedqV4Gl_us?t=1m34s">https://youtu.be/YedqV4Gl_us?t=1m34s</a>&#160;<a class="footnote-backref" href="#fnref:worldofpain" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+    </div>
+
+    <div class="neighbors"></div>
+
+      <nav class="older">
+          <a href="http://axilleas.me/en/blog/2014/pelican-new-theme-redesign">
+              <span class="lpin"></span>
+              Redesigning the looks of this blog
+          </a>
+      </nav>
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'kissmyarch';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></article>
+   </div>
+
+   <footer>
+       <p>Powered by <a href="http://docs.getpelican.com">
+           Pelican</a> using <a href="https://github.com/axilleas/pelican-uberspot">uberspot theme</a> &bull;
+         Background image from <a href="http://subtlepatterns.com/">Subtle patterns</a> &bull;
+               <a href="https://github.com/axilleas/axilleas.github.io/tree/source" title="Source code">Source code</a>
+</p>
+
+
+ <p><a id="cc-logo" title="Creative Commons License"
+ rel="license" href="http://creativecommons.org/licenses/by/4.0/"></a>
+ Except where otherwise noted, content on this site is licensed under a<br />
+ <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+
+   </footer>
+  <!-- Piwik -->
+  <script type="text/javascript">
+    var _paq = _paq || [];
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//piwik2-glb.rhcloud.com/";
+      _paq.push(['setTrackerUrl', u+'piwik.php']);
+      _paq.push(["setSiteId", "5"]);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <noscript><p><img src="//piwik2-glb.rhcloud.com/piwik.php?idsite=5" style="border:0;" alt="" /></p></noscript>
+  <!-- End Piwik Code -->
+</body>
+</html>

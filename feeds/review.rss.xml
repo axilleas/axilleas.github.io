@@ -1,5 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Over the line</title><link>http://axilleas.me/</link><description></description><atom:link href="http://axilleas.me/feeds/review.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 09 Jan 2014 00:00:00 +0200</lastBuildDate><item><title>GitLab repository management book review</title><link>http://axilleas.me/en/blog/2014/gitlab-repository-management-book-review</link><description>&lt;p&gt;I remember when I was trying to install GitLab 2.0 with no prior knowledge 
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Over the line</title><link>http://axilleas.me/</link><description></description><atom:link href="http://axilleas.me/feeds/review.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 28 Feb 2015 00:00:00 +0200</lastBuildDate><item><title>GitLab Cookbook review</title><link>http://axilleas.me/en/blog/2015/gitlab-cookbook-review</link><description>&lt;p&gt;I'm happy to see more books written for GitLab and I'm even more happy when those
+books come from people that are active contributors.&lt;/p&gt;
+&lt;p&gt;A year ago I wrote about the &lt;a href="http://axilleas.me/en/blog/2014/gitlab-repository-management-book-review"&gt;GitLab repository management&lt;/a&gt; book.
+This time it is written by a fellow teammate of the GitLab core team,
+&lt;a href="http://www.jvanbaarsen.com/" title="Jeroen van Baarsen Blog"&gt;Jeroen van Baarsen&lt;/a&gt;. Here is my review.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="GitLab Cookbook" src="/images/gitlab_cookbook_frontcover.png" /&gt;&lt;/p&gt;
+&lt;div class="toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#chapters"&gt;Chapters&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#introduction-and-installation"&gt;Introduction and installation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#explaining-git"&gt;Explaining git&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#managing-users-groups-and-permissions"&gt;Managing users, groups and permissions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#issue-tracker-and-wiki"&gt;Issue tracker and wiki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#maintaining-your-gitlab-instance"&gt;Maintaining your GitLab instance&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#webhooks-external-services-and-the-api"&gt;Webhooks, external services and the API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#using-ldap-and-omniauth-providers"&gt;Using LDAP and OmniAuth providers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#gitlab-ci"&gt;GitLab CI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#tips-and-tricks"&gt;Tips and tricks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#to-sum-up"&gt;To sum up&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h2 id="chapters"&gt;Chapters&lt;/h2&gt;
+&lt;h3 id="introduction-and-installation"&gt;Introduction and installation&lt;/h3&gt;
+&lt;p&gt;In the first chapter you are introduced to the history of GitLab and the various
+ways to install it on your server. Jeroen covers all three officially supported
+options and that is a huge plus. Whether you decide to install GitLab manually,
+use the omnibus packages or use Chef and the GitLab cookbook, it's all there.
+Every method is explained thoroughly so pick your medicine and deploy GitLab in
+no time.&lt;/p&gt;
+&lt;h3 id="explaining-git"&gt;Explaining git&lt;/h3&gt;
+&lt;p&gt;If you are a newcomer to the world of Git and GitLab you will find this chapter
+a nice entry point to start using both of them. Generate your first key,
+upload it to GitLab and create a test project to see them in action.
+I really liked the fact that Jeroen also included a way to create SSH keys on
+windows as well (although I am a linux fanboy :p).&lt;/p&gt;
+&lt;p&gt;You will learn vital git operations like cloning, working with branches,
+rebasing, squashing your commits and all these via a hands-on mini workshop!&lt;/p&gt;
+&lt;h3 id="managing-users-groups-and-permissions"&gt;Managing users, groups and permissions&lt;/h3&gt;
+&lt;p&gt;As the author states:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;GitLab is based on user interaction, but you want to have some control over all
+the users in your system.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;As an administrator of your GitLab instance you need to know the basic ins and
+outs, and that is users and groups control. In this chapter you will learn how
+to create new users and groups, add other people to groups and assign them the
+correct permissions.&lt;/p&gt;
+&lt;p&gt;One of the greatest features of GitLab (among tens of others...) is the branch
+protection. Git has a force push flag (&lt;code&gt;-f&lt;/code&gt;) that may result to unwanted
+effects in your project. How to properly use this feature is also covered here.&lt;/p&gt;
+&lt;p&gt;The last recipes of this chapter are the configuration of a project's visibility
+and the removal of users through the admin area.&lt;/p&gt;
+&lt;p&gt;For someone new to GitLab this chapter includes some concepts that are well
+explained with images where necessary.&lt;/p&gt;
+&lt;h3 id="issue-tracker-and-wiki"&gt;Issue tracker and wiki&lt;/h3&gt;
+&lt;p&gt;GitLab advertises itself as a collaboration tool, so working with people is of
+utmost importance. The issue tracker and the wiki are two of those features
+that make collaboration a breeze.&lt;/p&gt;
+&lt;p&gt;Jeroen covers the usage of the issue tracker, the merge requests feature as
+well as the milestones. Again, if you are new to these terms which form a
+a very well known workflow among developers, you are about to learn a lot.&lt;/p&gt;
+&lt;p&gt;Then there is the small things that make a developer's life easier like the
+reference of issues in commits, etc. Learn how to close an issue when
+referencing its number in your commit message and making a merge request, as
+well as referencing your team members, other issues, commits, etc.&lt;/p&gt;
+&lt;p&gt;Finishing this chapter you will learn how to interact with the wiki by creating
+pages and also how to locally edit them with gollum. I really enjoyed the gollum
+part as it was something I had not attempted before :)&lt;/p&gt;
+&lt;h3 id="maintaining-your-gitlab-instance"&gt;Maintaining your GitLab instance&lt;/h3&gt;
+&lt;p&gt;So far we have seen how to use the web interface of GitLab to interact with
+projects, users and groups. Starting from this chapter you are presented to
+some system administration work that is vital if you are the owner of the
+GitLab server.&lt;/p&gt;
+&lt;p&gt;In this chapter you will learn how to update GitLab to its latest version using
+the omnibus packages or performing a manual upgrade. To be fair, I expected to
+see an upgrade method using the Chef cookbook, just to be on par with the
+installation methods, but that is not that big a deal.&lt;/p&gt;
+&lt;p&gt;Performing an upgrade can sometimes lead to some unintended errors and here you
+will learn to use the tools GitLab provides to troubleshoot such situations.&lt;/p&gt;
+&lt;p&gt;Backup is a critical component of system administration tasks and it could not
+be missing from the book! Learn how to backup and restore properly your GitLab
+data. Extra points given to the fact that cron is mentioned and explained how
+to be used with the backup process.&lt;/p&gt;
+&lt;h3 id="webhooks-external-services-and-the-api"&gt;Webhooks, external services and the API&lt;/h3&gt;
+&lt;p&gt;Here is something we rarely see in tutorials on the internet.
+GitLab is very powerful in that it provides methods to do more than code
+collaboration. It can interact with other external services via a plugin system.
+Send messages to Slack, Campfire, recieve mails when a push is made, are some of
+the many supported services.&lt;/p&gt;
+&lt;p&gt;Web hooks and system hooks are nicely explained with examples and it's a really
+good start for someone who is unaware of them.&lt;/p&gt;
+&lt;p&gt;If you are keen on automating certain actions like project or user creation, you
+most probably want to use a script or an automation tool to do it without
+interacting with the web UI. Enter API.&lt;/p&gt;
+&lt;p&gt;GitLab provides a very robust API and Jeroen does a wonderful job explaining
+the various actions you can perform. I won't go into details but you will learn
+among others how to manage your projects and users via the API. All with good
+examples and images where needed to have a nice visual.&lt;/p&gt;
+&lt;h3 id="using-ldap-and-omniauth-providers"&gt;Using LDAP and OmniAuth providers&lt;/h3&gt;
+&lt;p&gt;If you work to a company you probably have some internal authentication
+mechanism like LDAP. You will be happy to know that GitLab supports LDAP out
+of the box (well after some minimal configuration that is).&lt;/p&gt;
+&lt;p&gt;In this chapter you will learn how to set up your own LDAP server, adding users
+to it and configuring GitLab to use LDAP.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; When the book was written, GitLab used to use a different method to
+    declare the LDAP values in omnibus installations. The book's method is
+    outdated as we now set the values in yaml format.
+    See the &lt;a href="https://gitlab.com/gitlab-org/omnibus-gitlab/blob/484227e2dfe33f59e3683a5757be6842d7ce79d2/files/gitlab-config-template/gitlab.rb.template#L44"&gt;gitlab.rb.template&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;GitLab also comes with OmniAuth support, that is you can sign-up and create new
+users by other authentication applications. GitHub is explained here.&lt;/p&gt;
+&lt;h3 id="gitlab-ci"&gt;GitLab CI&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;GitLab CI is a continuous integration solution made by the same team that made
+GitLab. A CI system allows you to run automated unit tests on every commit, and
+will warn you when a build is not successful. It is also possible to have a
+healthy build deployed automatically.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In this chapter you will learn how to manually install the coordinator, the
+heart of the GitLab CI system, a runner and how to link your first
+GitLab project to the CI. All meticulously explained.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Newer versions of the omnibus package &lt;a href="https://about.gitlab.com/2014/11/04/gitlab-omnibus-packages-now-include-gitlab-ci/" title="GitLab Omnibus packages now include GitLab CI"&gt;include the CI&lt;/a&gt;, so there
+    is no need to manually install it.&lt;/p&gt;
+&lt;h3 id="tips-and-tricks"&gt;Tips and tricks&lt;/h3&gt;
+&lt;p&gt;The last chapter of the book deals with tips and tricks of GitLab. Here you will
+learn about the anatomy of GitLab itself, the differences between the free,
+open source edition and the enterprise one as well as some best practices like
+the branch workflow.&lt;/p&gt;
+&lt;p&gt;Rest assured that you're not finished yet! You will also learn how to get
+involved to the vibrant community of GitLab and where to ask for help.&lt;/p&gt;
+&lt;h2 id="to-sum-up"&gt;To sum up&lt;/h2&gt;
+&lt;p&gt;Whether you are just entering the world of Git and GitLab&lt;sup id="fnref:worldofpain"&gt;&lt;a class="footnote-ref" href="#fn:worldofpain" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; or just
+looking for ways to expand your knowledge on the stuff that make GitLab excel
+in its field, this is the book for you. If I were to rate it I would give it
+&lt;strong&gt;9/10&lt;/strong&gt;. The lost point is because some parts are outdated but that's only
+natural given the nature of the publishment of the book and the fast pace of
+GitLab.&lt;/p&gt;
+&lt;p&gt;Well done my friend!&lt;/p&gt;
+&lt;p&gt;--&amp;gt; &lt;a href="https://www.packtpub.com/application-development/gitlab-cookbook" title="GitLab Cookbook on Packt Publishing"&gt;Now go grab a copy!&lt;/a&gt; &amp;lt;--&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:worldofpain"&gt;
+&lt;p&gt;I couldn't help it :p &lt;a href="https://youtu.be/YedqV4Gl_us?t=1m34s"&gt;https://youtu.be/YedqV4Gl_us?t=1m34s&lt;/a&gt;&amp;#160;&lt;a class="footnote-backref" href="#fnref:worldofpain" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Sat, 28 Feb 2015 00:00:00 +0200</pubDate><guid>tag:axilleas.me,2015-02-28:en/blog/2015/gitlab-cookbook-review</guid><category>gitlab</category><category>book</category><category>review</category></item><item><title>GitLab repository management book review</title><link>http://axilleas.me/en/blog/2014/gitlab-repository-management-book-review</link><description>&lt;p&gt;I remember when I was trying to install GitLab 2.0 with no prior knowledge 
 of the rails framework and ruby in general, just copy pasting commands. It seemed fun
 and when the login screen showed for the first time, it felt really great!
 And then I remember searching for the default username/password. It wasn't documented,
