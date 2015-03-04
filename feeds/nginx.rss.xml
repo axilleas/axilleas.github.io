@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Over the line</title><link>http://axilleas.me/</link><description></description><atom:link href="http://axilleas.me/feeds/nginx.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 27 Aug 2013 00:00:00 +0300</lastBuildDate><item><title>SELinux policy for nginx and GitLab unix socket in Fedora 19</title><link>http://axilleas.me/en/blog/2013/selinux-policy-for-nginx-and-gitlab-unix-socket-in-fedora-19</link><description>&lt;p&gt;The installation of GitLab in Fedora 19 went fine. I followed the official installation
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Over the line</title><link>http://axilleas.me/</link><description></description><atom:link href="http://axilleas.me/feeds/nginx.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 04 Mar 2015 00:00:00 +0200</lastBuildDate><item><title>How to install Diaspora on CentOS 7</title><link>http://axilleas.me/en/blog/2015/how-to-install-diaspora-on-centos-seven</link><description>&lt;p&gt;The tutorial isn't really hosted on my blog but on DigitalOcean's community
+page, but I thought I could give some background regarding this decision.&lt;/p&gt;
+&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Last November, me, &lt;a href="http://www.roussos.cc/" title="Nikos Roussos blog"&gt;Nikos&lt;/a&gt; and &lt;a href="http://pierros.papadeas.gr/" title="Pierros Papadeas blog"&gt;Pierros&lt;/a&gt; decided to run a &lt;a href="https://diasporafoundation.org/" title="Diaspora foundation"&gt;Diaspora&lt;/a&gt; pod to
+accomodate the needs of the Greek community and also increase the number of
+active pods around the world. Right now we have 662 registered users and the
+number keeps growing :)&lt;/p&gt;
+&lt;p&gt;I had some experience in deploying Rails apps duting my involvement with GitLab
+and so I decided to share my findings in order that others could benefit as well.
+This was also the first time I looked into Ansible so that we could easily
+deploy our changes.&lt;/p&gt;
+&lt;p&gt;Our customizations are &lt;a href="https://github.com/librenet/librenet.gr" title="librenet.gr on GitHub"&gt;free for everyone to see&lt;/a&gt; and so is our
+&lt;a href="https://github.com/librenet/ansible" title="librenet.gr ansible repo"&gt;ansible code&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="tutorial"&gt;Tutorial&lt;/h2&gt;
+&lt;p&gt;Instead of publishing this on my blog, I decided to go bigger and contacted
+Digital Ocean to see if they were interested in hosting an article on Diaspora
+installation. After several weeks of email exchanging, testing and rearranging
+bits of the tutorial, &lt;a href="https://www.digitalocean.com/community/tutorials/how-to-run-an-open-source-distributed-social-network-with-diaspora-on-centos-7" title="How To Run an Open-Source Distributed Social Network with Diaspora on CentOS 7"&gt;it is finally live&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;Bare in mind that it is highly opinionated, based on the facts I gathered
+during &lt;a href="https://librenet.gr"&gt;librenet.gr&lt;/a&gt; deployment.&lt;/p&gt;
+&lt;p&gt;The reasoning behind this, is that DigitalOcean is viewed by way more people than
+this little blog spot :p&lt;/p&gt;
+&lt;p&gt;Also it is no secret that DigitalOcean pays to write, so that way I can put
+some money on server costs :)&lt;/p&gt;
+&lt;h3 id="bits-to-be-careful-about"&gt;Bits to be careful about&lt;/h3&gt;
+&lt;p&gt;After I posted the link to &lt;code&gt;#diaspora&lt;/code&gt; on freenode, jhass, one of the lead
+developers of Diaspora raised some concerns, so this post is also partially
+trying to explain the desicions behind the steps I included in the tutorial.&lt;/p&gt;
+&lt;p&gt;First of all, do &lt;strong&gt;NOT&lt;/strong&gt; run Diaspora on production with a self-signed certificate.
+This will cause future problems, like your pod not being able to talk effectively
+to other pods. I already sent my concerns to DO, so I expect it to change any
+time soon.&lt;/p&gt;
+&lt;p&gt;Secondly, the guide relies on current stable version of Diaspora (&lt;code&gt;v0.4.1.2&lt;/code&gt;)
+and the article will be deprecated in many areas starting with version 0.5.
+Among others, future versions of Diaspora:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;will create the database automatically with &lt;code&gt;rake db:create&lt;/code&gt; asking for root
+  password if it doesn't have permissions to create the DB&lt;/li&gt;
+&lt;li&gt;will change the database collation from &lt;code&gt;utf8 -&amp;gt; utf8mb4&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ruby 2.0.0p353&lt;/code&gt; which is in current CentOS repos, will be likely dropped
+  in Diaspora 0.6 since it will be EOL'd in 2016&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Also, the next version of Diaspora will have chat support which adds a whole
+other level of complexity to set up.&lt;/p&gt;
+&lt;p&gt;Having said that, I will do my best to keep the current tutorial on par with
+future Diaspora releases.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">axil</dc:creator><pubDate>Wed, 04 Mar 2015 00:00:00 +0200</pubDate><guid>tag:axilleas.me,2015-03-04:en/blog/2015/how-to-install-diaspora-on-centos-seven</guid><category>diaspora</category><category>centos</category><category>nginx</category><category>rails</category><category>ruby</category><category>fedoraplanet</category></item><item><title>SELinux policy for nginx and GitLab unix socket in Fedora 19</title><link>http://axilleas.me/en/blog/2013/selinux-policy-for-nginx-and-gitlab-unix-socket-in-fedora-19</link><description>&lt;p&gt;The installation of GitLab in Fedora 19 went fine. I followed the official installation
 guide with some deviations where necessary, mostly taken from the CentOS guide in
 &lt;a href="https://github.com/gitlabhq/gitlab-recipes"&gt;gitlab-recipes&lt;/a&gt;. I setup nginx using the ssl &lt;a href="https://github.com/gitlabhq/gitlab-recipes/blob/master/web-server/nginx/gitlab-ssl"&gt;config&lt;/a&gt;, and poked some holes
 in &lt;a href="https://github.com/gitlabhq/gitlab-recipes/tree/master/install/centos#8-configure-the-firewall"&gt;iptables&lt;/a&gt;. For systemd services I used &lt;a href="https://github.com/gitlabhq/gitlab-recipes/tree/master/init/systemd"&gt;these files&lt;/a&gt;.&lt;/p&gt;
