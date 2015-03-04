@@ -6,12 +6,14 @@ from fabric.utils import puts
 
 #If no local_settings.py then settings.py
 from settings_dev import OUTPUT_PATH
-SETTINGS_FILE = "settings_dev.py"
+SETTINGS_FILE = "settings_prod.py"
+SETTINGS_DEV_FILE = "settings_dev.py"
 
 
 # Get directories
 ABS_ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 ABS_SETTINGS_FILE = os.path.join(ABS_ROOT_DIR, SETTINGS_FILE)
+ABS_SETTINGS_DEV_FILE = os.path.join(ABS_ROOT_DIR, SETTINGS_DEV_FILE)
 ABS_OUTPUT_PATH = os.path.join(ABS_ROOT_DIR, OUTPUT_PATH)
 
 
@@ -26,6 +28,12 @@ def generate(output=None):
 
     local(cmd)
 
+def dev():
+    """Generated site on the fly with each change"""
+
+    cmd = "pelican -s {0} -d -r --ignore-cache".format(ABS_SETTINGS_DEV_FILE)
+
+    local(cmd)
 
 def destroy(output=None):
     """Destroys the pelican static site"""
