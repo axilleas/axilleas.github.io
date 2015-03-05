@@ -41,8 +41,8 @@ some money on server costs :)
 
 ### Bits to be careful about
 
-After I posted the link to `#diaspora` on freenode, jhass, one of the lead
-developers of Diaspora raised some concerns, so this post is also partially
+After I posted the link to `#diaspora` on freenode, [jhass][], one of the core
+contributors of Diaspora raised some concerns, so this post is also partially
 trying to explain the desicions behind the steps I included in the tutorial.
 
 First of all, do **NOT** run Diaspora on production with a self-signed certificate.
@@ -74,3 +74,4 @@ future Diaspora releases.
 [librenetrepo]: https://github.com/librenet/librenet.gr "librenet.gr on GitHub"
 [ansiblerepo]: https://github.com/librenet/ansible "librenet.gr ansible repo"
 [librenet.gr]: https://librenet.gr
+[jhass]: http://jhass.eu/
