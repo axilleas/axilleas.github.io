@@ -24,8 +24,8 @@ this little blog spot :p&lt;/p&gt;
 &lt;p&gt;Also it is no secret that DigitalOcean pays to write, so that way I can put
 some money on server costs :)&lt;/p&gt;
 &lt;h3 id="bits-to-be-careful-about"&gt;Bits to be careful about&lt;/h3&gt;
-&lt;p&gt;After I posted the link to &lt;code&gt;#diaspora&lt;/code&gt; on freenode, jhass, one of the lead
-developers of Diaspora raised some concerns, so this post is also partially
+&lt;p&gt;After I posted the link to &lt;code&gt;#diaspora&lt;/code&gt; on freenode, &lt;a href="http://jhass.eu/"&gt;jhass&lt;/a&gt;, one of the core
+contributors of Diaspora raised some concerns, so this post is also partially
 trying to explain the desicions behind the steps I included in the tutorial.&lt;/p&gt;
 &lt;p&gt;First of all, do &lt;strong&gt;NOT&lt;/strong&gt; run Diaspora on production with a self-signed certificate.
 This will cause future problems, like your pod not being able to talk effectively
