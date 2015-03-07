@@ -1,6 +1,6 @@
 Title: How to install Diaspora on CentOS 7
 Slug: how-to-install-diaspora-on-centos-seven
-Update: 2015-03-05 10:16
+Update: 2015-03-08 01:16
 Tags: diaspora, centos, nginx, rails, ruby, fedoraplanet
 Category: opensource
 Lang: en
@@ -10,8 +10,8 @@ page, but I thought I could give some background regarding this decision.
 
 ## Introduction
 
-Last November, me, [Nikos][] and [Pierros][] decided to run a [Diaspora][] pod to
-accomodate the needs of the Greek community and also increase the number of
+Last November, [Nikos][], [Pierros][] and me, decided to run a [Diaspora][] pod
+to accomodate the needs of the Greek community and also increase the number of
 active pods around the world. Right now we have 662 registered users and the
 number keeps growing :)
 
