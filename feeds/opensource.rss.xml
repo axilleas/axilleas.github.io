@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Over the line</title><link>http://axilleas.me/</link><description></description><atom:link href="http://axilleas.me/feeds/opensource.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 04 Mar 2015 00:00:00 +0200</lastBuildDate><item><title>How to install Diaspora on CentOS 7</title><link>http://axilleas.me/en/blog/2015/how-to-install-diaspora-on-centos-seven</link><description>&lt;p&gt;The tutorial isn't really hosted on my blog but on DigitalOcean's community
 page, but I thought I could give some background regarding this decision.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;Last November, me, &lt;a href="http://www.roussos.cc/" title="Nikos Roussos blog"&gt;Nikos&lt;/a&gt; and &lt;a href="http://pierros.papadeas.gr/" title="Pierros Papadeas blog"&gt;Pierros&lt;/a&gt; decided to run a &lt;a href="https://diasporafoundation.org/" title="Diaspora foundation"&gt;Diaspora&lt;/a&gt; pod to
-accomodate the needs of the Greek community and also increase the number of
+&lt;p&gt;Last November, &lt;a href="http://www.roussos.cc/" title="Nikos Roussos blog"&gt;Nikos&lt;/a&gt;, &lt;a href="http://pierros.papadeas.gr/" title="Pierros Papadeas blog"&gt;Pierros&lt;/a&gt; and me, decided to run a &lt;a href="https://diasporafoundation.org/" title="Diaspora foundation"&gt;Diaspora&lt;/a&gt; pod
+to accomodate the needs of the Greek community and also increase the number of
 active pods around the world. Right now we have 662 registered users and the
 number keeps growing :)&lt;/p&gt;
 &lt;p&gt;I had some experience in deploying Rails apps during my involvement with GitLab
