@@ -65,17 +65,18 @@ def git_merge_branch(branch):
     """Merges a branch in other branch"""
     local("git merge {0}".format(branch))
 
+def git_checkout_branch():
+    """Checkouts the src/ of the source branch into master (must be in master)"""
+    local("git checkout source -- src")
 
 def git_push(remote, branch):
     """Pushes the git changes to git remote repo"""
     local("git push {0} {1}".format(remote, branch))
 
-
 def git_commit_all(msg):
     """Commits all the changes"""
     local("git add .")
     local("git commit -m \"{0}\"".format(msg))
-
 
 def publish():
     """Generates and publish the new site in github pages"""
@@ -90,7 +91,7 @@ def publish():
     git_change_branch(publish_branch)
 
     # Merge master into source
-    git_merge_branch(source_branch)
+    git_checkout_branch()
 
     # Generate the html
     generate(ABS_ROOT_DIR)
