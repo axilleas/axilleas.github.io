@@ -9,7 +9,9 @@ some personal things, like what my hobbies are.
 You can contact me via email or reach to me through the social media. See at
 the bottom of this page for contact details.
 
-## Open source matters
+Find some more info about me in my [CV]({filename}/files/CV_Achilleas_Pipinellis.pdf).
+
+## Contributions to open source
 
 ### GitLab
 [GitLab][gl-site] is an open source git repository application, built on
@@ -143,18 +145,16 @@ Often you'll also find me listening to 8bit, dubstep, and electronic :)
 If I had to pick one band that I miss not seeing live, that would be Rush.
 
 ## Contact details
-
-    Email       : axilleas [at] axilleas [dot] me
-    IRC         : axil42 (freenode, mozilla)
-    PGP key     : 0x3A7DDABC985EDC6E
-    Github      : axilleas
-    Twitter     : _axil
-    Google+     : https://plus.google.com/u/0/108076288136257590130
-    Transifex   : https://transifex.com/accounts/profile/kissmyarch/
-    FAS^[fas]   : axilleas
+- Email       : `axilleas@axilleas.me`
+- IRC         : `axil42` (freenode, mozilla)
+- PGP key     : [0x3A7DDABC985EDC6E.asc]({filename}/files/0x3A7DDABC985EDC6E.asc)
+- Diaspora    : [thedude@librenet.gr](https://librenet.gr/people/089b758047580132f8c70093634e36ae)
+- GitLab      : <https://gitlab.com/u/axil>
+- Github      : <https://github.com/axilleas>
+- Twitter     : <https://twitter.com/_axil>
+- Transifex   : <https://transifex.com/accounts/profile/kissmyarch/>
 
 [^keyboard]: Proud owner of a Roland Juno-D.
-[^fas]: Fedora Account System
 
 [codeschool]: http://www.codeschool.com/users/axil
 [coursera]: https://www.coursera.org/user/i/e06596beaed7e29b9557eb5c2bb94b73
