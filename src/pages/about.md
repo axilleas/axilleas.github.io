@@ -145,7 +145,7 @@ Often you'll also find me listening to 8bit, dubstep, and electronic :)
 If I had to pick one band that I miss not seeing live, that would be Rush.
 
 ## Contact details
-- Email       : `axilleas@axilleas.me`
+- Email       : `axilleas@axilleas.me` | `axil@protonmail.ch`
 - IRC         : `axil42` (freenode, mozilla)
 - PGP key     : [0x3A7DDABC985EDC6E.asc]({filename}/files/0x3A7DDABC985EDC6E.asc)
 - Diaspora    : [thedude@librenet.gr](https://librenet.gr/people/089b758047580132f8c70093634e36ae)
