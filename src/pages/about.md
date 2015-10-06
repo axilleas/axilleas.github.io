@@ -17,9 +17,9 @@ Find some more info about me in my [CV]({filename}/files/CV_Achilleas_Pipinellis
 [GitLab][gl-site] is an open source git repository application, built on
 Ruby on Rails. I have been using it since version 2.0 and started
 contributing in version 4.0.
-As of April 2014 I am a member of the community [core-team][] as GitLab
-recipes lead. I also help at the bug tracker, so if you want to ping me,
-use `@axil`.
+As of [April 2014][twitter-ann] I am a member of the community [core-team][]
+as GitLab recipes lead. I also help at the bug tracker mainly with things
+involving documentation, so if you want to ping me, use `@axil`.
 
 ### Fedora
 In early 2013 I started getting involved with [Fedora][], mainly because
@@ -186,3 +186,4 @@ If I had to pick one band that I miss not seeing live, that would be Rush.
 [gl-site]: https://about.gitlab.com/blog/ "GitLab home page"
 [core-team]: https://about.gitlab.com/core-team/ "GitLab core-team"
 [Fedora wiki page]: https://fedoraproject.org/wiki/User:Axilleas
+[twitter-ann]: https://twitter.com/gitlab/status/453461777821736960 "GitLab twitter announcement of me joining the core team"
