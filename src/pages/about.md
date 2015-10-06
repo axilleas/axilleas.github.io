@@ -17,9 +17,9 @@ Find some more info about me in my [CV]({filename}/files/CV_Achilleas_Pipinellis
 [GitLab][gl-site] is an open source git repository application, built on
 Ruby on Rails. I have been using it since version 2.0 and started
 contributing in version 4.0.
-As of April 2014 I am a member of the community [core-team][] as GitLab
-recipes lead. I also help at the bug tracker, so if you want to ping me,
-use `@axil`.
+As of [April 2014][twitter-ann] I am a member of the community [core-team][]
+as GitLab recipes lead. I also help at the bug tracker mainly with things
+involving documentation, so if you want to ping me, use `@axil`.
 
 ### Fedora
 In early 2013 I started getting involved with [Fedora][], mainly because
@@ -58,32 +58,51 @@ of pacman and the AUR interface. Check my transifex profile at Contact Details.
 Recently I helped to package the [snf-image-creator][snf-arch] tool of
 the [synnefo][] IaaS.
 
+## Technical writing
+
+I have always liked writing about technical stuff and my recent involvement
+with system administration (2013) has helped a lot.
+
+You can find tutorials I write for DigitalOcean by [visiting my profile][dopro].
+
+### Book author
+
+Yes, as of September 2015 I'm also a book author :)
+
+For the time being my only published book is from Packtpub and is about GitHub:
+
+[GitHub Essentials - Unleash the power of collaborative workﬂow development using GitHub, one step at a time][ghebook]
+
+You can read a sample chapter on [slideshare][ghebook-sl] and read another
+chapter in an [article post][ghebook-post] by Packtpub.
+
 ## Workstation
 
 I am a proud owner of a Thinkpad x220 running Archlinux.
 
-
 ```
                   ##                    OS: Arch Linux x86_64
                  ####                   Hostname: thedude
-                ######                  Uptime: 5 days, 8:57
-               ########                 Kernel: 3.17.2-1-ARCH
+                ######                  Uptime: 1:49, 30 sec
+               ########                 Kernel: 4.2.2-1-ARCH
               ##########                Shell: /bin/zsh
-             ############               Packages: 1702
-            ##############              DE: KDE
-           ################             GTK2 theme: QtCurve
+             ############               Packages: 2250
+            ##############              WM: i3
+           ################             GTK2 theme: oxygen-gtk
           ##################            GTK2 icon theme: Numix
          ####################           GTK2 font name: Sans Serif  9
-        ######################          RAM: 4394M / 7871M (55%)
-       #########      #########         CPU: Intel(R) i7-2640M CPU @ 2.80GHz
-      ##########      ##########        Boot: 80M / 1022M (8%) (vfat)
-     ###########      ###########       Root: 192G / 234G (87%) (ext4)
-    ##########          ##########      SSD : 256GB Samsung Pro
+        ######################          RAM: 1712M / 7871M (21%)
+       #########      #########         CPU: Intel(R) Core(TM) i7-2640M CPU @ 2.80GHz
+      ##########      ##########        Boot: 63M / 1022M (7%) (vfat)
+     ###########      ###########       Root: 180G / 234G (81%) (ext4)
+    ##########          ##########
    #######                  #######
   ####                          ####
  ###                              ###
 
 ```
+
+> Output using the [alsi][] package.
 
 ## Hobbies/Interests
 
@@ -139,7 +158,7 @@ practised for a looong time. I also own an electric guitar.
 
 Other than playing, I like listening to music. When working or studying,
 most of the times I listen to jazz because I find it non distracting.
-Other music genres that I like are funk, blues, and progressive rock/metal.
+Other music genres that I like are funk, blues, classical, and progressive rock/metal.
 Often you'll also find me listening to 8bit, dubstep, and electronic :)
 
 If I had to pick one band that I miss not seeing live, that would be Rush.
@@ -186,3 +205,9 @@ If I had to pick one band that I miss not seeing live, that would be Rush.
 [gl-site]: https://about.gitlab.com/blog/ "GitLab home page"
 [core-team]: https://about.gitlab.com/core-team/ "GitLab core-team"
 [Fedora wiki page]: https://fedoraproject.org/wiki/User:Axilleas
+[twitter-ann]: https://twitter.com/gitlab/status/453461777821736960 "GitLab twitter announcement of me joining the core team"
+[dopro]: https://www.digitalocean.com/community/users/thedude?primary_filter=tutorials "DigitalOcean tutorials"
+[ghebook]: https://www.packtpub.com/application-development/github-essentials "My book 'GitHub Essentials' by Packtpub"
+[ghebook-sl]: http://www.slideshare.net/Products123/github-essentials-sample-chapter "Free sample chapter for 'GitHub Essentials' book"
+[ghebook-post]: https://www.packtpub.com/books/content/collaboration-using-github-workflow "Article on Collaboration using the GitHub workflow"
+[alsi]: https://aur.archlinux.org/packages/alsi/ "A configurable system information tool for Arch Linux"
