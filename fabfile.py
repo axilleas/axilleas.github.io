@@ -18,6 +18,13 @@ ABS_OUTPUT_PATH = os.path.join(ABS_ROOT_DIR, OUTPUT_PATH)
 
 
 # Commands
+def venv():
+    """Change virtualenv"""
+
+    cmd = "source $HOME/Venvs/pelican-py2/bin/activate"
+
+    local(cmd)
+
 def generate(output=None):
     """Generates the pelican static site"""
 
