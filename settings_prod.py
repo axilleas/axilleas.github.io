@@ -10,7 +10,7 @@ SHOW_AUTHOR = False
 
 LOCALE = ('en_US.utf8')
 DEFAULT_LANG = 'en'
-SITE_SOURCE = 'https://gitlab.com/axil/axil.gitlab.io/tree/source'
+SITE_SOURCE = 'https://gitlab.com/axil/axil.gitlab.io'
 
 FEED_DOMAIN = SITEURL
 FEED_RSS = 'feeds/all.rss.xml'
