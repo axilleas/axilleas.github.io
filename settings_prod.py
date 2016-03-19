@@ -18,7 +18,7 @@ CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
 TAG_FEED_RSS = 'feeds/%s.rss.xml'
 
 MD_EXTENSIONS = ['toc', 'codehilite', 'extra']
-THEME = "../pelican-uberspot"
+THEME = "pelican-uberspot"
 
 OUTPUT_PATH = 'public'
 PATH = 'content'
@@ -36,7 +36,7 @@ PAGE_SAVE_AS = "{slug}/index.html"
 PAGE_LANG_URL = "{lang}/{slug}"
 PAGE_LANG_SAVE_AS = "{lang}/{slug}/index.html"
 
-PLUGIN_PATHS = ['../pelican-plugins']
+PLUGIN_PATHS = ['pelican-plugins']
 
 PLUGINS = [
     'pelicanfly',
