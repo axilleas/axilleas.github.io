@@ -20,7 +20,7 @@ TAG_FEED_RSS = 'feeds/%s.rss.xml'
 MD_EXTENSIONS = ['toc', 'codehilite', 'extra']
 THEME = "../pelican-uberspot"
 
-OUTPUT_PATH = 'output'
+OUTPUT_PATH = 'public'
 PATH = 'src'
 
 STATIC_PATHS = ['images', 'files']

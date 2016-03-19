@@ -1,5 +1,5 @@
 *.pyc
-output/
+public/
 *.swp
 cache/
 settings_prod.py
