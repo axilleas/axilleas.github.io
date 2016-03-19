@@ -21,7 +21,7 @@ MD_EXTENSIONS = ['toc', 'codehilite', 'extra']
 THEME = "../pelican-uberspot"
 
 OUTPUT_PATH = 'public'
-PATH = 'src'
+PATH = 'content'
 
 STATIC_PATHS = ['images', 'files']
 
