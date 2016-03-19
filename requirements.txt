@@ -1,0 +1,6 @@
+pelican
+markdown
+typogrify
+
+pelicanfly
+bs4
